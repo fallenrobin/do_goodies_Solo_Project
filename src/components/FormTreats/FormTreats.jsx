@@ -25,7 +25,12 @@ function FormTreats() {
                 price: price
             },
         });
-        console.log(treatName, treatDescription, treatImage, price);
+        // console.log(treatName, treatDescription, treatImage, price);
+        // history.push('/treatList');
+        setTreatName('');
+        setTreatDescription('');
+        setTreatImage('');
+        setPrice('');
     }
 
     return (
@@ -54,6 +59,7 @@ function FormTreats() {
                             name="treatDescription"
                             value={treatDescription}
                             maxLength={255}
+                            placeholder="What's it all about?"
                             // required
                             onChange={(event) => setTreatDescription(event.target.value)}
                         />
@@ -67,7 +73,7 @@ function FormTreats() {
                             name="treatImage"
                             value={treatImage}
                             maxLength={255}
-                            placeholder="enter image link"
+                            placeholder="Paste image link"
                             onChange={(event) => setTreatImage(event.target.value)}
                         />
                     </label>
@@ -78,9 +84,9 @@ function FormTreats() {
                         <input
                             type="number"
                             name="price"
-                            // value={price}
+                            // to do: adjust width
                             // maxLength={255} what validation here? also set in DB
-                            placeholder="enter dollar amount"
+                            placeholder="Enter dollar amount with or without decimals"
                             onChange={(event) => setPrice(event.target.value)}
                         />
                     </label>
