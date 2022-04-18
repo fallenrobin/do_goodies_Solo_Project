@@ -23,7 +23,6 @@ router.get('/fetchTreats', (req, res) => {
 
   pool.query(queryText).then((result) => {
     res.send(result.rows);
-    res.sendStatus(200)// For testing only, can be removed
 }).catch((error) => {
     console.log('error in get treats:', error);
     res.sendStatus(500);

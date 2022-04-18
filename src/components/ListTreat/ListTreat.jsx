@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ItemTreat from '../ItemTreat/ItemTreat';
 
 
 
@@ -9,12 +10,14 @@ import { useDispatch, useSelector } from 'react-redux';
 function ListTreat() {
 
     const dispatch = useDispatch();
-    const treats = useSelector(store => store.treats);
+    const treats = useSelector((store) => store.treatReducer);
 
     useEffect(() => {//triggers saga getting all treats from DB on page load
         dispatch({ type: 'FETCH_TREATS' });
-        console.log(treats);
+
     }, []);
+
+    console.log('after useEffect', treats);
 
     return (
         <main>
@@ -27,12 +30,13 @@ function ListTreat() {
                     alignItems="flex-start"
                     justify="flex-start"
                     style={{ minHeight: '100vh' }}> */}
-                    {/* {movies.map((movie) => {
-                        return ( //loops thru array of movies to create each movie card
-                            <MovieItem
-                                movie={movie}
+
+                {treats?.map((treat) => {
+                        return ( //loops thru array of treats to create each treat item
+                            <ItemTreat
+                                treat={treat}
                             />);
-                    })} */}
+                    })}
 
                 {/* </Grid> */}
             </section>
