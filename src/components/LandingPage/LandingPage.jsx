@@ -22,7 +22,7 @@ function LandingPage() {
 
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <img src="/public/images/landingScreenshot.png" alt="Landing page screenshot" />
+          <img src="../public/images/landingScreenshot.png" alt="Landing page screenshot" />
         </div>
 
         {/* <RegisterForm /> */}
@@ -34,7 +34,7 @@ function LandingPage() {
           <button className="btn btn_sizeSm" onClick={viewBakeSales}>
             View bake sales
           </button>
-          <p onClick={() => { history.push('/registration') }}>New user? Click to register</p>
+          <p style={{color:'blue'}} onClick={() => { history.push('/registration') }}>New user? Click to register</p>
 
         </center>
       </div>
