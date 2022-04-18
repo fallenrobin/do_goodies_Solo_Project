@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import FormTreats from '../FormTreats/FormTreats';
+import ListTreat from '../ListTreat/ListTreat';
 
 import './App.css';
 
@@ -116,6 +117,13 @@ function App() {
             path="/treatForm"
           >
             <FormTreats />
+          </Route>
+
+          <Route
+            
+            path="/treatList"
+          >
+            <ListTreat />
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}

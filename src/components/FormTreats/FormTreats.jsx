@@ -26,11 +26,11 @@ function FormTreats() {
             },
         });
         // console.log(treatName, treatDescription, treatImage, price);
-        // history.push('/treatList');
         setTreatName('');
         setTreatDescription('');
         setTreatImage('');
         setPrice('');
+        // history.push('/treatList');
     }
 
     return (
@@ -95,6 +95,9 @@ function FormTreats() {
                     <button onClick={() => { history.push('/user') }} className="btn">Cancel</button>
                     <input className="btn" type="submit" name="submit" value="Add treat" />
                 </div>
+                <button style={{justify:'center'}} onClick={() => {
+                    history.push('/treatList')}} className="btn">
+                        Go to Treat List</button>
             </form>
         </>
     );
