@@ -17,7 +17,7 @@ function FormTreats() {
     const handleNewTreat = (event) => {
         event.preventDefault();
         dispatch({
-            type: 'SET_TREAT',
+            type: 'ADD_TREAT',
             payload: {
                 treat_name: treatName,
                 treat_description: treatDescription,
@@ -25,13 +25,12 @@ function FormTreats() {
                 price: price
             },
         });
+        console.log(treatName, treatDescription, treatImage, price);
     }
 
     return (
 
         <>
-            <div>FormTreats</div>
-
             <form onSubmit={handleNewTreat}>
                 <h2>Create New Treat</h2>
 
