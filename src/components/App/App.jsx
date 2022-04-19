@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import FormTreats from '../FormTreats/FormTreats';
 import ListTreat from '../ListTreat/ListTreat';
 import DetailTreat from '../DetailTreat/DetailTreat';
+import FormBakesale from '../FormBakesale/FormBakesale';
 
 import './App.css';
 
@@ -132,6 +133,13 @@ function App() {
             path="/treatDetail/:id"
           >
             <DetailTreat />
+          </Route>
+
+          <Route
+            exact
+            path="/bakesale"
+          >
+            <FormBakesale />
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
