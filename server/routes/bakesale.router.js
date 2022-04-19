@@ -19,7 +19,9 @@ router.get('/fetchBakesales', (req, res) => {
     console.log('is authenticated?', req.isAuthenticated());
     // console.log('results', result.rows);
 
-    const queryText = `SELECT * FROM "bakesales"`;
+    const queryText = `SELECT * FROM "bakesales"
+    WHERE "id" != 3
+    `;
 
     pool.query(queryText).then((result) => {
         res.send(result.rows);
