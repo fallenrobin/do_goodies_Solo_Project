@@ -11,22 +11,41 @@ function* addTreat(action) {
   }
 }
 
+// get all treats from the DB
 function* fetchTreats() {
-    // get all treats from the DB
-    try {
-      const treats = yield axios.get('/api/treat/fetchTreats');
-      console.log('get all treats:', treats.data);
-      yield put({ type: 'SET_TREATS', payload: treats.data }); //set in treatReducer
 
-    } catch (error) {
-      console.log('Error with fetchTreat saga:', error);
-    }
+  try {
+    const treats = yield axios.get('/api/treat/fetchTreats');
+    console.log('get all treats:', treats.data);
+    yield put({ type: 'SET_TREATS', payload: treats.data }); //set in treatReducer
+
+  } catch (error) {
+    console.log('Error with fetchTreat saga:', error);
   }
+}
 
+// get one treat from the DB
+function* fetchTreatDetail(action) {
+
+  const id = action.payload;
+  console.log('SAGA single treat id:', id);
+
+  try {
+    const treats = yield axios.get(`/api/treat/detail/${id}`);
+
+    yield put({ type: 'SET_TREATS', payload: treats.data}); //set selected treat in treatReducer
+
+  } catch (error) {
+    console.log('Error with fetchTreat saga:', error);
+  }
+}
 
 function* treatSaga() {
+
   yield takeLatest('ADD_TREAT', addTreat);
   yield takeLatest('FETCH_TREATS', fetchTreats);
+  yield takeLatest('FETCH_TREAT_DETAIL', fetchTreatDetail);
+
 }
 
 export default treatSaga;

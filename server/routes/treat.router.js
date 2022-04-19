@@ -16,17 +16,36 @@ router.get('/', rejectUnauthenticated, (req, res) => {
  */
 router.get('/fetchTreats', (req, res) => {
     console.log('/treat GET route');
-  console.log('is authenticated?', req.isAuthenticated());
-  // console.log('results', result.rows);
-  
-  const queryText = `SELECT * FROM "treats"`;
+    console.log('is authenticated?', req.isAuthenticated());
+    // console.log('results', result.rows);
 
-  pool.query(queryText).then((result) => {
-    res.send(result.rows);
-}).catch((error) => {
-    console.log('error in get treats:', error);
-    res.sendStatus(500);
+    const queryText = `SELECT * FROM "treats"`;
+
+    pool.query(queryText).then((result) => {
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log('error in get treats:', error);
+        res.sendStatus(500);
+    });
 });
+
+//GET route for just one treat
+router.get('/detail/:id', (req, res) => {
+
+    const query = `
+    SELECT * FROM "treats"
+    WHERE "id" = $1; 
+    `;
+
+    pool.query(query, [req.params.id])
+        .then(result => {
+            res.send(result.rows);
+        })
+        .catch(err => {
+            console.log('ERROR: Get one treat', err);
+            res.sendStatus(500)
+        })
+
 });
 
 /**

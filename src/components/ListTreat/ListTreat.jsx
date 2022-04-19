@@ -30,14 +30,16 @@ function ListTreat() {
                     alignItems="flex-start"
                     justify="flex-start"
                     style={{ minHeight: '100vh' }}> */}
-
+                <ItemTreat />
                 {treats?.map((treat) => {
-                        return ( //loops thru array of treats to create each treat item
-                            <ItemTreat
-                                treat={treat}
-                            />);
-                    })}
-                    <button onClick={()=>{history.pushState('/treatForm')}}>Add Treats</button>
+                    return ( //loops thru array of treats to create each treat item
+                        <ItemTreat
+                            treat={treat}
+                        />);
+                })}
+                <button onClick={() => { history.pushState('/treatList') }}>Back to All Treats</button>
+
+                <button onClick={() => { history.pushState('/treatForm') }}>Add Treats</button>
 
                 {/* </Grid> */}
             </section>
