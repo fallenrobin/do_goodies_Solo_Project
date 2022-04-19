@@ -49,19 +49,21 @@ router.get('/detail/:id', (req, res) => {
 /**
  * POST route template
  */
-router.post('/addTreat', (req, res) => {
+router.post('/addBakesale', (req, res) => {
     // POST route code here
-    const treat_name = req.body.treat_name;
-    const treat_description = req.body.treat_description;
-    const treat_image = req.body.treat_image;
-    const price = req.body.price;
+    
+    const org_name = req.body.org_name;
+    const org_description = req.body.org_description;
+    const org_image = req.body.org_image;
+    const org_website = req.body.org_website;
+    const fundraising_goal = req.body.fundraising_goal;
 
 
 
-    const queryText = `INSERT INTO "treats" (treat_name, treat_description, treat_image, price, user_id)
-    VALUES ($1, $2, $3, $4, $5) RETURNING id`;
+    const queryText = `INSERT INTO "bakesales" (org_name, org_description, org_image, org_website, fundraising_goal, user_id)
+    VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`;
     pool
-        .query(queryText, [treat_name, treat_description, treat_image, price, req.user.id])
+        .query(queryText, [org_name, org_description, org_image, org_website, fundraising_goal, req.user.id])
         .then(() => res.sendStatus(201))
         .catch((err) => {
             console.log('Add treat failed: ', err);

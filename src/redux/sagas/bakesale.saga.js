@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function* addBakesale(action) {
     try {
-      // passes user's treat data from the payload to the server
+      // passes user's bakesale data from the payload to the server
       yield axios.post('/api/bakesale/addBakesale', action.payload);
   
     } catch (error) {
