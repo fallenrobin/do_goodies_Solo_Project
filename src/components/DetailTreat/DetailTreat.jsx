@@ -31,7 +31,7 @@ function DetailTreat() {
     const { id } = useParams();
     const dispatch = useDispatch();
 
-    useEffect(() => {//triggers saga getting all treats from DB on page load
+    useEffect(() => {// asks for one treat from DB on page load
         dispatch({
             type: 'FETCH_TREAT_DETAIL',
             payload: 5 //CHANGE BACK FROM HARDCODED!! 
@@ -39,7 +39,7 @@ function DetailTreat() {
     }, []);
 
     console.log('in details page', treat[0]);
-    console.log('should say treat name:', treat[0].treat_name);
+    console.log('should say treat name:', treat[0]?.treat_name);
 
 
     return (

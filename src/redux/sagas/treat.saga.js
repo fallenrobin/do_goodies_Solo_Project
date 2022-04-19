@@ -24,7 +24,7 @@ function* fetchTreats() {
   }
 }
 
-// get one treat from the DB
+// get one treat from the DB by id
 function* fetchTreatDetail(action) {
 
   const id = action.payload;

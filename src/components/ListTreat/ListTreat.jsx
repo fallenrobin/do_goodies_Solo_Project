@@ -30,7 +30,7 @@ function ListTreat() {
                     alignItems="flex-start"
                     justify="flex-start"
                     style={{ minHeight: '100vh' }}> */}
-                <ItemTreat />
+
                 {treats?.map((treat) => {
                     return ( //loops thru array of treats to create each treat item
                         <ItemTreat

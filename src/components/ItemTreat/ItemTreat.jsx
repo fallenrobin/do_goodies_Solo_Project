@@ -1,4 +1,3 @@
-import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 /*/MUI for card
@@ -30,7 +29,6 @@ const useStyles = makeStyles((theme: Theme) =>
 function ItemTreat({ treat }) {
 
     const dispatch = useDispatch();
-    const history = useHistory();
     // const classes = useStyles(); //for card
 
 
