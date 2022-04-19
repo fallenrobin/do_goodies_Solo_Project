@@ -21,7 +21,7 @@ function ListTreat() {
 
     return (
         <main>
-            <h3 className="header" >I am treat list</h3>
+            <h3 className="header">I am treat list</h3>
             <section>
                 {/* <Grid
                     container

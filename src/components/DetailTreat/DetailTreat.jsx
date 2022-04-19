@@ -34,11 +34,11 @@ function DetailTreat() {
     useEffect(() => {// asks for one treat from DB on page load
         dispatch({
             type: 'FETCH_TREAT_DETAIL',
-            payload: 5 //CHANGE BACK FROM HARDCODED!! 
+            payload: id //CHANGED BACK FROM HARDCODED!! 
         });
     }, []);
 
-    console.log('in details page', treat[0]);
+    console.log('in details page... selected treat data:', treat[0]);
     console.log('should say treat name:', treat[0]?.treat_name);
 
 
@@ -58,12 +58,12 @@ function DetailTreat() {
 
             <div key={id} >
                 {/* <Typography variant="h4"> */}
-                <h3>{treat[0].treat_name}</h3>
+                <h3>{treat[0]?.treat_name}</h3>
                 {/* </Typography > */}
-                <img alt={treat.treat_name} src="https://fakeimg.pl/400x400/" />
+                <img alt={treat?.treat_name} src="https://fakeimg.pl/400x400/" />
 
                 {/* <Typography variant="h5"> */}
-                <p className="descriptionText">{treat[0].treat_description}</p>
+                <p className="descriptionText">{treat[0]?.treat_description}</p>
                 {/* </Typography> */}
             </div>
 
