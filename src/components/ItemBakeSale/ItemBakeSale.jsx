@@ -39,7 +39,7 @@ function ItemBakesale({ bakesale }) {
     const handleDetailView = () => {
         console.log('clicked into HandleDetailView, treat id is:', bakesale.id);
         dispatch({ type: 'FETCH_BAKESALE_DETAIL', payload: bakesale.id })//will trigger fetchDetail saga
-        history.push(`/treatDetail/${bakesale.id}`);//'moves' user to page view with treat details
+        history.push(`/bakesaleDetail/${bakesale.id}`);//'moves' user to page view with treat details
     }
 
     return (

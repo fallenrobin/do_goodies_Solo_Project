@@ -24,6 +24,7 @@ import ListTreat from '../ListTreat/ListTreat';
 import DetailTreat from '../DetailTreat/DetailTreat';
 import FormBakesale from '../FormBakesale/FormBakesale';
 import ListBakesale from '../ListBakesale/ListBakesale';
+import DetailBakesale from '../DetailBakesale/DetailBakesale';
 
 import './App.css';
 
@@ -148,6 +149,13 @@ function App() {
             path="/bakesale"
           >
             <ListBakesale />
+          </Route>
+
+          <Route
+            exact
+            path="/bakesaleDetail/:id"
+          >
+            <DetailBakesale />
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}

@@ -25,13 +25,28 @@ function* fetchBakesales() {
     }
   }
 
+  // get one Bakesale from the DB by id
+function* fetchBakesaleDetail(action) {
+
+    const id = action.payload;
+    console.log('SAGA single bakesale id:', id);
+  
+    try {
+      const bakesale = yield axios.get(`/api/bakesale/detail/${id}`);
+  
+      yield put({ type: 'SET_SINGLE_BAKESALE', payload: bakesale.data}); //set selected treat in treatReducer
+  
+    } catch (error) {
+      console.log('Error with fetchBakesaleDetail saga:', error);
+    }
+  }
+
 
   function* bakesaleSaga() {
 
     yield takeLatest('ADD_BAKESALE', addBakesale);
     yield takeLatest('FETCH_BAKESALES', fetchBakesales);
-    // yield takeLatest('FETCH_TREAT_DETAIL', fetchTreatDetail);
-  
+    yield takeLatest('FETCH_BAKESALE_DETAIL', fetchBakesaleDetail);
   }
 
   export default bakesaleSaga;

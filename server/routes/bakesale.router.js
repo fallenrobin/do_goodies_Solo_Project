@@ -33,7 +33,7 @@ router.get('/fetchBakesales', (req, res) => {
 router.get('/detail/:id', (req, res) => {
 
     const query = `
-    SELECT * FROM "treats"
+    SELECT * FROM "bakesales"
     WHERE "id" = $1; 
     `;
 

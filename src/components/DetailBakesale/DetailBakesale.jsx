@@ -24,22 +24,22 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 */
 
-function DetailTreat() {
+function DetailBakesale() {
 
-    const treat = (useSelector(store => store.singleTreatReducer))
+    const bakesale = (useSelector(store => store.singleBakesaleReducer))
     const history = useHistory();
     const { id } = useParams();
     const dispatch = useDispatch();
 
-    useEffect(() => {// asks for one treat from DB on page load
+    useEffect(() => {// asks for one bakesale from DB on page load
         dispatch({
-            type: 'FETCH_TREAT_DETAIL',
-            payload: id  
+            type: 'FETCH_BAKESALE_DETAIL',
+            payload: id
         });
     }, []);
 
-    console.log('in details page... selected treat data:', treat[0]);
-    // console.log('should say treat name:', treat[0]?.treat_name);
+    console.log('in details page... selected bakesale data:', bakesale[0]);
+    console.log('should say bakesale name:', bakesale[0]?.org_name);
 
 
     return (
@@ -54,21 +54,21 @@ function DetailTreat() {
             >
                 {/* <Grid item xs={4}> 
                     <Card style={{minWidth: 300, maxWidth: 450}} variant="outlined">
-                        <CardContent> */}
+        <CardContent> */}
 
-            <div key={treat[0]?.id} >
+            <div key={bakesale[0]?.id} >
                 {/* <Typography variant="h4"> */}
-                <h3>{treat[0]?.treat_name}</h3>
+                <h3>{bakesale[0]?.treat_name}</h3>
                 {/* </Typography > */}
-                <img alt={treat?.treat_name} src="https://fakeimg.pl/400x400/" />
+                <img alt={bakesale?.org_name} src="https://fakeimg.pl/400x400/" />
 
                 {/* <Typography variant="h5"> */}
-                <p className="descriptionText">{treat[0]?.treat_description}</p>
+                <p className="descriptionText">{bakesale[0]?.org_description}</p>
                 {/* </Typography> */}
             </div>
 
             <button style={{ width: '15%' }} variant="outlined" color="primary"
-                onClick={ () => {history.push('/treatList')}}>Back to all treats</button>
+                onClick={() => { history.push('/treatList') }}>Back to all bakesales</button>
             {/* button returns user to movie list; subtle so as not to detract visually from movie*/}
             {/* </CardContent>
                     </Card>
@@ -80,4 +80,5 @@ function DetailTreat() {
 }
 
 
-export default DetailTreat;
+
+export default DetailBakesale;
