@@ -25,6 +25,7 @@ function FormBakesale() {
                 org_image: bakesaleImage,
                 org_website: website,
                 fundraising_goal: goal
+                // add treats...
             },
         });
         console.log(bakesaleName, bakesaleDescription, bakesaleImage, website, goal);
@@ -32,8 +33,8 @@ function FormBakesale() {
         setBakesaleDescription('');
         setBakesaleImage('');
         setWebsite('');
-        setGoal(0);
-        // history.push('/treatList');
+        setGoal('');
+        // history.push(somewhere? or stay here);
     }
 
     return (
@@ -87,6 +88,7 @@ function FormBakesale() {
                         <input
                             type="text"
                             name="website"
+                            value={website}
                             // to do: adjust width
                             required
                             placeholder="Where can people learn more?"
@@ -100,8 +102,9 @@ function FormBakesale() {
                         <input
                             type="number"
                             name="goal"
+                            value={goal}
                             placeholder="How much money are you aiming to fundraise?"
-                            onChange={(event) => setWebsite(event.target.value)}
+                            onChange={(event) => setGoal(event.target.value)}
                         />
                     </label>
                 </div>
