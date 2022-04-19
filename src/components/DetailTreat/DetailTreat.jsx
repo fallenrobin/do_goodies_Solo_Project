@@ -68,7 +68,7 @@ function DetailTreat() {
             </div>
 
             <button style={{ width: '15%' }} variant="outlined" color="primary"
-                onClick={() => { history.push('/treatList') }}>Back to all treats</button>
+                onClick={ () => {history.push('/treatList')}}>Back to all treats</button>
             {/* button returns user to movie list; subtle so as not to detract visually from movie*/}
             {/* </CardContent>
                     </Card>

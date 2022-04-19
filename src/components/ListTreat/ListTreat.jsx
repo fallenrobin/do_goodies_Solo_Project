@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import ItemTreat from '../ItemTreat/ItemTreat';
 
 
@@ -11,6 +12,7 @@ function ListTreat() {
 
     const dispatch = useDispatch();
     const treats = useSelector((store) => store.treatReducer);
+    const history = useHistory();
 
     useEffect(() => {//triggers saga getting all treats from DB on page load
         dispatch({ type: 'FETCH_TREATS' });
@@ -38,9 +40,8 @@ function ListTreat() {
                             treat={treat}
                         />);
                 })}
-                <button onClick={() => { history.push('/treatList') }}>Back to All Treats</button>
 
-                <button onClick={() => { history.push('/treatForm') }}>Add Treats</button>
+                <button onClick={ () => {history.push('/treatForm')}}>Add Treats</button>
 
                 {/* </Grid> */}
             </section>
