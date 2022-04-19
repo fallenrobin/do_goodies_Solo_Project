@@ -1,6 +1,6 @@
 const bakesaleReducer = (state = [], action) => {
     switch (action.type) {
-      case 'SET_BAKESALE':
+      case 'SET_BAKESALES':
         return action.payload;
       case 'taco':
         return [];

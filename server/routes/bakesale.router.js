@@ -14,17 +14,17 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 /**
  * GET route template
  */
-router.get('/fetchTreats', (req, res) => {
-    console.log('/treat GET route');
+router.get('/fetchBakesales', (req, res) => {
+    console.log('/bakesale GET route');
     console.log('is authenticated?', req.isAuthenticated());
     // console.log('results', result.rows);
 
-    const queryText = `SELECT * FROM "treats"`;
+    const queryText = `SELECT * FROM "bakesales"`;
 
     pool.query(queryText).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
-        console.log('error in get treats:', error);
+        console.log('error in get bakesales router:', error);
         res.sendStatus(500);
     });
 });

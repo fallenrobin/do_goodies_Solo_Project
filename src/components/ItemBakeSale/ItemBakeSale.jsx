@@ -38,7 +38,7 @@ function ItemBakesale({ bakesale }) {
 
     const handleDetailView = () => {
         console.log('clicked into HandleDetailView, treat id is:', bakesale.id);
-        dispatch({ type: 'FETCH_TREAT_DETAIL', payload: bakesale.id })//will trigger fetchDetail saga
+        dispatch({ type: 'FETCH_BAKESALE_DETAIL', payload: bakesale.id })//will trigger fetchDetail saga
         history.push(`/treatDetail/${bakesale.id}`);//'moves' user to page view with treat details
     }
 
@@ -57,11 +57,13 @@ function ItemBakesale({ bakesale }) {
                         <h2>{movie.title}</h2></p>
 
                         </Typography> (looks better without the title)*/}
-
-            <img key={bakesale.id} onClick={handleDetailView}
-                src="https://fakeimg.pl/300x200/" alt={bakesale.org_name}></img>
-            {/* filler images above for now*/}
-
+            <div>
+                <p>{bakesale.org_name}, {bakesale.org_description}</p>
+                <img key={bakesale.id} onClick={handleDetailView}
+                    src="https://fakeimg.pl/300x200/" alt={bakesale.org_name}></img>
+                    <p>{bakesale.org_website} Fundraising goal: {bakesale.fundraising_goal}</p>
+                {/* filler images above for now*/}
+            </div>
 
 
             {/*</CardContent>

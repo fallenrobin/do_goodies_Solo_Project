@@ -35,13 +35,13 @@ function ListBakesale() {
 
                 {bakesales?.map((bakesale, i) => {
                     return ( //loops thru array of treats to create each treat item
-                        <ItemTreat
+                        <ItemBakesale
                             key={i}
                             bakesale={bakesale}
                         />);
                 })}
 
-                <button onClick={ () => {history.push('/treatForm')}}>Add Treats</button>
+                <button onClick={ () => {history.push('/bakesaleForm')}}>Add Bakesale</button>
 
                 {/* </Grid> */}
             </section>
