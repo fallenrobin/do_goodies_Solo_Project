@@ -59,7 +59,8 @@ function ItemTreat({treat}) {
 
                         {/* <img key={treat.id} onClick={handleDetailView}
                             src={movie.poster} alt={movie.title} /> */}
-                            <p key={treat.id}>{treat.treat_name}</p>
+                            <p key={treat.id}>{treat.treat_name},  
+                            {treat.treat_description}, ${treat.price}</p>
                             
                     {/*</CardContent>
                 </Card>

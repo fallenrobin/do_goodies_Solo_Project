@@ -37,6 +37,7 @@ function ListTreat() {
                                 treat={treat}
                             />);
                     })}
+                    <button onClick={()=>{history.pushState('/treatForm')}}>Add Treats</button>
 
                 {/* </Grid> */}
             </section>
