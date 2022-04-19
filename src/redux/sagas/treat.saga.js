@@ -33,10 +33,10 @@ function* fetchTreatDetail(action) {
   try {
     const treats = yield axios.get(`/api/treat/detail/${id}`);
 
-    yield put({ type: 'SET_TREATS', payload: treats.data}); //set selected treat in treatReducer
+    yield put({ type: 'SET_SINGLE_TREAT', payload: treats.data}); //set selected treat in treatReducer
 
   } catch (error) {
-    console.log('Error with fetchTreat saga:', error);
+    console.log('Error with fetchTreatDetail saga:', error);
   }
 }
 

@@ -128,8 +128,8 @@ function App() {
           </Route>
 
           <Route
-            
-            path="/treatDetail"
+            exact
+            path="/treatDetail/:id"
           >
             <DetailTreat />
           </Route>

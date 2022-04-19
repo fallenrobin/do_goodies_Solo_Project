@@ -1,4 +1,6 @@
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 
 /*/MUI for card
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
@@ -28,13 +30,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function ItemTreat({ treat }) {
 
+    const history = useHistory();
     const dispatch = useDispatch();
     // const classes = useStyles(); //for card
 
 
 
     const handleDetailView = () => {
-        console.log('clicked into HandleDetailView');
+        console.log('clicked into HandleDetailView, treat id is:', treat.id);
         dispatch({ type: 'FETCH_TREAT_DETAIL', payload: treat.id })//will trigger fetchDetail saga
         history.push(`/treatDetail/${treat.id}`);//'moves' user to page view with treat details
     }

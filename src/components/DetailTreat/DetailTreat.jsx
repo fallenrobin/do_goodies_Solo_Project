@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function DetailTreat() {
 
-    const treat = (useSelector(store => store.treatReducer))
+    const treat = (useSelector(store => store.singleTreatReducer))
     const history = useHistory();
     const { id } = useParams();
     const dispatch = useDispatch();
@@ -34,12 +34,12 @@ function DetailTreat() {
     useEffect(() => {// asks for one treat from DB on page load
         dispatch({
             type: 'FETCH_TREAT_DETAIL',
-            payload: id //CHANGED BACK FROM HARDCODED!! 
+            payload: id //CHANGE BACK FROM HARDCODED!! 
         });
     }, []);
 
     console.log('in details page... selected treat data:', treat[0]);
-    console.log('should say treat name:', treat[0]?.treat_name);
+    // console.log('should say treat name:', treat[0]?.treat_name);
 
 
     return (
@@ -56,7 +56,7 @@ function DetailTreat() {
                     <Card style={{minWidth: 300, maxWidth: 450}} variant="outlined">
                         <CardContent> */}
 
-            <div key={id} >
+            <div key={treat[0]?.id} >
                 {/* <Typography variant="h4"> */}
                 <h3>{treat[0]?.treat_name}</h3>
                 {/* </Typography > */}

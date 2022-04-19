@@ -37,15 +37,13 @@ router.get('/detail/:id', (req, res) => {
     WHERE "id" = $1; 
     `;
 
-    pool.query(query, [req.params.id])
-        .then(result => {
-            res.send(result.rows);
-        })
-        .catch(err => {
-            console.log('ERROR: Get one treat', err);
-            res.sendStatus(500)
-        })
-
+    console.log('server', req.params)
+    pool.query(query, [req.params.id]).then((result) => {
+        res.send(result.rows);
+    }).catch(err => {
+        console.log('ERROR: Get one treat', err);
+        res.sendStatus(500)
+    });
 });
 
 /**

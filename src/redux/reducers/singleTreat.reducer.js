@@ -1,6 +1,6 @@
-const treatReducer = (state = [], action) => {
+const singleTreatReducer = (state = [], action) => {
     switch (action.type) {
-      case 'SET_TREATS':
+      case 'SET_SINGLE_TREAT':
         return action.payload;
       case 'taco':
         return [];
@@ -10,5 +10,5 @@ const treatReducer = (state = [], action) => {
   };
   
   // current treats will be on the redux state at:
-  // state.treatReducer
-  export default treatReducer;
+  // state.singleTreatReducer
+  export default singleTreatReducer;
