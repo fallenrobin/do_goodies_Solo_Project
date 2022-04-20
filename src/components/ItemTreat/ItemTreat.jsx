@@ -48,7 +48,9 @@ function ItemTreat({ treat }) {
             <Grid
                 item md={2}
             >
-                <Card className={classes.root} variant="outlined">
+                <Card 
+                raised={true}
+                className={classes.root} variant="outlined">
                     <CardContent>
 
 

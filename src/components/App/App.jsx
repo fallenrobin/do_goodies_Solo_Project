@@ -25,6 +25,7 @@ import DetailTreat from '../DetailTreat/DetailTreat';
 import FormBakesale from '../FormBakesale/FormBakesale';
 import ListBakesale from '../ListBakesale/ListBakesale';
 import DetailBakesale from '../DetailBakesale/DetailBakesale';
+import NavBarUser from '../NavBarUser/NavBarUser';
 
 import './App.css';
 
@@ -156,6 +157,13 @@ function App() {
             path="/bakesaleDetail/:id"
           >
             <DetailBakesale />
+          </Route>
+
+          <Route
+            
+            path="/userNav"
+          >
+            <NavBarUser />
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}

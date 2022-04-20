@@ -25,8 +25,7 @@ function ListBakesale() {
         <main>
             <section>
                 <Grid
-                    container
-                    spacing={2}
+                    container spacing={2}
                     direction="row"
                     alignItems="flex-start"
                     justifyContent="flex-start"
