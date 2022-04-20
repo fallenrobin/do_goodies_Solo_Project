@@ -13,7 +13,7 @@ import Grid from '@material-ui/core/Grid';
 
 
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme) =>
     createStyles({
         root: {
             '& > *': {
@@ -46,7 +46,7 @@ function ItemBakesale({ bakesale }) {
         //each card created as the .map loops thru array of treats
         <>
             <Grid
-                item md={2}
+                item md={4}
             >
                 <Card className={classes.root} variant="outlined">
                     <CardContent>

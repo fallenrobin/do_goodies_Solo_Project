@@ -5,7 +5,7 @@ import ItemBakesale from '../ItemBakesale/ItemBakesale';
 
 
 
-// import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid';
 
 
 function ListBakesale() {
@@ -25,13 +25,13 @@ function ListBakesale() {
         <main>
             <h3 className="header">I am bakesale list</h3>
             <section>
-                {/* <Grid
+                <Grid
                     container
                     spacing={2}
                     direction="row"
                     alignItems="flex-start"
-                    justify="flex-start"
-                    style={{ minHeight: '100vh' }}> */}
+                    justifyContent="flex-start"
+                    style={{ minHeight: '100vh' }}>
 
                 {bakesales?.map((bakesale, i) => {
                     return ( //loops thru array of treats to create each treat item
@@ -43,7 +43,7 @@ function ListBakesale() {
 
                 <button onClick={ () => {history.push('/bakesaleForm')}}>Add Bakesale</button>
 
-                {/* </Grid> */}
+                </Grid>
             </section>
         </main>
 

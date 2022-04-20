@@ -5,7 +5,9 @@ import ItemTreat from '../ItemTreat/ItemTreat';
 
 
 
-// import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+ 
 
 
 function ListTreat() {
@@ -23,27 +25,26 @@ function ListTreat() {
 
     return (
         <main>
-            <h3 className="header">I am treat list</h3>
             <section>
-                {/* <Grid
+                <Grid
                     container
                     spacing={2}
                     direction="row"
                     alignItems="flex-start"
-                    justify="flex-start"
-                    style={{ minHeight: '100vh' }}> */}
+                    justifyContent="flex-start"
+                    style={{ minHeight: '100vh' }}>
 
-                {treats?.map((treat, i) => {
-                    return ( //loops thru array of treats to create each treat item
-                        <ItemTreat
-                            key={i}
-                            treat={treat}
-                        />);
-                })}
+                    {treats?.map((treat, i) => {
+                        return ( //loops thru array of treats to create each treat item
+                            <ItemTreat
+                                key={i}
+                                treat={treat}
+                            />);
+                    })}
+                    <Button variant="outlined" color="primary" 
+                    onClick={() => { history.push('/treatForm') }}>Add Treats</Button>
+                </Grid>
 
-                <button onClick={ () => {history.push('/treatForm')}}>Add Treats</button>
-
-                {/* </Grid> */}
             </section>
         </main>
 

@@ -2,17 +2,17 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 
-/*/MUI for card
+//MUI for card
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Typography from '@mui/material/Typography';
+import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 //grid for centering
 import Grid from '@material-ui/core/Grid';
-*/
 
-/*
+
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -26,13 +26,13 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-*/
+
 
 function ItemTreat({ treat }) {
 
     const history = useHistory();
     const dispatch = useDispatch();
-    // const classes = useStyles(); //for card
+    const classes = useStyles(); //for card
 
 
 
@@ -45,28 +45,29 @@ function ItemTreat({ treat }) {
     return (
         //each card created as the .map loops thru array of treats
         <>
-            {/*<Grid
+            <Grid
                 item md={2}
             >
                 <Card className={classes.root} variant="outlined">
-    <CardContent>*/}
+                    <CardContent>
 
 
-            {/* <Typography>
-                        <p key={movie.id} >
-                        <h2>{movie.title}</h2></p>
+                        <Typography>
+                           
+                            <div key={treat.id} >
+                                <p>{treat.treat_name}</p></div>
+                                
+                        </Typography>
 
-                        </Typography> (looks better without the title)*/}
-
-            <img key={treat.id} onClick={handleDetailView}
-                src="https://fakeimg.pl/200x200/" alt={treat.treat_name}></img>
-            {/* filler images above for now*/}
+                        <img key={treat.id} onClick={handleDetailView}
+                            src="https://fakeimg.pl/200x200/" alt={treat.treat_name}></img>
+                        {/* filler images above for now*/}
 
 
 
-            {/*</CardContent>
+                    </CardContent>
                 </Card>
-                    </Grid>*/}
+            </Grid>
         </>
     )
 }
