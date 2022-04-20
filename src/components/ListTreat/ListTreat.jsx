@@ -5,6 +5,8 @@ import ItemTreat from '../ItemTreat/ItemTreat';
 
 
 
+
+
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
  
@@ -15,6 +17,7 @@ function ListTreat() {
     const dispatch = useDispatch();
     const treats = useSelector((store) => store.treatReducer);
     const history = useHistory();
+    const background = {background};
 
     useEffect(() => {//triggers saga getting all treats from DB on page load
         dispatch({ type: 'FETCH_TREATS' });

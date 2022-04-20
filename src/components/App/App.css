@@ -6,7 +6,11 @@ body,
 
 body {
   font-family: 'Roboto', sans-serif;
-  margin: 20px;
+  /* margin: 20px; */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("karly-gomez-_EqjV7bHBB4-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+
 }
 
 img {
@@ -15,6 +19,7 @@ img {
   height: 300px;
   width: 300px;
   object-fit: cover;
+ 
 }
 
 /* --------------------------------------------------------------------------------
