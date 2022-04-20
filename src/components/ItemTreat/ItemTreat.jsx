@@ -60,8 +60,8 @@ function ItemTreat({ treat }) {
                         </Typography>
 
                         <img key={treat.id} onClick={handleDetailView}
-                            src="https://fakeimg.pl/200x200/" alt={treat.treat_name}></img>
-                        {/* filler images above for now*/}
+                            src={treat.treat_image} alt={treat.treat_name}></img>
+                        {/* "https://fakeimg.pl/200x200/" filler images above for now*/}
 
 
 
