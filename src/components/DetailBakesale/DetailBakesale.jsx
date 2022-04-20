@@ -50,7 +50,7 @@ function DetailBakesale() {
                 container
                 direction="column"
                 alignItems="center"
-                justify="center"
+                justifyContent="center"
             >
                 <Grid item xs={4}>
                     <Card style={{ minWidth: 300, maxWidth: 450 }} variant="outlined">
@@ -68,7 +68,7 @@ function DetailBakesale() {
                             </div>
 
                             <Button variant="outlined" color="primary"
-                                onClick={() => { history.push('/treatList') }}>Back to all bakesales</Button>
+                                onClick={() => { history.goBack() }}>Back</Button>
                             {/* button returns user to movie list; subtle so as not to detract visually from movie*/}
                         </CardContent>
                     </Card>

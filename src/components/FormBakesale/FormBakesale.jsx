@@ -109,7 +109,7 @@ function FormBakesale() {
                     </label>
                 </div>
                 <div>
-                    <button onClick={() => history.goBack()} className="btn">Cancel</button>
+                    <button onClick={() => history.goBack()} className="btn">Back</button>
                     <input className="btn" type="submit" name="submit" value="Save" />
                 </div>
             </form>

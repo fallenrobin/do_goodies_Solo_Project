@@ -53,10 +53,10 @@ function ItemTreat({ treat }) {
 
 
                         <Typography>
-                           
+
                             <div key={treat.id} >
                                 <p>{treat.treat_name}</p></div>
-                                
+
                         </Typography>
 
                         <img key={treat.id} onClick={handleDetailView}

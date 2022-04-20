@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import ItemBakesale from '../ItemBakesale/ItemBakesale';
 
 
-
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 
@@ -23,7 +23,6 @@ function ListBakesale() {
 
     return (
         <main>
-            <h3 className="header">I am bakesale list</h3>
             <section>
                 <Grid
                     container
@@ -41,7 +40,8 @@ function ListBakesale() {
                         />);
                 })}
 
-                <button onClick={ () => {history.push('/bakesaleForm')}}>Add Bakesale</button>
+                <Button variant="outlined" color="primary" 
+                onClick={ () => {history.push('/bakesaleForm')}}>Add Bakesale</Button>
 
                 </Grid>
             </section>
