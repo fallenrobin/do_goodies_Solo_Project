@@ -118,14 +118,14 @@ function App() {
           </Route>
 
           <Route
-            
+
             path="/treatForm"
           >
             <FormTreats />
           </Route>
 
           <Route
-            
+
             path="/treatList"
           >
             <ListTreat />
@@ -159,19 +159,17 @@ function App() {
             <DetailBakesale />
           </Route>
 
-          <Route
-            
-            path="/userNav"
-          >
-            <NavBarUser />
-          </Route>
+
+          
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
           </Route>
         </Switch>
-        <Footer />
+        <NavBarUser />
+        {/* <Footer /> */}
       </div>
     </Router>
   );

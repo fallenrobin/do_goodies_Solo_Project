@@ -1,6 +1,6 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 
@@ -11,11 +11,11 @@ function UserPage() {
 
   return (
     <div className="container">
-      
+
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" />
-      <button onClick={history.push('/treatList')}>Treats List</button>
+      <button onClick={() => { history.push('/treatList') }}>Treats List</button>
       {/* <button onClick={history.push('/bakesaleList')}>Bake Sale List</button> */}
       {/* <button>Donations</button> */}
     </div>
