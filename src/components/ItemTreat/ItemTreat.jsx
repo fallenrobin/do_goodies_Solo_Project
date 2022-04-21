@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) =>
             maxWidth: 375,
             // height: 400
             minHeight: 200,
-            maxHeight: 400
+            // maxHeight: 400
         },
     }),
 );
@@ -49,45 +49,55 @@ function ItemTreat({ treat }) {
     const classes = useStyles(); //for card
 
     const [isEditing, setEditing] = useState(false); //for edit mode
-    const [treatEdit, setTreatEdit] = useState([])
+    // const [treatToEdit, setTreatToEdit] = useState([])
 
     // const handleChange = (e) => {
 
     // }
 
-
-    const editTreat = () => {
-        const editedTreatList = treats.map(treat => {
-            // if this task has the same ID as the edited task
-            if (id === treat.id) {
-                //
-                return {
-                    ...treats,
-                    treat_name: treatName,
-                    treat_description: treatDescription,
-                    treat_image: treatImage,
-                    price: price
-                }
-            }
-            return treats;
+    const handleClickEdit = () => {
+        setEditing(true);
+        dispatch({
+            type: 'EDIT_TREAT',
+            payload: {
+                treat
+            },
         });
-        setTreatEdit(editedTreatList);
-        handleUpdate();
+        console.log(treatToEdit);
     }
 
-    const handleUpdate = () => {
-        // dispatch({
-        //     type: 'EDIT_TREAT',
-        //     payload: {
-        //         treatEdit
-        //     },
-        // });
-        console.log(treatEdit);
-        setTreatName('');
-        setTreatDescription('');
-        setTreatImage('');
-        setPrice('');
-    }
+
+    // const editTreat = () => {
+    //     const editedTreat = treats.map(treat => {
+    //         // if this task has the same ID as the edited task
+    //         if (id === treat.id) {
+    //             //
+    //             return {
+    //                 treat_name: treatName,
+    //                 treat_description: treatDescription,
+    //                 treat_image: treatImage,
+    //                 price: price
+    //             }
+    //         }
+    //         return treat;
+    //     });
+    //     setTreatToEdit(editedTreat);
+    //     // handleUpdate();
+    // }
+
+    // const handleUpdate = () => {
+    //     // dispatch({
+    //     //     type: 'EDIT_TREAT',
+    //     //     payload: {
+    //     //         treatEdit
+    //     //     },
+    //     // });
+    //     console.log(treatEdit);
+    //     setTreatName('');
+    //     setTreatDescription('');
+    //     setTreatImage('');
+    //     setPrice('');
+    // }
 
 
 
@@ -99,7 +109,7 @@ function ItemTreat({ treat }) {
     }
 
     const editingTemplate = (
-        <form onSubmit={editTreat}>
+        <form >
             <h2>Edit Treat</h2>
 
             <div>
@@ -159,10 +169,6 @@ function ItemTreat({ treat }) {
                 <button onClick={() => { setEditing(false) }} className="btn">Cancel</button>
                 <input className="btn" type="submit" name="submit" value="Update" />
             </div>
-            <button style={{ justify: 'center' }} onClick={() => {
-                history.push('/treatList')
-            }} className="btn">
-                Return to Treat List</button>
         </form>
     );
 
@@ -173,6 +179,7 @@ function ItemTreat({ treat }) {
             <Grid
                 item md={2}
             >
+
                 <Card
                     raised={true}
                     className={classes.root} variant="outlined">
@@ -190,12 +197,18 @@ function ItemTreat({ treat }) {
                                 src={treat.treat_image} alt={treat.treat_name}></img>
                             {/* "https://fakeimg.pl/200x200/" filler images above for now*/}
                             <Button variant="contained" color="primary"
-                                onClick={() => { setEditing(true) }}
+                                onClick={() => { handleClickEdit() }}
                             >Edit treat</Button>
                         </>
 
                     </CardContent>
                 </Card>
+                {isEditing
+                    ?
+                    editingTemplate
+                    :
+                    null
+                }
             </Grid>
         </>
     )

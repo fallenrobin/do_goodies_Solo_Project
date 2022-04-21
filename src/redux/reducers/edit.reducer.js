@@ -1,6 +1,6 @@
-const editReducer = (state = [], action) => {
+const editReducer = (state = {}, action) => {
     switch (action.type) {
-      case 'SET_EDIT':
+      case 'EDIT_TREAT':
         return action.payload;
       case 'taco':
         return [];
