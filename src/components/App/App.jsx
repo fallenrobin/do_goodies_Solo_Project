@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   HashRouter as Router,
   Redirect,
@@ -25,7 +25,6 @@ import DetailTreat from '../DetailTreat/DetailTreat';
 import FormBakesale from '../FormBakesale/FormBakesale';
 import ListBakesale from '../ListBakesale/ListBakesale';
 import DetailBakesale from '../DetailBakesale/DetailBakesale';
-import NavBarUser from '../NavBarUser/NavBarUser';
 
 import './App.css';
 
@@ -37,6 +36,8 @@ function App() {
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
+
+  
 
   return (
     <Router>
@@ -135,7 +136,9 @@ function App() {
             exact
             path="/treatDetail/:id"
           >
-            <DetailTreat />
+            
+            <DetailTreat/>
+          
           </Route>
 
           <Route
@@ -160,7 +163,7 @@ function App() {
           </Route>
 
 
-          
+
 
 
           {/* If none of the other routes matched, we will show a 404. */}
@@ -168,7 +171,6 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-        {/* <NavBarUser /> */}
         {/* <Footer /> */}
       </div>
     </Router>
