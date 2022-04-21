@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 import { makeStyles } from '@material-ui/core/styles'
@@ -28,20 +29,7 @@ const useStyles = makeStyles({
         position: 'fixed',
         bottom: 0,
     },
-    // stickToBottom: {
-        // width: '100%',
-    //     position: 'fixed',
-    //     bottom: 0,
-    // }
 })
-
-// const styles = {
-//     stickToBottom: {
-//       width: '100%',
-//       position: 'fixed',
-//       bottom: 0,
-//     },
-//   };
 
 
 
@@ -50,19 +38,31 @@ function NavBarUser() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     const history = useHistory();
+    const user = useSelector(store => store.user);
 
     const handleChange = (event, newValue) => {
         setValue(newValue)
     }
 
 
+    // {
+    //     user.id ?
+    //     // If the user is already logged in, 
+    //     // redirect to the /user page
+    //     <Redirect to="/user" />
+    //     :
+    //     // Otherwise, show the login page
+    //     <LoginPage />
+    // }
+
     return (
         <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-            <BottomNavigation
+            {/* <BottomNavigation
                 className={classes.root}
                 value={value}
                 onChange={(event, newValue) => handleChange(event, newValue)}
             >
+               
                 <BottomNavigationAction label="Profile" icon={<FaHouseUser size={25} />}
                     onClick={() => { history.push('/user') }} />
 
@@ -74,13 +74,14 @@ function NavBarUser() {
 
                 <BottomNavigationAction label="Donations" icon={<FaDonate size={25} />}
                     onClick={() => { history.push('/user') }} />
+                    
 
-
-                {/* <RiCake3Line /> <AiOutlineShop /><FaDonate/> <FaUserEdit/>
+                    {/* <RiCake3Line /> <AiOutlineShop /><FaDonate/> <FaUserEdit/>
             
-            <AiOutlineUserAdd/> */}
-
-            </BottomNavigation>
+            <AiOutlineUserAdd/> 
+                }
+             
+            </BottomNavigation> */}
         </Paper>
     )
 
