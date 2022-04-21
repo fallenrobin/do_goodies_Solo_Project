@@ -23,13 +23,13 @@ import { IoTrashOutline } from "react-icons/io5";
 
 
 const useStyles = makeStyles({
-    root: {
-        // width: 370,
-        width: "100%",
-        backgroundColor: "#E0E0E0",
-        position: 'fixed',
-        bottom: 0,
-    },
+  root: {
+    // width: 370,
+    width: "100%",
+    backgroundColor: "#E0E0E0",
+    position: 'fixed',
+    bottom: 0,
+  },
 })
 
 
@@ -37,53 +37,66 @@ function Nav() {
   const user = useSelector((store) => store.user);
 
   const classes = useStyles();
-    const [value, setValue] = React.useState(0);
-    const history = useHistory();
+  const [value, setValue] = React.useState(0);
+  const history = useHistory();
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue)
-    }
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+  }
 
   return (
     <div >
-      <Link to="/home">
+      {/* <Link to="/home">
         <h2 className="nav-title">Prime Solo Project</h2>
-      </Link>
+      </Link> */}
       <div>
         {/* If no user is logged in, show these links */}
         {!user.id && (
           // If there's no user, show login/registration links
-          <Link className="navLink" to="/login">
-            Login / Register
-          </Link>
+          // <Link className="navLink" to="/login">
+          //   Login / Register
+          // </Link>
+          <BottomNavigation
+            className={classes.root}
+            value={value}
+            onChange={(event, newValue) => handleChange(event, newValue)}
+          >
+
+            <BottomNavigationAction label="Bakesales" icon={<AiOutlineShop size={25} />}
+              onClick={() => { history.push('/bakesale') }} />
+
+            <BottomNavigationAction label="Sign Up" icon={<AiOutlineUserAdd size={25} />}
+              onClick={() => { history.push('/registration') }} />
+
+          </BottomNavigation>
         )}
 
         {/* If a user is logged in, show these links */}
         {user.id && (
           <BottomNavigation
-          className={classes.root}
-          value={value}
-          onChange={(event, newValue) => handleChange(event, newValue)}
-      >
-         
-          <BottomNavigationAction label="Profile" icon={<FaHouseUser size={25} />}
+            className={classes.root}
+            value={value}
+            onChange={(event, newValue) => handleChange(event, newValue)}
+          >
+
+            <BottomNavigationAction label="Profile" icon={<FaHouseUser size={25} />}
               onClick={() => { history.push('/user') }} />
 
-          <BottomNavigationAction label="Treats" icon={<RiCake3Line size={25} />}
+            <BottomNavigationAction label="Treats" icon={<RiCake3Line size={25} />}
               onClick={() => { history.push('/treatList') }} />
 
-          <BottomNavigationAction label="Bakesales" icon={<AiOutlineShop size={25} />}
+            <BottomNavigationAction label="Bakesales" icon={<AiOutlineShop size={25} />}
               onClick={() => { history.push('/bakesale') }} />
 
-          <BottomNavigationAction label="Donations" icon={<FaDonate size={25} />}
+            <BottomNavigationAction label="Donations" icon={<FaDonate size={25} />}
               onClick={() => { history.push('/user') }} />
-              
 
-              {/* <RiCake3Line /> <AiOutlineShop /><FaDonate/> <FaUserEdit/>
+
+            {/* <RiCake3Line /> <AiOutlineShop /><FaDonate/> <FaUserEdit/>
       
       <AiOutlineUserAdd/> */}
-          
-      </BottomNavigation>
+
+          </BottomNavigation>
         )}
 
         {/* <Link className="navLink" to="/about">
