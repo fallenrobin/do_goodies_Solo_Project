@@ -68,7 +68,12 @@ function ItemTreat({ treat }) {
     }
 
     const handleDelete = () => { //for clicking Delete button on list view
-        console.log('clicked delete');
+        // console.log('clicked delete');
+        dispatch({
+            type: 'DELETE_TREAT',
+            payload: 
+                treat?.id
+        });
     }
     const newTreat = {
         id: treatEdit?.id,

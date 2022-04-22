@@ -53,6 +53,17 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
         })
 });
 
+// delete route for treat
+router.delete('/delete', (req, res) => {
+    pool.query('DELETE FROM "treats" WHERE id=$1', [req.body])
+        .then((result) => {
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('Error DELETE /api/treat/delete', error);
+            res.sendStatus(500);
+        })
+});
+
 //GET route for just one treat
 router.get('/detail/:id', (req, res) => {
 
