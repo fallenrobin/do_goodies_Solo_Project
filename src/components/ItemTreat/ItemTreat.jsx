@@ -66,6 +66,10 @@ function ItemTreat({ treat }) {
         console.log(treatToEdit);
     }
 
+    const handleDelete = () => {
+        
+    }
+
 
     // const editTreat = () => {
     //     const editedTreat = treats.map(treat => {
@@ -199,6 +203,9 @@ function ItemTreat({ treat }) {
                             <Button variant="contained" color="primary"
                                 onClick={() => { handleClickEdit() }}
                             >Edit treat</Button>
+                            <Button variant="outlined" color="primary"
+                                onClick={() => { handleDelete() }}
+                            >Delete</Button>
                         </>
 
                     </CardContent>
