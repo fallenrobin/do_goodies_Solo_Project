@@ -42,16 +42,16 @@ function* fetchTreatDetail(action) {
 
 function* editTreat(action) {
   const id = action.payload.id; //because all threat info expected in payload
-  console.log('SAGA edit treat:', action.payload.id);
+  // console.log('SAGA edit treat:', action.payload.id);
 
-  // try {
-  //   const treats = yield axios.put(`/api/treat/detail/${id}`);
+  try {
+    const treats = yield axios.put(`/api/treat/${id}`, action.payload);
 
-  //   yield put({ type: 'SET_SINGLE_TREAT', payload: treats.data}); //set selected treat in treatReducer
+    yield put({ type: 'FETCH_TREATS'}); //GET following PUT
 
-  // } catch (error) {
-  //   console.log('Error with fetchTreatDetail saga:', error);
-  // }
+  } catch (error) {
+    console.log('Error with editTreat saga:', error);
+  }
 }
 
 function* treatSaga() {

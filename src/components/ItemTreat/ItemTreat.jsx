@@ -75,6 +75,7 @@ function ItemTreat({ treat }) {
         treat_name: treatName,
         treat_description: treatDescription,
         treat_image: treatImage,
+        // FIXME: deal with image
         price: price
     }
 
@@ -86,7 +87,6 @@ function ItemTreat({ treat }) {
             payload: 
                 newTreat
         });
-        // console.log(treatName, treatDescription, treatImage, price);
         setTreatName('');
         setTreatDescription('');
         setTreatImage('');

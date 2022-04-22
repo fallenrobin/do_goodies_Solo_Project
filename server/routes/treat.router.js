@@ -29,6 +29,30 @@ router.get('/fetchTreats', (req, res) => {
     });
 });
 
+//PUT route for treat edit
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    console.log(req.body);
+    console.log(req.params.id);
+
+    const queryText = `
+    UPDATE "treats"
+    SET treat_name = $1, treat_description = $2, price = $3
+    WHERE "id"= $4;`
+
+    const values = [
+        req.body.treat_name, req.body.treat_description,
+        req.body.price, req.params.id
+    ]
+    pool.query(queryText, values)
+        .then((result) => {
+            // res.send(result.rows);
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('Error PUT treat', error);
+            res.sendStatus(500);
+        })
+});
+
 //GET route for just one treat
 router.get('/detail/:id', (req, res) => {
 
