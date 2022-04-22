@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import EditTreat from '../EditTreat/EditTreat';
 
 
 //MUI for card
@@ -41,15 +42,12 @@ function ItemTreat({ treat }) {
     const dispatch = useDispatch();
     const treats = useSelector(store => store.treatReducer);
 
-    const [treatName, setTreatName] = useState('');
-    const [treatDescription, setTreatDescription] = useState('');
-    const [treatImage, setTreatImage] = useState('');
-    const [price, setPrice] = useState(0);
+  
 
     const classes = useStyles(); //for card
 
     const [isEditing, setEditing] = useState(false); //for edit mode
-    // const [treatToEdit, setTreatToEdit] = useState([])
+    // const [treatToEdit, setTreatToEdit] = useState();
 
     // const handleChange = (e) => {
 
@@ -63,7 +61,7 @@ function ItemTreat({ treat }) {
                 treat
             },
         });
-        console.log(treatToEdit);
+        // console.log(treatToEdit);
     }
 
 
@@ -108,69 +106,7 @@ function ItemTreat({ treat }) {
         history.push(`/treatDetail/${treat.id}`);//'moves' user to page view with treat details
     }
 
-    const editingTemplate = (
-        <form >
-            <h2>Edit Treat</h2>
-
-            <div>
-                <label htmlFor="treatName">
-                    Name of treat:
-                    <input
-                        type="text"
-                        name="treat"
-                        value={treatName}
-                        placeholder={treat.treat_name}
-                        required
-                        onChange={(event) => setTreatName(event.target.value)}
-                    />
-                </label>
-            </div>
-            <div>
-                <label htmlFor="treatDescription">
-                    Describe this treat:
-                    <input
-                        type="treatDescription"
-                        name="treatDescription"
-                        value={treatDescription}
-                        maxLength={255}
-                        placeholder={treat.treat_description}
-                        // required
-                        onChange={(event) => setTreatDescription(event.target.value)}
-                    />
-                </label>
-            </div>
-            <div>
-                <label htmlFor="treatImage">
-                    Picture:
-                    <input
-                        type="text"
-                        name="treatImage"
-                        value={treatImage}
-                        maxLength={255}
-                        placeholder="Paste image link"
-                        onChange={(event) => setTreatImage(event.target.value)}
-                    />
-                </label>
-            </div>
-            <div>
-                <label htmlFor="price">
-                    Price:
-                    <input
-                        type="number"
-                        name="price"
-                        // to do: adjust width
-                        // maxLength={255} what validation here? also set in DB
-                        placeholder={treat.price}
-                        onChange={(event) => setPrice(event.target.value)}
-                    />
-                </label>
-            </div>
-            <div>
-                <button onClick={() => { setEditing(false) }} className="btn">Cancel</button>
-                <input className="btn" type="submit" name="submit" value="Update" />
-            </div>
-        </form>
-    );
+    
 
 
     return (
@@ -205,7 +141,7 @@ function ItemTreat({ treat }) {
                 </Card>
                 {isEditing
                     ?
-                    editingTemplate
+                    <EditTreat/>
                     :
                     null
                 }
