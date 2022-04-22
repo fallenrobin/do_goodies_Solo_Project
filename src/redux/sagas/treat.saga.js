@@ -40,11 +40,27 @@ function* fetchTreatDetail(action) {
   }
 }
 
+function* editTreat(action) {
+  const id = action.payload.id;
+  console.log('SAGA single treat id:', id);
+
+  // try {
+  //   const treats = yield axios.put(`/api/treat/detail/${id}`);
+
+  //   yield put({ type: 'SET_SINGLE_TREAT', payload: treats.data}); //set selected treat in treatReducer
+
+  // } catch (error) {
+  //   console.log('Error with fetchTreatDetail saga:', error);
+  // }
+}
+
 function* treatSaga() {
 
   yield takeLatest('ADD_TREAT', addTreat);
   yield takeLatest('FETCH_TREATS', fetchTreats);
   yield takeLatest('FETCH_TREAT_DETAIL', fetchTreatDetail);
+  yield takeLatest('SUBMIT_EDIT_TREAT', editTreat);
+
 
 }
 

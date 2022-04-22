@@ -55,7 +55,7 @@ function ItemTreat({ treat }) {
 
     // }
 
-    const handleClickEdit = () => {
+    const handleClickEdit = () => {//for clicking Edit button on list view
         setEditing(true);
         dispatch({
             type: 'EDIT_TREAT',
@@ -63,46 +63,32 @@ function ItemTreat({ treat }) {
                 treat
             },
         });
-        console.log(treatToEdit);
+        // console.log(treatToEdit);
     }
 
-    const handleDelete = () => {
-        
+    const handleDelete = () => { //for clicking Delete button on list view
+        console.log('clicked delete');
     }
 
-
-    // const editTreat = () => {
-    //     const editedTreat = treats.map(treat => {
-    //         // if this task has the same ID as the edited task
-    //         if (id === treat.id) {
-    //             //
-    //             return {
-    //                 treat_name: treatName,
-    //                 treat_description: treatDescription,
-    //                 treat_image: treatImage,
-    //                 price: price
-    //             }
-    //         }
-    //         return treat;
-    //     });
-    //     setTreatToEdit(editedTreat);
-    //     // handleUpdate();
-    // }
-
-    // const handleUpdate = () => {
-    //     // dispatch({
-    //     //     type: 'EDIT_TREAT',
-    //     //     payload: {
-    //     //         treatEdit
-    //     //     },
-    //     // });
-    //     console.log(treatEdit);
-    //     setTreatName('');
-    //     setTreatDescription('');
-    //     setTreatImage('');
-    //     setPrice('');
-    // }
-
+    const handleEditTreat = (event) => { //for clicking Save Changes button on Edit form
+        // event.preventDefault();
+        console.log('clicked Save Changes');
+        // dispatch({
+        //     type: 'SUBMIT_EDIT_TREAT',
+        //     payload: {
+        //         treat_name: treatName,
+        //         treat_description: treatDescription,
+        //         treat_image: treatImage,
+        //         price: price
+        //     },
+        // });
+        // // console.log(treatName, treatDescription, treatImage, price);
+        // setTreatName('');
+        // setTreatDescription('');
+        // setTreatImage('');
+        // setPrice('');
+        // history.push('/treatList');
+    }
 
 
 
@@ -113,7 +99,7 @@ function ItemTreat({ treat }) {
     }
 
     const editingTemplate = (
-        <form >
+        <form onSubmit={handleEditTreat()}>
             <h2>Edit Treat</h2>
 
             <div>
@@ -171,7 +157,7 @@ function ItemTreat({ treat }) {
             </div>
             <div>
                 <button onClick={() => { setEditing(false) }} className="btn">Cancel</button>
-                <input className="btn" type="submit" name="submit" value="Update" />
+                <input className="btn" type="submit" name="submit" value="Save Changes" />
             </div>
         </form>
     );
