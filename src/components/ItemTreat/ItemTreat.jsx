@@ -71,23 +71,24 @@ function ItemTreat({ treat }) {
     }
 
     const handleEditTreat = (event) => { //for clicking Save Changes button on Edit form
-        // event.preventDefault();
+        event.preventDefault();
         console.log('clicked Save Changes');
-        // dispatch({
-        //     type: 'SUBMIT_EDIT_TREAT',
-        //     payload: {
-        //         treat_name: treatName,
-        //         treat_description: treatDescription,
-        //         treat_image: treatImage,
-        //         price: price
-        //     },
-        // });
-        // // console.log(treatName, treatDescription, treatImage, price);
-        // setTreatName('');
-        // setTreatDescription('');
-        // setTreatImage('');
-        // setPrice('');
-        // history.push('/treatList');
+        dispatch({
+            type: 'SUBMIT_EDIT_TREAT',
+            payload: {
+                treat_name: treatName,
+                treat_description: treatDescription,
+                treat_image: treatImage,
+                price: price
+            },
+        });
+        // console.log(treatName, treatDescription, treatImage, price);
+        setTreatName('');
+        setTreatDescription('');
+        setTreatImage('');
+        setPrice('');
+        setEditing(false);
+        // history.push('/treatList'); redundant if editing is false
     }
 
 
