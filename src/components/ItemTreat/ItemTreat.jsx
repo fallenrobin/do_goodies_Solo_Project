@@ -141,7 +141,9 @@ function ItemTreat({ treat }) {
                 </Card>
                 {isEditing
                     ?
-                    <EditTreat/>
+                    <EditTreat
+                    isEditing={isEditing}
+                    />
                     :
                     null
                 }

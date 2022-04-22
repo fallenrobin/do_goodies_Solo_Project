@@ -1,8 +1,9 @@
-import React, { useState }from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import OpenDialog from '../OpenDialog/OpenDialog';
 
 
-function EditTreat() {
+function EditTreat({isEditing}) {
 
     const [treatName, setTreatName] = useState('');
     const [treatDescription, setTreatDescription] = useState('');
@@ -11,10 +12,42 @@ function EditTreat() {
 
     const treat = useSelector(store => store.editReducer.treat);
 
+    const deleteConfirm = () => {
+        <ConfirmDialog
+            title="Delete Treat?"
+            open={confirmOpen}
+            setOpen={setConfirmOpen}
+            onConfirm={deleteTreat}
+        >
+            Are you sure you want to delete this treat?
+        </ConfirmDialog>
+    }
+
+    const deleteTreat = () => {
+        console.log('confirmed delete');
+    }
+
+    // dispatch({
+    //     type: 'UPDATE_TREAT',
+    //     payload: {
+    //         treat
+    //     },
+    // });
+
+    // dispatch({
+    //     type: 'DELETE_TREAT',
+    //     payload: {
+    //         treat
+    //     },
+    // });
+    const handleUpdate = () => {
+        console.log('in handleUpdate Edit treat');
+    }
+
 
     return (
 
-        <form >
+        <form onSubmit={handleUpdate}>
             <h2>Edit Treat</h2>
 
             <div>
@@ -39,7 +72,7 @@ function EditTreat() {
                         value={treatDescription}
                         maxLength={255}
                         placeholder={treat.treat_description}
-                        // required
+                        required
                         onChange={(event) => setTreatDescription(event.target.value)}
                     />
                 </label>
@@ -72,8 +105,10 @@ function EditTreat() {
                 </label>
             </div>
             <div>
-                <button onClick={() => { setEditing(false) }} className="btn">Cancel</button>
+                <button onClick={() => { isEditing(false) }} className="btn">Cancel</button>
                 <input className="btn" type="submit" name="submit" value="Update" />
+                <button onClick={() => { deleteConfirm }} className="btn">Delete</button>
+
             </div>
         </form>
     );
