@@ -40,6 +40,8 @@ function ItemTreat({ treat }) {
     const history = useHistory();
     const dispatch = useDispatch();
     const treats = useSelector(store => store.treatReducer);
+    const treatEdit = useSelector(store => store.editReducer);
+
 
     const [treatName, setTreatName] = useState('');
     const [treatDescription, setTreatDescription] = useState('');
@@ -59,9 +61,8 @@ function ItemTreat({ treat }) {
         setEditing(true);
         dispatch({
             type: 'EDIT_TREAT',
-            payload: {
+            payload: 
                 treat
-            },
         });
         // console.log(treatToEdit);
     }
@@ -69,18 +70,21 @@ function ItemTreat({ treat }) {
     const handleDelete = () => { //for clicking Delete button on list view
         console.log('clicked delete');
     }
+    const newTreat = {
+        id: treatEdit?.id,
+        treat_name: treatName,
+        treat_description: treatDescription,
+        treat_image: treatImage,
+        price: price
+    }
 
     const handleEditTreat = (event) => { //for clicking Save Changes button on Edit form
         event.preventDefault();
         console.log('clicked Save Changes');
         dispatch({
             type: 'SUBMIT_EDIT_TREAT',
-            payload: {
-                treat_name: treatName,
-                treat_description: treatDescription,
-                treat_image: treatImage,
-                price: price
-            },
+            payload: 
+                newTreat
         });
         // console.log(treatName, treatDescription, treatImage, price);
         setTreatName('');
@@ -88,7 +92,7 @@ function ItemTreat({ treat }) {
         setTreatImage('');
         setPrice('');
         setEditing(false);
-        // history.push('/treatList'); redundant if editing is false
+        // history.push('/treatList'); redundant if editing = false
     }
 
 
@@ -100,7 +104,7 @@ function ItemTreat({ treat }) {
     }
 
     const editingTemplate = (
-        <form onSubmit={handleEditTreat()}>
+        <form onSubmit={handleEditTreat}>
             <h2>Edit Treat</h2>
 
             <div>

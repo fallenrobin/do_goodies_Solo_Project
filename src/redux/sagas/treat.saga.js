@@ -41,8 +41,8 @@ function* fetchTreatDetail(action) {
 }
 
 function* editTreat(action) {
-  const id = action.payload.id;
-  console.log('SAGA single treat id:', id);
+  const id = action.payload.id; //because all threat info expected in payload
+  console.log('SAGA edit treat:', action.payload.id);
 
   // try {
   //   const treats = yield axios.put(`/api/treat/detail/${id}`);
