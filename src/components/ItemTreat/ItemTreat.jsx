@@ -39,7 +39,8 @@ function ItemTreat({ treat }) {
 
     const history = useHistory();
     const dispatch = useDispatch();
-    const treats = useSelector(store => store.treatReducer);
+    const treats = useSelector((store) => store.treatReducer);
+    // const editTreat = useSelector = useSelector(store => store.editReducer)
 
     const [treatName, setTreatName] = useState('');
     const [treatDescription, setTreatDescription] = useState('');
@@ -51,9 +52,7 @@ function ItemTreat({ treat }) {
     const [isEditing, setEditing] = useState(false); //for edit mode
     // const [treatToEdit, setTreatToEdit] = useState([])
 
-    // const handleChange = (e) => {
 
-    // }
 
     const handleClickEdit = () => {
         setEditing(true);
