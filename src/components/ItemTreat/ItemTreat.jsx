@@ -2,6 +2,8 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import swal from 'sweetalert';
+
 
 
 //MUI for card
@@ -61,7 +63,7 @@ function ItemTreat({ treat }) {
         setEditing(true);
         dispatch({
             type: 'EDIT_TREAT',
-            payload: 
+            payload:
                 treat
         });
         // console.log(treatToEdit);
@@ -69,12 +71,30 @@ function ItemTreat({ treat }) {
 
     const handleDelete = () => { //for clicking Delete button on list view
         // console.log('clicked delete');
-        dispatch({
-            type: 'DELETE_TREAT',
-            payload: 
-                treat?.id
-        });
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Poof! Your imaginary file has been deleted!", {
+                        icon: "success",
+                    });
+                    dispatch({
+                        type: 'DELETE_TREAT',
+                        payload:
+                            treat?.id
+                    });
+                } else {
+                    swal("Your imaginary file is safe!");
+                }
+            });
+        
     }
+
     const newTreat = {
         id: treatEdit?.id,
         treat_name: treatName,
@@ -89,7 +109,7 @@ function ItemTreat({ treat }) {
         console.log('clicked Save Changes');
         dispatch({
             type: 'SUBMIT_EDIT_TREAT',
-            payload: 
+            payload:
                 newTreat
         });
         setTreatName('');

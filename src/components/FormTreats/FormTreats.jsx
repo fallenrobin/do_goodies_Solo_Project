@@ -30,7 +30,7 @@ function FormTreats() {
         setTreatDescription('');
         setTreatImage('');
         setPrice('');
-        // history.push('/treatList');
+        history.push('/treatList');
     }
 
     return (
