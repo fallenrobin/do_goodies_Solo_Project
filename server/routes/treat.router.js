@@ -31,8 +31,8 @@ router.get('/fetchTreats', (req, res) => {
 
 //PUT route for treat edit
 router.put('/:id', rejectUnauthenticated, (req, res) => {
-    console.log(req.body);
-    console.log(req.params.id);
+    // console.log(req.body);
+    // console.log(req.params.id);
 
     const queryText = `
     UPDATE "treats"
@@ -54,8 +54,11 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 // delete route for treat
-router.delete('/delete', (req, res) => {
-    pool.query('DELETE FROM "treats" WHERE id=$1', [req.body])
+router.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    console.log(id);
+    
+    pool.query('DELETE FROM "treats" WHERE id=$1', [id])
         .then((result) => {
             res.sendStatus(200);
         }).catch((error) => {

@@ -56,10 +56,10 @@ function* editTreat(action) {
 
 function* deleteTreat(action) {
   const id = action.payload; //because all threat info expected in payload
-  console.log('SAGA delete treat:', action.payload);
+  console.log('SAGA delete treat:', id);
 
   try {
-    yield axios.delete(`/api/treat/delete`, action.payload);
+    yield axios.delete(`/api/treat/delete/${id}`);
 
     yield put({ type: 'FETCH_TREATS' }); //GET following DELETE
 
