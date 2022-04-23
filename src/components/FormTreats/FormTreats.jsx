@@ -8,7 +8,6 @@ function FormTreats() {
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const [open, setOpen] = React.useState(false);
 
 
     const [treatName, setTreatName] = useState('');
@@ -101,7 +100,7 @@ function FormTreats() {
                     </label>
                 </div>
                 <div>
-                    <button onClick={history.push('/treatList')} className="btn">Cancel</button>
+                    {/* <button onClick={history.push('/treatList')} className="btn">Cancel</button> */}
                     <input className="btn" type="submit" name="submit" value="Add treat" />
                 </div>
                 {/* <button style={{justify:'center'}} onClick={() => {
