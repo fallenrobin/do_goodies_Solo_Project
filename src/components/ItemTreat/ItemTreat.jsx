@@ -73,14 +73,14 @@ function ItemTreat({ treat }) {
         // console.log('clicked delete');
         swal({
             title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
+            text: "Once deleted, this treat will be gone!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Poof! Your imaginary file has been deleted!", {
+                    swal("Your sweet treat is now delete.", {
                         icon: "success",
                     });
                     dispatch({
@@ -89,7 +89,7 @@ function ItemTreat({ treat }) {
                             treat?.id
                     });
                 } else {
-                    swal("Your imaginary file is safe!");
+                    swal("Your treat is intact!");
                 }
             });
         
@@ -188,6 +188,7 @@ function ItemTreat({ treat }) {
             <div>
                 <button onClick={() => { setEditing(false) }} className="btn">Cancel</button>
                 <input className="btn" type="submit" name="submit" value="Save Changes" />
+            
             </div>
         </form>
     );

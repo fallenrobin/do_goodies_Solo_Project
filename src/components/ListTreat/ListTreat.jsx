@@ -36,7 +36,7 @@ function ListTreat() {
                     alignItems="flex-start"
                     justifyContent="flex-start"
                     style={{ minHeight: '100vh' }}>
-                    <Button variant="outlined" color="primary"
+                    <Button variant="contained" color="primary"
                         onClick={() => { history.push('/treatForm') }}>Add Treats</Button>
 
                     {treats?.map((treat, i) => {

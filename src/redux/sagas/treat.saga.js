@@ -5,6 +5,8 @@ function* addTreat(action) {
   try {
     // passes user's treat data from the payload to the server
     yield axios.post('/api/treat/addTreat', action.payload);
+    yield put({ type: 'FETCH_TREATS' }); //GET following POST
+
 
   } catch (error) {
     console.log('Error with add treat saga:', error);
