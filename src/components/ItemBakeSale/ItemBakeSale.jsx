@@ -10,6 +10,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 //grid for centering
 import Grid from '@material-ui/core/Grid';
+import BakesaleAddTreats from '../BakesaleAddTreats/BakesaleAddTreats';
 
 
 
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) =>
             maxWidth: 375,
             // height: 400
             minHeight: 200,
-            maxHeight: 400
+            // maxHeight: 400
         },
     }),
 );
@@ -62,6 +63,7 @@ function ItemBakesale({ bakesale }) {
                             <img key={bakesale.id} onClick={handleDetailView}
                                 src="https://fakeimg.pl/300x200/" alt={bakesale.org_name}></img>
                             <p>{bakesale.org_website} Fundraising goal: {bakesale.fundraising_goal}</p>
+                            <BakesaleAddTreats/>
                             {/* filler images above for now*/}
                         </div>
 

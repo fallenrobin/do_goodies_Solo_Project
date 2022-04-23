@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -36,18 +38,18 @@ const MenuProps = {
     },
 };
 
-const treats = [
-    'cookie',
-    'cupcake',
-    'ruby on whales',
-    'stretch rolls',
-    'fizz buns',
-];
+// [
+//     'cookie',
+//     'cupcake',
+//     'ruby on whales',
+//     'stretch rolls',
+//     'fizz buns',
+// ];
 
-function getStyles(treat, treatName, theme) {
+function getStyles(treats, treatName, theme) {
     return {
         fontWeight:
-            treatName.indexOf(treat) === -1
+            treatName.indexOf(treats) === -1
                 ? theme.typography.fontWeightRegular
                 : theme.typography.fontWeightMedium,
     };
@@ -57,6 +59,8 @@ export default function BakesaleAddTreats() {
     const classes = useStyles();
     const theme = useTheme();
     const [treatName, setTreatName] = React.useState([]);
+    const treats = useSelector((store) => store.treatReducer);
+
 
     const handleChange = (event) => {
         setTreatName(event.target.value);
@@ -67,10 +71,10 @@ export default function BakesaleAddTreats() {
         <div>
 
             <FormControl className={classes.formControl}>
-                <InputLabel id="demo-mutiple-chip-label">Add treats</InputLabel>
+                <InputLabel id="demo-multiple-chip-label">Add treats</InputLabel>
                 <Select
-                    labelId="demo-mutiple-chip-label"
-                    id="demo-mutiple-chip"
+                    labelId="demo-multiple-chip-label"
+                    id="demo-multiple-chip"
                     multiple
                     value={treatName}
                     onChange={handleChange}
@@ -85,9 +89,9 @@ export default function BakesaleAddTreats() {
                     MenuProps={MenuProps}
                 >
                     {treats
-                        .map((treat) => (
-                            <MenuItem key={treat} value={treat} style={getStyles(treat, treatName, theme)}>
-                                {treat}
+                        .map((treats) => (
+                            <MenuItem key={treats} value={treats} style={getStyles(treats, treatName, theme)}>
+                                {treats}
                             </MenuItem>
                         ))}
                 </Select>
