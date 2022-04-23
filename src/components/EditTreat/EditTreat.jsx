@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import OpenDialog from '../OpenDialog/OpenDialog';
+import { useDispatch } from 'react-redux';
+
 
 
 function EditTreat() {
@@ -9,6 +11,7 @@ function EditTreat() {
     const [treatDescription, setTreatDescription] = useState('');
     const [treatImage, setTreatImage] = useState('');
     const [price, setPrice] = useState();
+    const dispatch = useDispatch();
 
     const treat = useSelector(store => store.editReducer.treat);
 
@@ -42,6 +45,14 @@ function EditTreat() {
     // });
     const handleUpdate = () => {
         console.log('in handleUpdate Edit treat');
+    }
+    const setEditMode = () => {
+        dispatch({
+            type: 'SET_EDIT_MODE',
+            payload: {
+                editMode: false
+            },
+        });
     }
 
 
@@ -105,7 +116,7 @@ function EditTreat() {
                 </label>
             </div>
             <div>
-                {/* <button onClick={() => { isEditing(false) }} className="btn">Cancel</button> */}
+                <button onClick={setEditMode} className="btn">Cancel</button>
                 <input className="btn" type="submit" name="submit" value="Update" />
                 <button onClick={() => { deleteConfirm }} className="btn">Delete</button>
 

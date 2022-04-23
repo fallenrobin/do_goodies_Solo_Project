@@ -44,7 +44,7 @@ function ItemTreat({ treat }) {
     const dispatch = useDispatch();
     // const treats = useSelector(store => store.treatReducer);
 
-    console.log(editModeReducer);
+    // console.log(editModeReducer);
 
 
     const classes = useStyles(); //for card
@@ -59,7 +59,6 @@ function ItemTreat({ treat }) {
             },
         });
     }
-    // NEED TO SUBSCRIBE TO EDIT MODE REDUCER?
 
     // }
     // const treatToEdit = {
