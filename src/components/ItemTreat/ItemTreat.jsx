@@ -142,15 +142,9 @@ function ItemTreat({ treat }) {
                 </Card>
                 {isEditing
                     ?
-                    /* <EditTreat
+                    <EditTreat
                     isEditing={isEditing}
-                    /> */
-                    <OpenDialog
-                        open={open}
-                        onClose={() => setOpen(false)}
-                        aria-labelledby="confirm-dialog"
                     />
-
                     :
                     null
                 }
