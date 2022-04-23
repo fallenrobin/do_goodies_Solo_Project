@@ -15,6 +15,7 @@ import Button from '@material-ui/core/Button';
 
 //grid for centering
 import Grid from '@material-ui/core/Grid';
+import OpenDialog from '../OpenDialog/OpenDialog'; //for popup
 
 
 
@@ -42,7 +43,7 @@ function ItemTreat({ treat }) {
     const dispatch = useDispatch();
     const treats = useSelector(store => store.treatReducer);
 
-  
+
 
     const classes = useStyles(); //for card
 
@@ -106,7 +107,7 @@ function ItemTreat({ treat }) {
         history.push(`/treatDetail/${treat.id}`);//'moves' user to page view with treat details
     }
 
-    
+
 
 
     return (
@@ -141,9 +142,15 @@ function ItemTreat({ treat }) {
                 </Card>
                 {isEditing
                     ?
-                    <EditTreat
+                    /* <EditTreat
                     isEditing={isEditing}
+                    /> */
+                    <OpenDialog
+                        open={open}
+                        onClose={() => setOpen(false)}
+                        aria-labelledby="confirm-dialog"
                     />
+
                     :
                     null
                 }
