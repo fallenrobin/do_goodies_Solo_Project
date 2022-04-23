@@ -25,7 +25,9 @@ export default function OpenDialog() {
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogContent>
                     {open ?
-                        <FormTreats />
+                        <FormTreats
+                            handleClose={handleClose}
+                        />
                         :
                         null
                     }
