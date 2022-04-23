@@ -39,30 +39,47 @@ const useStyles = makeStyles((theme) =>
 
 function ItemTreat({ treat }) {
 
+    const editModeReducer = useSelector((store) => store.editModeReducer.editMode);
     const history = useHistory();
     const dispatch = useDispatch();
-    const treats = useSelector(store => store.treatReducer);
+    // const treats = useSelector(store => store.treatReducer);
 
+    console.log(editModeReducer);
 
 
     const classes = useStyles(); //for card
 
     const [isEditing, setEditing] = useState(false); //for edit mode
-    // const [treatToEdit, setTreatToEdit] = useState();
 
-    // const handleChange = (e) => {
+    const setEditMode = () => {
+        dispatch({
+            type: 'SET_EDIT_MODE',
+            payload: {
+                editMode: true
+            },
+        });
+    }
+    // NEED TO SUBSCRIBE TO EDIT MODE REDUCER?
 
+    // }
+    // const treatToEdit = {
+    //     id: treat.id,
+    //     treat_name: treat.treat_name,
+    //     treat_description: treat.treat_description,
+    //     treat_image: treat.treat_image,
+    //     price: treat.price,
+    //     edit: isEditing
     // }
 
     const handleClickEdit = () => {
-        setEditing(true);
+        // setEditing(true); //for local state
+        setEditMode();
         dispatch({
             type: 'EDIT_TREAT',
             payload: {
                 treat
             },
         });
-        // console.log(treatToEdit);
     }
 
 
@@ -140,10 +157,9 @@ function ItemTreat({ treat }) {
 
                     </CardContent>
                 </Card>
-                {isEditing
+                {editModeReducer
                     ?
                     <EditTreat
-                    isEditing={isEditing}
                     />
                     :
                     null

@@ -71,7 +71,7 @@ export default function OpenDialog() {
                     </Button>
                     {/* <Button onClick={handleClose} color="primary">
                         Add treat
-                    </Button> */}
+                    </Button> Can I keep generic but wire to FormTreat??*/}
                 </DialogActions>
             </Dialog>
         </div>

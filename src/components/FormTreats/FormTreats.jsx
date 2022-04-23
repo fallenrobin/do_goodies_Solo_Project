@@ -53,7 +53,7 @@ function FormTreats() {
                             type="text"
                             name="treat"
                             value={treatName}
-                            // required
+                            required
                             onChange={(event) => setTreatName(event.target.value)}
                         />
                     </label>
@@ -67,7 +67,7 @@ function FormTreats() {
                             value={treatDescription}
                             maxLength={255}
                             placeholder="What's it all about?"
-                            // required
+                            required
                             onChange={(event) => setTreatDescription(event.target.value)}
                         />
                     </label>

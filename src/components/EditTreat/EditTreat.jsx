@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import OpenDialog from '../OpenDialog/OpenDialog';
 
 
-function EditTreat({isEditing}) {
+function EditTreat() {
 
     const [treatName, setTreatName] = useState('');
     const [treatDescription, setTreatDescription] = useState('');
@@ -105,7 +105,7 @@ function EditTreat({isEditing}) {
                 </label>
             </div>
             <div>
-                <button onClick={() => { isEditing(false) }} className="btn">Cancel</button>
+                {/* <button onClick={() => { isEditing(false) }} className="btn">Cancel</button> */}
                 <input className="btn" type="submit" name="submit" value="Update" />
                 <button onClick={() => { deleteConfirm }} className="btn">Delete</button>
 
