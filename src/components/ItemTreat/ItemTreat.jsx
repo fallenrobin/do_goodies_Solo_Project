@@ -2,9 +2,6 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import swal from 'sweetalert';
-
-
 import EditTreat from '../EditTreat/EditTreat';
 
 
@@ -45,69 +42,62 @@ function ItemTreat({ treat }) {
     const history = useHistory();
     const dispatch = useDispatch();
     const treats = useSelector(store => store.treatReducer);
-    const treatEdit = useSelector(store => store.editReducer);
 
 
 
     const classes = useStyles(); //for card
 
     const [isEditing, setEditing] = useState(false); //for edit mode
+    // const [treatToEdit, setTreatToEdit] = useState();
 
+    // const handleChange = (e) => {
 
-    const handleClickEdit = () => {//for clicking Edit button on list view
+    // }
+
+    const handleClickEdit = () => {
         setEditing(true);
-    }
-
-    const handleDelete = () => { //for clicking Delete button on list view
-        // console.log('clicked delete');
-        swal({
-            title: "Yeet this treat?",
-            text: "If delete, no more eat",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("Your treat went yeet", {
-                        icon: "success",
-                    });
-                    dispatch({
-                        type: 'DELETE_TREAT',
-                        payload:
-                            treat?.id
-                    });
-                } else {
-                    swal("Tasty treat? Can still eat!");
-                }
-            });
-        
-    }
-
-    const newTreat = {
-        id: treatEdit?.id,
-        treat_name: treatName,
-        treat_description: treatDescription,
-        treat_image: treatImage,
-        // FIXME: deal with image
-        price: price
-    }
-
-    const handleEditTreat = (event) => { //for clicking Save Changes button on Edit form
-        event.preventDefault();
-        console.log('clicked Save Changes');
         dispatch({
-            type: 'SUBMIT_EDIT_TREAT',
-            payload:
-                newTreat
+            type: 'EDIT_TREAT',
+            payload: {
+                treat
+            },
         });
-        setTreatName('');
-        setTreatDescription('');
-        setTreatImage('');
-        setPrice('');
-        setEditing(false);
-        // history.push('/treatList'); redundant if editing = false
+        // console.log(treatToEdit);
     }
+
+
+    // const editTreat = () => {
+    //     const editedTreat = treats.map(treat => {
+    //         // if this task has the same ID as the edited task
+    //         if (id === treat.id) {
+    //             //
+    //             return {
+    //                 treat_name: treatName,
+    //                 treat_description: treatDescription,
+    //                 treat_image: treatImage,
+    //                 price: price
+    //             }
+    //         }
+    //         return treat;
+    //     });
+    //     setTreatToEdit(editedTreat);
+    //     // handleUpdate();
+    // }
+
+    // const handleUpdate = () => {
+    //     // dispatch({
+    //     //     type: 'EDIT_TREAT',
+    //     //     payload: {
+    //     //         treatEdit
+    //     //     },
+    //     // });
+    //     console.log(treatEdit);
+    //     setTreatName('');
+    //     setTreatDescription('');
+    //     setTreatImage('');
+    //     setPrice('');
+    // }
+
 
 
 
@@ -117,69 +107,7 @@ function ItemTreat({ treat }) {
         history.push(`/treatDetail/${treat.id}`);//'moves' user to page view with treat details
     }
 
-    const editingTemplate = (
-        <form onSubmit={handleEditTreat}>
-            <h2>Edit Treat</h2>
 
-            <div>
-                <label htmlFor="treatName">
-                    Name of treat:
-                    <input
-                        type="text"
-                        name="treat"
-                        value={treatName}
-                        placeholder={treat.treat_name}
-                        required
-                        onChange={(event) => setTreatName(event.target.value)}
-                    />
-                </label>
-            </div>
-            <div>
-                <label htmlFor="treatDescription">
-                    Describe this treat:
-                    <input
-                        type="treatDescription"
-                        name="treatDescription"
-                        value={treatDescription}
-                        maxLength={255}
-                        placeholder={treat.treat_description}
-                        // required
-                        onChange={(event) => setTreatDescription(event.target.value)}
-                    />
-                </label>
-            </div>
-            <div>
-                <label htmlFor="treatImage">
-                    Picture:
-                    <input
-                        type="text"
-                        name="treatImage"
-                        value={treatImage}
-                        maxLength={255}
-                        placeholder="Paste image link"
-                        onChange={(event) => setTreatImage(event.target.value)}
-                    />
-                </label>
-            </div>
-            <div>
-                <label htmlFor="price">
-                    Price:
-                    <input
-                        type="number"
-                        name="price"
-                        // to do: adjust width
-                        // maxLength={255} what validation here? also set in DB
-                        placeholder={treat.price}
-                        onChange={(event) => setPrice(event.target.value)}
-                    />
-                </label>
-            </div>
-            <div>
-                <button onClick={() => { setEditing(false) }} className="btn">Cancel</button>
-                <input className="btn" type="submit" name="submit" value="Save Changes" />
-            </div>
-        </form>
-    );
 
 
     return (
@@ -208,14 +136,15 @@ function ItemTreat({ treat }) {
                             <Button variant="contained" color="primary"
                                 onClick={() => { handleClickEdit() }}
                             >Edit treat</Button>
-                            <Button variant="outlined" color="primary"
-                                onClick={() => { handleDelete() }}
-                            >Delete</Button>
                         </>
 
                     </CardContent>
                 </Card>
+                {isEditing
                     ?
+                    <EditTreat
+                    // isEditing={isEditing}
+                    />
                     :
                     null
                 }
