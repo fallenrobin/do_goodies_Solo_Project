@@ -72,15 +72,15 @@ function ItemTreat({ treat }) {
     const handleDelete = () => { //for clicking Delete button on list view
         // console.log('clicked delete');
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
+            title: "Yeet this treat?",
+            text: "If delete, no more eat",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Poof! Your imaginary file has been deleted!", {
+                    swal("Your treat went yeet", {
                         icon: "success",
                     });
                     dispatch({
@@ -89,7 +89,7 @@ function ItemTreat({ treat }) {
                             treat?.id
                     });
                 } else {
-                    swal("Your imaginary file is safe!");
+                    swal("Tasty treat? Can still eat!");
                 }
             });
         
