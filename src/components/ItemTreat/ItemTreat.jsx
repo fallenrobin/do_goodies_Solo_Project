@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import swal from 'sweetalert';
 
 
+import EditTreat from '../EditTreat/EditTreat';
+
 
 //MUI for card
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
@@ -16,6 +18,7 @@ import Button from '@material-ui/core/Button';
 
 //grid for centering
 import Grid from '@material-ui/core/Grid';
+import OpenDialog from '../OpenDialog/OpenDialog'; //for popup
 
 
 
@@ -45,28 +48,14 @@ function ItemTreat({ treat }) {
     const treatEdit = useSelector(store => store.editReducer);
 
 
-    const [treatName, setTreatName] = useState('');
-    const [treatDescription, setTreatDescription] = useState('');
-    const [treatImage, setTreatImage] = useState('');
-    const [price, setPrice] = useState(0);
 
     const classes = useStyles(); //for card
 
     const [isEditing, setEditing] = useState(false); //for edit mode
-    // const [treatToEdit, setTreatToEdit] = useState([])
 
-    // const handleChange = (e) => {
-
-    // }
 
     const handleClickEdit = () => {//for clicking Edit button on list view
         setEditing(true);
-        dispatch({
-            type: 'EDIT_TREAT',
-            payload:
-                treat
-        });
-        // console.log(treatToEdit);
     }
 
     const handleDelete = () => { //for clicking Delete button on list view
@@ -226,9 +215,7 @@ function ItemTreat({ treat }) {
 
                     </CardContent>
                 </Card>
-                {isEditing
                     ?
-                    editingTemplate
                     :
                     null
                 }

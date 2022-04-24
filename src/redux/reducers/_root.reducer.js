@@ -6,6 +6,7 @@ import singleTreatReducer from './singleTreat.reducer';
 import bakesaleReducer from './bakesale.reducer';
 import singleBakesaleReducer from './singleBakesale.reducer';
 import editReducer from './edit.reducer';
+import editModeReducer from './editMode.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   singleTreatReducer,
   bakesaleReducer, 
   singleBakesaleReducer, // will have an id and username if someone is logged in
-  editReducer
+  editReducer,
+  editModeReducer
 });
 
 export default rootReducer;

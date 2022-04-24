@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import ItemTreat from '../ItemTreat/ItemTreat';
+import OpenDialog from '../OpenDialog/OpenDialog';
+import FormTreats from '../FormTreats/FormTreats';
 
 
 
@@ -36,8 +38,14 @@ function ListTreat() {
                     alignItems="flex-start"
                     justifyContent="flex-start"
                     style={{ minHeight: '100vh' }}>
-                    <Button variant="outlined" color="primary"
-                        onClick={() => { history.push('/treatForm') }}>Add Treats</Button>
+                    {/* <Button variant="outlined" color="primary"
+                        onClick={() => { history.push('/treatForm') }}>Add Treats</Button> */}
+                        <OpenDialog
+                        open={open}
+                        onClose={() => setOpen(false)}
+                        aria-labelledby="confirm-dialog"
+                        FormTreats={FormTreats}
+                    />
 
                     {treats?.map((treat, i) => {
                         return ( //loops thru array of treats to create each treat item

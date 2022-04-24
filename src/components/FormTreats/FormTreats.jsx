@@ -9,21 +9,24 @@ function FormTreats() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+
     const [treatName, setTreatName] = useState('');
     const [treatDescription, setTreatDescription] = useState('');
     const [treatImage, setTreatImage] = useState('');
     const [price, setPrice] = useState(0);
+    const newTreat = {
+        treat_name: treatName,
+        treat_description: treatDescription,
+        treat_image: treatImage,
+        price: price
+    };
 
     const handleNewTreat = (event) => {
         event.preventDefault();
         dispatch({
             type: 'ADD_TREAT',
-            payload: {
-                treat_name: treatName,
-                treat_description: treatDescription,
-                treat_image: treatImage,
-                price: price
-            },
+            payload: 
+                newTreat
         });
         // console.log(treatName, treatDescription, treatImage, price);
         setTreatName('');
@@ -31,7 +34,12 @@ function FormTreats() {
         setTreatImage('');
         setPrice('');
         history.push('/treatList');
+
     }
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
 
@@ -60,7 +68,7 @@ function FormTreats() {
                             value={treatDescription}
                             maxLength={255}
                             placeholder="What's it all about?"
-                            // required
+                            required
                             onChange={(event) => setTreatDescription(event.target.value)}
                         />
                     </label>
@@ -84,6 +92,7 @@ function FormTreats() {
                         <input
                             type="number"
                             name="price"
+                            value={price}
                             // to do: adjust width
                             // maxLength={255} what validation here? also set in DB
                             placeholder="Enter dollar amount with or without decimals"
@@ -92,12 +101,12 @@ function FormTreats() {
                     </label>
                 </div>
                 <div>
-                    <button onClick={() => { history.push('/user') }} className="btn">Cancel</button>
+                    {/* <button onClick={history.push('/treatList')} className="btn">Cancel</button> */}
                     <input className="btn" type="submit" name="submit" value="Add treat" />
                 </div>
-                <button style={{justify:'center'}} onClick={() => {
-                    history.push('/treatList')}} className="btn">
-                        Go to Treat List</button>
+                {/* <button style={{justify:'center'}} onClick={() => {
+                    setOpen(false)}} className="btn">
+                        Go to Treat List</button> */}
             </form>
         </>
     );

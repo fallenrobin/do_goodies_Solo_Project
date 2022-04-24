@@ -41,6 +41,7 @@ function* fetchTreatDetail(action) {
 }
 
 function* editTreat(action) {
+<<<<<<< HEAD
   const id = action.payload.id; //because all threat info expected in payload
   // console.log('SAGA edit treat:', action.payload.id);
 
@@ -65,6 +66,19 @@ function* deleteTreat(action) {
 
   } catch (error) {
     console.log('Error with deleteTreat saga:', error);
+=======
+
+  const id = action.payload;
+  console.log('SAGA edit treat id:', id);
+
+  try {
+    const treats = yield axios.get(`/api/treat/detail/${id}`);
+
+    yield put({ type: 'SET_SINGLE_TREAT', payload: treats.data}); //set selected treat in treatReducer
+
+  } catch (error) {
+    console.log('Error with fetchTreatDetail saga:', error);
+>>>>>>> feature-edit-treat
   }
 }
 
@@ -73,8 +87,12 @@ function* treatSaga() {
   yield takeLatest('ADD_TREAT', addTreat);
   yield takeLatest('FETCH_TREATS', fetchTreats);
   yield takeLatest('FETCH_TREAT_DETAIL', fetchTreatDetail);
+<<<<<<< HEAD
   yield takeLatest('SUBMIT_EDIT_TREAT', editTreat);
   yield takeLatest('DELETE_TREAT', deleteTreat);
+=======
+  // yield takeLatest('EDIT_TREAT', editTreat);
+>>>>>>> feature-edit-treat
 
 }
 
