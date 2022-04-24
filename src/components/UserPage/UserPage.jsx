@@ -13,6 +13,12 @@ function UserPage() {
     <div className="container">
 
       <h2>Welcome, {user.username}!</h2>
+
+      
+      <img src={require("./cakeDecorating.jpeg")} alt={"Baker cat"}
+      style={{ width: 200, height: 200, borderRadius: 400 / 2, zIndex: '7' }}/>
+
+
       <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" />
       <button onClick={() => { history.push('/treatList') }}>Treats List</button>
