@@ -62,13 +62,14 @@ export default function BakesaleAddTreats() {
     const theme = useTheme();
     const [treatName, setTreatName] = React.useState([]);
     const treats = useSelector((store) => store.treatReducer);
-    // console.log('BAKESALE ADD TREATS checking data type of treats:', treats);
 
 
     const handleChange = (event) => {
         setTreatName(event.target.value);
     };
 
+    console.log('checking state after select:', treatName); //shows React.useState capturing names
+    //FIXME how to make it capture the ID instead??
 
     return (
         <div>
@@ -93,7 +94,7 @@ export default function BakesaleAddTreats() {
                 >
                     {treats
                         .map((treat) => (
-                            <MenuItem key={treat.id} value={treat.treat_name} style={getStyles(treat.id, treat.treat_name, theme)}>
+                            <MenuItem key={treat.id} value={treat.treat_name} style={getStyles(treat.treat_name, treat.treat_name, theme)}>
                                 {treat.treat_name}
                             </MenuItem>
                         ))}
