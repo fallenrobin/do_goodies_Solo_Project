@@ -46,10 +46,12 @@ const MenuProps = {
 //     'fizz buns',
 // ];
 
-function getStyles(treats, treatName, theme) {
+// treat, treatName, theme //from params of getStyles, below
+
+function getStyles(treat, treatName, theme) {
     return {
         fontWeight:
-            treatName.indexOf(treats) === -1
+            treatName.indexOf(treat) === -1
                 ? theme.typography.fontWeightRegular
                 : theme.typography.fontWeightMedium,
     };
@@ -60,6 +62,7 @@ export default function BakesaleAddTreats() {
     const theme = useTheme();
     const [treatName, setTreatName] = React.useState([]);
     const treats = useSelector((store) => store.treatReducer);
+    // console.log('BAKESALE ADD TREATS checking data type of treats:', treats);
 
 
     const handleChange = (event) => {
@@ -89,9 +92,9 @@ export default function BakesaleAddTreats() {
                     MenuProps={MenuProps}
                 >
                     {treats
-                        .map((treats) => (
-                            <MenuItem key={treats} value={treats} style={getStyles(treats, treatName, theme)}>
-                                {treats}
+                        .map((treat) => (
+                            <MenuItem key={treat.id} value={treat.treat_name} style={getStyles(treat.id, treat.treat_name, theme)}>
+                                {treat.treat_name}
                             </MenuItem>
                         ))}
                 </Select>
