@@ -133,9 +133,15 @@ function ItemTreat({ treat }) {
                             <img key={treat.id} onClick={handleDetailView}
                                 src={treat.treat_image} alt={treat.treat_name}></img>
                             {/* "https://fakeimg.pl/200x200/" filler images above for now*/}
-                            <Button variant="contained" color="primary"
+                            {/* <Button variant="contained" color="primary"
                                 onClick={() => { handleClickEdit() }}
-                            >Edit treat</Button>
+                            >Edit treat</Button> */}
+                            <OpenDialog
+                        open={open}
+                        onClose={() => setOpen(false)}
+                        aria-labelledby="confirm-dialog"
+                        EditTreat={EditTreat}
+                    />
                         </>
 
                     </CardContent>

@@ -24,6 +24,7 @@ export default function OpenDialog() {
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogContent>
+                    {/* TODO how to make this form generic?? */}
                     {open ?
                         <FormTreats
                             handleClose={handleClose}

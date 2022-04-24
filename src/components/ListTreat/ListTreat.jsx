@@ -38,8 +38,7 @@ function ListTreat() {
                     alignItems="flex-start"
                     justifyContent="flex-start"
                     style={{ minHeight: '100vh' }}>
-                    {/* <Button variant="outlined" color="primary"
-                        onClick={() => { history.push('/treatForm') }}>Add Treats</Button> */}
+                    {/* OpenDialog pops open to add new treat */}
                         <OpenDialog
                         open={open}
                         onClose={() => setOpen(false)}
