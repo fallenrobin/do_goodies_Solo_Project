@@ -51,18 +51,13 @@ function ItemBakesale({ bakesale }) {
                 <Card className={classes.root} variant="outlined">
                     <CardContent>
 
-
-                        {/* <Typography>
-                        <p key={movie.id} >
-                        <h2>{movie.title}</h2></p>
-
-                        </Typography> (looks better without the title)*/}
                         <div>
-                            <p>{bakesale.org_name}, {bakesale.org_description}</p>
+                            <h3>{bakesale.org_name}</h3>
+                            <p>{bakesale.org_description}</p>
+
                             <img key={bakesale.id} onClick={handleDetailView}
                                 src={bakesale.org_image} alt={bakesale.org_name}></img>
-                            <p>{bakesale.org_website} Fundraising goal: {bakesale.fundraising_goal}</p>
-                            {/* filler images above for now*/}
+
                         </div>
 
 

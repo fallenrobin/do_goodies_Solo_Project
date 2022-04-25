@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     root: {
         width: 100,
         height: 200,
-        marginTop:'30px'
+        marginTop: '30px'
     },
 })
 
@@ -41,9 +41,6 @@ function DetailBakesale() {
     console.log('in details page... selected bakesale data:', bakesale[0]);
     console.log('should say bakesale name:', bakesale[0]?.org_name);
 
-    // TODO turn this into full screen?? Alter layout / text size etc
-    // TODO add fundraising progress bar?.. Add treats somehow
-
 
     return (
 
@@ -61,11 +58,18 @@ function DetailBakesale() {
 
                             <div key={bakesale[0]?.id} >
 
-                                <h3>{bakesale[0]?.treat_name}</h3>
+                                {/* <h3>{bakesale[0]?.treat_name}</h3> */}
+                                <h3>{bakesale[0]?.org_name}</h3>
+
 
                                 <img alt={bakesale[0]?.org_name} src={bakesale[0]?.org_image} />
 
                                 <p className="descriptionText">{bakesale[0]?.org_description}</p>
+                                <p>{bakesale.org_website}</p>
+                                <p>Fundraising goal: {bakesale.fundraising_goal}</p>
+                                {/* TODO add associated treats
+                                    TODO turn this into full screen??
+                                    TODO add fundraising progress bar?*/}
                             </div>
 
                             <Button variant="outlined" color="primary"
