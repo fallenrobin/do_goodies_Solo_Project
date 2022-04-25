@@ -25,10 +25,11 @@ function ListBakesale() {
         <main>
             <section>
                 <Grid
-                    container spacing={2}
-                    direction="row"
-                    alignItems="flex-start"
-                    justifyContent="flex-start"
+                    container
+                    spacing={2}
+                    // margin-top="20px"TODO give top of Grid margin to avoid button??
+                    direction="column"
+                    alignItems="center"
                     style={{ minHeight: '100vh' }}>
 
                 {bakesales?.map((bakesale, i) => {

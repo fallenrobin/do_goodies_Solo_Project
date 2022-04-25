@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 
 //MUI for card
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -14,14 +13,12 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
 
-const useStyles = makeStyles((theme) =>
-    createStyles({
-        root: {
-            width: 100,
-            height: 200,
-        },
-    }),
-);
+const useStyles = makeStyles({
+    root: {
+        width: 100,
+        height: 200,
+    },
+})
 
 
 function DetailBakesale() {
@@ -30,6 +27,8 @@ function DetailBakesale() {
     const history = useHistory();
     const { id } = useParams();
     const dispatch = useDispatch();
+    const classes = useStyles();
+
 
     useEffect(() => {// asks for one bakesale from DB on page load
         dispatch({
@@ -46,25 +45,23 @@ function DetailBakesale() {
 
         <>
             <Grid
+                className={classes.root}
                 align="center"
                 container
                 direction="column"
                 alignItems="center"
-                justifyContent="center"
             >
                 <Grid item xs={4}>
                     <Card style={{ minWidth: 300, maxWidth: 450 }} variant="outlined">
                         <CardContent>
 
                             <div key={bakesale[0]?.id} >
-                                <Typography variant="h4">
+
                                 <h3>{bakesale[0]?.treat_name}</h3>
-                                </Typography >
+
                                 <img alt={bakesale?.org_name} src="https://fakeimg.pl/400x400/" />
 
-                                <Typography variant="h5">
                                 <p className="descriptionText">{bakesale[0]?.org_description}</p>
-                                </Typography>
                             </div>
 
                             <Button variant="outlined" color="primary"
