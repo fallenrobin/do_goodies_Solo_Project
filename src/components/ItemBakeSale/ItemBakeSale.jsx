@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) =>
             maxWidth: 375,
             // height: 400
             minHeight: 200,
-            maxHeight: 400
+            // maxHeight: 400
         },
     }),
 );
@@ -46,7 +46,7 @@ function ItemBakesale({ bakesale }) {
         //each card created as the .map loops thru array of treats
         <>
             <Grid
-                item md={4}
+                item xs={11}
             >
                 <Card className={classes.root} variant="outlined">
                     <CardContent>
@@ -60,7 +60,7 @@ function ItemBakesale({ bakesale }) {
                         <div>
                             <p>{bakesale.org_name}, {bakesale.org_description}</p>
                             <img key={bakesale.id} onClick={handleDetailView}
-                                src="https://fakeimg.pl/300x200/" alt={bakesale.org_name}></img>
+                                src={bakesale.org_image} alt={bakesale.org_name}></img>
                             <p>{bakesale.org_website} Fundraising goal: {bakesale.fundraising_goal}</p>
                             {/* filler images above for now*/}
                         </div>

@@ -58,7 +58,8 @@ function DetailTreat() {
 
                             <div key={treat[0]?.id} >
                                 <h3>{treat[0]?.treat_name}</h3>
-                                <img alt={treat?.treat_name} src="https://fakeimg.pl/400x400/" />
+                                <img alt={treat?.treat_name} src={treat[0]?.treat_image} />
+                                {/* TODO add price badge or similar */}
 
                                 <p className="descriptionText">{treat[0]?.treat_description}</p>
                             </div>

@@ -41,6 +41,9 @@ function DetailBakesale() {
     console.log('in details page... selected bakesale data:', bakesale[0]);
     console.log('should say bakesale name:', bakesale[0]?.org_name);
 
+    // TODO turn this into full screen?? Alter layout / text size etc
+    // TODO add fundraising progress bar?.. Add treats somehow
+
 
     return (
 
@@ -60,7 +63,7 @@ function DetailBakesale() {
 
                                 <h3>{bakesale[0]?.treat_name}</h3>
 
-                                <img alt={bakesale?.org_name} src="https://fakeimg.pl/400x400/" />
+                                <img alt={bakesale[0]?.org_name} src={bakesale[0]?.org_image} />
 
                                 <p className="descriptionText">{bakesale[0]?.org_description}</p>
                             </div>
