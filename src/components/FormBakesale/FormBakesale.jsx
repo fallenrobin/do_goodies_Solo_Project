@@ -1,19 +1,37 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button';
 
-
+const useStyles = makeStyles({
+    btn: {
+        backgroundColor: "#84C3C8",
+        color: 'white',
+        '&:hover': {
+            backgroundColor: "#42929D"
+        },
+    },
+    addBakesale: {
+        position: "fixed",
+        top: "3px",
+        left: "5px"
+    }
+})
 
 function FormBakesale() {
 
     const dispatch = useDispatch();
     const history = useHistory();
+    const classes = useStyles();
+
 
     const [bakesaleName, setBakesaleName] = useState('');
     const [bakesaleDescription, setBakesaleDescription] = useState('');
     const [bakesaleImage, setBakesaleImage] = useState('');
     const [website, setWebsite] = useState('');
     const [goal, setGoal] = useState(0);
+
 
     const handleNewBakesale = (event) => {
         event.preventDefault();
@@ -109,8 +127,11 @@ function FormBakesale() {
                     </label>
                 </div>
                 <div>
-                    <button onClick={() => history.goBack()} className="btn">Back</button>
-                    <input className="btn" type="submit" name="submit" value="Save" />
+
+                    {/* <input className="btn" type="submit" name="submit" value="Save" /> */}
+                    <Button className={classes.btn}
+                        type="submit" name="submit">Add Bakesale
+                    </Button>
                 </div>
             </form>
         </>
