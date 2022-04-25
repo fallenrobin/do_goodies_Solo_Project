@@ -46,12 +46,12 @@ const MenuProps = {
 //     'fizz buns',
 // ];
 
-// treat, treatName, theme //from params of getStyles, below
+// treat, selectedTreats, theme //from params of getStyles, below
 
-function getStyles(treat, treatName, theme) {
+function getStyles(treat, selectedTreats, theme) {
     return {
         fontWeight:
-            treatName.indexOf(treat) === -1
+            selectedTreats.indexOf(treat) === -1
                 ? theme.typography.fontWeightRegular
                 : theme.typography.fontWeightMedium,
     };
@@ -60,21 +60,33 @@ function getStyles(treat, treatName, theme) {
 export default function BakesaleAddTreats() {
     const classes = useStyles();
     const theme = useTheme();
-    const [treatName, setTreatName] = React.useState([]);
-    const [treatId, setTreatId] = React.useState([]);
+    const [selectedTreats, setSelectedTreats] = React.useState([]);
+    const [selectedTreatId, setSelectedTreatId] = React.useState([]);
 
     const treats = useSelector((store) => store.treatReducer);
 
 
     const handleChange = (event) => {
-        setTreatName(event.target.value);
-        console.log('treats are',treats);
-        console.log('id is',event.target);
-        setTreatId(event.target.name);
+        setSelectedTreats(event.target.value);
+        // console.log('treats are',treats);
+        console.log('selected info is', event.target);
+        grabTreatIDs();
     };
 
-    console.log('checking state after select:', treatName); //shows React.useState capturing names
-    console.log('checking state after select:', treatId);
+    const grabTreatIDs = () => {
+        const tempIds = []
+        {
+            selectedTreats.map((treat) => (
+                tempIds.push(treat.id)
+            ))
+        };
+        // console.log(tempIds);
+        // setSelectedTreatId([tempIds]);
+        // console.log('selected ids should be:', selectedTreatId);
+    }
+
+
+    console.log('checking state after select:', selectedTreats); //shows React.useState capturing names
     //TODO how to make it capture the ID instead?? 
     //TODO link to a dispatch (and make button)
 
@@ -87,13 +99,13 @@ export default function BakesaleAddTreats() {
                     labelId="demo-multiple-chip-label"
                     id="demo-multiple-chip"
                     multiple
-                    value={treatName}
+                    value={selectedTreats}
                     onChange={handleChange}
                     input={<Input id="select-multiple-chip" />}
                     renderValue={(selected) => (
                         <div className={classes.chips}>
                             {selected.map((value) => (
-                                <Chip key={value} id={value.id} label={value.treat_name} className={classes.chip} />
+                                <Chip key={value.id} label={value.treat_name} className={classes.chip} />
                             ))}
                         </div>
                     )}
