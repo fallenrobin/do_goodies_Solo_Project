@@ -6,7 +6,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import FormTreats from '../FormTreats/FormTreats';
 import { makeStyles } from '@material-ui/core/styles'
-
+import classNames from 'classnames';
 
 const useStyles = makeStyles({
     btn: {
@@ -44,7 +44,7 @@ export default function OpenDialog() {
             {/* TODO move button so it's not off screen */}
             <Button variant="contained" 
             color="primary" 
-            className={[classes.btn, classes.addTreat]} 
+            className={classNames(classes.btn, classes.addTreat)} 
             onClick={handleClickOpen}>
                 Add treat
             </Button>
