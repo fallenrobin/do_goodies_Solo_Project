@@ -1,13 +1,33 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button';
 
+
+
+const useStyles = makeStyles({
+    btn: {
+        backgroundColor: "#84C3C8",
+        color: 'black',
+        '&:hover': {
+            backgroundColor: "#42929D"
+        },
+    },
+    addTreat: {
+        position: "fixed",
+        top: "3px",
+        left: "5px"
+    }
+})
 
 
 function FormTreats() {
 
     const dispatch = useDispatch();
     const history = useHistory();
+    const classes = useStyles();
+
 
 
     const [treatName, setTreatName] = useState('');
@@ -102,7 +122,8 @@ function FormTreats() {
                 </div>
                 <div>
                     {/* <button onClick={history.push('/treatList')} className="btn">Cancel</button> */}
-                    <input className="btn" type="submit" name="submit" value="Add treat" />
+                    <Button className={classes.btn} 
+                    type="submit" name="submit">Add treat</Button>
                 </div>
                 {/* <button style={{justify:'center'}} onClick={() => {
                     setOpen(false)}} className="btn">

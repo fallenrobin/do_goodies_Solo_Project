@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import ItemBakesale from '../ItemBakesale/ItemBakesale';
+import OpenDialog from '../OpenDialog/OpenDialog';
+
 
 
 import Button from '@material-ui/core/Button';
@@ -31,17 +33,23 @@ function ListBakesale() {
                     direction="column"
                     alignItems="center"
                     style={{ minHeight: '100vh' }}>
+                    <OpenDialog
+                        open={open}
+                        onClose={() => setOpen(false)}
+                        aria-labelledby="confirm-dialog"
+                        // FormTreats={FormTreats}
+                    />
 
-                {bakesales?.map((bakesale, i) => {
-                    return ( //loops thru array of treats to create each treat item
-                        <ItemBakesale
-                            key={i}
-                            bakesale={bakesale}
-                        />);
-                })}
+                    {bakesales?.map((bakesale, i) => {
+                        return ( //loops thru array of treats to create each treat item
+                            <ItemBakesale
+                                key={i}
+                                bakesale={bakesale}
+                            />);
+                    })}
 
-                <Button variant="outlined" color="primary" 
-                onClick={ () => {history.push('/bakesaleForm')}}>Add Bakesale</Button>
+                    <Button variant="outlined" color="primary"
+                        onClick={() => { history.push('/bakesaleForm') }}>Add Bakesale</Button>
 
                 </Grid>
             </section>

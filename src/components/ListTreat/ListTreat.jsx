@@ -44,6 +44,7 @@ function ListTreat() {
                         onClose={() => setOpen(false)}
                         aria-labelledby="confirm-dialog"
                         FormTreats={FormTreats}
+                        // FIXME make open dialog generic??
                     />
 
                     {treats?.map((treat, i) => {

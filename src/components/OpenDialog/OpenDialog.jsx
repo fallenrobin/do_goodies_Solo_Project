@@ -61,7 +61,7 @@ export default function OpenDialog() {
                 </DialogContent>
                 <DialogActions>
                     <Button 
-                    className={classes.btn} 
+                    // className={classes.btn} //more subtle non-button appearance
                     onClick={handleClose} color="primary">
                         Cancel
                     </Button>
