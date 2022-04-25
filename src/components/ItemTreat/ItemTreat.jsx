@@ -47,11 +47,11 @@ function ItemTreat({ treat }) {
     const classes = useStyles(); //for card
 
     const [isEditing, setEditing] = useState(false); //for edit mode
-    // const [treatToEdit, setTreatToEdit] = useState();
 
-    // const handleChange = (e) => {
 
-    // }
+    /* This is for non-dialog pop-down edit form; button for it below is also commented out
+    
+    const [treatToEdit, setTreatToEdit] = useState();
 
     const handleClickEdit = () => {
         setEditing(true);
@@ -62,7 +62,7 @@ function ItemTreat({ treat }) {
             },
         });
         // console.log(treatToEdit);
-    }
+    }*/
 
     const handleDetailView = () => {
         console.log('clicked into HandleDetailView, treat id is:', treat.id);
@@ -92,27 +92,29 @@ function ItemTreat({ treat }) {
                                 {/* FIXME prevent SQL from changing URL?? 
                                 or: https://fakeimg.pl/350x200/?text=Tasty&font=lobster
                                 */}
+
                             {/* <Button variant="contained" color="primary"
                                 onClick={() => { handleClickEdit() }}
-                            >Edit treat</Button> */}
+                            >Edit treat</Button> //for pop-down version of edit form*/}
+
                             <OpenDialog
                                 open={open}
                                 onClose={() => setOpen(false)}
                                 aria-labelledby="confirm-dialog"
-                                // EditTreat={EditTreat} //can i use OpenDialog as generic form and pass this in??
+                                // TODO EditTreat={EditTreat} //can I use OpenDialog as a generic form and pass this in??
                             />
                             {/* FIXME issue with conflicting IDs between images and edit dialog?? */}
                         </>
 
                     </CardContent>
                 </Card>
-                {isEditing
+                {/* {isEditing
                     ?
                     <EditTreat
                     />
                     :
                     null
-                }
+                } */}
             </Grid>
         </>
     )

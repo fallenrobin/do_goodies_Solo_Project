@@ -45,6 +45,7 @@ function ListTreat() {
                         aria-labelledby="confirm-dialog"
                         FormTreats={FormTreats}
                         // FIXME make open dialog generic??
+                        //FIXME make it so nav bar doesn't get pushed down on page load?
                     />
 
                     {treats?.map((treat, i) => {
