@@ -61,14 +61,20 @@ export default function BakesaleAddTreats() {
     const classes = useStyles();
     const theme = useTheme();
     const [treatName, setTreatName] = React.useState([]);
+    const [treatId, setTreatId] = React.useState([]);
+
     const treats = useSelector((store) => store.treatReducer);
 
 
     const handleChange = (event) => {
         setTreatName(event.target.value);
+        console.log('treats are',treats);
+        console.log('id is',event.target);
+        setTreatId(event.target.name);
     };
 
     console.log('checking state after select:', treatName); //shows React.useState capturing names
+    console.log('checking state after select:', treatId);
     //TODO how to make it capture the ID instead?? 
     //TODO link to a dispatch (and make button)
 
@@ -87,7 +93,7 @@ export default function BakesaleAddTreats() {
                     renderValue={(selected) => (
                         <div className={classes.chips}>
                             {selected.map((value) => (
-                                <Chip key={value} label={value} className={classes.chip} />
+                                <Chip key={value} id={value.id} label={value.treat_name} className={classes.chip} />
                             ))}
                         </div>
                     )}
@@ -95,7 +101,7 @@ export default function BakesaleAddTreats() {
                 >
                     {treats
                         .map((treat) => (
-                            <MenuItem key={treat.id} value={treat.id} style={getStyles(treat.treat_name, treat.treat_name, theme)}>
+                            <MenuItem key={treat.id} value={treat} name={treat.id} style={getStyles(treat.treat_name, treat.treat_name, theme)}>
                                 {treat.treat_name}
                             </MenuItem>
                         ))}
