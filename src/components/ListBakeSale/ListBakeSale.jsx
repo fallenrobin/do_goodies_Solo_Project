@@ -47,9 +47,12 @@ function ListBakesale() {
                                 bakesale={bakesale}
                             />);
                     })}
+                    
+                    {/* FIXME make bottom of last card float above nav bar */}
 
-                    <Button variant="outlined" color="primary"
-                        onClick={() => { history.push('/bakesaleForm') }}>Add Bakesale</Button>
+                    {/* <Button variant="outlined" color="primary"
+                        onClick={() => { history.push('/bakesaleForm') }}>Add Bakesale</Button> 
+                        redundant, if using OpenDialog */}
 
                 </Grid>
             </section>
