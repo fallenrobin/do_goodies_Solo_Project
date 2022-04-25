@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import EditTreat from '../EditTreat/EditTreat';
+import swal from 'sweetalert';
+
 
 
 //MUI for card
@@ -100,7 +102,7 @@ function ItemTreat({ treat }) {
     //     treat_name: treatName,
     //     treat_description: treatDescription,
     //     treat_image: treatImage,
-    //     // FIXME: deal with image
+    //     // FIXME: deal with image somehow
     //     price: price
     // }
 
@@ -213,6 +215,7 @@ function ItemTreat({ treat }) {
                             <img key={treat.id} onClick={handleDetailView}
                                 src={treat.treat_image} alt={treat.treat_name}></img>
                                 {/* FIXME prevent SQL from changing URL?? 
+                                {treat.treat_image} with {require("./logo.png")} in DB comes back as "{require(\"./logo.png\")}"
                                 or: https://fakeimg.pl/350x200/?text=Tasty&font=lobster
                                 */}
 
