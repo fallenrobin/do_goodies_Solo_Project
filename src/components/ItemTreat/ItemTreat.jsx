@@ -63,7 +63,7 @@ function ItemTreat({ treat }) {
         });
         // console.log(treatToEdit);
     }*/
-    }
+    
 
     const handleDelete = () => { //for clicking Delete button on list view
         // console.log('clicked delete');
