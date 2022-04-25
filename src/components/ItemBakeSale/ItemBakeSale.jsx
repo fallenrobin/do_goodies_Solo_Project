@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 
 //MUI for card
-import { makeStyles, createStyles} from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -57,7 +57,7 @@ function ItemBakesale({ bakesale }) {
 
                             <img key={bakesale.id} onClick={handleDetailView}
                                 src={bakesale.org_image} alt={bakesale.org_name}></img>
-
+                            <BakesaleAddTreats />
                         </div>
 
 
