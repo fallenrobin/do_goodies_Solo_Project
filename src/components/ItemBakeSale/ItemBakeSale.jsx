@@ -9,6 +9,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 //grid for centering
 import Grid from '@material-ui/core/Grid';
+import BakesaleAddTreats from '../BakesaleAddTreats/BakesaleAddTreats';
 
 
 

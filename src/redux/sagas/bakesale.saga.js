@@ -19,6 +19,8 @@ function* fetchBakesales() {
       const bakesales = yield axios.get('/api/bakesale/fetchBakesales');
       console.log('fetching bakesales:', bakesales.data);
       yield put({ type: 'SET_BAKESALES', payload: bakesales.data }); //set in bakesaleReducer
+      yield put({ type: 'FETCH_TREATS' }); //GET so treats are available in store for BakesaleAddTreats
+
   
     } catch (error) {
       console.log('Error with fetchBakesale saga:', error);

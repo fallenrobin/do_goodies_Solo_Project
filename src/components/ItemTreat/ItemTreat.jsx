@@ -63,12 +63,131 @@ function ItemTreat({ treat }) {
         });
         // console.log(treatToEdit);
     }*/
+    }
+
+    const handleDelete = () => { //for clicking Delete button on list view
+        // console.log('clicked delete');
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, this treat will be gone!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Your sweet treat is now delete.", {
+                        icon: "success",
+                    });
+                    dispatch({
+                        type: 'DELETE_TREAT',
+                        payload:
+                            treat?.id
+                    });
+                } else {
+                    swal("Your treat is intact!");
+                }
+            });
+        
+    }
+
+    const newTreat = {
+        id: treatEdit?.id,
+        treat_name: treatName,
+        treat_description: treatDescription,
+        treat_image: treatImage,
+        // FIXME: deal with image
+        price: price
+    }
+
+    const handleEditTreat = (event) => { //for clicking Save Changes button on Edit form
+        event.preventDefault();
+        console.log('clicked Save Changes');
+        dispatch({
+            type: 'SUBMIT_EDIT_TREAT',
+            payload:
+                newTreat
+        });
+        setTreatName('');
+        setTreatDescription('');
+        setTreatImage('');
+        setPrice('');
+        setEditing(false);
+        // history.push('/treatList'); redundant if editing = false
+    }
+
+
 
     const handleDetailView = () => {
         console.log('clicked into HandleDetailView, treat id is:', treat.id);
         dispatch({ type: 'FETCH_TREAT_DETAIL', payload: treat.id })//will trigger fetchDetail saga
         history.push(`/treatDetail/${treat.id}`);//'moves' user to page view with treat details
     }
+
+    const editingTemplate = (
+        <form onSubmit={handleEditTreat}>
+            <h2>Edit Treat</h2>
+
+            <div>
+                <label htmlFor="treatName">
+                    Name of treat:
+                    <input
+                        type="text"
+                        name="treat"
+                        value={treatName}
+                        placeholder={treat.treat_name}
+                        required
+                        onChange={(event) => setTreatName(event.target.value)}
+                    />
+                </label>
+            </div>
+            <div>
+                <label htmlFor="treatDescription">
+                    Describe this treat:
+                    <input
+                        type="treatDescription"
+                        name="treatDescription"
+                        value={treatDescription}
+                        maxLength={255}
+                        placeholder={treat.treat_description}
+                        // required
+                        onChange={(event) => setTreatDescription(event.target.value)}
+                    />
+                </label>
+            </div>
+            <div>
+                <label htmlFor="treatImage">
+                    Picture:
+                    <input
+                        type="text"
+                        name="treatImage"
+                        value={treatImage}
+                        maxLength={255}
+                        placeholder="Paste image link"
+                        onChange={(event) => setTreatImage(event.target.value)}
+                    />
+                </label>
+            </div>
+            <div>
+                <label htmlFor="price">
+                    Price:
+                    <input
+                        type="number"
+                        name="price"
+                        // to do: adjust width
+                        // maxLength={255} what validation here? also set in DB
+                        placeholder={treat.price}
+                        onChange={(event) => setPrice(event.target.value)}
+                    />
+                </label>
+            </div>
+            <div>
+                <button onClick={() => { setEditing(false) }} className="btn">Cancel</button>
+                <input className="btn" type="submit" name="submit" value="Save Changes" />
+            
+            </div>
+        </form>
+    );
 
 
     return (
