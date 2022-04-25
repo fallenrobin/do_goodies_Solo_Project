@@ -35,11 +35,11 @@ function ListTreat() {
                     container
                     spacing={2}
                     // margin-top="20px"TODO give top of Grid margin to avoid button??
-                    alignItems="flex-start"
-                    justifyContent="flex-start"
+                    direction="column"
+                    alignItems="center"
                     style={{ minHeight: '100vh' }}>
                     {/* OpenDialog pops open to add new treat */}
-                        <OpenDialog
+                    <OpenDialog
                         open={open}
                         onClose={() => setOpen(false)}
                         aria-labelledby="confirm-dialog"
