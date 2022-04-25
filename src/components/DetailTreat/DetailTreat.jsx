@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 
 //MUI for card
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -13,14 +13,13 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            width: 100,
-            height: 200,
-        },
-    }),
-);
+const useStyles = makeStyles({
+    root: {
+        width: 100,
+        height: 200,
+    },
+})
+
 
 
 function DetailTreat() {
@@ -29,6 +28,7 @@ function DetailTreat() {
     const history = useHistory();
     const { id } = useParams();
     const dispatch = useDispatch();
+    const classes = useStyles();
 
     useEffect(() => {// asks for one treat from DB on page load
         dispatch({
@@ -45,21 +45,21 @@ function DetailTreat() {
 
         <>
             <Grid
+                className={classes.root}
                 align="center"
                 container
                 direction="column"
                 alignItems="center"
-                justify="center"
             >
                 <Grid item xs={4}>
                     <Card style={{ minWidth: 300, maxWidth: 450 }} variant="outlined">
                         <CardContent>
 
                             <div key={treat[0]?.id} >
-                                    <h3>{treat[0]?.treat_name}</h3>
+                                <h3>{treat[0]?.treat_name}</h3>
                                 <img alt={treat?.treat_name} src="https://fakeimg.pl/400x400/" />
 
-                                    <p className="descriptionText">{treat[0]?.treat_description}</p>
+                                <p className="descriptionText">{treat[0]?.treat_description}</p>
                             </div>
 
                             <Button variant="outlined" color="primary"
