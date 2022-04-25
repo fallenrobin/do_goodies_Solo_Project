@@ -5,6 +5,23 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import FormTreats from '../FormTreats/FormTreats';
+import { makeStyles } from '@material-ui/core/styles'
+
+
+const useStyles = makeStyles({
+    btn: {
+        backgroundColor: "#84C3C8",
+        color: 'black',
+        '&:hover': {
+            backgroundColor: "#42929D"
+        },
+    },
+    addTreat: {
+        position: "fixed",
+        top: "3px",
+        left: "5px"
+    }
+})
 
 export default function OpenDialog() {
     const [open, setOpen] = React.useState(false);
@@ -17,9 +34,18 @@ export default function OpenDialog() {
         setOpen(false);
     };
 
+    const classes = useStyles();
+
+
     return (
+
+
         <div>
-            <Button variant="contained" color="primary" onClick={handleClickOpen}>
+            {/* TODO move button so it's not off screen */}
+            <Button variant="contained" 
+            color="primary" 
+            className={[classes.btn, classes.addTreat]} 
+            onClick={handleClickOpen}>
                 Add treat
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -32,45 +58,14 @@ export default function OpenDialog() {
                         :
                         null
                     }
-
-                    {/* <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="What is this treat called?"
-            type="text"
-            fullWidth
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Describe this tasty treat!"
-            type="text"
-            fullWidth
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Add image link, if you like"
-            type="text"
-            fullWidth
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="What is the price?"
-            type="number"
-            fullWidth
-          /> */}
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    <Button 
+                    className={classes.btn} 
+                    onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    {/* <Button onClick={handleClose} color="primary">
+                    {/* TODO<Button onClick={handleClose} color="primary">
                         Add treat
                     </Button> Can I keep generic but wire to FormTreat??*/}
                 </DialogActions>

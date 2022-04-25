@@ -34,7 +34,7 @@ function ListTreat() {
                 <Grid
                     container
                     spacing={2}
-                    direction="row"
+                    // margin-top="20px"TODO give top of Grid margin to avoid button??
                     alignItems="flex-start"
                     justifyContent="flex-start"
                     style={{ minHeight: '100vh' }}>

@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 
 //MUI for card
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -57,14 +56,10 @@ function DetailTreat() {
                         <CardContent>
 
                             <div key={treat[0]?.id} >
-                                <Typography variant="h4">
                                     <h3>{treat[0]?.treat_name}</h3>
-                                </Typography >
                                 <img alt={treat?.treat_name} src="https://fakeimg.pl/400x400/" />
 
-                                <Typography variant="h5">
                                     <p className="descriptionText">{treat[0]?.treat_description}</p>
-                                </Typography>
                             </div>
 
                             <Button variant="outlined" color="primary"
