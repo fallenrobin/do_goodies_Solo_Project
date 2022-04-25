@@ -17,16 +17,17 @@ const useStyles = makeStyles({
         },
     },
     addTreat: {
-        position: "fixed",
         top: "3px",
         left: "5px"
     }
 })
 
-export default function OpenDialog() {
+export default function OpenDialog({title, children, component}) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
+        //CALL THE FUNCTION GIVEN, IF EXISTS?
+
         setOpen(true);
     };
 
@@ -35,6 +36,9 @@ export default function OpenDialog() {
     };
 
     const classes = useStyles();
+
+    //QUESTION make a const to handle which form is being passed in??
+    const InnerComponent = component || (() => children);
 
 
     return (
@@ -45,19 +49,15 @@ export default function OpenDialog() {
             <Button variant="contained" 
             color="primary" 
             className={classNames(classes.btn, classes.addTreat)} 
-            onClick={handleClickOpen}>
-                Add treat
+            onClick={handleClickOpen}
+            >
+                {title}
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogContent>
                     {/* TODO how to make this form generic?? */}
-                    {open ?
-                        <FormTreats
-                            handleClose={handleClose}
-                        />
-                        :
-                        null
-                    }
+                    {open && <InnerComponent /> }
+                  
                 </DialogContent>
                 <DialogActions>
                     <Button 

@@ -43,15 +43,17 @@ function ListTreat() {
                         open={open}
                         onClose={() => setOpen(false)}
                         aria-labelledby="confirm-dialog"
-                        FormTreats={FormTreats}
+                        title="add treat"
                         // FIXME make open dialog generic??
                         //FIXME make it so nav bar doesn't get pushed down on page load?
-                    />
+                    >
+                        <FormTreats />
+                    </OpenDialog>
 
-                    {treats?.map((treat, i) => {
+                    {treats?.map((treat) => {
                         return ( //loops thru array of treats to create each treat item
                             <ItemTreat
-                                key={i}
+                                key={treat.id}
                                 treat={treat}
                             />);
                     })}

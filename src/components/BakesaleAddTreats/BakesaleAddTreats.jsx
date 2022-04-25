@@ -95,7 +95,7 @@ export default function BakesaleAddTreats() {
                 >
                     {treats
                         .map((treat) => (
-                            <MenuItem key={treat.id} value={treat.treat_name} style={getStyles(treat.treat_name, treat.treat_name, theme)}>
+                            <MenuItem key={treat.id} value={treat.id} style={getStyles(treat.treat_name, treat.treat_name, theme)}>
                                 {treat.treat_name}
                             </MenuItem>
                         ))}

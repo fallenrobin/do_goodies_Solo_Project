@@ -16,12 +16,12 @@ function EditTreat() {
     const treat = useSelector(store => store.editReducer.treat);
 
     const deleteConfirm = () => {
-        <OpenDialog
-            title="Delete Treat?"
-            open={confirmOpen}
-            setOpen={setConfirmOpen}
-            onConfirm={deleteTreat}
-        />
+        // <OpenDialog
+        //     title="Delete Treat?"
+        //     open={confirmOpen}
+        //     setOpen={setConfirmOpen}
+        //     onConfirm={deleteTreat}
+        // />
     }
 
     const deleteTreat = () => {

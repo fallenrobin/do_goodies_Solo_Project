@@ -55,7 +55,7 @@ function ItemTreat({ treat }) {
     const [isEditing, setEditing] = useState(false); //for edit mode
 
 
-    /* This is for non-dialog pop-down edit form; button for it below is also commented out
+    /* This is for non-dialog pop-down edit form; button for it below is also commented out*/
     
     const [treatToEdit, setTreatToEdit] = useState();
 
@@ -67,9 +67,10 @@ function ItemTreat({ treat }) {
                 treat
             },
         });
+    }
         // console.log(treatToEdit);
-    }*/
     
+
 
     const handleDelete = () => { //for clicking Delete button on list view
         // console.log('clicked delete');
@@ -94,7 +95,7 @@ function ItemTreat({ treat }) {
                     swal("Your treat is intact!");
                 }
             });
-        
+
     }
 
     // const newTreat = {
@@ -190,7 +191,7 @@ function ItemTreat({ treat }) {
             <div>
                 <button onClick={() => { setEditing(false) }} className="btn">Cancel</button>
                 <input className="btn" type="submit" name="submit" value="Save Changes" />
-            
+
             </div>
         </form>
     );
@@ -209,12 +210,12 @@ function ItemTreat({ treat }) {
 
                     <CardContent>
                         <>
-                            <div key={treat.id} >
+                            <div>
                                 <p>{treat.treat_name}</p></div>
 
-                            <img key={treat.id} onClick={handleDetailView}
+                            <img onClick={handleDetailView}
                                 src={treat.treat_image} alt={treat.treat_name}></img>
-                                {/* FIXME prevent SQL from changing URL?? 
+                            {/* FIXME prevent SQL from changing URL?? 
                                 {treat.treat_image} with {require("./logo.png")} in DB comes back as "{require(\"./logo.png\")}"
                                 or: https://fakeimg.pl/350x200/?text=Tasty&font=lobster
                                 */}
@@ -222,13 +223,16 @@ function ItemTreat({ treat }) {
                             {/* <Button variant="contained" color="primary"
                                 onClick={() => { handleClickEdit() }}
                             >Edit treat</Button> //for pop-down version of edit form*/}
-
+                            
                             <OpenDialog
                                 open={open}
                                 onClose={() => setOpen(false)}
                                 aria-labelledby="confirm-dialog"
-                                // TODO EditTreat={EditTreat} //can I use OpenDialog as a generic form and pass this in??
-                            />
+                                title="edit treat"
+                            >
+                                <EditTreat />
+                            </OpenDialog>
+                               
                             {/* FIXME issue with conflicting IDs between images and edit dialog?? */}
                         </>
 

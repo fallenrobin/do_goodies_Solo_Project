@@ -8,6 +8,7 @@ import OpenDialog from '../OpenDialog/OpenDialog';
 
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import FormBakesale from '../FormBakesale/FormBakesale';
 
 
 function ListBakesale() {
@@ -37,8 +38,13 @@ function ListBakesale() {
                         open={open}
                         onClose={() => setOpen(false)}
                         aria-labelledby="confirm-dialog"
-                    // FormTreats={FormTreats}
-                    />
+                        title="add bakesale"
+                    // FormBakesale={FormBakesale}
+                    //FIXME can dialog be generic, to pass in FormBakesale?? Currently shows FormTreats
+                    >
+                        <FormBakesale /> 
+                        {/* children */}
+                    </OpenDialog>
 
                     {bakesales?.map((bakesale, i) => {
                         return ( //loops thru array of treats to create each treat item
