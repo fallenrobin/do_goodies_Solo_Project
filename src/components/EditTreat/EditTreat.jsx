@@ -2,6 +2,22 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import OpenDialog from '../OpenDialog/OpenDialog';
 import { useDispatch } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles({
+    btn: {
+        backgroundColor: "#F8D9D6",
+        color: 'black',
+        margin: '3px',
+        '&:hover': {
+            backgroundColor: "#e75480"
+        },
+    },
+    delete: {
+        color:"#e75480"
+    }
+})
 
 
 
@@ -12,6 +28,7 @@ function EditTreat() {
     const [treatImage, setTreatImage] = useState('');
     const [price, setPrice] = useState();
     const dispatch = useDispatch();
+    const classes = useStyles();
 
     const treat = useSelector(store => store.editReducer.treat);
 
@@ -114,9 +131,9 @@ function EditTreat() {
                 </label>
             </div>
             <div>
-                <button onClick={setEditMode} className="btn">Cancel</button>
-                <input className="btn" type="submit" name="submit" value="Update" />
-                <button onClick={() => { deleteConfirm }} className="btn">Delete</button>
+                {/* <Button onClick={setEditMode} className={classes.btn}>Cancel</Button> */}
+                <Button className={classes.delete} onClick={() => { deleteConfirm }} >Delete</Button>
+                <Button variant="outlined" className={classes.btn} type="submit" name="submit" value="Update">Update</Button>
 
             </div>
         </form>

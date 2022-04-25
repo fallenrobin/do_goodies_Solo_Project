@@ -229,6 +229,7 @@ function ItemTreat({ treat }) {
                                 onClose={() => setOpen(false)}
                                 aria-labelledby="confirm-dialog"
                                 title="edit treat"
+                                callback={handleClickEdit}
                             >
                                 <EditTreat />
                             </OpenDialog>

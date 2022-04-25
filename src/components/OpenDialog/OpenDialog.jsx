@@ -19,16 +19,19 @@ const useStyles = makeStyles({
     addTreat: {
         top: "3px",
         left: "5px"
+    },
+    cancel: {
+        color:"grey"
     }
 })
 
-export default function OpenDialog({title, children, component}) {
+export default function OpenDialog({ title, children, component, callback }) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
         //CALL THE FUNCTION GIVEN, IF EXISTS?
-
-        setOpen(true);
+        {callback ? callback() : null};
+            setOpen(true);
     };
 
     const handleClose = () => {
@@ -46,23 +49,24 @@ export default function OpenDialog({title, children, component}) {
 
         <div>
             {/* TODO move button so it's not off screen */}
-            <Button variant="contained" 
-            color="primary" 
-            className={classNames(classes.btn, classes.addTreat)} 
-            onClick={handleClickOpen}
+            <Button variant="contained"
+                color="primary"
+                className={classNames(classes.btn, classes.addTreat)}
+                onClick={handleClickOpen}
             >
                 {title}
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogContent>
                     {/* TODO how to make this form generic?? */}
-                    {open && <InnerComponent /> }
-                  
+                    {open && <InnerComponent />}
+
                 </DialogContent>
                 <DialogActions>
-                    <Button 
-                    // className={classes.btn} //more subtle non-button appearance
-                    onClick={handleClose} color="primary">
+                    <Button
+                        // className={classes.btn} //more subtle non-button appearance
+                        className={classes.cancel}
+                        onClick={handleClose} color="primary">
                         Cancel
                     </Button>
                     {/* TODO<Button onClick={handleClose} color="primary">
