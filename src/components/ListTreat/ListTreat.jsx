@@ -18,6 +18,7 @@ function ListTreat() {
 
     const dispatch = useDispatch();
     const treats = useSelector((store) => store.treatReducer);
+    const user = useSelector((store) => store.user);
     const history = useHistory();
     const background = { background };
 
@@ -38,18 +39,23 @@ function ListTreat() {
                     direction="column"
                     alignItems="center"
                     style={{ minHeight: '100vh' }}>
-                    {/* OpenDialog pops open to add new treat */}
-                    <OpenDialog
-                        open={open}
-                        onClose={() => setOpen(false)}
-                        aria-labelledby="confirm-dialog"
-                        title="add treat"
+
+                    {user.id ?
+
+                        < OpenDialog
+                            open={open}
+                            onClose={() => setOpen(false)}
+                            aria-labelledby="confirm-dialog"
+                            title="add treat"
                         // FIXME make open dialog generic??
                         //FIXME make it so nav bar doesn't get pushed down on page load?
-                    >
-                        <FormTreats />
-                    </OpenDialog>
+                        >
+                            <FormTreats />
+                        </OpenDialog>
 
+                        :
+                        null}
+                        
                     {treats?.map((treat) => {
                         return ( //loops thru array of treats to create each treat item
                             <ItemTreat
@@ -61,7 +67,7 @@ function ListTreat() {
                 </Grid>
 
             </section>
-        </main>
+        </main >
 
     );
 }

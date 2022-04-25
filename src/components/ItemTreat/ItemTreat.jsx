@@ -43,6 +43,8 @@ function ItemTreat({ treat }) {
     const history = useHistory();
     const dispatch = useDispatch();
     const treats = useSelector(store => store.treatReducer);
+    const user = useSelector((store) => store.user);
+
 
     const [treatName, setTreatName] = useState('');
     const [treatDescription, setTreatDescription] = useState('');
@@ -56,7 +58,7 @@ function ItemTreat({ treat }) {
 
 
     /* This is for non-dialog pop-down edit form; button for it below is also commented out*/
-    
+
     const [treatToEdit, setTreatToEdit] = useState();
 
     const handleClickEdit = () => {
@@ -68,8 +70,8 @@ function ItemTreat({ treat }) {
             },
         });
     }
-        // console.log(treatToEdit);
-    
+    // console.log(treatToEdit);
+
 
 
     const handleDelete = () => { //for clicking Delete button on list view
@@ -223,17 +225,20 @@ function ItemTreat({ treat }) {
                             {/* <Button variant="contained" color="primary"
                                 onClick={() => { handleClickEdit() }}
                             >Edit treat</Button> //for pop-down version of edit form*/}
-                            
-                            <OpenDialog
-                                open={open}
-                                onClose={() => setOpen(false)}
-                                aria-labelledby="confirm-dialog"
-                                title="edit treat"
-                                callback={handleClickEdit}
-                            >
-                                <EditTreat />
-                            </OpenDialog>
-                               
+                            {user.id ?
+
+                                <OpenDialog
+                                    open={open}
+                                    onClose={() => setOpen(false)}
+                                    aria-labelledby="confirm-dialog"
+                                    title="edit treat"
+                                    callback={handleClickEdit}
+                                >
+                                    <EditTreat />
+                                </OpenDialog>
+
+                                :
+                                null}
                             {/* FIXME issue with conflicting IDs between images and edit dialog?? */}
                         </>
 

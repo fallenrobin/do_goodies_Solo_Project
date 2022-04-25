@@ -14,6 +14,7 @@ import FormBakesale from '../FormBakesale/FormBakesale';
 function ListBakesale() {
 
     const dispatch = useDispatch();
+    const user = useSelector((store) => store.user);
     const bakesales = useSelector((store) => store.bakesaleReducer);
     const history = useHistory();
 
@@ -34,17 +35,22 @@ function ListBakesale() {
                     direction="column"
                     alignItems="center"
                     style={{ minHeight: '100vh' }}>
-                    <OpenDialog
-                        open={open}
-                        onClose={() => setOpen(false)}
-                        aria-labelledby="confirm-dialog"
-                        title="add bakesale"
-                    // FormBakesale={FormBakesale}
-                    //FIXME can dialog be generic, to pass in FormBakesale?? Currently shows FormTreats
-                    >
-                        <FormBakesale /> 
-                        {/* children */}
-                    </OpenDialog>
+                    {user.id ?
+
+                        <OpenDialog
+                            open={open}
+                            onClose={() => setOpen(false)}
+                            aria-labelledby="confirm-dialog"
+                            title="add bakesale"
+                        // FormBakesale={FormBakesale}
+                        //FIXME can dialog be generic, to pass in FormBakesale?? Currently shows FormTreats
+                        >
+                            <FormBakesale />
+                            {/* children */}
+                        </OpenDialog>
+                        
+                        :
+                        null}
 
                     {bakesales?.map((bakesale, i) => {
                         return ( //loops thru array of treats to create each treat item

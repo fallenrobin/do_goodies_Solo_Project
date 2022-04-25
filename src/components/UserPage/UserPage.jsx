@@ -1,5 +1,4 @@
 import React from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -32,8 +31,11 @@ function UserPage() {
 
   return (
     <div className="container">
-
-      <h2>Welcome, {user.username}!</h2>
+      {user.id ?
+        <h2>Welcome, {user.username}!</h2>
+        :
+        null
+      }
       <Grid container
         spacing={2} //spacing between grid items
       >
