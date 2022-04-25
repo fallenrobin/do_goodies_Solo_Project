@@ -99,7 +99,7 @@ function ItemTreat({ treat }) {
                                 open={open}
                                 onClose={() => setOpen(false)}
                                 aria-labelledby="confirm-dialog"
-                                EditTreat={EditTreat}
+                                // EditTreat={EditTreat} //can i use OpenDialog as generic form and pass this in??
                             />
                             {/* FIXME issue with conflicting IDs between images and edit dialog?? */}
                         </>
