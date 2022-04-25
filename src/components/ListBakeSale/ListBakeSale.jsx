@@ -37,7 +37,7 @@ function ListBakesale() {
                         open={open}
                         onClose={() => setOpen(false)}
                         aria-labelledby="confirm-dialog"
-                        // FormTreats={FormTreats}
+                    // FormTreats={FormTreats}
                     />
 
                     {bakesales?.map((bakesale, i) => {
@@ -47,7 +47,7 @@ function ListBakesale() {
                                 bakesale={bakesale}
                             />);
                     })}
-                    
+
                     {/* FIXME make bottom of last card float above nav bar */}
 
                     {/* <Button variant="outlined" color="primary"

@@ -10,10 +10,10 @@ import classNames from 'classnames';
 
 const useStyles = makeStyles({
     btn: {
-        backgroundColor: "#84C3C8",
+        backgroundColor: "#F8D9D6",
         color: 'black',
         '&:hover': {
-            backgroundColor: "#42929D"
+            backgroundColor: "#e75480"
         },
     },
     addTreat: {

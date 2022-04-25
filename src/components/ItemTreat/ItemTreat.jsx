@@ -89,6 +89,9 @@ function ItemTreat({ treat }) {
 
                             <img key={treat.id} onClick={handleDetailView}
                                 src={treat.treat_image} alt={treat.treat_name}></img>
+                                {/* FIXME prevent SQL from changing URL?? 
+                                or: https://fakeimg.pl/350x200/?text=Tasty&font=lobster
+                                */}
                             {/* <Button variant="contained" color="primary"
                                 onClick={() => { handleClickEdit() }}
                             >Edit treat</Button> */}
