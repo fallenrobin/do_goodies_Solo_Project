@@ -42,6 +42,10 @@ function ItemTreat({ treat }) {
     const dispatch = useDispatch();
     const treats = useSelector(store => store.treatReducer);
 
+    const [treatName, setTreatName] = useState('');
+    const [treatDescription, setTreatDescription] = useState('');
+    const [treatImage, setTreatImage] = useState('');
+    const [price, setPrice] = useState(0);
 
 
     const classes = useStyles(); //for card
@@ -91,14 +95,14 @@ function ItemTreat({ treat }) {
         
     }
 
-    const newTreat = {
-        id: treatEdit?.id,
-        treat_name: treatName,
-        treat_description: treatDescription,
-        treat_image: treatImage,
-        // FIXME: deal with image
-        price: price
-    }
+    // const newTreat = {
+    //     id: treatEdit?.id,
+    //     treat_name: treatName,
+    //     treat_description: treatDescription,
+    //     treat_image: treatImage,
+    //     // FIXME: deal with image
+    //     price: price
+    // }
 
     const handleEditTreat = (event) => { //for clicking Save Changes button on Edit form
         event.preventDefault();
