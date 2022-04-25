@@ -70,7 +70,7 @@ export default function BakesaleAddTreats() {
 
     console.log('checking state after select:', treatName); //shows React.useState capturing names
     //TODO how to make it capture the ID instead?? 
-    //TODO link to a dispatch + button trigger
+    //TODO link to a dispatch (and make button)
 
     return (
         <div>
