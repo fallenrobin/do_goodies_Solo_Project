@@ -54,7 +54,7 @@ function EditTreat() {
 
 
     const deleteConfirm = () => { //for clicking Delete button on list view
-        // console.log('clicked delete');
+        console.log('clicked delete');
         swal({
             title: "Yeet treat?",
             text: "Once delete, no more eat!",
@@ -170,7 +170,7 @@ function EditTreat() {
             </div>
             <div>
                 {/* <Button onClick={setEditMode} className={classes.btn}>Cancel</Button> */}
-                <Button className={classes.delete} onClick={() => { deleteConfirm }} >Delete</Button>
+                <Button className={classes.delete} onClick={() => { deleteConfirm() }} >Delete</Button>
                 <Button variant="outlined" className={classes.btn} type="submit" name="submit" value="Update">Update</Button>
 
             </div>
