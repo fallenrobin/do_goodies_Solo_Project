@@ -19,8 +19,6 @@ function* fetchBakesales() {
     const bakesales = yield axios.get('/api/bakesale/fetchBakesales');
     console.log('fetching bakesales:', bakesales.data);
     yield put({ type: 'SET_BAKESALES', payload: bakesales.data }); //set in bakesaleReducer
-    yield put({ type: 'FETCH_BAKESALES' }); //GET so bakesales are available in store for BakesaleAddbakesales
-
 
   } catch (error) {
     console.log('Error with fetchBakesale saga:', error);
@@ -71,13 +69,13 @@ function* deleteBakesale(action) {
   }
 }
 
-// function* bakesaleSaga() {
+function* bakesaleSaga() {
 
-//   yield takeLatest('ADD_BAKESALE', addBakesale);
-//   yield takeLatest('FETCH_BAKESALES', fetchBakesales);
-//   yield takeLatest('FETCH_BAKESALE_DETAIL', fetchBakesaleDetail);
-//   yield takeLatest('SUBMIT_EDIT_BAKESALE', editBakesale);
-//   yield takeLatest('DELETE_BAKESALE', deleteBakesale);
-// }
+  yield takeLatest('ADD_BAKESALE', addBakesale);
+  yield takeLatest('FETCH_BAKESALES', fetchBakesales);
+  yield takeLatest('FETCH_BAKESALE_DETAIL', fetchBakesaleDetail);
+  yield takeLatest('SUBMIT_EDIT_BAKESALE', editBakesale);
+  yield takeLatest('DELETE_BAKESALE', deleteBakesale);
+}
 
 export default bakesaleSaga;
