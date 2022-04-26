@@ -239,7 +239,6 @@ function ItemTreat({ treat }) {
 
                                 :
                                 null}
-                            {/* FIXME issue with conflicting IDs between images and edit dialog?? */}
                         </>
 
                     </CardContent>

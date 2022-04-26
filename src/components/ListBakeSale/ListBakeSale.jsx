@@ -42,13 +42,11 @@ function ListBakesale() {
                             onClose={() => setOpen(false)}
                             aria-labelledby="confirm-dialog"
                             title="add bakesale"
-                        // FormBakesale={FormBakesale}
-                        //FIXME can dialog be generic, to pass in FormBakesale?? Currently shows FormTreats
                         >
                             <FormBakesale />
                             {/* children */}
                         </OpenDialog>
-                        
+
                         :
                         null}
 
@@ -60,11 +58,7 @@ function ListBakesale() {
                             />);
                     })}
 
-                    {/* FIXME make bottom of last card float above nav bar */}
-
-                    {/* <Button variant="outlined" color="primary"
-                        onClick={() => { history.push('/bakesaleForm') }}>Add Bakesale</Button> 
-                        redundant, if using OpenDialog */}
+                    {/* TODO make bottom of last card float above nav bar */}
 
                 </Grid>
             </section>

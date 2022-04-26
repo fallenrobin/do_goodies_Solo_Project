@@ -32,7 +32,7 @@ function UserPage() {
   return (
     <div className="container">
       {user.id ?
-        <h2>Welcome, {user.username}!</h2>
+        <h2 className='font-title' >Welcome, {user.username}!</h2>
         :
         null
       }
@@ -58,7 +58,7 @@ function UserPage() {
         variant="contained"
         color="primary"
         onClick={() => dispatch({ type: 'LOGOUT' })}>
-        <IoLogOutOutline />
+        <IoLogOutOutline size={25}/>
       </Button>
     </div>
   );
