@@ -65,9 +65,9 @@ export default function OpenDialog({ title, children, component, callback }) {
                         onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    {/* TODO<Button onClick={handleClose} color="primary">
+                    {/* TODO make button work with callback passed prop? <Button onClick={handleClose} color="primary">
                         Add treat
-                    </Button> Can I keep generic but wire to FormTreat??*/}
+                    </Button> */}
                 </DialogActions>
             </Dialog>
         </div>
