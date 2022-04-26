@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import OpenDialog from '../OpenDialog/OpenDialog';
 import { useDispatch } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles'
@@ -21,8 +20,6 @@ const useStyles = makeStyles({
     }
 })
 
-
-
 function EditTreat() {
 
     const [treatName, setTreatName] = useState('');
@@ -39,14 +36,13 @@ function EditTreat() {
         treat_name: treatName,
         treat_description: treatDescription,
         treat_image: treatImage,
-        // FIXME: deal with image somehow
+        // FIXME: deal with image validation? / set default in DB
         price: price
     };
 
     // FIXME WARNING, maybe when price is entered on form?? react_devtools_backend.js:3973 Warning: A component is changing an uncontrolled input 
     //to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. 
     //Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components
-
 
     const deleteConfirm = () => { //for clicking Delete button on list view
         console.log('clicked delete');
@@ -71,9 +67,7 @@ function EditTreat() {
                     swal("You can still eat treat!");
                 }
             });
-
     }
-
 
     const handleUpdate = () => {
         console.log('in handleUpdate Edit treat');
@@ -143,7 +137,6 @@ function EditTreat() {
                         type="number"
                         name="price"
                         value={price}
-                        // to do: adjust width
                         // maxLength={255} what validation here? also set in DB
                         placeholder={treat.price}
                         onChange={(event) => setPrice(event.target.value)}
@@ -151,7 +144,6 @@ function EditTreat() {
                 </label>
             </div>
             <div>
-                {/* <Button onClick={setEditMode} className={classes.btn}>Cancel</Button> */}
                 <Button className={classes.delete} onClick={() => { deleteConfirm() }} >Delete</Button>
                 <Button variant="outlined" className={classes.btn} type="submit" name="submit" value="Update">Update</Button>
 
