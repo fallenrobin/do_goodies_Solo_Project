@@ -20,7 +20,7 @@ function ListTreat() {
     const treats = useSelector((store) => store.treatReducer);
     const user = useSelector((store) => store.user);
     const history = useHistory();
-    const background = { background };
+    // const background = { background };
 
     useEffect(() => {//triggers saga getting all treats from DB on page load
         dispatch({ type: 'FETCH_TREATS' });
@@ -49,8 +49,6 @@ function ListTreat() {
                             onClose={() => setOpen(false)}
                             aria-labelledby="confirm-dialog"
                             title="add treat"
-                        // FIXME make open dialog generic??
-                        //FIXME make it so nav bar doesn't get pushed down on page load?
                         >
                             <FormTreats />
                         </OpenDialog>

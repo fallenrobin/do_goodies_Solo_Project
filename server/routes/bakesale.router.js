@@ -73,10 +73,10 @@ router.post('/addBakesale', (req, res) => {
         });
 });
 
-//PUT route for treat edit
+//PUT route for bakesale edit
 router.put('/:id', rejectUnauthenticated, (req, res) => {
-    // console.log(req.body);
-    // console.log(req.params.id);
+    console.log(req.body);
+    console.log(req.params.id);
 
     const queryText = `
     UPDATE "bakesales"

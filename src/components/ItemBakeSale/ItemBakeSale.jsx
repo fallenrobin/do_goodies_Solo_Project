@@ -40,7 +40,7 @@ function ItemBakesale({ bakesale }) {
     const [isEditing, setEditing] = useState(false); //for edit mode
     const user = useSelector((store) => store.user);
     const bakesales = useSelector(store => store.bakesaleReducer);
-    
+
     const handleClickEdit = () => {
         setEditing(true);
         dispatch({

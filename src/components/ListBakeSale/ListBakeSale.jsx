@@ -51,10 +51,10 @@ function ListBakesale() {
                         :
                         null}
 
-                    {bakesales?.map((bakesale, i) => {
+                    {bakesales?.map((bakesale) => {
                         return ( //loops thru array of treats to create each treat item
                             <ItemBakesale
-                                key={i}
+                                key={bakesale.id}
                                 bakesale={bakesale}
                             />);
                     })}

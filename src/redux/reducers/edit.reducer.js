@@ -2,8 +2,8 @@ const editReducer = (state = {}, action) => {
     switch (action.type) {
       case 'EDIT_TREAT':
         return action.payload;
-      case 'taco':
-        return [];
+      case 'EDIT_BAKESALE':
+        return action.payload;
       default:
         return state;
     }

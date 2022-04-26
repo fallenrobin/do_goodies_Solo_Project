@@ -31,10 +31,10 @@ function EditBakesale() {
     const dispatch = useDispatch();
     const classes = useStyles();
 
-    const bakesale = (useSelector(store => store.singleBakesaleReducer[0]))
+    const bakesale = (useSelector(store => store.editReducer.bakesale))
 
     const newBakesale = {
-        id: bakesale.id,
+        id: bakesale?.id,
         org_name: bakesaleName,
         org_description: bakesaleDescription,
         org_image: bakesaleImage,
@@ -64,7 +64,7 @@ function EditBakesale() {
                     dispatch({
                         type: 'DELETE_BAKESALE',
                         payload:
-                            bakesale.id
+                            bakesale?.id
                     });
                     console.log('deleteConfirm payload would be', bakesale.id);
                 } else {
@@ -76,7 +76,7 @@ function EditBakesale() {
     const handleUpdate = () => {
         console.log('in handleUpdate Edit bakesale');
         event.preventDefault();
-        console.log('clicked Save Changes');
+        console.log('clicked Save Changes, newBakesale should be:', newBakesale);
         dispatch({
             type: 'SUBMIT_EDIT_BAKESALE',
             payload:
@@ -102,7 +102,7 @@ function EditBakesale() {
                         type="text"
                         name="bakesale"
                         value={bakesaleName}
-                        placeholder={bakesale.org_name}
+                        placeholder={bakesale?.org_name}
                         required
                         onChange={(event) => setBakesaleName(event.target.value)}
                     />
@@ -116,21 +116,8 @@ function EditBakesale() {
                         name="bakesaleDescription"
                         value={bakesaleDescription}
                         maxLength={255}
-                        placeholder={bakesale.org_description}
+                        placeholder={bakesale?.org_description}
                         required
-                        onChange={(event) => setBakesaleDescription(event.target.value)}
-                    />
-                </label>
-            </div>
-            <div>
-                <label htmlFor="bakesaleImage">
-                    Picture:
-                    <input
-                        type="text"
-                        name="bakesaleImage"
-                        value={bakesaleImage}
-                        maxLength={255}
-                        placeholder="Paste image link"
                         onChange={(event) => setBakesaleDescription(event.target.value)}
                     />
                 </label>
@@ -139,24 +126,24 @@ function EditBakesale() {
                 <label htmlFor="website">
                     Website:
                     <input
-                        type="number"
+                        type="text"
                         name="website"
                         value={website}
                         // maxLength={255} what validation here? also set in DB
-                        placeholder={bakesale.org_website}
+                        placeholder={bakesale?.org_website}
                         onChange={(event) => setWebsite(event.target.value)}
                     />
                 </label>
             </div>
             <div>
                 <label htmlFor="goal">
-                    Website:
+                    Fundraising goal:
                     <input
                         type="number"
                         name="goal"
                         value={goal}
                         // maxLength={255} what validation here? also set in DB
-                        placeholder={bakesale.fundraising_goal}
+                        placeholder={bakesale?.fundraising_goal}
                         onChange={(event) => setGoal(event.target.value)}
                     />
                 </label>
