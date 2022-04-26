@@ -19,6 +19,10 @@ const useStyles = makeStyles({
         height: 200,
         marginTop: '30px'
     },
+    img: {
+        width: 150,
+        height: 150,
+    }
 })
 
 
@@ -38,8 +42,8 @@ function DetailBakesale() {
         });
     }, []);
 
-    console.log('in details page... selected bakesale data:', bakesale[0]);
-    console.log('should say bakesale name:', bakesale[0]?.org_name);
+    // console.log('in details page... selected bakesale data:', bakesale[0]);
+    // console.log('should say bakesale name:', bakesale[0]?.org_name);
 
 
     return (
@@ -53,7 +57,7 @@ function DetailBakesale() {
                 alignItems="center"
             >
                 <Grid item xs={4}>
-                    <Card style={{ minWidth: 300, maxWidth: 450 }} variant="outlined">
+                    <Card style={{ minWidth: 320, maxWidth: 450 }} variant="outlined">
                         <CardContent>
 
                             <div key={bakesale[0]?.id} >
@@ -62,16 +66,15 @@ function DetailBakesale() {
                                 <h3>{bakesale[0]?.org_name}</h3>
 
 
-                                <img alt={bakesale[0]?.org_name} src={bakesale[0]?.org_image} />
+                                <img className={classes.img} alt={bakesale[0]?.org_name} src={bakesale[0]?.org_image} />
 
                                 <p className="descriptionText">{bakesale[0]?.org_description}</p>
-                                <p>{bakesale.org_website}</p>
+                                <p>Website: <a href={bakesale[0]?.org_website}>{bakesale[0]?.org_website}</a></p>
                                 <p>Fundraising goal: {bakesale.fundraising_goal}</p>
                                 {/* TODO add edit (conditional render)
                                     TODO turn this into full screen
                                     TODO add fundraising progress bar?
                                     TODO link this to a dispatch, saga etc
-                                    TODO use params for detail view
                                     */}
                             </div>
 

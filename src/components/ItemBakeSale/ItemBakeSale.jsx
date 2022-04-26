@@ -1,5 +1,7 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import OpenDialog from '../OpenDialog/OpenDialog';
 
 
 //MUI for card
@@ -10,6 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 //grid for centering
 import Grid from '@material-ui/core/Grid';
 import BakesaleAddTreats from '../BakesaleAddTreats/BakesaleAddTreats';
+
 
 
 
@@ -33,8 +36,19 @@ function ItemBakesale({ bakesale }) {
     const history = useHistory();
     const dispatch = useDispatch();
     const classes = useStyles(); //for card
-
-
+    const [isEditing, setEditing] = useState(false); //for edit mode
+    const user = useSelector((store) => store.user);
+    const bakesales = useSelector(store => store.bakesaleReducer);
+    
+    const handleClickEdit = () => {
+        setEditing(true);
+        // dispatch({
+        //     type: 'EDIT_BAKESALE',
+        //     payload: {
+        //         bakesale
+        //     },
+        // });
+    }
 
     const handleDetailView = () => {
         // console.log('clicked into HandleDetailView, treat id is:', bakesale.id);
@@ -57,7 +71,22 @@ function ItemBakesale({ bakesale }) {
 
                             <img key={bakesale.id} onClick={handleDetailView}
                                 src={bakesale.org_image} alt={bakesale.org_name}></img>
-                            
+
+                            {user.id ?
+
+                                <OpenDialog
+                                    open={open}
+                                    onClose={() => setOpen(false)}
+                                    aria-labelledby="confirm-dialog"
+                                    title="edit bakesale"
+                                    callback={handleClickEdit}
+                                >
+                                    {/* <EditTreat /> */}
+                                </OpenDialog>
+
+                                :
+                                null}
+
                         </div>
 
 
