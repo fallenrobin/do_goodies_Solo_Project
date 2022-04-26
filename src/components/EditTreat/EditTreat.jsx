@@ -43,14 +43,9 @@ function EditTreat() {
         price: price
     };
 
-    // const deleteConfirm = () => {
-    // <OpenDialog
-    //     title="Delete Treat?"
-    //     open={confirmOpen}
-    //     setOpen={setConfirmOpen}
-    //     onConfirm={deleteTreat}
-    // />
-    // }
+    // FIXME WARNING, maybe when price is entered on form?? react_devtools_backend.js:3973 Warning: A component is changing an uncontrolled input 
+    //to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. 
+    //Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components
 
 
     const deleteConfirm = () => { //for clicking Delete button on list view
@@ -79,19 +74,6 @@ function EditTreat() {
 
     }
 
-    // dispatch({
-    //     type: 'UPDATE_TREAT',
-    //     payload: {
-    //         treat
-    //     },
-    // });
-
-    // dispatch({
-    //     type: 'DELETE_TREAT',
-    //     payload: {
-    //         treat
-    //     },
-    // });
 
     const handleUpdate = () => {
         console.log('in handleUpdate Edit treat');
