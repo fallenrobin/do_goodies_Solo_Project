@@ -4,6 +4,8 @@ import OpenDialog from '../OpenDialog/OpenDialog';
 import { useDispatch } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles'
+import swal from 'sweetalert';
+
 
 const useStyles = makeStyles({
     btn: {
@@ -15,7 +17,7 @@ const useStyles = makeStyles({
         },
     },
     delete: {
-        color:"#e75480"
+        color: "#e75480"
     }
 })
 
@@ -32,17 +34,49 @@ function EditTreat() {
 
     const treat = useSelector(store => store.editReducer.treat);
 
-    const deleteConfirm = () => {
-        // <OpenDialog
-        //     title="Delete Treat?"
-        //     open={confirmOpen}
-        //     setOpen={setConfirmOpen}
-        //     onConfirm={deleteTreat}
-        // />
-    }
+    const newTreat = {
+        id: treat.id,
+        treat_name: treatName,
+        treat_description: treatDescription,
+        treat_image: treatImage,
+        // FIXME: deal with image somehow
+        price: price
+    };
 
-    const deleteTreat = () => {
-        console.log('confirmed delete');
+    // const deleteConfirm = () => {
+    // <OpenDialog
+    //     title="Delete Treat?"
+    //     open={confirmOpen}
+    //     setOpen={setConfirmOpen}
+    //     onConfirm={deleteTreat}
+    // />
+    // }
+
+
+    const deleteConfirm = () => { //for clicking Delete button on list view
+        // console.log('clicked delete');
+        swal({
+            title: "Yeet treat?",
+            text: "Once delete, no more eat!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Your sweet treat is now delete.", {
+                        icon: "success",
+                    });
+                    dispatch({
+                        type: 'DELETE_TREAT',
+                        payload:
+                            treat?.id
+                    });
+                } else {
+                    swal("You can still eat treat!");
+                }
+            });
+
     }
 
     // dispatch({
@@ -58,16 +92,20 @@ function EditTreat() {
     //         treat
     //     },
     // });
+
     const handleUpdate = () => {
         console.log('in handleUpdate Edit treat');
-    }
-    const setEditMode = () => {
+        event.preventDefault();
+        console.log('clicked Save Changes');
         dispatch({
-            type: 'SET_EDIT_MODE',
-            payload: {
-                editMode: false
-            },
+            type: 'SUBMIT_EDIT_TREAT',
+            payload:
+                newTreat
         });
+        setTreatName('');
+        setTreatDescription('');
+        setTreatImage('');
+        setPrice('');
     }
 
 
