@@ -19,7 +19,13 @@ const useStyles = makeStyles({
     bottom: "58px",
     right: "2px"
   },
+  avatar: {
+    webkitBoxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
+    boxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8"
+  }
 })
+
+// rainbow box shadow: https://html-css-js.com/css/generator/box-shadow/
 
 
 function UserPage() {
@@ -42,7 +48,7 @@ function UserPage() {
         <Grid item xs={2} />
         <Grid
           item xs={8}>
-          <img src={require("./cakeDecorating.jpeg")} alt={"Baker cat"}
+          <img className={classes.avatar} src={require("./cakeDecorating.jpeg")} alt={"Baker cat"}
             style={{ width: 200, height: 200, borderRadius: 400 / 2, zIndex: '7' }} />
         </Grid>
 
@@ -58,7 +64,7 @@ function UserPage() {
         variant="contained"
         color="primary"
         onClick={() => dispatch({ type: 'LOGOUT' })}>
-        <IoLogOutOutline size={25}/>
+        <IoLogOutOutline size={25} />
       </Button>
     </div>
   );

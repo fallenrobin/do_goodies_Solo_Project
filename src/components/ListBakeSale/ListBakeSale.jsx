@@ -34,7 +34,9 @@ function ListBakesale() {
                     // margin-top="20px"TODO give top of Grid margin to avoid button??
                     direction="column"
                     alignItems="center"
-                    style={{ minHeight: '100vh' }}>
+                    // style={{ minHeight: '100vh' }} does not help
+                    // style={{ marginBottom: '100px' }} does not help
+                    >
 
                     {user.id ?
 
