@@ -75,6 +75,7 @@ function DetailBakesale() {
                                     TODO turn this into full screen
                                     TODO add fundraising progress bar?
                                     TODO link this to a dispatch, saga etc
+                                    TODO use params for detail view
                                     */}
                             </div>
 

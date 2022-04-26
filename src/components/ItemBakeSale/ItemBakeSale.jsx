@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import OpenDialog from '../OpenDialog/OpenDialog';
+import EditBakesale from '../EditBakesale/EditBakesale';
 
 
 //MUI for card
@@ -81,7 +82,7 @@ function ItemBakesale({ bakesale }) {
                                     title="edit bakesale"
                                     callback={handleClickEdit}
                                 >
-                                    {/* <EditTreat /> */}
+                                    <EditBakesale />
                                 </OpenDialog>
 
                                 :
