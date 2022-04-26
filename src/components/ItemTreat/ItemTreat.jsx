@@ -80,10 +80,6 @@ function ItemTreat({ treat }) {
 
                             <img onClick={handleDetailView}
                                 src={treat.treat_image} alt={treat.treat_name}></img>
-                            {/* FIXME prevent SQL from changing URL?? 
-                                {treat.treat_image} with {require("./logo.png")} in DB comes back as "{require(\"./logo.png\")}"
-                                or: https://fakeimg.pl/350x200/?text=Tasty&font=lobster
-                                */}
 
                             {user.id ?
 

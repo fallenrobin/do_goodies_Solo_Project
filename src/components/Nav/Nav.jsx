@@ -39,6 +39,7 @@ function Nav() {
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  // TODO make navLocation reducer to replace useState
   const history = useHistory();
 
   const handleChange = (event, newValue) => {
