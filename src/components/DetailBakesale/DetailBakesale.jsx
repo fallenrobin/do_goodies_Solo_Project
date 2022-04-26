@@ -67,9 +67,12 @@ function DetailBakesale() {
                                 <p className="descriptionText">{bakesale[0]?.org_description}</p>
                                 <p>{bakesale.org_website}</p>
                                 <p>Fundraising goal: {bakesale.fundraising_goal}</p>
-                                {/* TODO add associated treats
-                                    TODO turn this into full screen??
-                                    TODO add fundraising progress bar?*/}
+                                {/* TODO add edit (conditional render)
+                                    TODO turn this into full screen
+                                    TODO add fundraising progress bar?
+                                    TODO link this to a dispatch, saga etc
+                                    TODO use params for detail view
+                                    */}
                             </div>
 
                             <Button variant="outlined" color="primary"

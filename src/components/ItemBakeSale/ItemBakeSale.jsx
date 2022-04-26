@@ -57,7 +57,7 @@ function ItemBakesale({ bakesale }) {
 
                             <img key={bakesale.id} onClick={handleDetailView}
                                 src={bakesale.org_image} alt={bakesale.org_name}></img>
-                            <BakesaleAddTreats />
+                            
                         </div>
 
 

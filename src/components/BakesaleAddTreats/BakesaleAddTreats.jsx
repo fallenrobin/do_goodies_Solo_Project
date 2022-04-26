@@ -61,6 +61,7 @@ export default function BakesaleAddTreats() {
     const classes = useStyles();
     const theme = useTheme();
     const [selectedTreats, setSelectedTreats] = React.useState([]);
+    // TODO make only user's treats selectable!
     const [selectedTreatId, setSelectedTreatId] = React.useState([]);
 
     const treats = useSelector((store) => store.treatReducer);
@@ -68,8 +69,8 @@ export default function BakesaleAddTreats() {
 
     const handleChange = (event) => {
         setSelectedTreats(event.target.value);
-        // console.log('treats are',treats);
-        console.log('selected info is', event.target);
+        // console.log('treats are', treats);
+        // console.log('selected info is', event.target);
         grabTreatIDs();
     };
 
@@ -81,14 +82,13 @@ export default function BakesaleAddTreats() {
             ))
         };
         // console.log(tempIds);
-        // setSelectedTreatId([tempIds]);
-        // console.log('selected ids should be:', selectedTreatId);
+        setSelectedTreatId([tempIds]);
+        console.log('selected ids should be:', selectedTreatId);
     }
 
 
     console.log('checking state after select:', selectedTreats); //shows React.useState capturing names
-    //TODO how to make it capture the ID instead?? 
-    //TODO link to a dispatch (and make button)
+    
 
     return (
         <div>

@@ -35,6 +35,7 @@ function ListBakesale() {
                     direction="column"
                     alignItems="center"
                     style={{ minHeight: '100vh' }}>
+
                     {user.id ?
 
                         <OpenDialog
