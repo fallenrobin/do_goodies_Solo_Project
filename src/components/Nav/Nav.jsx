@@ -30,6 +30,7 @@ const useStyles = makeStyles({
     position: 'fixed',
     bottom: 0,
     // marginTop: '100px' does nothing
+    // height: '10vh'
   },
 })
 

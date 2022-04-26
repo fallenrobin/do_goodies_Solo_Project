@@ -73,4 +73,44 @@ router.post('/addBakesale', (req, res) => {
         });
 });
 
+//PUT route for treat edit
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    // console.log(req.body);
+    // console.log(req.params.id);
+
+    const queryText = `
+    UPDATE "bakesales"
+    SET org_name = $1, org_description = $2, org_image = $3,
+    org_website = $4, fundraising_goal = $5
+    WHERE "id"= $6;`
+
+    const values = [
+        req.body.org_name, req.body.org_description,
+        req.body.org_image, req.body.org_website, req.body.fundraising_goal,
+        req.params.id
+    ]
+    pool.query(queryText, values)
+        .then((result) => {
+            // res.send(result.rows);
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('Error PUT bakesale', error);
+            res.sendStatus(500);
+        })
+});
+
+// delete route for bakesale
+router.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    console.log(id);
+    
+    pool.query('DELETE FROM "bakesales" WHERE id=$1', [id])
+        .then((result) => {
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('Error DELETE /api/bakesale/delete', error);
+            res.sendStatus(500);
+        })
+});
+
 module.exports = router;

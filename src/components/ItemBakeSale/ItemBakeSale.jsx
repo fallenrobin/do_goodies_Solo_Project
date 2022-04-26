@@ -73,7 +73,7 @@ function ItemBakesale({ bakesale }) {
                             <img key={bakesale.id} onClick={handleDetailView}
                                 src={bakesale.org_image} alt={bakesale.org_name}></img>
 
-                            {user.id ?
+                            {/* {user.id ?
 
                                 <OpenDialog
                                     open={open}
@@ -82,11 +82,11 @@ function ItemBakesale({ bakesale }) {
                                     title="edit bakesale"
                                     callback={handleClickEdit}
                                 >
-                                    <EditBakesale />
+                                    <EditTreat />
                                 </OpenDialog>
 
                                 :
-                                null}
+                                null} */}
 
                         </div>
 

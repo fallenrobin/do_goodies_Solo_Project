@@ -71,13 +71,13 @@ function* deleteBakesale(action) {
   }
 }
 
-function* bakesaleSaga() {
+// function* bakesaleSaga() {
 
-  yield takeLatest('ADD_BAKESALE', addBakesale);
-  yield takeLatest('FETCH_BAKESALES', fetchBakesales);
-  yield takeLatest('FETCH_BAKESALE_DETAIL', fetchBakesaleDetail);
-  yield takeLatest('SUBMIT_EDIT_BAKESALE', editBakesale);
-  yield takeLatest('DELETE_BAKESALE', deleteBakesale);
-}
+//   yield takeLatest('ADD_BAKESALE', addBakesale);
+//   yield takeLatest('FETCH_BAKESALES', fetchBakesales);
+//   yield takeLatest('FETCH_BAKESALE_DETAIL', fetchBakesaleDetail);
+//   yield takeLatest('SUBMIT_EDIT_BAKESALE', editBakesale);
+//   yield takeLatest('DELETE_BAKESALE', deleteBakesale);
+// }
 
 export default bakesaleSaga;
