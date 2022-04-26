@@ -131,7 +131,7 @@ function FormBakesale() {
                 <div>
 
                     {/* <input className="btn" type="submit" name="submit" value="Save" /> */}
-                    <Button className={classes.btn}
+                    <Button variant="contained" className={classes.btn}
                         type="submit" name="submit">Add Bakesale
                     </Button>
                 </div>

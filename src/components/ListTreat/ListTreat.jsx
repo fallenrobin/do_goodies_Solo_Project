@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import ItemTreat from '../ItemTreat/ItemTreat';
 import OpenDialog from '../OpenDialog/OpenDialog';
 import FormTreats from '../FormTreats/FormTreats';
-
+import Box from '@material-ui/core/Box';
 
 
 
@@ -30,15 +30,17 @@ function ListTreat() {
     console.log('after useEffect', treats);
 
     return (
-        <main>
-            <section>
+        <Box style={{marginBottom: '100px'}}>
+            <section >
                 <Grid
                     container
                     spacing={2}
                     // margin-top="20px"TODO give top of Grid margin to avoid button??
                     direction="column"
                     alignItems="center"
-                    style={{ minHeight: '100vh' }}>
+                    style={{ minHeight: '100vh' }}
+                    // marginBottom='100px' does not work
+                >
 
                     {user.id ?
 
@@ -55,7 +57,7 @@ function ListTreat() {
 
                         :
                         null}
-                        
+
                     {treats?.map((treat) => {
                         return ( //loops thru array of treats to create each treat item
                             <ItemTreat
@@ -67,8 +69,7 @@ function ListTreat() {
                 </Grid>
 
             </section>
-        </main >
-
+        </Box>
     );
 }
 

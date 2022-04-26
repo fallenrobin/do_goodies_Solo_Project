@@ -29,6 +29,7 @@ const useStyles = makeStyles({
     backgroundColor: "#E0E0E0",
     position: 'fixed',
     bottom: 0,
+    // marginTop: '100px' does nothing
   },
 })
 
@@ -43,65 +44,64 @@ function Nav() {
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
-// FIXME make nav bar have max z index etc?? rn buttons move over it
+  // FIXME make nav bar have max z index etc?? rn buttons move over it
   return (
-    <div >
+    <div>
       {/* <Link to="/home">
         <h2 className="nav-title">Prime Solo Project</h2>
       </Link> */}
-      <div>
-        {/* If no user is logged in, show these links */}
-        
-        {!user.id && (
-          // If there's no user, show login/registration links
-          
-          <BottomNavigation
-            className={classes.root}
-            value={value}
-            onChange={(event, newValue) => handleChange(event, newValue)}
-          >
 
-            <BottomNavigationAction label="Bakesales" icon={<AiOutlineShop size={25} />}
-              onClick={() => { history.push('/bakesale') }} />
+      {/* If no user is logged in, show these links */}
 
-            <BottomNavigationAction label="Sign Up" icon={<AiOutlineUserAdd size={25} />}
-              onClick={() => { history.push('/registration') }} />
+      {!user.id && (
+        // If there's no user, show login/registration links
 
-          </BottomNavigation>
-        )}
+        <BottomNavigation
+          className={classes.root}
+          value={value}
+          onChange={(event, newValue) => handleChange(event, newValue)}
+        >
 
-        {/* If a user is logged in, show these links */}
-        {user.id && (
-          <BottomNavigation
-            className={classes.root}
-            value={value}
-            onChange={(event, newValue) => handleChange(event, newValue)}
-          >
+          <BottomNavigationAction label="Bakesales" icon={<AiOutlineShop size={25} />}
+            onClick={() => { history.push('/bakesale') }} />
 
-            <BottomNavigationAction label="Profile" icon={<FaHouseUser size={25} />}
-              onClick={() => { history.push('/user') }} />
+          <BottomNavigationAction label="Sign Up" icon={<AiOutlineUserAdd size={25} />}
+            onClick={() => { history.push('/registration') }} />
 
-            <BottomNavigationAction label="Treats" icon={<RiCake3Line size={25} />}
-              onClick={() => { history.push('/treatList') }} />
+        </BottomNavigation>
+      )}
 
-            <BottomNavigationAction label="Bakesales" icon={<AiOutlineShop size={25} />}
-              onClick={() => { history.push('/bakesale') }} />
+      {/* If a user is logged in, show these links */}
+      {user.id && (
+        <BottomNavigation
+          className={classes.root}
+          value={value}
+          onChange={(event, newValue) => handleChange(event, newValue)}
+        >
 
-            <BottomNavigationAction label="Donations" icon={<FaDonate size={25} />}
-              onClick={() => { history.push('/user') }} />
+          <BottomNavigationAction label="Profile" icon={<FaHouseUser size={25} />}
+            onClick={() => { history.push('/user') }} />
+
+          <BottomNavigationAction label="Treats" icon={<RiCake3Line size={25} />}
+            onClick={() => { history.push('/treatList') }} />
+
+          <BottomNavigationAction label="Bakesales" icon={<AiOutlineShop size={25} />}
+            onClick={() => { history.push('/bakesale') }} />
+
+          <BottomNavigationAction label="Donations" icon={<FaDonate size={25} />}
+            onClick={() => { history.push('/user') }} />
 
 
-            {/* <RiCake3Line /> <AiOutlineShop /><FaDonate/> <FaUserEdit/>
+          {/* <RiCake3Line /> <AiOutlineShop /><FaDonate/> <FaUserEdit/>
       
       <AiOutlineUserAdd/> */}
 
-          </BottomNavigation>
-        )}
+        </BottomNavigation>
+      )}
 
-        {/* <Link className="navLink" to="/about">
+      {/* <Link className="navLink" to="/about">
           About
         </Link> */}
-      </div>
     </div>
   );
 }

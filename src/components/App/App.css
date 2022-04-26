@@ -10,8 +10,23 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("karly-gomez-_EqjV7bHBB4-unsplash.jpg");
   background-size: cover;
   background-position: center;
-
+  /* margin-bottom: 100px; does not work */
 }
+
+/* 
+
+dark pink for button hover, cancel btn text: #e75480 
+
+cupcake color palette 
+https://www.schemecolor.com/cup-cake-2.php
+
+dark teal #42929D
+light teal #84C3C8
+pale pink #F8D9D6
+beige #F4F4E1
+milk (off white) #FEFFF6
+
+*/
 
 .font-title {
   font-family: 'Kranky', cursive;
