@@ -31,7 +31,7 @@ function EditBakesale() {
     const dispatch = useDispatch();
     const classes = useStyles();
 
-    const bakesale = (useSelector(store => store.singleBakesaleReducer))
+    const bakesale = (useSelector(store => store.singleBakesaleReducer[0]))
 
     const newBakesale = {
         id: bakesale.id,
@@ -64,8 +64,9 @@ function EditBakesale() {
                     dispatch({
                         type: 'DELETE_BAKESALE',
                         payload:
-                            bakesale?.id
+                            bakesale.id
                     });
+                    console.log('deleteConfirm payload would be', bakesale.id);
                 } else {
                     swal("Your bakesale lives on");
                 }

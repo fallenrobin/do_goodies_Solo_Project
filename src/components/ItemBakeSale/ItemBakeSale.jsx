@@ -43,12 +43,12 @@ function ItemBakesale({ bakesale }) {
     
     const handleClickEdit = () => {
         setEditing(true);
-        // dispatch({
-        //     type: 'EDIT_BAKESALE',
-        //     payload: {
-        //         bakesale
-        //     },
-        // });
+        dispatch({
+            type: 'EDIT_BAKESALE',
+            payload: {
+                bakesale
+            },
+        });
     }
 
     const handleDetailView = () => {
@@ -73,7 +73,7 @@ function ItemBakesale({ bakesale }) {
                             <img key={bakesale.id} onClick={handleDetailView}
                                 src={bakesale.org_image} alt={bakesale.org_name}></img>
 
-                            {/* {user.id ?
+                            {user.id ?
 
                                 <OpenDialog
                                     open={open}
@@ -82,11 +82,11 @@ function ItemBakesale({ bakesale }) {
                                     title="edit bakesale"
                                     callback={handleClickEdit}
                                 >
-                                    <EditTreat />
+                                    <EditBakesale />
                                 </OpenDialog>
 
                                 :
-                                null} */}
+                                null}
 
                         </div>
 

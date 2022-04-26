@@ -70,7 +70,7 @@ function DetailBakesale() {
 
                                 <p className="descriptionText">{bakesale[0]?.org_description}</p>
                                 <p>Website: <a href={bakesale[0]?.org_website}>{bakesale[0]?.org_website}</a></p>
-                                <p>Fundraising goal: {bakesale.fundraising_goal}</p>
+                                <p>Fundraising goal: {bakesale[0]?.fundraising_goal}</p>
                                 {/* TODO add edit (conditional render)
                                     TODO turn this into full screen
                                     TODO add fundraising progress bar?
