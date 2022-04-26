@@ -43,7 +43,7 @@ function Nav() {
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
-
+// FIXME make nav bar have max z index etc?? rn buttons move over it
   return (
     <div >
       {/* <Link to="/home">

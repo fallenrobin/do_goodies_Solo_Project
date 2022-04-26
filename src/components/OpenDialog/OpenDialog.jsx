@@ -1,10 +1,8 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import FormTreats from '../FormTreats/FormTreats';
 import { makeStyles } from '@material-ui/core/styles'
 import classNames from 'classnames';
 
@@ -17,8 +15,7 @@ const useStyles = makeStyles({
         },
     },
     addTreat: {
-        top: "3px",
-        left: "5px"
+        top: "10px",
     },
     cancel: {
         color:"grey"
@@ -29,7 +26,7 @@ export default function OpenDialog({ title, children, component, callback }) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
-        //CALL THE FUNCTION GIVEN, IF EXISTS?
+        //CALL THE FUNCTION GIVEN, IF EXISTS:
         {callback ? callback() : null};
             setOpen(true);
     };
@@ -40,7 +37,7 @@ export default function OpenDialog({ title, children, component, callback }) {
 
     const classes = useStyles();
 
-    //QUESTION make a const to handle which form is being passed in??
+    //establishing children as passed in Form (or other) components
     const InnerComponent = component || (() => children);
 
 
@@ -48,7 +45,6 @@ export default function OpenDialog({ title, children, component, callback }) {
 
 
         <div>
-            {/* TODO move button so it's not off screen */}
             <Button variant="contained"
                 color="primary"
                 className={classNames(classes.btn, classes.addTreat)}
@@ -58,7 +54,7 @@ export default function OpenDialog({ title, children, component, callback }) {
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogContent>
-                    {/* TODO how to make this form generic?? */}
+                    {/* InnerComponent:  */}
                     {open && <InnerComponent />}
 
                 </DialogContent>
