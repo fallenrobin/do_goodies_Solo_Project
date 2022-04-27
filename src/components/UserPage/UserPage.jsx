@@ -45,7 +45,6 @@ const useStyles = makeStyles({
 
 // rainbow box shadow: https://html-css-js.com/css/generator/box-shadow/
 
-{/* <a title="pusheen cat heart" href="https://toppng.com/free-image/usheen-cutenessoverload-pusheen-the-cat-heart-PNG-free-PNG-Images_164455"</a> */ }
 
 function UserPage() {
 
@@ -58,8 +57,9 @@ function UserPage() {
     <div>
 
 
-      <img className={classNames(classes.avatar, classes.roundImg)} src="images/cakeDecorating.jpeg" alt={"Baker cat"}
-      />
+      <img className={classNames(classes.avatar, classes.roundImg)} 
+      src="images/cakeDecorating.jpeg" alt={"Baker cat"}/>
+      
 
 
       {
@@ -70,14 +70,8 @@ function UserPage() {
       }
 
 
-
       <img className={classes.roundImgSmall} src="images/pusheenCookie.png" alt={"Baker cat"} />
 
-
-      {/* <Button variant="contained" color="primary" onClick={() => { history.push('/treatList') }}>Treats List</Button> */}
-      {/* <button onClick={history.push('/bakesaleList')}>Bake Sale List</button> */}
-      {/* <button>Donations</button> */}
-      {/* <Grid item xs={1}/> */}
 
       <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />
       {/* <img className={classes.roundImgSmall} src="images/pusheenTreat.png" alt={"Baker cat"} /> */}
@@ -88,6 +82,7 @@ function UserPage() {
         onClick={() => dispatch({ type: 'LOGOUT' })}>
         <IoLogOutOutline size={25} />
       </Button>
+
     </div >
   );
 }
