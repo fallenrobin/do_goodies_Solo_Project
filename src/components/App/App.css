@@ -10,9 +10,13 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("karly-gomez-_EqjV7bHBB4-unsplash.jpg");
   background-size: cover;
   background-position: center;
-  backdrop-filter: blur(1px);
+  /* backdrop-filter: blur(1px); */
 
   /* height: 90vh; does not help */
+}
+
+.bodyContainer {
+  margin-bottom: 56px;
 }
 
 /* 

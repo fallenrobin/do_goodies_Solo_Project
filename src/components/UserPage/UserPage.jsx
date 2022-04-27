@@ -24,7 +24,8 @@ const useStyles = makeStyles({
   avatar: {
     webkitBoxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
     boxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
-    margin: '5px'
+    // margin: '5px'
+    marginTop: '1px'
   },
   roundImg: {
     width: "200px",
@@ -41,6 +42,13 @@ const useStyles = makeStyles({
     webkitBoxShadow: "7px -7px 6px -1px rgba(0,0,0,0.26), -6px 7px 6px -1px rgba(0,0,0,0.26), -6px 7px 6px -1px rgba(0,0,0,0.26)",
     boxShadow: "7px -7px 6px -1px rgba(0,0,0,0.26), -6px 7px 6px -1px rgba(0,0,0,0.26), -6px 7px 6px -1px rgba(0,0,0,0.26)",
     margin: '30px'
+  },
+  textBubble: {
+    width: "10%",
+    height: "10%",
+    borderRadius: '8px',
+    backgroundColor: '#F4F4E1',
+
   }
 })
 
@@ -65,7 +73,9 @@ function UserPage() {
       <Grid item xs={2} />
       <Grid
         container
-        item xs={8}>
+        item xs={8}
+        justifyContent='center'
+        >
 
         <img className={classNames(classes.avatar, classes.roundImg)}
           src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
@@ -113,7 +123,7 @@ function UserPage() {
           justifyContent='center'
         >
           <Grid item xs={4} m={6}>
-          <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />          </Grid>
+            <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />          </Grid>
           <Grid item xs={6}>
             <p><span>5</span> bakesales</p>
           </Grid>
@@ -131,12 +141,17 @@ function UserPage() {
 
       {/* <img className={classes.roundImgSmall} src="images/pusheenTreat.png" alt={"Baker cat"} /> */}
 
+      {user.id ?
 
-      <Button variant="contained" className={classes.btn}
-        color="primary"
-        onClick={() => dispatch({ type: 'LOGOUT' })}>
-        <IoLogOutOutline size={25} />
-      </Button>
+        <Button variant="contained" className={classes.btn}
+          color="primary"
+          onClick={() => dispatch({ type: 'LOGOUT' })}>
+          <IoLogOutOutline size={25} />
+        </Button>
+
+        :
+        null
+      }
 
     </Grid>
   );
