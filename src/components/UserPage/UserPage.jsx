@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid';
 import { IoLogOutOutline } from "react-icons/io5";
+import classNames from 'classnames';
+
 
 const useStyles = makeStyles({
   btn: {
@@ -22,11 +24,28 @@ const useStyles = makeStyles({
   avatar: {
     webkitBoxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
     boxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8"
+  },
+  roundImg: {
+    width: "200px",
+    height: "200px",
+    borderRadius: "400" / "2",
+  },
+  roundImgSmall: {
+    width: "70px",
+    height: "70px",
+    borderRadius: "400" / "2",
+    backgroundColor: '#F4F4E1',
+    objectFit: 'scale-down',
+    objectPosition: 'bottom',
+    webkitBoxShadow: "5px 5px 13px 16px rgba(217,217,217,0.81), -3px 1px 10px 5px rgba(61,61,61,0.69), -3px 1px 10px 5px rgba(61, 61, 61, 0.69)",
+    boxShadow: "5px 5px 13px 16px rgba(217, 217, 217, 0.81), -3px 1px 10px 5px rgba(61, 61, 61, 0.69), -3px 1px 10px 5px rgba(61, 61, 61, 0.69)",
+    // margin: '30px'
   }
 })
 
 // rainbow box shadow: https://html-css-js.com/css/generator/box-shadow/
 
+{/* <a title="pusheen cat heart" href="https://toppng.com/free-image/usheen-cutenessoverload-pusheen-the-cat-heart-PNG-free-PNG-Images_164455"</a> */ }
 
 function UserPage() {
 
@@ -36,43 +55,40 @@ function UserPage() {
   const dispatch = useDispatch();
 
   return (
-    <div className="container">
-      {/* {user.id ?
-        <h2 className='font-title' >Welcome, {user.username}!</h2>
-        :
-        null
-      } */}
-      <Grid container
-        spacing={2} //spacing between grid items
-      >
-        <Grid item xs={2} />
-        <Grid
-          item xs={8}>
-          <img className={classes.avatar} src="images/cakeDecorating.jpeg" alt={"Baker cat"}
-            style={{ width: 200, height: 200, borderRadius: 400 / 2, zIndex: '7' }}
-          />
+    <div>
 
-          {user.id ?
-            <h2 className='font-title'>Welcome, {user.username}!</h2>
-            :
-            <h2 className='font-title'>{user.username}</h2>
-          }
 
-        </Grid>
+      <img className={classNames(classes.avatar, classes.roundImg)} src="images/cakeDecorating.jpeg" alt={"Baker cat"}
+      />
 
-        <Grid item xs={6}>
 
-        </Grid>
-        {/* <Button variant="contained" color="primary" onClick={() => { history.push('/treatList') }}>Treats List</Button> */}
-        {/* <button onClick={history.push('/bakesaleList')}>Bake Sale List</button> */}
-        {/* <button>Donations</button> */}
-      </Grid>
+      {
+        user.id ?
+          <h2 className='font-title'>Welcome, {user.username}!</h2>
+          :
+          <h2 className='font-title'>{user.username}</h2>
+      }
+
+
+
+      <img className={classes.roundImgSmall} src="images/pusheenCookie.png" alt={"Baker cat"} />
+
+
+      {/* <Button variant="contained" color="primary" onClick={() => { history.push('/treatList') }}>Treats List</Button> */}
+      {/* <button onClick={history.push('/bakesaleList')}>Bake Sale List</button> */}
+      {/* <button>Donations</button> */}
+      {/* <Grid item xs={1}/> */}
+
+      <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />
+      {/* <img className={classes.roundImgSmall} src="images/pusheenTreat.png" alt={"Baker cat"} /> */}
+
+
       <Button variant="contained" className={classes.btn}
         color="primary"
         onClick={() => dispatch({ type: 'LOGOUT' })}>
         <IoLogOutOutline size={25} />
       </Button>
-    </div>
+    </div >
   );
 }
 
