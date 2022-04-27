@@ -3,10 +3,42 @@ import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
 
 // CUSTOM COMPONENTS
-// import RegisterForm from '../RegisterForm/RegisterForm';
+import RegisterForm from '../RegisterForm/RegisterForm';
+import { makeStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles({
+  page: {
+    backgroundColor: "#F8D9D6",
+    backgroundSize: 'cover',
+    height: '800px',
+    width: '700px'
+  },
+  roundImg: {
+    width: "300px",
+    height: "300px",
+    borderRadius: "400" / "2",
+    border: "5px double #D9D0F8",
+    backgroundColor:"#F4F4E1"
+  },
+  btn: {
+    backgroundColor: "#84C3C8",
+    color: 'black',
+    margin: '3px',
+    '&:hover': {
+      backgroundColor: "#e75480"
+    },
+  },
+  delete: {
+    color: "#e75480"
+  }
+})
+
 
 function LandingPage() {
   const history = useHistory();
+  const classes = useStyles();
+
 
   const onLogin = (event) => {
     history.push('/login');
@@ -18,28 +50,22 @@ function LandingPage() {
   };
 
   return (
-    <div className="container">
+    <div className={classes.page}>
 
-      <div className="grid">
-        <div className="grid-col grid-col_8">
-          <img src="../public/images/landingScreenshot.png" alt="Landing page screenshot" />
-        </div>
+      <img className={classes.roundImg} src="/images/logo.png" alt="Landing page screenshot" />
 
-        {/* <RegisterForm /> */}
+      {/* <RegisterForm /> */}
 
-        <center>
-          <button className="btn btn_sizeSm" onClick={onLogin}>
-            Login
-          </button>
-          <button className="btn btn_sizeSm" onClick={viewBakeSales}>
-            View bake sales
-          </button>
-          <p style={{color:'blue'}} onClick={() => { history.push('/registration') }}>New user? Click to register</p>
+      <Button variant="contained" className={classes.btn} onClick={onLogin}>
+        Login
+      </Button >
+      <Button variant="contained" className={classes.btn} onClick={viewBakeSales}>
+        View bake sales
+      </Button>
+      <p style={{ color: 'blue' }} onClick={() => { history.push('/registration') }}>New user? Click to register</p>
 
-        </center>
-      </div>
+
     </div>
-
   );
 }
 
