@@ -37,22 +37,29 @@ function UserPage() {
 
   return (
     <div className="container">
-      {user.id ?
+      {/* {user.id ?
         <h2 className='font-title' >Welcome, {user.username}!</h2>
         :
         null
-      }
+      } */}
       <Grid container
         spacing={2} //spacing between grid items
       >
         <Grid item xs={2} />
         <Grid
           item xs={8}>
-          <img className={classes.avatar} src={require("./cakeDecorating.jpeg")} alt={"Baker cat"}
-            style={{ width: 200, height: 200, borderRadius: 400 / 2, zIndex: '7' }} />
+          <img className={classes.avatar} src="images/cakeDecorating.jpeg" alt={"Baker cat"}
+            style={{ width: 200, height: 200, borderRadius: 400 / 2, zIndex: '7' }}
+          />
+
+          {user.id ?
+            <h2 className='font-title'>Welcome, {user.username}!</h2>
+            :
+            <h2 className='font-title'>{user.username}</h2>
+          }
+
         </Grid>
 
-        {/* <p>Your ID is: {user.id}</p> */}
         <Grid item xs={6}>
 
         </Grid>
@@ -60,8 +67,7 @@ function UserPage() {
         {/* <button onClick={history.push('/bakesaleList')}>Bake Sale List</button> */}
         {/* <button>Donations</button> */}
       </Grid>
-      <Button className={classes.btn}
-        variant="contained"
+      <Button variant="contained" className={classes.btn}
         color="primary"
         onClick={() => dispatch({ type: 'LOGOUT' })}>
         <IoLogOutOutline size={25} />

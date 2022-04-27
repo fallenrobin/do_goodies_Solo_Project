@@ -10,6 +10,8 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("karly-gomez-_EqjV7bHBB4-unsplash.jpg");
   background-size: cover;
   background-position: center;
+  backdrop-filter: blur(1px);
+
   /* height: 90vh; does not help */
 }
 
@@ -30,6 +32,11 @@ milk (off white) #FEFFF6
 
 .font-title {
   font-family: 'Kranky', cursive;
+  /* margin: auto; */
+  /* background-color: #84C3C8; */
+  text-align: center;
+  color: #FEFFF6;
+  text-shadow: 1px 1px #444;
 }
 
 
