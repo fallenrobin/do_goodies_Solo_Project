@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     width: "100%",
     backgroundColor: "#E0E0E0",
     position: 'fixed',
-    bottom: 0,
+    bottom: 0
     // marginTop: '100px' does nothing
     // height: '10vh'
   },
@@ -46,65 +46,88 @@ function Nav() {
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
-  // FIXME make nav bar have max z index etc?? rn buttons move over it
+  console.log('nav icon clicked:', value);
+
+  /*
+  const location = useSelector((store) => store.navReducer);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+    setReducer();
+  }
+
+  
+  const setReducer = () => {
+    dispatch({ type: 'SET_LOCATION', payload: value });
+  }   TODO define dispatch
+  */
+
+
+
   return (
-    <div>
-      {/* <Link to="/home">
+    // <Paper sx={{ width:"100%", position: 'fixed', bottom: 0}} elevation={3}>
+
+      <div>
+        {/* <Link to="/home">
         <h2 className="nav-title">Prime Solo Project</h2>
       </Link> */}
 
-      {/* If no user is logged in, show these links */}
+        {/* If no user is logged in, show these links */}
 
-      {!user.id && (
-        // If there's no user, show login/registration links
+        {!user.id && (
+          // If there's no user, show login/registration links
 
-        <BottomNavigation
-          className={classes.root}
-          value={value}
-          onChange={(event, newValue) => handleChange(event, newValue)}
-        >
+          <BottomNavigation
+            className={classes.root}
+            value={location}
+            onChange={(event, setValue) => handleChange(event, setValue)}
+          >
 
-          <BottomNavigationAction label="Bakesales" icon={<AiOutlineShop size={25} />}
-            onClick={() => { history.push('/bakesale') }} />
+            <BottomNavigationAction label="Bakesales" icon={<AiOutlineShop size={25} />}
+              onClick={() => { history.push('/bakesale') }} />
 
-          <BottomNavigationAction label="Sign Up" icon={<AiOutlineUserAdd size={25} />}
-            onClick={() => { history.push('/registration') }} />
+            <BottomNavigationAction label="Sign Up" icon={<AiOutlineUserAdd size={25} />}
+              onClick={() => { history.push('/registration') }} />
 
-        </BottomNavigation>
-      )}
+          </BottomNavigation>
+        )}
 
-      {/* If a user is logged in, show these links */}
-      {user.id && (
-        <BottomNavigation
-          className={classes.root}
-          value={value}
-          onChange={(event, newValue) => handleChange(event, newValue)}
-        >
+        {/* If a user is logged in, show these links */}
+        {user.id && (
+          <BottomNavigation
+            className={classes.root}
+            value={value}
+            onChange={(event, setValue) => handleChange(event, setValue)}
+          >
 
-          <BottomNavigationAction label="Profile" icon={<FaHouseUser size={25} />}
-            onClick={() => { history.push('/user') }} />
+            <BottomNavigationAction
+              label="Profile" icon={<FaHouseUser size={25}
+                value="profile" />}
+              onClick={() => { history.push('/user') }} />
 
-          <BottomNavigationAction label="Treats" icon={<RiCake3Line size={25} />}
-            onClick={() => { history.push('/treatList') }} />
+            <BottomNavigationAction label="Treats"
+              icon={<RiCake3Line size={25}
+                value="treats"
+              />}
+              onClick={() => { history.push('/treatList') }} />
 
-          <BottomNavigationAction label="Bakesales" icon={<AiOutlineShop size={25} />}
-            onClick={() => { history.push('/bakesale') }} />
+            <BottomNavigationAction label="Bakesales"
+              icon={<AiOutlineShop size={25}
+                value="bakesale"
+              />}
+              onClick={() => { history.push('/bakesale') }} />
 
-          <BottomNavigationAction label="Donations" icon={<FaDonate size={25} />}
-            onClick={() => { history.push('/user') }} />
+            <BottomNavigationAction label="Donations"
+              icon={<FaDonate size={25}
+                value="donations"
+              />}
+              onClick={() => { history.push('/user') }} />
 
-
-          {/* <RiCake3Line /> <AiOutlineShop /><FaDonate/> <FaUserEdit/>
-      
-      <AiOutlineUserAdd/> */}
-
-        </BottomNavigation>
-      )}
-
-      {/* <Link className="navLink" to="/about">
-          About
-        </Link> */}
-    </div>
+          </BottomNavigation>
+        )}
+        </div >
+    // </Paper>
+    
   );
 }
 

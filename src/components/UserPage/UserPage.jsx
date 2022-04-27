@@ -23,7 +23,8 @@ const useStyles = makeStyles({
   },
   avatar: {
     webkitBoxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
-    boxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8"
+    boxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
+    margin: '5px'
   },
   roundImg: {
     width: "200px",
@@ -37,14 +38,15 @@ const useStyles = makeStyles({
     backgroundColor: '#F4F4E1',
     objectFit: 'scale-down',
     objectPosition: 'bottom',
-    webkitBoxShadow: "5px 5px 13px 16px rgba(217,217,217,0.81), -3px 1px 10px 5px rgba(61,61,61,0.69), -3px 1px 10px 5px rgba(61, 61, 61, 0.69)",
-    boxShadow: "5px 5px 13px 16px rgba(217, 217, 217, 0.81), -3px 1px 10px 5px rgba(61, 61, 61, 0.69), -3px 1px 10px 5px rgba(61, 61, 61, 0.69)",
-    // margin: '30px'
+    webkitBoxShadow: "7px -7px 6px -1px rgba(0,0,0,0.26), -6px 7px 6px -1px rgba(0,0,0,0.26), -6px 7px 6px -1px rgba(0,0,0,0.26)",
+    boxShadow: "7px -7px 6px -1px rgba(0,0,0,0.26), -6px 7px 6px -1px rgba(0,0,0,0.26), -6px 7px 6px -1px rgba(0,0,0,0.26)",
+    margin: '30px'
   }
 })
 
 // rainbow box shadow: https://html-css-js.com/css/generator/box-shadow/
 
+{/* <a title="pusheen cat heart" href="https://toppng.com/free-image/usheen-cutenessoverload-pusheen-the-cat-heart-PNG-free-PNG-Images_164455"</a> */ }
 
 function UserPage() {
 
@@ -54,36 +56,38 @@ function UserPage() {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <Grid>
+      <div>
 
 
-      <img className={classNames(classes.avatar, classes.roundImg)} 
-      src="images/cakeDecorating.jpeg" alt={"Baker cat"}/>
-      
+        <img className={classNames(classes.avatar, classes.roundImg)}
+          src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
 
 
-      {
-        user.id ?
-          <h2 className='font-title'>Welcome, {user.username}!</h2>
-          :
-          <h2 className='font-title'>{user.username}</h2>
-      }
+
+        {
+          user.id ?
+            <h2 className='font-title'>Welcome, {user.username}!</h2>
+            :
+            <h2 className='font-title'>{user.username}</h2>
+        }
 
 
-      <img className={classes.roundImgSmall} src="images/pusheenCookie.png" alt={"Baker cat"} />
+        <img className={classes.roundImgSmall} src="images/pusheenCookie.png" alt={"Baker cat"} />
 
 
-      <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />
-      {/* <img className={classes.roundImgSmall} src="images/pusheenTreat.png" alt={"Baker cat"} /> */}
+        <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />
+        {/* <img className={classes.roundImgSmall} src="images/pusheenTreat.png" alt={"Baker cat"} /> */}
 
 
-      <Button variant="contained" className={classes.btn}
-        color="primary"
-        onClick={() => dispatch({ type: 'LOGOUT' })}>
-        <IoLogOutOutline size={25} />
-      </Button>
+        <Button variant="contained" className={classes.btn}
+          color="primary"
+          onClick={() => dispatch({ type: 'LOGOUT' })}>
+          <IoLogOutOutline size={25} />
+        </Button>
 
-    </div >
+      </div >
+    </Grid>
   );
 }
 

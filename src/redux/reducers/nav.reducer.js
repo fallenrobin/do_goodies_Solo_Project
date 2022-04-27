@@ -1,13 +1,7 @@
-const navReducer = (state = 0, action) => {
+const navReducer = (state = '', action) => {
     switch (action.type) {
-        case 'PROFILE':
-            return 0;
-        case 'TREATS':
-            return 1;
-        case 'BAKESALES':
-            return 2;
-        case 'DONATIONS':
-            return 3;
+        case 'SET_LOCATION':
+            return action.payload;
         default:
             return state;
     }
