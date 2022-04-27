@@ -56,14 +56,19 @@ function UserPage() {
   const dispatch = useDispatch();
 
   return (
-    <Grid>
-      <div>
+    <Grid
+      container
+      // spacing={2}
+      justifyContent='center'
+    >
 
+      <Grid item xs={2} />
+      <Grid
+        container
+        item xs={8}>
 
         <img className={classNames(classes.avatar, classes.roundImg)}
           src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
-
-
 
         {
           user.id ?
@@ -71,22 +76,68 @@ function UserPage() {
             :
             <h2 className='font-title'>{user.username}</h2>
         }
+      </Grid>
+      <Grid item xs={2} />
 
 
-        <img className={classes.roundImgSmall} src="images/pusheenCookie.png" alt={"Baker cat"} />
 
 
-        <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />
-        {/* <img className={classes.roundImgSmall} src="images/pusheenTreat.png" alt={"Baker cat"} /> */}
 
 
-        <Button variant="contained" className={classes.btn}
-          color="primary"
-          onClick={() => dispatch({ type: 'LOGOUT' })}>
-          <IoLogOutOutline size={25} />
-        </Button>
+      <Grid
+        container
+        spacing={1}
+        direction="column"
+      >
 
-      </div >
+        <Grid
+          container
+          direction='row'
+          alignItems='center'
+          spacing={5}
+          justifyContent='center'
+        >
+          <Grid item xs={4} m={6}>
+            <img className={classes.roundImgSmall} src="images/pusheenCookie.png" alt={"Baker cat"} />
+          </Grid>
+          <Grid item xs={6}>
+            <p><span>5</span> treats</p>
+          </Grid>
+        </Grid>
+
+        <Grid
+          container
+          direction='row'
+          alignItems='center'
+          spacing={5}
+          justifyContent='center'
+        >
+          <Grid item xs={4} m={6}>
+          <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />          </Grid>
+          <Grid item xs={6}>
+            <p><span>5</span> bakesales</p>
+          </Grid>
+        </Grid>
+
+        {/* <grid item xs={6} />
+
+          <Grid item xs={3}>
+            <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />
+          </Grid> */}
+
+
+      </Grid>
+
+
+      {/* <img className={classes.roundImgSmall} src="images/pusheenTreat.png" alt={"Baker cat"} /> */}
+
+
+      <Button variant="contained" className={classes.btn}
+        color="primary"
+        onClick={() => dispatch({ type: 'LOGOUT' })}>
+        <IoLogOutOutline size={25} />
+      </Button>
+
     </Grid>
   );
 }
