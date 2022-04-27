@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
 import Paper from '@material-ui/core/Paper';
+import { AppBar } from '@material-ui/core';
 
 
 import { FaHouseUser } from 'react-icons/fa';
@@ -32,6 +33,10 @@ const useStyles = makeStyles({
     // marginTop: '100px' does nothing
     // height: '10vh'
   },
+  appBar: {
+    bottom: 0,
+    top: 'auto'
+  }
 })
 
 
@@ -65,9 +70,11 @@ function Nav() {
 
 
   return (
-    // <Paper sx={{ width:"100%", position: 'fixed', bottom: 0}} elevation={3}>
+    <AppBar className={classes.appBar}
+    position='fixed'
+    >
 
-      <div>
+    
         {/* <Link to="/home">
         <h2 className="nav-title">Prime Solo Project</h2>
       </Link> */}
@@ -78,7 +85,7 @@ function Nav() {
           // If there's no user, show login/registration links
 
           <BottomNavigation
-            className={classes.root}
+            // className={classes.root}
             value={location}
             onChange={(event, setValue) => handleChange(event, setValue)}
           >
@@ -125,9 +132,9 @@ function Nav() {
 
           </BottomNavigation>
         )}
-        </div >
-    // </Paper>
     
+    </AppBar>
+
   );
 }
 
