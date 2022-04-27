@@ -45,29 +45,14 @@ function Nav() {
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  // TODO make navLocation reducer to replace useState
+  // TODO navLocation useParams TODO fix background color of non-logged in version of nav
+
   const history = useHistory();
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
   console.log('nav icon clicked:', value);
-
-  /*
-  const location = useSelector((store) => store.navReducer);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-    setReducer();
-  }
-
-  
-  const setReducer = () => {
-    dispatch({ type: 'SET_LOCATION', payload: value });
-  }   TODO define dispatch
-  */
-
-
 
   return (
     <AppBar className={classes.appBar}

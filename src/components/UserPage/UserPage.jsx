@@ -114,7 +114,10 @@ function UserPage() {
             <img className={classes.roundImgSmall} src="images/pusheenCookie.png" alt={"Baker cat"} />
           </Grid>
           <Grid item xs={5}>
-            <p className={classes.textBubble} ><span>5</span> treats</p>
+            <p className={classes.textBubble} 
+            onClick={() => { history.push('/treatList') }}
+            // FIXME fix hover effect for 'buttons'
+            ><span>5</span> treats</p>
           </Grid>
         </Grid>
 
@@ -128,7 +131,9 @@ function UserPage() {
           <Grid item xs={4} m={6}>
             <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />          </Grid>
           <Grid item xs={5}>
-            <p className={classes.textBubble}><span>5</span> bakesales</p>
+            <p className={classes.textBubble}
+            onClick={() => { history.push('/bakesale') }}
+            ><span>5</span> bakesales</p>
           </Grid>
         </Grid>
 
