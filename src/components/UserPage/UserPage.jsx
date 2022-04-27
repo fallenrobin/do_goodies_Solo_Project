@@ -19,13 +19,13 @@ const useStyles = makeStyles({
     },
     position: "fixed",
     bottom: "58px",
-    right: "2px"
+    right: "4px"
   },
   avatar: {
     webkitBoxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
     boxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
     // margin: '5px'
-    marginTop: '1px'
+    marginTop: '10%'
   },
   roundImg: {
     width: "200px",
@@ -33,8 +33,8 @@ const useStyles = makeStyles({
     borderRadius: "400" / "2",
   },
   roundImgSmall: {
-    width: "70px",
-    height: "70px",
+    width: "75px",
+    height: "75px",
     borderRadius: "400" / "2",
     backgroundColor: '#F4F4E1',
     objectFit: 'scale-down',
@@ -44,11 +44,14 @@ const useStyles = makeStyles({
     margin: '30px'
   },
   textBubble: {
-    width: "10%",
-    height: "10%",
-    borderRadius: '8px',
+    // width: "10%",
+    // height: "10%",
+    borderRadius: '15px',
     backgroundColor: '#F4F4E1',
-
+    padding: '8px',
+    '&:hover': {
+      backgroundColor: "#42929D",
+    }
   }
 })
 
@@ -75,7 +78,7 @@ function UserPage() {
         container
         item xs={8}
         justifyContent='center'
-        >
+      >
 
         <img className={classNames(classes.avatar, classes.roundImg)}
           src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
@@ -110,8 +113,8 @@ function UserPage() {
           <Grid item xs={4} m={6}>
             <img className={classes.roundImgSmall} src="images/pusheenCookie.png" alt={"Baker cat"} />
           </Grid>
-          <Grid item xs={6}>
-            <p><span>5</span> treats</p>
+          <Grid item xs={5}>
+            <p className={classes.textBubble} ><span>5</span> treats</p>
           </Grid>
         </Grid>
 
@@ -124,8 +127,8 @@ function UserPage() {
         >
           <Grid item xs={4} m={6}>
             <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />          </Grid>
-          <Grid item xs={6}>
-            <p><span>5</span> bakesales</p>
+          <Grid item xs={5}>
+            <p className={classes.textBubble}><span>5</span> bakesales</p>
           </Grid>
         </Grid>
 
