@@ -8,20 +8,23 @@ import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
 import { Container } from '@material-ui/core';
 import { Grid } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
-  page: {
-    backgroundColor: "#F8D9D6",
-    backgroundSize: 'cover',
-    height: '750px',
-    width: '450px'
-  },
+  // page: {
+  //   backgroundColor: "#F8D9D6",
+  //   backgroundSize: 'cover',
+  //   height: '750px',
+  //   width: '450px'
+  // },
   roundImg: {
     width: "300px",
     height: "300px",
     borderRadius: "400" / "2",
     border: "5px double #D9D0F8",
-    backgroundColor: "#F4F4E1"
+    backgroundColor: "#F4F4E1",
+    webkitBoxShadow: "7px -7px 6px -1px rgba(0,0,0,0.26), -6px 7px 6px -1px rgba(0,0,0,0.26), -6px 7px 6px -1px rgba(0,0,0,0.26)",
+    boxShadow: "7px -7px 6px -1px rgba(0,0,0,0.26), -6px 7px 6px -1px rgba(0,0,0,0.26), -6px 7px 6px -1px rgba(0,0,0,0.26)"
   },
   btn: {
     backgroundColor: "#a8e8ed",
@@ -31,9 +34,20 @@ const useStyles = makeStyles({
       backgroundColor: "#e75480"
     },
   },
-  delete: {
-    color: "#e75480"
-  }
+  register: {
+    backgroundColor: '#FEFFF6',
+    color: '#5c5c5c',
+    border: '1px solid gray',
+    borderRadius: '16px',
+    padding: '7px',
+    textAlign: 'center'
+  },
+  title: {
+    fontFamily: 'Kranky, cursive',
+    color: '#FEFFF6',
+    textShadow: '2px 2px #444',
+    margin: '20px'
+}
 })
 
 
@@ -52,8 +66,8 @@ function LandingPage() {
   };
 
   return (
-    <Grid container
-      className={classes.page}
+    <Grid
+      container
       style={{ justifyContent: 'center' }}
     >
 
@@ -62,7 +76,15 @@ function LandingPage() {
           style={{ marginTop: '50px' }}
           src="/images/logo.png" alt="Landing page screenshot" />
       </div>
-      {/* <RegisterForm /> */}
+
+      <Grid
+        container
+        style={{ justifyContent: 'center' }}
+      >
+        <Typography
+          variant='h3'
+          className={classes.title}>Do Goodies</Typography>
+      </Grid>
 
       <div>
         <Button variant="contained" className={classes.btn} onClick={onLogin}>
@@ -71,14 +93,11 @@ function LandingPage() {
         <Button variant="contained" className={classes.btn} onClick={viewBakeSales}>
           View bake sales
         </Button>
-        <p style={{
-          color: '#5c5c5c',
-          border: '1px solid gray',
-          borderRadius: '6px',
-          padding: '7px',
-          textAlign: 'center'
-        }}
-          onClick={() => { history.push('/registration') }}>New user? Click to register</p>
+
+        <p className={classes.register}
+          onClick={() => { history.push('/registration') }}>
+          New user? Click to register
+        </p>
 
 
       </div >
