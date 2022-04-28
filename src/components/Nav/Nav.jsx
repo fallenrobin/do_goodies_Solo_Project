@@ -45,14 +45,14 @@ function Nav() {
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  // TODO navLocation useParams TODO fix background color of non-logged in version of nav
+  // TODO navLocation useParams 
 
   const history = useHistory();
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
-  console.log('nav icon clicked:', value);
+  // console.log('nav icon clicked:', value);
 
   return (
     <AppBar className={classes.appBar}
@@ -71,6 +71,7 @@ function Nav() {
 
           <BottomNavigation
             // className={classes.root}
+            className={classes.root}
             value={location}
             onChange={(event, setValue) => handleChange(event, setValue)}
           >
