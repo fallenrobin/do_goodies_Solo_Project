@@ -9,7 +9,8 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <p><h1 style={{color:'#FF69B4', backgroundColor:'white'}}>WAOW SO TECHNOLOGY</h1></p>
+        <p><h1 style={{color:'#FF69B4', backgroundColor:'white'}}>OMG THANX HOOMANS</h1></p>
       </div>
     </div>
   );
