@@ -46,8 +46,8 @@ const useStyles = makeStyles({
     fontFamily: 'Kranky, cursive',
     color: '#FEFFF6',
     textShadow: '2px 2px #444',
-    margin: '20px'
-}
+    // marginTop: '20px'
+  }
 })
 
 
@@ -83,7 +83,12 @@ function LandingPage() {
       >
         <Typography
           variant='h3'
-          className={classes.title}>Do Goodies</Typography>
+          className={classes.title} style={{marginTop:'20px'}}>Do Goodies
+        </Typography>
+        <Typography
+          variant='h4'
+          className={classes.title} style={{marginBottom:'20px'}}>treat well, do good.
+        </Typography>
       </Grid>
 
       <div>

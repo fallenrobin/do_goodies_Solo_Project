@@ -87,7 +87,7 @@ function App() {
                 // redirect to the /user page
                 <Redirect to="/user" />
                 :
-                // Otherwise, show the login page
+                // Otherwise, show the landing
                 <LoginPage />
               }
             </Route>
@@ -163,9 +163,6 @@ function App() {
             >
               <DetailBakesale />
             </Route>
-
-
-
 
 
             {/* If none of the other routes matched, we will show a 404. */}
