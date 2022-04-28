@@ -31,6 +31,7 @@ const useStyles = makeStyles({
     width: "200px",
     height: "200px",
     borderRadius: "400" / "2",
+    border: "3px #D9D0F8"
   },
   roundImgSmall: {
     width: "75px",
@@ -133,7 +134,7 @@ function UserPage() {
           <Grid item xs={5}>
             <p className={classes.textBubble}
             onClick={() => { history.push('/bakesale') }}
-            ><span>5</span> bakesales</p>
+            ><span>6</span> bakesales</p>
           </Grid>
         </Grid>
 

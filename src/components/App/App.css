@@ -35,7 +35,9 @@ milk (off white) #FEFFF6
 */
 
 .font-title {
-  font-family: 'Kranky', cursive;
+  /* font-family: 'Kranky', cursive; */
+  font-family: 'Crafty Girls', cursive;
+
   /* margin: auto; */
   /* background-color: #84C3C8; */
   text-align: center;
