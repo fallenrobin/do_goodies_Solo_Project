@@ -23,7 +23,7 @@ function ListBakesale() {
 
     }, []);
 
-    console.log('after useEffect', bakesales);
+    // console.log('after useEffect', bakesales);
 
     return (
         <main>
