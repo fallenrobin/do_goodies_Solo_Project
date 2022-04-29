@@ -27,7 +27,7 @@ function ListTreat() {
 
     }, []);
 
-    // console.log('after useEffect', treats);
+    console.log('after useEffect', treats);
 
     return (
         // <Box >

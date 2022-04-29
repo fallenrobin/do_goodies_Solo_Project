@@ -24,6 +24,14 @@ const useStyles = makeStyles((theme) =>
             minHeight: 200,
             // maxHeight: 400
         },
+        price: {
+backgroundColor: '#BFEEB7',
+color: 'black',
+border: '1px transparent',
+borderRadius: '12px',
+marginLeft: '10px',
+padding: '3px'
+        }
     }),
 );
 
@@ -71,12 +79,17 @@ function ItemTreat({ treat }) {
 
                 <Card
                     raised={true}
-                    className={classes.root} variant="outlined">
+                    className={classes.root} variant="outlined"
+                >
 
-                    <CardContent>
+                    <CardContent
+                        alignItems='center'
+                    >
                         <>
-                            <div>
-                                <p>{treat.treat_name}</p></div>
+                            <div >
+                                <p> <h3>{treat.treat_name}   
+                                <span className={classes.price}>{treat.price}</span></h3></p>
+                            </div>
 
                             <img onClick={handleDetailView}
                                 src={treat.treat_image} alt={treat.treat_name}></img>
@@ -99,7 +112,7 @@ function ItemTreat({ treat }) {
 
                     </CardContent>
                 </Card>
-            
+
             </Grid>
         </>
     )
