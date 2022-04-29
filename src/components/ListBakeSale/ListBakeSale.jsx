@@ -34,9 +34,9 @@ function ListBakesale() {
                     // margin-top="20px"TODO give top of Grid margin to avoid button??
                     direction="column"
                     alignItems="center"
-                    // style={{ minHeight: '100vh' }} does not help
-                    // style={{ marginBottom: '100px' }} does not help
-                    >
+                // style={{ minHeight: '100vh' }} does not help
+                // style={{ marginBottom: '100px' }} does not help
+                >
 
                     {user.id ?
 
@@ -61,7 +61,7 @@ function ListBakesale() {
                             />);
                     })}
 
-                    {/* TODO make bottom of last card float above nav bar */}
+                    <div style={{ height: '60px' }}></div>
 
                 </Grid>
             </section>

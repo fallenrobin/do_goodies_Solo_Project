@@ -11,18 +11,34 @@ import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 // import { ClassNames } from '@emotion/react';
 import Button from '@material-ui/core/Button';
+ 
+//for progress bar
+import LinearProgress from '@material-ui/core/LinearProgress';
+
+// const StyledBar = withStyles({
+//     root: {
+//         colorPrimary: 'green',
+//         width: '50%',
+//         marginBottom: '20px'
+//     }
+// });
 
 
 const useStyles = makeStyles({
-    root: {
-        width: 100,
-        height: 200,
+    card: {
+        width: 1250,
+        height: 250,
         marginTop: '30px'
     },
     img: {
-        width: 150,
-        height: 150,
-    }
+        width: 250,
+        height: 250,
+    },
+    root: {
+        colorPrimary: 'green',
+        width: '50%',
+        marginBottom: '20px'
+    },
 })
 
 
@@ -34,6 +50,23 @@ function DetailBakesale() {
     const dispatch = useDispatch();
     const classes = useStyles();
 
+    const [progress, setProgress] = React.useState(0);//for progress bar
+
+    //to do with progress bar
+    React.useEffect(() => {
+        const timer = setInterval(() => {
+            setProgress((oldProgress) => {
+                if (oldProgress === 100) {
+                    return 0;
+                }
+                const diff = Math.random() * 10;
+                return Math.min(oldProgress + diff, 45);
+            });
+        }, 100);
+        return () => {
+            clearInterval(timer);
+        };
+    }, []);
 
     useEffect(() => {// asks for one bakesale from DB on page load
         dispatch({
@@ -50,7 +83,7 @@ function DetailBakesale() {
 
         <>
             <Grid
-                className={classes.root}
+                className={classes.card}
                 align="center"
                 container
                 direction="column"
@@ -73,10 +106,13 @@ function DetailBakesale() {
                                 <p>Fundraising goal: {bakesale[0]?.fundraising_goal}</p>
                                 {/* TODO add edit (conditional render)
                                     TODO turn this into full screen
-                                    TODO add fundraising progress bar?
                                     TODO link this to a dispatch, saga etc
                                     TODO use params for detail view
                                     */}
+                            </div>
+
+                            <div className={classes.root}>
+                                <LinearProgress variant="determinate" value={progress} />
                             </div>
 
                             <Button variant="outlined" color="primary"

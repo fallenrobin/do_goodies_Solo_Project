@@ -57,15 +57,20 @@ function FormTreats() {
 
     }
 
-    // const handleClose = () => {
-    //     setOpen(false);
-    // };
+    const handleAutofill = () => {
+        // NOTE set up auto fill for demo, using Ruby on Whales
+        setTreatName('#fullCRUDnut');
+        setTreatDescription(`You've heard of cronuts? These are better`);
+        setTreatImage('/images/crudnut.png');
+        setPrice('$4');
+    }
+
 
     return (
 
         <>
             <form onSubmit={handleNewTreat}>
-                <h2>Create New Treat</h2>
+                <h2 onClick={handleAutofill}>Create New Treat</h2>
 
                 <div>
                     <label htmlFor="treatName">
@@ -110,7 +115,7 @@ function FormTreats() {
                     <label htmlFor="price">
                         Price:
                         <input
-                            type="number"
+                            type="string"
                             name="price"
                             value={price}
                             // to do: adjust width

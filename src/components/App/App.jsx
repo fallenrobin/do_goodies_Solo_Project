@@ -173,7 +173,7 @@ function App() {
         </Container>
         {/* <Footer /> */}
 
-        <Nav />
+        <Nav style={{marginTop: '10px'}}/>
 
       </div>
     </Router>

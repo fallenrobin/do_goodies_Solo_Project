@@ -84,11 +84,19 @@ function EditTreat() {
         setPrice('');
     }
 
+    const handleAutofill = () => {
+        // NOTE set up auto fill for demo, using Ruby on Whales
+        setTreatName('#rubyOnWhales');
+        setTreatDescription('Buttery whales coated with ruby chocolate ');
+        setTreatImage('/images/rubyWhales.jpg');
+        setPrice('$3');
+    }
 
     return (
 
         <form onSubmit={handleUpdate}>
-            <h2>Edit Treat</h2>
+            {/*NOTE secret button for demo purposes*/}
+            <h2 onClick={handleAutofill}>Edit Treat</h2>
 
             <div>
                 <label htmlFor="treatName">
@@ -125,7 +133,7 @@ function EditTreat() {
                         name="treatImage"
                         value={treatImage}
                         maxLength={255}
-                        placeholder="Paste image link"
+                        placeholder={treat.treat_image}
                         onChange={(event) => setTreatImage(event.target.value)}
                     />
                 </label>
@@ -134,7 +142,7 @@ function EditTreat() {
                 <label htmlFor="price">
                     Price:
                     <input
-                        type="number"
+                        type="text"
                         name="price"
                         value={price}
                         // maxLength={255} what validation here? also set in DB
