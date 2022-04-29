@@ -35,7 +35,7 @@ export default function OpenDialog({ title, children, component, callback }) {
     const handleClickOpen = () => {
         // CALL THE FUNCTION GIVEN, IF EXISTS:
         { callback ? callback() : null };
-        setOpen(true);
+        setOpen(true);//TODO only change all of these to dispatch true/false accordingly
         // {
         //     editMode ? setOpen(true)
         //         :
