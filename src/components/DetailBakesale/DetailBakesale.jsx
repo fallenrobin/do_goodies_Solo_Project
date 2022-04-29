@@ -11,7 +11,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 // import { ClassNames } from '@emotion/react';
 import Button from '@material-ui/core/Button';
- 
+
 //for progress bar
 import LinearProgress from '@material-ui/core/LinearProgress';
 
@@ -26,19 +26,27 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 const useStyles = makeStyles({
     card: {
-        width: 1250,
-        height: 250,
+        width: 400,
+        height: 500,
         marginTop: '30px'
     },
     img: {
         width: 250,
         height: 250,
     },
-    root: {
-        colorPrimary: 'green',
-        width: '50%',
-        marginBottom: '20px'
-    },
+    // root: {
+    //     colorPrimary: 'green',
+    //     width: '50%',
+    //     marginBottom: '20px'
+    // },
+    fundraising: {
+        backgroundColor: '#BFEEB7',
+        color: 'black',
+        border: '1px transparent',
+        borderRadius: '12px',
+        marginLeft: '10px',
+        padding: '3px'
+    }
 })
 
 
@@ -89,8 +97,8 @@ function DetailBakesale() {
                 direction="column"
                 alignItems="center"
             >
-                <Grid item xs={4}>
-                    <Card style={{ minWidth: 320, maxWidth: 450 }} variant="outlined">
+                <Grid item s={5}>
+                    <Card styles={classes.card} variant="outlined">
                         <CardContent>
 
                             <div key={bakesale[0]?.id} >
@@ -103,19 +111,25 @@ function DetailBakesale() {
 
                                 <p className="descriptionText">{bakesale[0]?.org_description}</p>
                                 <p>Website: <a href={bakesale[0]?.org_website}>{bakesale[0]?.org_website}</a></p>
-                                <p>Fundraising goal: {bakesale[0]?.fundraising_goal}</p>
-                                {/* TODO add edit (conditional render)
+
+                                <div className={classes.fundraising}>
+
+                                    <p>Fundraising goal: ${bakesale[0]?.fundraising_goal}</p>
+                                    {/* TODO add edit (conditional render)
                                     TODO turn this into full screen
                                     TODO link this to a dispatch, saga etc
                                     TODO use params for detail view
                                     */}
-                            </div>
 
-                            <div className={classes.root}>
-                                <LinearProgress variant="determinate" value={progress} />
+
+
+                                    <LinearProgress variant="determinate" value={progress} />
+
+                                </div>
                             </div>
 
                             <Button variant="outlined" color="primary"
+                                style={{ marginTop: '20px' }}
                                 onClick={() => { history.goBack() }}>Back</Button>
                             {/* button returns user to movie list; subtle so as not to detract visually from movie*/}
                         </CardContent>
