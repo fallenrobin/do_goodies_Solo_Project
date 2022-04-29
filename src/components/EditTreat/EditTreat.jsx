@@ -86,6 +86,10 @@ function EditTreat() {
 
     const handleAutofill = () => {
         // TODO set up auto fill for rubyOnWhales for demo
+        setTreatName('#rubyOnWhales');
+        setTreatDescription('Buttery whales coated with ruby chocolate ');
+        setTreatImage('/images/rubyWhales.jpg');
+        setPrice('$3');
     }
 
     return (
@@ -128,7 +132,7 @@ function EditTreat() {
                         name="treatImage"
                         value={treatImage}
                         maxLength={255}
-                        placeholder="Paste image link"
+                        placeholder={treat.treat_image}
                         onChange={(event) => setTreatImage(event.target.value)}
                     />
                 </label>
@@ -137,7 +141,7 @@ function EditTreat() {
                 <label htmlFor="price">
                     Price:
                     <input
-                        type="number"
+                        type="text"
                         name="price"
                         value={price}
                         // maxLength={255} what validation here? also set in DB

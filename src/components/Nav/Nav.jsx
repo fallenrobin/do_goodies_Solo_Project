@@ -52,7 +52,7 @@ function Nav() {
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
-  // console.log('nav icon clicked:', value);
+  console.log('nav icon clicked:', value);
 
   return (
     <AppBar className={classes.appBar}

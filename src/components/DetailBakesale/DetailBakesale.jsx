@@ -11,17 +11,17 @@ import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 // import { ClassNames } from '@emotion/react';
 import Button from '@material-ui/core/Button';
-
+ 
 //for progress bar
 import LinearProgress from '@material-ui/core/LinearProgress';
 
-const StyledBar = withStyles({
-    root: {
-        colorPrimary: 'green',
-        width: '50%',
-        marginBottom: '20px'
-    }
-});
+// const StyledBar = withStyles({
+//     root: {
+//         colorPrimary: 'green',
+//         width: '50%',
+//         marginBottom: '20px'
+//     }
+// });
 
 
 const useStyles = makeStyles({

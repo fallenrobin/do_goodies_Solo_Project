@@ -31,42 +31,42 @@ function ListTreat() {
 
     return (
         // <Box >
-            <section >
-                <Grid
-                    container
-                    spacing={2}
-                    // margin-top="20px"TODO give top of Grid margin to avoid button??
-                    direction="column"
-                    alignItems="center"
-                    // style={{ minHeight: '100vh' }}
-                    // marginBottom='100px' does not work
-                >
+        <section >
+            <Grid
+                container
+                spacing={2}
+                // margin-top="20px"TODO give top of Grid margin to avoid button??
+                direction="column"
+                alignItems="center"
+            // style={{ minHeight: '100vh' }}
+            // marginBottom='100px' does not work
+            >
 
-                    {user.id ?
+                {user.id ?
 
-                        < OpenDialog
-                            open={open}
-                            onClose={() => setOpen(false)}
-                            aria-labelledby="confirm-dialog"
-                            title="add treat"
-                        >
-                            <FormTreats />
-                        </OpenDialog>
+                    < OpenDialog
+                        open={open}
+                        onClose={() => setOpen(false)}
+                        aria-labelledby="confirm-dialog"
+                        title="add treat"
+                    >
+                        <FormTreats />
+                    </OpenDialog>
 
-                        :
-                        null}
+                    :
+                    null}
 
-                    {treats?.map((treat) => {
-                        return ( //loops thru array of treats to create each treat item
-                            <ItemTreat
-                                key={treat.id}
-                                treat={treat}
-                            />);
-                    })}
+                {treats?.map((treat) => {
+                    return ( //loops thru array of treats to create each treat item
+                        <ItemTreat
+                            key={treat.id}
+                            treat={treat}
+                        />);
+                })}
+                <div style={{ height: '60px' }}></div>
+            </Grid>
 
-                </Grid>
-
-            </section>
+        </section>
         // </Box>
     );
 }
