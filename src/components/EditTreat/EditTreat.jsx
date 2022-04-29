@@ -84,11 +84,14 @@ function EditTreat() {
         setPrice('');
     }
 
+    const handleAutofill = () => {
+        // TODO set up auto fill for rubyOnWhales for demo
+    }
 
     return (
 
         <form onSubmit={handleUpdate}>
-            <h2>Edit Treat</h2>
+            <h2 onClick={handleAutofill}>Edit Treat</h2>
 
             <div>
                 <label htmlFor="treatName">

@@ -25,12 +25,12 @@ const useStyles = makeStyles((theme) =>
             // maxHeight: 400
         },
         price: {
-backgroundColor: '#BFEEB7',
-color: 'black',
-border: '1px transparent',
-borderRadius: '12px',
-marginLeft: '10px',
-padding: '3px'
+            backgroundColor: '#BFEEB7',
+            color: 'black',
+            border: '1px transparent',
+            borderRadius: '12px',
+            marginLeft: '10px',
+            padding: '3px'
         }
     }),
 );
@@ -87,8 +87,8 @@ function ItemTreat({ treat }) {
                     >
                         <>
                             <div >
-                                <p> <h3>{treat.treat_name}   
-                                <span className={classes.price}>{treat.price}</span></h3></p>
+                                <p> <h3>{treat.treat_name}
+                                    <span className={classes.price}>{treat.price}</span></h3></p>
                             </div>
 
                             <img onClick={handleDetailView}
