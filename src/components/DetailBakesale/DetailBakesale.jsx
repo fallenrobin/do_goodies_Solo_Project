@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 
 //MUI for card
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -16,21 +16,26 @@ import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
 const StyledBar = withStyles({
-root:
+    root: {
+        colorPrimary: 'green',
+        width: '50%',
+        marginBottom: '20px'
+    }
 });
 
 
 const useStyles = makeStyles({
-    root: {
-        width: 100,
-        height: 200,
+    card: {
+        width: 1250,
+        height: 250,
         marginTop: '30px'
     },
     img: {
         width: 250,
         height: 250,
     },
-    progressBar: {
+    root: {
+        colorPrimary: 'green',
         width: '50%',
         marginBottom: '20px'
     },
@@ -78,7 +83,7 @@ function DetailBakesale() {
 
         <>
             <Grid
-                className={classes.root}
+                className={classes.card}
                 align="center"
                 container
                 direction="column"
@@ -106,7 +111,7 @@ function DetailBakesale() {
                                     */}
                             </div>
 
-                            <div className={classes.progressBar}>
+                            <div className={classes.root}>
                                 <LinearProgress variant="determinate" value={progress} />
                             </div>
 
