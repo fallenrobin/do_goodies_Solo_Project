@@ -13,15 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
 //for progress bar
-import LinearProgress from '@material-ui/core/LinearProgress';
-
-// const StyledBar = withStyles({
-//     root: {
-//         colorPrimary: 'green',
-//         width: '50%',
-//         marginBottom: '20px'
-//     }
-// });
+import ProgressBar from '../ProgressBar/ProgressBar';
 
 
 const useStyles = makeStyles({
@@ -34,11 +26,6 @@ const useStyles = makeStyles({
         width: 250,
         height: 250,
     },
-    // root: {
-    //     colorPrimary: 'green',
-    //     width: '50%',
-    //     marginBottom: '20px'
-    // },
     fundraising: {
         backgroundColor: '#BFEEB7',
         color: 'black',
@@ -57,24 +44,6 @@ function DetailBakesale() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const classes = useStyles();
-
-    const [progress, setProgress] = React.useState(0);//for progress bar
-
-    //to do with progress bar
-    React.useEffect(() => {
-        const timer = setInterval(() => {
-            setProgress((oldProgress) => {
-                if (oldProgress === 100) {
-                    return 0;
-                }
-                const diff = Math.random() * 10;
-                return Math.min(oldProgress + diff, 45);
-            });
-        }, 100);
-        return () => {
-            clearInterval(timer);
-        };
-    }, []);
 
     useEffect(() => {// asks for one bakesale from DB on page load
         dispatch({
@@ -115,15 +84,13 @@ function DetailBakesale() {
                                 <div className={classes.fundraising}>
 
                                     <p>Fundraising goal: ${bakesale[0]?.fundraising_goal}</p>
-                                    {/* TODO add edit (conditional render)
+                                    {/* 
                                     TODO turn this into full screen
                                     TODO link this to a dispatch, saga etc
                                     TODO use params for detail view
                                     */}
 
-
-
-                                    <LinearProgress variant="determinate" value={progress} />
+                                    <ProgressBar />
 
                                 </div>
                             </div>
