@@ -85,7 +85,7 @@ function EditTreat() {
     }
 
     const handleAutofill = () => {
-        // TODO set up auto fill for rubyOnWhales for demo
+        // NOTE set up auto fill for demo, using Ruby on Whales
         setTreatName('#rubyOnWhales');
         setTreatDescription('Buttery whales coated with ruby chocolate ');
         setTreatImage('/images/rubyWhales.jpg');
@@ -95,6 +95,7 @@ function EditTreat() {
     return (
 
         <form onSubmit={handleUpdate}>
+            {/*NOTE secret button for demo purposes*/}
             <h2 onClick={handleAutofill}>Edit Treat</h2>
 
             <div>
