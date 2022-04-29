@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 
 //MUI for card
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -15,6 +15,9 @@ import Button from '@material-ui/core/Button';
 //for progress bar
 import LinearProgress from '@material-ui/core/LinearProgress';
 
+const StyledBar = withStyles({
+root:
+});
 
 
 const useStyles = makeStyles({
