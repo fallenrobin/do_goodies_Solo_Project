@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 })
 
 
-function FormTreats() {
+function FormTreats(props) {
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -45,7 +45,7 @@ function FormTreats() {
         event.preventDefault();
         dispatch({
             type: 'ADD_TREAT',
-            payload: 
+            payload:
                 newTreat
         });
         // console.log(treatName, treatDescription, treatImage, price);
@@ -54,7 +54,7 @@ function FormTreats() {
         setTreatImage('');
         setPrice('');
         history.push('/treatList');
-
+        callbackClose();
     }
 
     const handleAutofill = () => {
@@ -65,7 +65,7 @@ function FormTreats() {
         setPrice('$4');
     }
 
-
+console.log('props is:', props);
     return (
 
         <>
@@ -127,8 +127,8 @@ function FormTreats() {
                 </div>
                 <div>
                     {/* <button onClick={history.push('/treatList')} className="btn">Cancel</button> */}
-                    <Button variant="contained" className={classes.btn} 
-                    type="submit" name="submit">Add treat</Button>
+                    <Button variant="contained" className={classes.btn}
+                        type="submit" name="submit">Add treat</Button>
                 </div>
                 {/* <button style={{justify:'center'}} onClick={() => {
                     setOpen(false)}} className="btn">

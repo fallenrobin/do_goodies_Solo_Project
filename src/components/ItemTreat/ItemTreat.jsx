@@ -110,7 +110,9 @@ function ItemTreat({ treat }) {
                                     title="edit treat"
                                     callback={handleClickEdit}
                                 >
-                                    <EditTreat />
+                                    <EditTreat 
+                                    
+                                    />
 
                                 </OpenDialog>
 

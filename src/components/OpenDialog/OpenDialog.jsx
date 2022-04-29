@@ -65,10 +65,15 @@ export default function OpenDialog({ title, children, component, callback }) {
             >
                 {title}
             </Button>
+
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogContent>
                     {/* InnerComponent:  */}
-                    {open && <InnerComponent />}
+                    {open &&
+                        <InnerComponent
+                            blah="1"
+                            callbackClose={handleClose}
+                        />}
 
                 </DialogContent>
                 <DialogActions>
