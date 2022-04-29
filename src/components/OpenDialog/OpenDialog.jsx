@@ -5,6 +5,10 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import { makeStyles } from '@material-ui/core/styles'
 import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
+
 
 const useStyles = makeStyles({
     btn: {
@@ -18,17 +22,26 @@ const useStyles = makeStyles({
         top: "10px",
     },
     cancel: {
-        color:"grey"
+        color: "grey"
     }
 })
 
 export default function OpenDialog({ title, children, component, callback }) {
+
+    const editMode = useSelector((store) => store.editModeReducer)
     const [open, setOpen] = React.useState(false);
+    const dispatch = useDispatch();
 
     const handleClickOpen = () => {
-        //CALL THE FUNCTION GIVEN, IF EXISTS:
-        {callback ? callback() : null};
-            setOpen(true);
+        // CALL THE FUNCTION GIVEN, IF EXISTS:
+        { callback ? callback() : null };
+        setOpen(true);
+        // {
+        //     editMode ? setOpen(true)
+        //         :
+        //         null
+
+        // }
     };
 
     const handleClose = () => {

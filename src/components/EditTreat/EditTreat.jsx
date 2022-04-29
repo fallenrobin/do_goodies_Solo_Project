@@ -73,6 +73,7 @@ function EditTreat() {
         console.log('in handleUpdate Edit treat');
         event.preventDefault();
         console.log('clicked Save Changes');
+        // saga also sets editModeReducer to false
         dispatch({
             type: 'SUBMIT_EDIT_TREAT',
             payload:
@@ -152,8 +153,19 @@ function EditTreat() {
                 </label>
             </div>
             <div>
-                <Button className={classes.delete} onClick={() => { deleteConfirm() }} >Delete</Button>
-                <Button variant="outlined" className={classes.btn} type="submit" name="submit" value="Update">Update</Button>
+                <Button
+                    className={classes.delete}
+                    onClick={() => { deleteConfirm() }} >
+                    Delete
+                </Button>
+
+                <Button variant="outlined"
+                    className={classes.btn}
+                    type="submit"
+                    name="submit"
+                    value="Update">
+                    Update
+                </Button>
 
             </div>
         </form>

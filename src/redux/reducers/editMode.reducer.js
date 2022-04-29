@@ -1,9 +1,7 @@
-const editModeReducer = (state = {}, action) => {
+const editModeReducer = (state = false, action) => {
     switch (action.type) {
       case 'SET_EDIT_MODE':
         return action.payload;
-      case 'taco':
-        return [];
       default:
         return state;
     }

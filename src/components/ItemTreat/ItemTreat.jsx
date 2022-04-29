@@ -45,22 +45,29 @@ function ItemTreat({ treat }) {
     const dispatch = useDispatch();
     const treats = useSelector(store => store.treatReducer);
     const user = useSelector((store) => store.user);
+    const editMode = useSelector((store) => store.editModeReducer)
 
 
     const classes = useStyles(); //for card
 
-    const [isEditing, setEditing] = useState(false); //for edit mode
+    const [isEditing, setEditing] = useState(editMode); //for edit mode
 
     const [treatToEdit, setTreatToEdit] = useState();
 
+    const handleClose = () => {
+        dispatch({ type: 'SET_EDIT_MODE', payload: false })
+    }
+
     const handleClickEdit = () => {
-        setEditing(true);
+        //the saga will also set editModeReducer to true
         dispatch({
             type: 'EDIT_TREAT',
             payload: {
                 treat
             },
         });
+        setEditing(editMode);//hopefully gets updated value so window opens
+        console.log('edit mode reducer value:', editMode);
     }
     console.log(treatToEdit);
 
@@ -104,6 +111,7 @@ function ItemTreat({ treat }) {
                                     callback={handleClickEdit}
                                 >
                                     <EditTreat />
+
                                 </OpenDialog>
 
                                 :
