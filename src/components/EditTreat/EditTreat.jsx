@@ -40,9 +40,6 @@ function EditTreat() {
         price: price
     };
 
-    // FIXME WARNING, maybe when price is entered on form?? react_devtools_backend.js:3973 Warning: A component is changing an uncontrolled input 
-    //to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. 
-    //Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components
 
     const deleteConfirm = () => { //for clicking Delete button on list view
         console.log('clicked delete');
@@ -84,8 +81,8 @@ function EditTreat() {
         setPrice('');
     }
 
+    // NOTE auto fill for demo, using Ruby on Whales
     const handleAutofill = () => {
-        // NOTE set up auto fill for demo, using Ruby on Whales
         setTreatName('#rubyOnWhales');
         setTreatDescription('Buttery whales coated with ruby chocolate ');
         setTreatImage('/images/rubyWhales.jpg');
@@ -95,6 +92,7 @@ function EditTreat() {
     return (
 
         <form onSubmit={handleUpdate}>
+
             {/*NOTE secret button for demo purposes*/}
             <h2 onClick={handleAutofill}>Edit Treat</h2>
 
@@ -152,8 +150,17 @@ function EditTreat() {
                 </label>
             </div>
             <div>
-                <Button className={classes.delete} onClick={() => { deleteConfirm() }} >Delete</Button>
-                <Button variant="outlined" className={classes.btn} type="submit" name="submit" value="Update">Update</Button>
+                <Button className={classes.delete}
+                    onClick={() => { deleteConfirm() }} >
+                    Delete
+                </Button>
+
+                <Button variant="outlined" className={classes.btn}
+                    type="submit"
+                    name="submit"
+                    value="Update">
+                    Update
+                </Button>
 
             </div>
         </form>

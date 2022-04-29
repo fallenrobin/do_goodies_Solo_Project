@@ -126,13 +126,10 @@ function FormTreats() {
                     </label>
                 </div>
                 <div>
-                    {/* <button onClick={history.push('/treatList')} className="btn">Cancel</button> */}
                     <Button variant="contained" className={classes.btn} 
                     type="submit" name="submit">Add treat</Button>
                 </div>
-                {/* <button style={{justify:'center'}} onClick={() => {
-                    setOpen(false)}} className="btn">
-                        Go to Treat List</button> */}
+                
             </form>
         </>
     );

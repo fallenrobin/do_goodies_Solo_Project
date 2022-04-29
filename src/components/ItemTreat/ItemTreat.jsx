@@ -82,13 +82,11 @@ function ItemTreat({ treat }) {
                     className={classes.root} variant="outlined"
                 >
 
-                    <CardContent
-                        alignItems='center'
-                    >
+                    <CardContent>
                         <>
                             <div >
-                                <p> <h3>{treat.treat_name}
-                                    <span className={classes.price}>{treat.price}</span></h3></p>
+                                <h3>{treat.treat_name}
+                                    <span className={classes.price}>{treat.price}</span></h3>
                             </div>
 
                             <img onClick={handleDetailView}
