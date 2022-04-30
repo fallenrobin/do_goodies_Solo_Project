@@ -81,6 +81,9 @@ function DetailBakesale() {
                                 <p className="descriptionText">{bakesale[0]?.org_description}</p>
                                 <p>Website: <a href={bakesale[0]?.org_website}>{bakesale[0]?.org_website}</a></p>
 
+                                
+
+                                {/* start of green bubble */}
                                 <div className={classes.fundraising}>
 
                                     <p>Fundraising goal: ${bakesale[0]?.fundraising_goal}</p>
