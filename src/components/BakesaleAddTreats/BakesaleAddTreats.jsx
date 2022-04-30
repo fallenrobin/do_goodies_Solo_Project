@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -64,8 +64,13 @@ export default function BakesaleAddTreats() {
     // TODO make only user's treats selectable!
     const [selectedTreatId, setSelectedTreatId] = React.useState([]);
 
+    const dispatch = useDispatch();
+
     const treats = useSelector((store) => store.treatReducer);
 
+    useEffect(() => {//triggers saga getting all treats from DB on page load
+        dispatch({ type: 'FETCH_TREATS' });
+    }, []);
 
     const handleChange = (event) => {
         setSelectedTreats(event.target.value);

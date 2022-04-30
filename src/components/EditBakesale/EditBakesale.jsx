@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles'
 import swal from 'sweetalert';
+import BakesaleAddTreats from '../BakesaleAddTreats/BakesaleAddTreats';
 
 
 const useStyles = makeStyles({
@@ -148,6 +149,8 @@ function EditBakesale() {
                     />
                 </label>
             </div>
+            <BakesaleAddTreats />
+
             <div>
                 <Button className={classes.delete} onClick={() => { deleteConfirm() }} >Delete</Button>
                 <Button variant="outlined" className={classes.btn} type="submit" name="submit" value="Update">Update</Button>

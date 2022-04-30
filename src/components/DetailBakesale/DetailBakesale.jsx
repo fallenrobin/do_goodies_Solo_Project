@@ -18,7 +18,7 @@ import ProgressBar from '../ProgressBar/ProgressBar';
 
 const useStyles = makeStyles({
     card: {
-        width: 400,
+        width: 375,
         height: 500,
         marginTop: '30px'
     },
