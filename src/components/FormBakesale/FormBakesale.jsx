@@ -31,7 +31,7 @@ function FormBakesale() {
     const [bakesaleDescription, setBakesaleDescription] = useState('');
     const [bakesaleImage, setBakesaleImage] = useState('');
     const [website, setWebsite] = useState('');
-    const [goal, setGoal] = useState(0);
+    const [goal, setGoal] = useState('');
 
 
     const handleNewBakesale = (event) => {
@@ -56,11 +56,20 @@ function FormBakesale() {
         // history.push(somewhere? or stay here);
     }
 
+    const handleAutofill = () => {
+        // NOTE set up auto fill for demo, using Second Harvest
+        setBakesaleName('Second Harvest');
+        setBakesaleDescription('Rescues lots of food from warehouses and restaurants.');
+        setBakesaleImage('/images/secondHarvest.jpeg');
+        setWebsite('www.2harvest.org');
+        setGoal('$30');
+    }
+
     return (
 
         <>
             <form onSubmit={handleNewBakesale}>
-                <h2>Create New Bakesale</h2>
+                <h2 onClick={handleAutofill}>Create New Bakesale</h2>
 
                 <div>
                     <label htmlFor="bakesaleName">
@@ -119,7 +128,7 @@ function FormBakesale() {
                     <label htmlFor="goal">
                         Fundraising goal:
                         <input
-                            type="number"
+                            type="text"
                             name="goal"
                             value={goal}
                             placeholder="How much money are you aiming to fundraise?"
