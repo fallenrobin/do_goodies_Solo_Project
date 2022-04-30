@@ -79,6 +79,7 @@ function EditTreat() {
         setTreatDescription('');
         setTreatImage('');
         setPrice('');
+        console.log('newTreat object is:', newTreat);
     }
 
     // NOTE auto fill for demo, using Ruby on Whales

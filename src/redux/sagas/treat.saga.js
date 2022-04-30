@@ -50,6 +50,8 @@ function* editTreat(action) {
     yield axios.put(`/api/treat/${id}`, action.payload);
 
     yield put({ type: 'FETCH_TREATS' }); //GET following PUT
+    console.log('in treat SAGA', action.payload);
+    
 
   } catch (error) {
     console.log('Error with editTreat saga:', error);
