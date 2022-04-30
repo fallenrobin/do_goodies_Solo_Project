@@ -14,6 +14,7 @@ import Button from '@material-ui/core/Button';
 
 //for progress bar
 import ProgressBar from '../ProgressBar/ProgressBar';
+import ZeroProgress from '../ProgressBar/ZeroProgress/ZeroProgress';
 
 
 const useStyles = makeStyles({
@@ -33,6 +34,11 @@ const useStyles = makeStyles({
         borderRadius: '12px',
         marginLeft: '10px',
         padding: '3px'
+    },
+    treatBubble: {
+        backgroundColor: '#D3D3D3',
+        padding: '5px',
+        borderRadius: '12px'
     }
 })
 
@@ -55,6 +61,28 @@ function DetailBakesale() {
     // console.log('in details page... selected bakesale data:', bakesale[0]);
     // console.log('should say bakesale name:', bakesale[0]?.org_name);
 
+    // determine if we should render the treats
+    const treatRender = () => {
+        if (bakesale[0]?.org_name === 'Second Harvest') {
+            // need to return JSX
+            return <p>Bakesale treats:  
+                <span className={classes.treatBubble}> #infiniteLoops</span></p>;
+        } else {
+            // need to return JSX
+            return <p>Bakesale treats:  
+            <span className={classes.treatBubble}> #vanillaJavaChipt</span></p>;
+        }
+    }
+
+    const progressRender = () => {
+        if (bakesale[0]?.org_name != 'Second Harvest') {
+            // need to return JSX
+            return <ProgressBar />;
+        } else {
+            // need to return JSX
+            return <ZeroProgress />
+        }
+    };
 
     return (
 
@@ -81,7 +109,7 @@ function DetailBakesale() {
                                 <p className="descriptionText">{bakesale[0]?.org_description}</p>
                                 <p>Website: <a href={bakesale[0]?.org_website}>{bakesale[0]?.org_website}</a></p>
 
-                                
+                                {treatRender()}
 
                                 {/* start of green bubble */}
                                 <div className={classes.fundraising}>
@@ -93,7 +121,8 @@ function DetailBakesale() {
                                     TODO use params for detail view
                                     */}
 
-                                    <ProgressBar />
+                                    {progressRender()}
+
 
                                 </div>
                             </div>
