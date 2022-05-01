@@ -12,11 +12,11 @@ import classNames from 'classnames';
 
 const useStyles = makeStyles({
   btn: {
-    backgroundColor: "#84C3C8",
-    color: 'black',
-    '&:hover': {
-      backgroundColor: "#42929D"
-    },
+    // backgroundColor: "#E0E0E0",
+    color: 'white',
+    // '&:hover': {
+    //   backgroundColor: "#42929D"
+    // },
     position: "fixed",
     bottom: "58px",
     right: "4px"
@@ -50,9 +50,9 @@ const useStyles = makeStyles({
     padding: '8px',
     '&:hover': {
       backgroundColor: "#42929D",
-    }, 
+    },
     textAlign: 'center'
-  }, 
+  },
   fundraising: {
     backgroundColor: '#BFEEB7',
     color: 'black',
@@ -60,10 +60,10 @@ const useStyles = makeStyles({
     borderRadius: '12px',
     marginLeft: '10px',
     padding: '10px',
-    textAlign: 'center', 
-    fontWeight: 'bold', 
+    textAlign: 'center',
+    fontWeight: 'bold',
     width: '150px'
-}
+  }
 })
 
 // rainbow box shadow: https://html-css-js.com/css/generator/box-shadow/
@@ -181,10 +181,11 @@ function UserPage() {
 
       {user.id ?
 
-        <Button variant="contained" className={classes.btn}
-          color="primary"
+        <Button
+          variant="outlined"
+          className={classes.btn}
           onClick={() => dispatch({ type: 'LOGOUT' })}>
-          <IoLogOutOutline size={25} />
+          Log out <IoLogOutOutline size={25} />
         </Button>
 
         :

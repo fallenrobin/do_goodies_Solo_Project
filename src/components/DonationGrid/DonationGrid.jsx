@@ -290,10 +290,13 @@ function DonationGrid() {
                 Delete selected rows
             </Button>
 
-            <div style={{ height: '85vh', width: '95vw', backdropFilter: 'blur(15px)' }}>
+            <div 
+            
+            
+            style={{ height: '85vh', width: '95vw', backdropFilter: 'blur(15px)' }}>
 
                 <DataGrid
-                    style={{ fontSize: 15 }}
+                    style={{ fontSize: 20 }}
                     onCellEditCommit={handleCommit}// saves changes upon 'enter' or 'tab'
                     checkboxSelection // makes checkboxes on left column
                     rows={rowData} columns={columns} // uses data above function; eventually needs Redux stores
