@@ -26,6 +26,7 @@ import DetailTreat from '../DetailTreat/DetailTreat';
 import FormBakesale from '../FormBakesale/FormBakesale';
 import ListBakesale from '../ListBakesale/ListBakesale';
 import DetailBakesale from '../DetailBakesale/DetailBakesale';
+import DonationGrid from '../DonationGrid/DonationGrid';
 
 import './App.css';
 
