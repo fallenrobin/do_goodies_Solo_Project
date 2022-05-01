@@ -11,6 +11,9 @@ import { GiWrappedSweet } from "react-icons/gi";//swal
 import { SiRedux } from "react-icons/si";//redux
 import { SiReduxsaga } from "react-icons/si";//redux-saga
 import { FaNpm } from 'react-icons/fa';//react
+import { AiFillGithub } from "react-icons/ai"; //github
+
+
 
 
 
@@ -21,17 +24,21 @@ import { FaNpm } from 'react-icons/fa';//react
 
 function AboutPage() {
   return (
-    <div >
+    <div>
       <div>
         <img
           style={{ width: '400px', objectFit: 'contain' }}
           src="images/meme.png"
           alt={"One does not simply donate without getting a tasty treat"} />
 
-        <div style={{backdropFilter: 'blur(15px)'}} >
-          <h3 style={{ color: 'white', textShadow: '1px 1px black'}}>
-            Technologies used:</h3>
-          <div>
+        <div style={{
+          backdropFilter: 'blur(15px)', display: 'flex',
+          alignItems: 'center', flexDirection: 'column'
+        }} >
+          <h2 style={{ color: 'white', textShadow: '1px 1px black' }}>
+            Technologies used:</h2>
+
+          <div style={{ textAlign: 'center' }}>
             <IoLogoJavascript size={50} style={{ backgroundColor: 'yellow', margin: '3px' }} />
             <AiFillHtml5 size={50} style={{ color: 'orange', backgroundColor: 'white', margin: '3px' }} />
             <FaReact size={50} style={{ color: '#61dbfb', backgroundColor: 'black', margin: '3px' }} />
@@ -43,10 +50,16 @@ function AboutPage() {
             <SiRedux size={50} style={{ color: '#5D3FD3', backgroundColor: 'black', margin: '3px' }} />
             <SiReduxsaga size={50} style={{ color: 'gray', backgroundColor: '#C3B1E1', margin: '3px' }} />
             <FaNpm size={50} style={{ color: 'white', backgroundColor: '#ae0000', margin: '3px' }} />
-
+            <AiFillGithub size={50} style={{ color: 'black', backgroundColor: 'white', margin: '3px' }} />
           </div>
-          <p><h3 style={{ color: '#FF69B4', backgroundColor: 'white' }}>
-            OMG THANX HOOMANS</h3></p>
+
+          <div style={{ color: 'white', textShadow: '1px 1px black' }}>
+            <h3>
+              Big thanks to:</h3>
+            <h4>Prime Digital Academy and especially Dane, the Butler cohort,
+              the Adams cohort, Ed Heyl for the Do Goodies logo, my bae John Massie, and the rest of my polycule</h4>
+          </div>
+
         </div>
       </div>
     </div>
