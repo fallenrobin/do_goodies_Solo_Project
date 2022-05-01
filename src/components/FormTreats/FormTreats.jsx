@@ -59,7 +59,7 @@ function FormTreats() {
 
     const handleAutofill = () => {
         // NOTE set up auto fill for demo, using Ruby on Whales
-        setTreatName('#fullCRUDnut');
+        setTreatName('fullCRUDnut');
         setTreatDescription(`You've heard of cronuts? These are better`);
         setTreatImage('/images/crudnut.png');
         setPrice('$4');

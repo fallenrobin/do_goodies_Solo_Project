@@ -130,7 +130,7 @@ function UserPage() {
             <p className={classes.textBubble}
               onClick={() => { history.push('/treatList') }}
             // FIXME fix hover effect for 'buttons'
-            ><span>6</span> treats</p>
+            ><span>7</span> treats</p>
           </Grid>
         </Grid>
 
@@ -146,7 +146,7 @@ function UserPage() {
           <Grid item xs={5}>
             <p className={classes.textBubble}
               onClick={() => { history.push('/bakesale') }}
-            ><span>7</span> bakesales</p>
+            ><span>6</span> bakesales</p>
           </Grid>
         </Grid>
 
