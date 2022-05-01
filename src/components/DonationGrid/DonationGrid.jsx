@@ -55,7 +55,7 @@ const rowData = [
     {
         id: 9, date: '2/20/2022',
         orgName: 'Second Harvest',
-        amount: '$32',
+        amount: '$12',
         // sent: false
     },
     {
@@ -233,13 +233,13 @@ const columns = [
     {
         field: 'orgName',
         headerName: 'Organization',
-        width: 200,
+        width: 190,
         editable: true
     },
     {
         field: 'amount',
         headerName: 'Amount',
-        width: 100,
+        width: 90,
         editable: true
     }
 ];
@@ -290,7 +290,7 @@ function DonationGrid() {
                 Delete selected rows
             </Button>
 
-            <div style={{ height: '100vh', width: '100vw', backdropFilter: 'blur(15px)' }}>
+            <div style={{ height: '85vh', width: '95vw', backdropFilter: 'blur(15px)' }}>
 
                 <DataGrid
                     style={{ fontSize: 15 }}
@@ -307,7 +307,7 @@ function DonationGrid() {
                 />
 
             </div>
-            <div style={{height:'60px'}}></div>
+            {/* <div style={{height:'60px'}}></div> */}
         </div>
     );
 }
