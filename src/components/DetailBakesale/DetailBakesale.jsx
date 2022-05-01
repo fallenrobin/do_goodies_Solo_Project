@@ -114,7 +114,7 @@ function DetailBakesale() {
                                 {/* start of green bubble */}
                                 <div className={classes.fundraising}>
 
-                                    <p>Fundraising goal: ${bakesale[0]?.fundraising_goal}</p>
+                                    <p>Funds raised: ${bakesale[0]?.fundraising_current} of ${bakesale[0]?.fundraising_goal}</p>
                                     {/* 
                                     TODO turn this into full screen
                                     TODO link this to a dispatch, saga etc

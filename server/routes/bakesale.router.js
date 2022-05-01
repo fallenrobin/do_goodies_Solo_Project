@@ -21,6 +21,7 @@ router.get('/fetchBakesales', (req, res) => {
 
     const queryText = `SELECT * FROM "bakesales"
     WHERE "id" != 3
+    ORDER BY "id" DESC
     `;
 
     pool.query(queryText).then((result) => {
