@@ -47,9 +47,13 @@ const useStyles = makeStyles({
     fontFamily: 'Crafty Girls, cursive',
     color: '#FEFFF6',
     textShadow: '2px 2px #444',
+    backdropFilter: 'blur(2px)',
+    borderRadius: '8px', 
+    padding:'1px'
     // marginTop: '20px'
   }
 })
+// style={{backdropFilter: 'blur(3px)', borderRadius: '8px', padding:'5px'}}
 
 
 function LandingPage() {
