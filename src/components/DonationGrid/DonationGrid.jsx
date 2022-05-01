@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-// import } from '@mui/material';
+import Button from '@material-ui/core/Button';
+
 
 const rowData = [
     {
@@ -225,26 +226,29 @@ const columns = [
     {
         field: 'date',
         type: 'date',
-        headerName: 'Date of Donation',
-        width: 200,
+        headerName: 'Date',
+        width: 90,
         editable: true
     },
     {
         field: 'orgName',
         headerName: 'Organization',
-        width: 300,
+        width: 200,
         editable: true
     },
     {
         field: 'amount',
-        headerName: 'Donation Dollar Amount',
-        width: 250,
+        headerName: 'Amount',
+        width: 100,
         editable: true
     }
 ];
 
 
 function DonationGrid() {
+
+    const [state, setState] = useState(rowData);
+
 
     const handleCommit = (e) => {
         const array = state.map(r => {
@@ -266,18 +270,30 @@ function DonationGrid() {
 
 
     return (
-        <div style={{ alignItems: 'center' }} className="DonationGrid">
-            <h1>Data Grid SPIKE!📌</h1>
+        <div
+            style={{ alignItems: 'center', marginTop:'5px'}}
+            className="DonationGrid"
+        >
+            <Button
+                // onClick={handleDeleteAll}
+                variant="contained"
+                color="primary"
+            >
+                Add new donation
+            </Button>
 
-            <button onClick={handleDeleteAll}
-                style={{ height: '30px', backgroundColor: 'red', color: 'white', fontSize: '20px' }}>
+            <Button
+                onClick={handleDeleteAll}
+                variant="outlined"
+                color="secondary"
+            >
                 Delete selected rows
-            </button>
+            </Button>
 
-            <div style={{ height: 300, width: '80%' }}>
+            <div style={{ height: '100vh', width: '100vw', backdropFilter: 'blur(15px)' }}>
 
                 <DataGrid
-                    style={{ fontSize: 20 }}
+                    style={{ fontSize: 15 }}
                     onCellEditCommit={handleCommit}// saves changes upon 'enter' or 'tab'
                     checkboxSelection // makes checkboxes on left column
                     rows={rowData} columns={columns} // uses data above function; eventually needs Redux stores
@@ -286,15 +302,17 @@ function DonationGrid() {
                         //for grabbing/setting state of ids of checked rows
                         setArrIds(ids);
                     }}
-                    pageSize={20}
-                    rowsPerPageOptions={[20]}
+                    pageSize={12}
+                    rowsPerPageOptions={[10]}
                 />
 
             </div>
-
+            <div style={{height:'60px'}}></div>
         </div>
     );
 }
+
+
 
 export default DonationGrid;
 
