@@ -63,14 +63,16 @@ function ItemBakesale({ bakesale }) {
             <Grid
                 item xs={11}
             >
-                <Card className={classes.root} variant="outlined">
+                <Card className={classes.root} variant="outlined"
+                onClick={handleDetailView}
+                >
                     <CardContent>
 
                         <div>
                             <h3>{bakesale.org_name}</h3>
                             <p>{bakesale.org_description}</p>
 
-                            <img key={bakesale.id} onClick={handleDetailView}
+                            <img key={bakesale.id} 
                                 src={bakesale.org_image} alt={bakesale.org_name}></img>
 
                             {user.id ?

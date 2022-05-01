@@ -78,6 +78,7 @@ function ItemTreat({ treat }) {
             >
 
                 <Card
+                    onClick={handleDetailView}
                     raised={true}
                     className={classes.root} variant="outlined"
                 >
@@ -89,8 +90,7 @@ function ItemTreat({ treat }) {
                                     <span className={classes.price}>{treat.price}</span></h3>
                             </div>
 
-                            <img onClick={handleDetailView}
-                                src={treat.treat_image} alt={treat.treat_name}></img>
+                            <img src={treat.treat_image} alt={treat.treat_name}></img>
 
                             {user.id ?
 
