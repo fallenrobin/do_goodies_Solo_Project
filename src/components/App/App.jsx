@@ -165,6 +165,13 @@ function App() {
               <DetailBakesale />
             </Route>
 
+            <Route
+              exact
+              path="/donations"
+            >
+              <DonationGrid />
+            </Route>
+
 
             {/* If none of the other routes matched, we will show a 404. */}
             <Route>
