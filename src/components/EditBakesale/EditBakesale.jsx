@@ -88,6 +88,9 @@ function EditBakesale() {
         setBakesaleImage('');
         setWebsite('');
         setGoal('');
+        swal("Changes saved!", "", "success", {
+            button: "Close",
+        });
     }
 
 
