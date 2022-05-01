@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { Checkbox } from '@mui/material';
+// import } from '@mui/material';
 
 const rowData = [
     {
@@ -20,7 +20,6 @@ const rowData = [
         orgName: 'Self International',
         amount: '$25',
         // sent: false
-        Checkbox
     },
     {
         id: 4, date: '1/20/2022',
@@ -57,7 +56,6 @@ const rowData = [
         orgName: 'Second Harvest',
         amount: '$32',
         // sent: false
-        Checkbox
     },
     {
         id: 10, date: '1/20/2022',
@@ -94,7 +92,6 @@ const rowData = [
         orgName: 'Self International',
         amount: '$25',
         // sent: false
-        Checkbox
     },
     {
         id: 16, date: '1/20/2022',
@@ -131,7 +128,6 @@ const rowData = [
         orgName: 'Self International',
         amount: '$25',
         // sent: false
-        Checkbox
     },
     {
         id: 22, date: '1/20/2022',
@@ -168,7 +164,6 @@ const rowData = [
         orgName: 'Self International',
         amount: '$25',
         // sent: false
-        Checkbox
     },
     {
         id: 28, date: '1/20/2022',
@@ -205,7 +200,6 @@ const rowData = [
         orgName: 'Self International',
         amount: '$25',
         // sent: false
-        Checkbox
     },
     {
         id: 34, date: '1/20/2022',
