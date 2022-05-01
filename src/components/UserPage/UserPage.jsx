@@ -45,15 +45,25 @@ const useStyles = makeStyles({
     margin: '30px'
   },
   textBubble: {
-    // width: "10%",
-    // height: "10%",
     borderRadius: '15px',
     backgroundColor: '#F4F4E1',
     padding: '8px',
     '&:hover': {
       backgroundColor: "#42929D",
-    }
-  }
+    }, 
+    textAlign: 'center'
+  }, 
+  fundraising: {
+    backgroundColor: '#BFEEB7',
+    color: 'black',
+    border: '1px transparent',
+    borderRadius: '12px',
+    marginLeft: '10px',
+    padding: '10px',
+    textAlign: 'center', 
+    fontWeight: 'bold', 
+    width: '150px'
+}
 })
 
 // rainbow box shadow: https://html-css-js.com/css/generator/box-shadow/
@@ -87,7 +97,7 @@ function UserPage() {
         {
           user.id ?
             <h2 className='font-title'
-            style={{backdropFilter: 'blur(3px)', borderRadius: '8px', padding:'5px'}}
+              style={{ backdropFilter: 'blur(3px)', borderRadius: '8px', padding: '5px' }}
             >Welcome, {user.username}!</h2>
             :
             <h2 className='font-title'>{user.username}</h2>
@@ -117,8 +127,8 @@ function UserPage() {
             <img className={classes.roundImgSmall} src="images/pusheenCookie.png" alt={"Baker cat"} />
           </Grid>
           <Grid item xs={5}>
-            <p className={classes.textBubble} 
-            onClick={() => { history.push('/treatList') }}
+            <p className={classes.textBubble}
+              onClick={() => { history.push('/treatList') }}
             // FIXME fix hover effect for 'buttons'
             ><span>6</span> treats</p>
           </Grid>
@@ -135,8 +145,25 @@ function UserPage() {
             <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />          </Grid>
           <Grid item xs={5}>
             <p className={classes.textBubble}
-            onClick={() => { history.push('/bakesale') }}
+              onClick={() => { history.push('/bakesale') }}
             ><span>7</span> bakesales</p>
+          </Grid>
+        </Grid>
+
+        <Grid
+          container
+          direction='row'
+          alignItems='center'
+          spacing={5}
+          justifyContent='center'
+        >
+          {/* <Grid item xs={4} m={6}>
+            <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />
+          </Grid> */}
+          <Grid item xs={6}>
+            <h2 className={classes.fundraising}
+              onClick={() => { history.push('/donations') }}
+            >$232 raised!</h2>
           </Grid>
         </Grid>
 
