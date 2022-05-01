@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
 import BakesaleAddTreats from '../BakesaleAddTreats/BakesaleAddTreats';
+import swal from 'sweetalert';
 
 const useStyles = makeStyles({
     btn: {
@@ -53,7 +54,9 @@ function FormBakesale() {
         setBakesaleImage('');
         setWebsite('');
         setGoal('');
-        // history.push(somewhere? or stay here);
+        swal("Bakesale created!", "Get that bread!", "success", {
+            button: "Close",
+        });
     }
 
     const handleAutofill = () => {
