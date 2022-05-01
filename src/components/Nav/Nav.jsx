@@ -114,7 +114,7 @@ function Nav() {
               icon={<FaDonate size={25}
                 value="donations"
               />}
-              onClick={() => { history.push('/user') }} />
+              onClick={() => { history.push('/donations') }} />
 
           </BottomNavigation>
         )}
