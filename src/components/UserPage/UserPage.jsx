@@ -86,7 +86,9 @@ function UserPage() {
 
         {
           user.id ?
-            <h2 className='font-title'>Welcome, {user.username}!</h2>
+            <h2 className='font-title'
+            style={{backdropFilter: 'blur(3px)', borderRadius: '8px', padding:'5px'}}
+            >Welcome, {user.username}!</h2>
             :
             <h2 className='font-title'>{user.username}</h2>
         }
