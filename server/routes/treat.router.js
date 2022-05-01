@@ -19,7 +19,10 @@ router.get('/fetchTreats', (req, res) => {
     console.log('is authenticated?', req.isAuthenticated());
     // console.log('results', result.rows);
 
-    const queryText = `SELECT * FROM "treats"`;
+    const queryText = 
+    `SELECT * FROM "treats"
+    ORDER BY "id" ASC;
+    `;
 
     pool.query(queryText).then((result) => {
         res.send(result.rows);

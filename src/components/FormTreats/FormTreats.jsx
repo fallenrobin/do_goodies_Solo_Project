@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
+import swal from 'sweetalert';
 
 
 
@@ -45,7 +46,7 @@ function FormTreats() {
         event.preventDefault();
         dispatch({
             type: 'ADD_TREAT',
-            payload: 
+            payload:
                 newTreat
         });
         // console.log(treatName, treatDescription, treatImage, price);
@@ -54,7 +55,9 @@ function FormTreats() {
         setTreatImage('');
         setPrice('');
         history.push('/treatList');
-
+        swal("Treat created!", "nom nom nom", "success", {
+            button: "Close",
+        });
     }
 
     const handleAutofill = () => {
@@ -126,10 +129,10 @@ function FormTreats() {
                     </label>
                 </div>
                 <div>
-                    <Button variant="contained" className={classes.btn} 
-                    type="submit" name="submit">Add treat</Button>
+                    <Button variant="contained" className={classes.btn}
+                        type="submit" name="submit">Add treat</Button>
                 </div>
-                
+
             </form>
         </>
     );
