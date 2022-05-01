@@ -161,7 +161,6 @@ function UserPage() {
         :
         null
       }
-
     </Grid>
   );
 }

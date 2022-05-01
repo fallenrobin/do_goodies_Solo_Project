@@ -59,7 +59,7 @@ function FormBakesale() {
     const handleAutofill = () => {
         // NOTE set up auto fill for demo, using Second Harvest
         setBakesaleName('Second Harvest');
-        setBakesaleDescription('Rescues lots of food from warehouses and restaurants.');
+        setBakesaleDescription('We are a member of Feeding America, a nationwide network of more than 200 food banks that helps feed people across the country.');
         setBakesaleImage('/images/secondHarvest.jpeg');
         setWebsite('www.2harvest.org');
         setGoal('$30');
