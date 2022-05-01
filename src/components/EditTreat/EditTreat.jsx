@@ -80,6 +80,9 @@ function EditTreat() {
         setTreatImage('');
         setPrice('');
         console.log('newTreat object is:', newTreat);
+        swal("Changes saved!", "", "success", {
+            button: "Close",
+        });
     }
 
     // NOTE auto fill for demo, using Ruby on Whales
