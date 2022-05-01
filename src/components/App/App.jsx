@@ -44,7 +44,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Container className='bodyContainer' style={{marginBottom: '56px'}}>
+        <Container className='bodyContainer' style={{ marginBottom: '56px' }}>
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
@@ -117,8 +117,15 @@ function App() {
                 <Redirect to="/user" />
                 :
                 // Otherwise, show the Landing page
-                <LandingPage />
+                <Redirect to="/landing" />
               }
+            </Route>
+
+            <Route
+
+              path="/landing"
+            >
+              <LandingPage />
             </Route>
 
             <Route
@@ -181,7 +188,7 @@ function App() {
         </Container>
         {/* <Footer /> */}
 
-        <Nav style={{marginTop: '10px'}}/>
+        <Nav style={{ marginTop: '10px' }} />
 
       </div>
     </Router>

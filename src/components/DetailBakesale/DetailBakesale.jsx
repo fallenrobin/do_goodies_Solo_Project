@@ -39,7 +39,18 @@ const useStyles = makeStyles({
         backgroundColor: '#D3D3D3',
         padding: '5px',
         borderRadius: '12px'
-    }
+    },
+    roundImg: {
+        width: "60px",
+        height: "60px",
+        borderRadius: "400" / "2",
+        border: "3px #D9D0F8"
+    }, 
+    bakerBubble: {
+        backgroundColor: '#D3D3D3',
+        padding: '5px',
+        borderRadius: '12px'
+    },
 })
 
 
@@ -65,12 +76,12 @@ function DetailBakesale() {
     const treatRender = () => {
         if (bakesale[0]?.org_name === 'Second Harvest') {
             // need to return JSX
-            return <p>Bakesale treats:  
+            return <p>Bakesale treats:
                 <span className={classes.treatBubble}> #infiniteLoops</span></p>;
         } else {
             // need to return JSX
-            return <p>Bakesale treats:  
-            <span className={classes.treatBubble}> #vanillaJavaChipt</span></p>;
+            return <p>Bakesale treats:
+                <span className={classes.treatBubble}> #vanillaJavaChipt</span></p>;
         }
     }
 
@@ -111,15 +122,18 @@ function DetailBakesale() {
 
                                 {treatRender()}
 
+                                <div id="user" style={{ display:'-ms-inline-flexbox'}}>
+                                    <div>
+                                        <img className={classes.roundImg}
+                                            src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
+                                        {/* <p>Juliette</p> */}
+                                    </div>
+                                </div>
+
                                 {/* start of green bubble */}
                                 <div className={classes.fundraising}>
 
                                     <p>Funds raised: ${bakesale[0]?.fundraising_current} of ${bakesale[0]?.fundraising_goal}</p>
-                                    {/* 
-                                    TODO turn this into full screen
-                                    TODO link this to a dispatch, saga etc
-                                    TODO use params for detail view
-                                    */}
 
                                     {progressRender()}
 
