@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
+import { Button } from '@material-ui/core';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -57,7 +58,15 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+        <Button 
+        variant="contained"
+        className="btn" 
+        type="submit" 
+        name="submit"
+        style={{backgroundColor: "#84C3C8", color: 'white'}}
+        >
+          Log In
+        </Button>
       </div>
     </form>
   );
