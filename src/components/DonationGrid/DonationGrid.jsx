@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import Button from '@material-ui/core/Button';
 
+import { useHistory } from 'react-router-dom';
+
+
 
 const rowData = [
     {
@@ -248,6 +251,8 @@ const columns = [
 function DonationGrid() {
 
     const [state, setState] = useState(rowData);
+    const history = useHistory();
+
 
 
     const handleCommit = (e) => {
@@ -271,11 +276,11 @@ function DonationGrid() {
 
     return (
         <div
-            style={{ alignItems: 'center', marginTop:'5px'}}
+            style={{ alignItems: 'center', marginTop: '5px' }}
             className="DonationGrid"
         >
             <Button
-                // onClick={handleDeleteAll}
+                onClick={() => { history.push('/about') }} 
                 variant="contained"
                 color="primary"
             >
@@ -290,10 +295,10 @@ function DonationGrid() {
                 Delete selected rows
             </Button>
 
-            <div 
-            
-            
-            style={{ height: '85vh', width: '95vw', backdropFilter: 'blur(15px)' }}>
+            <div
+
+
+                style={{ height: '85vh', width: '95vw', backdropFilter: 'blur(15px)' }}>
 
                 <DataGrid
                     style={{ fontSize: 20 }}
