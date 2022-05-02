@@ -109,7 +109,7 @@ function DetailBakesale() {
                     <Card
                         styles={classes.card} variant="outlined">
                         
-                        <CardContent>
+                        <CardContent style={{display: 'contents'}}>
 
                             <div key={bakesale[0]?.id} >
 
@@ -143,7 +143,7 @@ function DetailBakesale() {
                             </div>
 
                             <Button variant="outlined" color="primary"
-                                style={{ marginTop: '20px' }}
+                                style={{ marginTop: '20px', marginBottom: '3px'}}
                                 onClick={() => { history.goBack() }}>Back</Button>
                             {/* button returns user to movie list; subtle so as not to detract visually from movie*/}
                         </CardContent>
