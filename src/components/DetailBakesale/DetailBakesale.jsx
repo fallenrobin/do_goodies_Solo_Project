@@ -45,7 +45,7 @@ const useStyles = makeStyles({
         height: "60px",
         borderRadius: "400" / "2",
         border: "3px #D9D0F8"
-    }, 
+    },
     bakerBubble: {
         backgroundColor: '#D3D3D3',
         padding: '5px',
@@ -106,23 +106,24 @@ function DetailBakesale() {
                 alignItems="center"
             >
                 <Grid item s={5}>
-                    <Card styles={classes.card} variant="outlined">
+                    <Card
+                        styles={classes.card} variant="outlined">
+                        
                         <CardContent>
 
                             <div key={bakesale[0]?.id} >
 
-                                {/* <h3>{bakesale[0]?.treat_name}</h3> */}
                                 <h3>{bakesale[0]?.org_name}</h3>
 
 
                                 <img className={classes.img} alt={bakesale[0]?.org_name} src={bakesale[0]?.org_image} />
 
                                 <p className="descriptionText">{bakesale[0]?.org_description}</p>
-                                <p>Website: <a href={bakesale[0]?.org_website}>{bakesale[0]?.org_website}</a></p>
+                                <a href={bakesale[0]?.org_website}>Visit the website</a>
 
                                 {treatRender()}
 
-                                <div id="user" style={{ display:'-ms-inline-flexbox'}}>
+                                <div id="user" style={{ display: '-ms-inline-flexbox' }}>
                                     <div>
                                         <img className={classes.roundImg}
                                             src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
@@ -148,6 +149,7 @@ function DetailBakesale() {
                         </CardContent>
                     </Card>
                 </Grid>
+                <div style={{ height: '60px' }}></div>
             </Grid>
         </>
 

@@ -40,8 +40,11 @@ function AboutPage() {
           alt={"One does not simply donate without getting a tasty treat"} />
 
         <div style={{
-          backdropFilter: 'blur(15px)', display: 'flex',
-          alignItems: 'center', flexDirection: 'column'
+          backdropFilter: 'blur(15px)', 
+          backgroundColor: 'rgba(255, 255, 255, 0.3)',
+          display: 'flex',
+          alignItems: 'center', 
+          flexDirection: 'column'
         }} >
           <h2 style={{ color: 'white', textShadow: '1px 1px black' }}>
             Do Goodies was built with:</h2>
@@ -97,10 +100,10 @@ function AboutPage() {
               style={{ color: 'black', backgroundColor: 'white' }} />
           </div>
 
-          <div style={{ color: 'white', textShadow: '1px 1px black' }}>
+          <div style={{ color: 'white', textShadow: '1px 1px black', marginLeft:'3px', marginRight: '3px' }}>
             <h2>Big thanks to:</h2>
             <h3>Prime Digital Academy and especially Dane and Matt, the Butler cohort,
-              the Adams cohort, Ed Heyl for the Do Goodies logo, my bae John Massie, and the rest of my family
+              the Adams cohort, Ed Heyl for the Do Goodies logo, my bae John Massie, and the rest of my family 🥰
             </h3>
           </div>
 

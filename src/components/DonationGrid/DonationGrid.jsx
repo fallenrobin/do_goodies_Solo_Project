@@ -10,43 +10,43 @@ const rowData = [
     {
         id: 1, date: '1/1/2022',
         orgName: 'World Central Kitchen',
-        amount: '$30',
+        amount: '$12',
         // sent: false
     },
     {
         id: 2, date: '1/12/2022',
         orgName: 'Habitat for Humanity',
-        amount: '$20',
+        amount: '$8',
         // sent: false
     },
     {
         id: 3, date: '1/15/2022',
         orgName: 'Self International',
-        amount: '$25',
+        amount: '$16',
         // sent: false
     },
     {
         id: 4, date: '1/20/2022',
         orgName: 'World Central Kitchen',
-        amount: '$15',
+        amount: '$11',
         // sent: false
     },
     {
         id: 5, date: '1/22/2022',
         orgName: 'Planned Parenthood',
-        amount: '$20',
+        amount: '$18',
         // sent: false
     },
     {
         id: 6, date: '2/5/2022',
         orgName: 'Self International',
-        amount: '$25',
+        amount: '$6',
         // sent: false
     },
     {
         id: 7, date: '2/10/2022',
         orgName: 'World Central Kitchen',
-        amount: '$10',
+        amount: '$9',
         // sent: false
     },
     {
@@ -58,55 +58,55 @@ const rowData = [
     {
         id: 9, date: '2/20/2022',
         orgName: 'Second Harvest',
-        amount: '$12',
+        amount: '$18',
         // sent: false
     },
     {
         id: 10, date: '2/24/2022',
         orgName: 'World Central Kitchen',
-        amount: '$15',
+        amount: '$22',
         // sent: false
     },
     {
         id: 11, date: '2/25/2022',
         orgName: 'Planned Parenthood',
-        amount: '$20',
+        amount: '$18',
         // sent: false
     },
     {
         id: 12, date: '2/28/2022',
         orgName: 'Self International',
-        amount: '$25',
+        amount: '$9',
         // sent: false
     },
     {
         id: 13, date: '3/4/2022',
         orgName: 'World Central Kitchen',
-        amount: '$30',
+        amount: '$19',
         // sent: false
     },
     {
         id: 14, date: '3/15/2022',
         orgName: 'Habitat for Humanity',
-        amount: '$20',
+        amount: '$7',
         // sent: false
     },
     {
         id: 15, date: '3/20/2022',
         orgName: 'Self International',
-        amount: '$25',
+        amount: '$26',
         // sent: false
     },
     {
         id: 16, date: '3/29/2022',
         orgName: 'World Central Kitchen',
-        amount: '$15',
+        amount: '$31',
         // sent: false
     },
     {
         id: 17, date: '4/2/2022',
         orgName: 'Self International',
-        amount: '$20',
+        amount: '$23',
         // sent: false
     },
     {
@@ -298,7 +298,9 @@ function DonationGrid() {
             <div
 
 
-                style={{ height: '85vh', width: '100vw', backdropFilter: 'blur(15px)' }}>
+                style={{ height: '85vh', width: '100vw', 
+                backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                backdropFilter: 'blur(15px)' }}>
 
                 <DataGrid
                     style={{ fontSize: 15 }}

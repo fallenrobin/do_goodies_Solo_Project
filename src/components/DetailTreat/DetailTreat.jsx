@@ -14,10 +14,11 @@ import Button from '@material-ui/core/Button';
 
 
 const useStyles = makeStyles({
-    root: {
-        width: 100,
-        height: 200,
-        marginTop:'30px'
+    card: {
+        width: 375,
+        height: 500,
+        marginTop: '30px',
+        display: 'inline'
     },
     price: {
         backgroundColor: '#BFEEB7',
@@ -54,30 +55,39 @@ function DetailTreat() {
 
         <>
             <Grid
-                className={classes.root}
+                className={classes.card}
                 align="center"
                 container
                 direction="column"
                 alignItems="center"
             >
-                <Grid item xs={4}>
-                    <Card style={{ minWidth: 300, maxWidth: 450 }} variant="outlined">
+                <div style={{ height: '60px' }}></div>
+
+                <Grid item s={5}>
+                    <Card
+                        styles={classes.card} variant="outlined">
+
                         <CardContent>
 
                             <div key={treat[0]?.id} >
                                 <h3>{treat[0]?.treat_name}
-                                <span className={classes.price}>{treat[0]?.price}</span></h3>
+                                    <span className={classes.price}>{treat[0]?.price}</span></h3>
                                 <img alt={treat?.treat_name} src={treat[0]?.treat_image} />
 
                                 <p className="descriptionText">{treat[0]?.treat_description}</p>
                             </div>
 
                             <Button variant="outlined" color="primary"
-                                onClick={() => { history.push('/treatList') }}>Back to all treats</Button>
-                            {/* button returns user to movie list; subtle so as not to detract visually from movie*/}
+                                onClick={() => { history.push('/treatList') }}>
+                                Back to all treats
+                            </Button>
+
                         </CardContent>
                     </Card>
+
                 </Grid>
+                <div style={{ height: '60px' }}></div>
+
             </Grid>
         </>
 
