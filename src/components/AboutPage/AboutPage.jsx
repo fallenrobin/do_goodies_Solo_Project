@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
+import Footer from '../Footer/Footer';
 
 
 import { AiFillHtml5 } from "react-icons/ai"; //html
@@ -58,26 +59,6 @@ function AboutPage() {
               className={classes.icon}
               style={{ color: '#61dbfb', backgroundColor: 'black' }} />
 
-            <SiPostgresql size={50}
-              className={classes.icon}
-              style={{ color: 'white', backgroundColor: '#008bb9' }} />
-
-            <SiExpress size={50}
-              className={classes.icon}
-              style={{ color: 'gray', backgroundColor: 'white' }} />
-
-            <IoLogoNodejs size={50}
-              className={classes.icon}
-              style={{ color: 'green', backgroundColor: '#a9a9a9' }} />
-
-            <SiMaterialui size={50}
-              className={classes.icon}
-              style={{ color: '#61dbfb', backgroundColor: 'gray' }} />
-
-            <GiWrappedSweet size={50}
-              className={classes.icon}
-              style={{ color: '#f6a192', backgroundColor: 'white' }} />
-
             <SiRedux size={50}
               className={classes.icon}
               style={{ color: '#5D3FD3', backgroundColor: 'black' }} />
@@ -86,9 +67,30 @@ function AboutPage() {
               className={classes.icon}
               style={{ color: '#98D640', backgroundColor: '#444444' }} />
 
+            <SiPostgresql size={50}
+              className={classes.icon}
+              style={{ color: 'white', backgroundColor: '#008bb9' }} />
+
             <FaNpm size={50}
               className={classes.icon}
               style={{ color: 'white', backgroundColor: '#ae0000' }} />
+
+
+            <SiExpress size={50}
+              className={classes.icon}
+              style={{ color: 'gray', backgroundColor: '#FCF5E5' }} />
+
+            <IoLogoNodejs size={50}
+              className={classes.icon}
+              style={{ color: '#66ff00', backgroundColor: '#a9a9a9' }} />
+
+            <SiMaterialui size={50}
+              className={classes.icon}
+              style={{ color: '#0096FF', backgroundColor: '#FAF9F6' }} />
+
+            <GiWrappedSweet size={50}
+              className={classes.icon}
+              style={{ color: '#f6a192', backgroundColor: '#5F4B8BFF' }} />
 
             <AiFillGithub size={50}
               className={classes.icon}
@@ -104,6 +106,8 @@ function AboutPage() {
 
         </div>
       </div>
+      <Footer />
+      <div style={{ height: '60px' }}></div>
     </div>
   );
 }

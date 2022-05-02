@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 const rowData = [
     {
         id: 1, date: '1/1/2022',
-        orgName: 'World Street Kitchen',
+        orgName: 'World Central Kitchen',
         amount: '$30',
         // sent: false
     },
@@ -45,7 +45,7 @@ const rowData = [
     },
     {
         id: 7, date: '2/10/2022',
-        orgName: 'World Street Kitchen',
+        orgName: 'World Central Kitchen',
         amount: '$10',
         // sent: false
     },
@@ -62,109 +62,109 @@ const rowData = [
         // sent: false
     },
     {
-        id: 10, date: '1/20/2022',
+        id: 10, date: '2/24/2022',
         orgName: 'World Central Kitchen',
         amount: '$15',
         // sent: false
     },
     {
-        id: 11, date: '1/22/2022',
+        id: 11, date: '2/25/2022',
         orgName: 'Planned Parenthood',
         amount: '$20',
         // sent: false
     },
     {
-        id: 12, date: '2/5/2022',
+        id: 12, date: '2/28/2022',
         orgName: 'Self International',
         amount: '$25',
         // sent: false
     },
     {
-        id: 13, date: '1/1/2022',
-        orgName: 'World Street Kitchen',
+        id: 13, date: '3/4/2022',
+        orgName: 'World Central Kitchen',
         amount: '$30',
         // sent: false
     },
     {
-        id: 14, date: '1/12/2022',
+        id: 14, date: '3/15/2022',
         orgName: 'Habitat for Humanity',
         amount: '$20',
         // sent: false
     },
     {
-        id: 15, date: '1/15/2022',
+        id: 15, date: '3/20/2022',
         orgName: 'Self International',
         amount: '$25',
         // sent: false
     },
     {
-        id: 16, date: '1/20/2022',
+        id: 16, date: '3/29/2022',
         orgName: 'World Central Kitchen',
         amount: '$15',
         // sent: false
     },
     {
-        id: 17, date: '1/22/2022',
-        orgName: 'Planned Parenthood',
+        id: 17, date: '4/2/2022',
+        orgName: 'Self International',
         amount: '$20',
         // sent: false
     },
     {
-        id: 18, date: '2/5/2022',
+        id: 18, date: '4/5/2022',
         orgName: 'Self International',
         amount: '$25',
         // sent: false
     },
     {
-        id: 19, date: '1/1/2022',
-        orgName: 'World Street Kitchen',
+        id: 19, date: '4/10/2022',
+        orgName: 'World Central Kitchen',
         amount: '$30',
         // sent: false
     },
     {
-        id: 20, date: '1/12/2022',
-        orgName: 'Habitat for Humanity',
+        id: 20, date: '4/12/2022',
+        orgName: 'World Central Kitchen',
         amount: '$20',
         // sent: false
     },
     {
-        id: 21, date: '1/15/2022',
+        id: 21, date: '4/18/2022',
         orgName: 'Self International',
         amount: '$25',
         // sent: false
     },
     {
-        id: 22, date: '1/20/2022',
-        orgName: 'World Central Kitchen',
+        id: 22, date: '4/20/2022',
+        orgName: 'Self International',
         amount: '$15',
         // sent: false
     },
     {
-        id: 23, date: '1/22/2022',
+        id: 23, date: '4/22/2022',
         orgName: 'Planned Parenthood',
         amount: '$20',
         // sent: false
     },
     {
-        id: 24, date: '2/5/2022',
+        id: 24, date: '4/21/2022',
         orgName: 'Self International',
         amount: '$25',
         // sent: false
     },
     {
-        id: 25, date: '1/1/2022',
-        orgName: 'World Street Kitchen',
+        id: 25, date: '5/1/2022',
+        orgName: 'Self International',
         amount: '$30',
         // sent: false
     },
     {
-        id: 26, date: '1/12/2022',
+        id: 26, date: '5/1/2022',
         orgName: 'Habitat for Humanity',
         amount: '$20',
         // sent: false
     },
     {
-        id: 27, date: '1/15/2022',
+        id: 27, date: '4/5/2022',
         orgName: 'Self International',
         amount: '$25',
         // sent: false
@@ -189,7 +189,7 @@ const rowData = [
     },
     {
         id: 31, date: '1/1/2022',
-        orgName: 'World Street Kitchen',
+        orgName: 'World Central Kitchen',
         amount: '$30',
         // sent: false
     },
@@ -206,7 +206,7 @@ const rowData = [
         // sent: false
     },
     {
-        id: 34, date: '1/20/2022',
+        id: 34, date: '5/1/2022',
         orgName: 'World Central Kitchen',
         amount: '$15',
         // sent: false
@@ -298,10 +298,10 @@ function DonationGrid() {
             <div
 
 
-                style={{ height: '85vh', width: '95vw', backdropFilter: 'blur(15px)' }}>
+                style={{ height: '85vh', width: '100vw', backdropFilter: 'blur(15px)' }}>
 
                 <DataGrid
-                    style={{ fontSize: 20 }}
+                    style={{ fontSize: 15 }}
                     onCellEditCommit={handleCommit}// saves changes upon 'enter' or 'tab'
                     checkboxSelection // makes checkboxes on left column
                     rows={rowData} columns={columns} // uses data above function; eventually needs Redux stores
@@ -315,7 +315,6 @@ function DonationGrid() {
                 />
 
             </div>
-            {/* <div style={{height:'60px'}}></div> */}
         </div>
     );
 }
