@@ -44,7 +44,7 @@ function AboutPage() {
           alignItems: 'center', flexDirection: 'column'
         }} >
           <h2 style={{ color: 'white', textShadow: '1px 1px black' }}>
-            Technologies used:</h2>
+            Do Goodies was built with:</h2>
 
           <div style={{ textAlign: 'center' }}>
             <IoLogoJavascript size={50}
@@ -100,7 +100,7 @@ function AboutPage() {
           <div style={{ color: 'white', textShadow: '1px 1px black' }}>
             <h2>Big thanks to:</h2>
             <h3>Prime Digital Academy and especially Dane and Matt, the Butler cohort,
-              the Adams cohort, Ed Heyl for the Do Goodies logo, my bae John Massie, and the rest of my polycule
+              the Adams cohort, Ed Heyl for the Do Goodies logo, my bae John Massie, and the rest of my family
             </h3>
           </div>
 
