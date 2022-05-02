@@ -1,4 +1,6 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles'
+
 
 import { AiFillHtml5 } from "react-icons/ai"; //html
 import { IoLogoJavascript } from "react-icons/io"; //js
@@ -13,16 +15,21 @@ import { SiReduxsaga } from "react-icons/si";//redux-saga
 import { FaNpm } from 'react-icons/fa';//react
 import { AiFillGithub } from "react-icons/ai"; //github
 
-
-
-
-
+const useStyles = makeStyles({
+  icon: {
+    margin: '3px',
+    padding: '2px'
+  }
+});
 // This is one of our simplest components
 // It doesn't have local state,
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is'
 
 function AboutPage() {
+
+  const classes = useStyles();
+
   return (
     <div>
       <div>
@@ -39,25 +46,60 @@ function AboutPage() {
             Technologies used:</h2>
 
           <div style={{ textAlign: 'center' }}>
-            <IoLogoJavascript size={50} style={{ backgroundColor: 'yellow', margin: '3px' }} />
-            <AiFillHtml5 size={50} style={{ color: 'orange', backgroundColor: 'white', margin: '3px' }} />
-            <FaReact size={50} style={{ color: '#61dbfb', backgroundColor: 'black', margin: '3px' }} />
-            <SiPostgresql size={50} style={{ color: 'white', backgroundColor: '#008bb9', margin: '3px' }} />
-            <SiExpress size={50} style={{ color: 'gray', backgroundColor: 'white', margin: '3px' }} />
-            <IoLogoNodejs size={50} style={{ color: 'green', backgroundColor: 'ivory', margin: '3px' }} />
-            <SiMaterialui size={50} style={{ color: '#61dbfb', backgroundColor: 'gray', margin: '3px' }} />
-            <GiWrappedSweet size={50} style={{ color: '#f6a192', backgroundColor: 'white', margin: '3px' }} />
-            <SiRedux size={50} style={{ color: '#5D3FD3', backgroundColor: 'black', margin: '3px' }} />
-            <SiReduxsaga size={50} style={{ color: 'gray', backgroundColor: '#C3B1E1', margin: '3px' }} />
-            <FaNpm size={50} style={{ color: 'white', backgroundColor: '#ae0000', margin: '3px' }} />
-            <AiFillGithub size={50} style={{ color: 'black', backgroundColor: 'white', margin: '3px' }} />
+            <IoLogoJavascript size={50}
+              className={classes.icon}
+              style={{ backgroundColor: 'yellow' }} />
+
+            <AiFillHtml5 size={50}
+              className={classes.icon}
+              style={{ color: 'orange', backgroundColor: 'white' }} />
+
+            <FaReact size={50}
+              className={classes.icon}
+              style={{ color: '#61dbfb', backgroundColor: 'black' }} />
+
+            <SiPostgresql size={50}
+              className={classes.icon}
+              style={{ color: 'white', backgroundColor: '#008bb9' }} />
+
+            <SiExpress size={50}
+              className={classes.icon}
+              style={{ color: 'gray', backgroundColor: 'white' }} />
+
+            <IoLogoNodejs size={50}
+              className={classes.icon}
+              style={{ color: 'green', backgroundColor: '#a9a9a9' }} />
+
+            <SiMaterialui size={50}
+              className={classes.icon}
+              style={{ color: '#61dbfb', backgroundColor: 'gray' }} />
+
+            <GiWrappedSweet size={50}
+              className={classes.icon}
+              style={{ color: '#f6a192', backgroundColor: 'white' }} />
+
+            <SiRedux size={50}
+              className={classes.icon}
+              style={{ color: '#5D3FD3', backgroundColor: 'black' }} />
+
+            <SiReduxsaga size={50}
+              className={classes.icon}
+              style={{ color: '#98D640', backgroundColor: '#444444' }} />
+
+            <FaNpm size={50}
+              className={classes.icon}
+              style={{ color: 'white', backgroundColor: '#ae0000' }} />
+
+            <AiFillGithub size={50}
+              className={classes.icon}
+              style={{ color: 'black', backgroundColor: 'white' }} />
           </div>
 
           <div style={{ color: 'white', textShadow: '1px 1px black' }}>
-            <h3>
-              Big thanks to:</h3>
-            <h4>Prime Digital Academy and especially Dane, the Butler cohort,
-              the Adams cohort, Ed Heyl for the Do Goodies logo, my bae John Massie, and the rest of my polycule</h4>
+            <h2>Big thanks to:</h2>
+            <h3>Prime Digital Academy and especially Dane and Matt, the Butler cohort,
+              the Adams cohort, Ed Heyl for the Do Goodies logo, my bae John Massie, and the rest of my polycule
+            </h3>
           </div>
 
         </div>
