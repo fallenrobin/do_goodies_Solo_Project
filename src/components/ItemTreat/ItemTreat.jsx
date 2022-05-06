@@ -96,7 +96,7 @@ function ItemTreat({ treat }) {
                             onClick={handleDetailView}
                             src={treat.treat_image} alt={treat.treat_name}></img>
 
-                            {user.id ?
+                            {user.id == treat.user_id ?
 
                                 <OpenDialog
                                     open={open}

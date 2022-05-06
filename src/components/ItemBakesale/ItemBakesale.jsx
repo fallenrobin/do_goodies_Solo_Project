@@ -77,7 +77,7 @@ function ItemBakesale({ bakesale }) {
                             key={bakesale.id} 
                                 src={bakesale.org_image} alt={bakesale.org_name}></img>
 
-                            {user.id ?
+                            {user.id == bakesale.user_id ?
 
                                 <OpenDialog
                                     open={open}
