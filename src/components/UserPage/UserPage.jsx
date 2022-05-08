@@ -25,7 +25,8 @@ const useStyles = makeStyles({
     webkitBoxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
     boxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
     // margin: '5px'
-    marginTop: '10%'
+    marginTop: '10%',
+    objectFit:'scale-down'
   },
   roundImg: {
     width: "200px",
@@ -92,7 +93,7 @@ function UserPage() {
       >
 
         <img className={classNames(classes.avatar, classes.roundImg)}
-          src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
+          src={user.user_pic} alt={`picture of ${user.username}`} />
 
         {
           user.id ?
@@ -130,7 +131,12 @@ function UserPage() {
             <p className={classes.textBubble}
               onClick={() => { history.push('/treatList') }}
             // FIXME fix hover effect for 'buttons'
-            ><span>7</span> treats</p>
+            >
+              {/* TODO add treat+bakesale fetch (or use hook for whole store?), 
+              then reference redux to populate text bubbles
+              Create ternary for "no treats/bakesales yet"
+              */}
+              <span>7</span> treats</p>
           </Grid>
         </Grid>
 

@@ -126,7 +126,7 @@ function DetailBakesale() {
                                 <div id="user" style={{ display: '-ms-inline-flexbox' }}>
                                     <div>
                                         <img className={classes.roundImg}
-                                            src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
+                                            src="images/cakeDecorating.jpeg" alt={`Picture of TODO add user`} />
                                         {/* <p>Juliette</p> */}
                                     </div>
                                 </div>
