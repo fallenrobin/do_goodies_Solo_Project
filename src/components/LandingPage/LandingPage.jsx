@@ -48,8 +48,8 @@ const useStyles = makeStyles({
     color: '#FEFFF6',
     textShadow: '2px 2px #444',
     backdropFilter: 'blur(2px)',
-    borderRadius: '8px', 
-    padding:'1px'
+    borderRadius: '8px',
+    padding: '1px'
     // marginTop: '20px'
   }
 })
@@ -84,7 +84,11 @@ function LandingPage() {
 
       <Grid
         container
-        style={{ justifyContent: 'center' }}
+        style={{
+          justifyContent: 'center',
+          display: 'inline-grid',
+          justifyItems: 'center'
+        }}
       >
         <Typography
           variant='h3'
