@@ -155,8 +155,21 @@ function EditBakesale() {
             <BakesaleAddTreats />
 
             <div>
-                <Button className={classes.delete} onClick={() => { deleteConfirm() }} >Delete</Button>
-                <Button variant="outlined" className={classes.btn} type="submit" name="submit" value="Update">Update</Button>
+                
+                <Button
+                    className={classes.delete}
+                    onClick={() => { deleteConfirm() }} >
+                    Delete
+                </Button>
+
+                <Button
+                    variant="outlined"
+                    className={classes.btn}
+                    type="submit"
+                    name="submit"
+                    value="Update">
+                    Update
+                </Button>
 
             </div>
         </form>
