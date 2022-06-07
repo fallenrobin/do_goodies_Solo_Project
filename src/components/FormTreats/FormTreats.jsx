@@ -129,8 +129,13 @@ function FormTreats() {
                     </label>
                 </div>
                 <div>
-                    <Button variant="contained" className={classes.btn}
-                        type="submit" name="submit">Add treat</Button>
+                    <Button
+                        variant="contained"
+                        className={classes.btn}
+                        type="submit"
+                        name="submit">
+                        Add treat
+                    </Button>
                 </div>
 
             </form>

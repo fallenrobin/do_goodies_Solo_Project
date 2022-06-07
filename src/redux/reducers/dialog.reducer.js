@@ -1,8 +1,8 @@
 const dialogReducer = (state = false, action) => {
     switch (action.type) {
-      case 'OPEN':
+      case 'OPEN_DIALOG':
         return true;
-      case 'CLOSE':
+      case 'CLOSE_DIALOG':
         return false;
       default:
         return state;
