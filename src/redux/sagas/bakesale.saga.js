@@ -49,7 +49,7 @@ function* editBakesale(action) {
     yield axios.put(`/api/bakesale/${id}`, action.payload);
 
     yield put({ type: 'FETCH_BAKESALES' }); //GET following PUT
-    yield put({type: 'CLOSE_DIALOG'}); //to editMode reducer
+    yield put({type: 'CLOSE_EDIT_DIALOG'}); //to editMode reducer
 
   } catch (error) {
     console.log('Error with editBakesale saga:', error);
@@ -63,6 +63,7 @@ function* deleteBakesale(action) {
   try {
     yield axios.delete(`/api/bakesale/delete/${id}`);
 
+    yield put({type: 'CLOSE_EDIT_DIALOG'});
     yield put({ type: 'FETCH_BAKESALES' }); //GET following DELETE
 
   } catch (error) {

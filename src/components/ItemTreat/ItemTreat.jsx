@@ -50,8 +50,9 @@ function ItemTreat({ treat }) {
 
 
     const handleClickEdit = () => {
+        //treat saga will update edit reducer and open dialog
         dispatch({
-            type: 'EDIT_TREAT',
+            type: 'CLICK_EDIT_TREAT',
             payload: {
                 treat
             },

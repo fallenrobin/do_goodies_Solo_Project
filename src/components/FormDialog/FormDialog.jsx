@@ -27,19 +27,17 @@ const useStyles = makeStyles({
     }
 })
 
-function OpenDialog({ title, children, component, callback }) {
+function FormDialog({ title, children, component, callback }) {
 
     const dispatch = useDispatch();
-    const open = (useSelector(store => store.editDialogReducer))
+    const open = (useSelector(store => store.formDialogReducer))
 
     const handleClickOpen = () => {
-        //CALL THE FUNCTION GIVEN, IF EXISTS:
-        dispatch({ type: 'OPEN_EDIT_DIALOG' });
-        { callback ? callback() : null };
+        dispatch({ type: 'OPEN_FORM_DIALOG' });
     };
 
     const handleClose = () => {
-        dispatch({ type: 'CLOSE_EDIT_DIALOG' });
+        dispatch({ type: 'CLOSE_FORM_DIALOG' });
         dispatch({ type: 'CLEAR_EDIT' });
     };
 
@@ -84,4 +82,4 @@ function OpenDialog({ title, children, component, callback }) {
     );
 }
 
-export default OpenDialog;
+export default FormDialog;

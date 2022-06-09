@@ -26,6 +26,7 @@ function EditTreat() {
     const [treatDescription, setTreatDescription] = useState('');
     const [treatImage, setTreatImage] = useState('');
     const [price, setPrice] = useState();
+    
     const dispatch = useDispatch();
     const classes = useStyles();
 
