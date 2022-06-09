@@ -18,10 +18,12 @@ const useStyles = makeStyles({
         color: 'black',
         '&:hover': {
             backgroundColor: "#e75480"
-        },
+        }
     },
     addTreat: {
-        top: "10px",
+        position: 'sticky',
+        top: '0.1em',
+        zIndex: '1000'
     },
     cancel: {
         color: "grey"

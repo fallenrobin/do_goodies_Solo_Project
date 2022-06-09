@@ -30,29 +30,31 @@ function ListTreat() {
     console.log('after useEffect', treats);
 
     return (
-        // <Box >
         <section >
             <Grid
                 container
                 spacing={2}
-                // margin-top="20px"TODO give top of Grid margin to avoid button??
                 direction="column"
-                alignItems="center"
-            // style={{ minHeight: '100vh' }}
-            // marginBottom='100px' does not work
-            >
+                alignItems="center">
 
                 {user.id ?
+                    <>
+                        <div
+                            style={{ height: '1em' }}>
+                        </div>
 
-                    < OpenDialog
-                        open={open}
-                        onClose={() => setOpen(false)}
-                        aria-labelledby="confirm-dialog"
-                        title="add treat"
-                    >
-                        <FormTreats />
-                    </OpenDialog>
-
+                        < OpenDialog
+                            open={open}
+                            onClose={() => setOpen(false)}
+                            aria-labelledby="confirm-dialog"
+                            title="add treat"
+                        >
+                            <FormTreats />
+                        </OpenDialog>
+                        <div
+                            style={{ height: '1em' }}>
+                        </div>
+                    </>
                     :
                     null}
 

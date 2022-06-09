@@ -73,7 +73,10 @@ function FormTreats() {
 
         <>
             <form onSubmit={handleNewTreat}>
-                <h2 onClick={handleAutofill}>Create New Treat</h2>
+                
+                <h2 onClick={handleAutofill}>
+                    Create New Treat
+                </h2>
 
                 <div>
                     <label htmlFor="treatName">
