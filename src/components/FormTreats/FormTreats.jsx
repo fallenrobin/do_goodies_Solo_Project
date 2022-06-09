@@ -29,8 +29,6 @@ function FormTreats() {
     const history = useHistory();
     const classes = useStyles();
 
-
-
     const [treatName, setTreatName] = useState('');
     const [treatDescription, setTreatDescription] = useState('');
     const [treatImage, setTreatImage] = useState('');
@@ -61,7 +59,7 @@ function FormTreats() {
     }
 
     const handleAutofill = () => {
-        // NOTE set up auto fill for demo, using Ruby on Whales
+        // NOTE auto fill for demo, using Ruby on Whales
         setTreatName('fullCRUDnut');
         setTreatDescription(`You've heard of cronuts? These are better`);
         setTreatImage('/images/crudnut.png');

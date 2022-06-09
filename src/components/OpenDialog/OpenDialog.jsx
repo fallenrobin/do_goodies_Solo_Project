@@ -31,19 +31,20 @@ const useStyles = makeStyles({
     }
 })
 
-export default function OpenDialog({ title, children, component, callback }) {
+function OpenDialog({ title, children, component, callback }) {
 
     const dispatch = useDispatch();
     const open = (useSelector(store => store.dialogReducer))
 
     const handleClickOpen = () => {
         //CALL THE FUNCTION GIVEN, IF EXISTS:
-        { callback ? callback() : null };
         dispatch({ type: 'OPEN_DIALOG' });
+        { callback ? callback() : null };
     };
 
     const handleClose = () => {
         dispatch({ type: 'CLOSE_DIALOG' });
+        dispatch({type: 'CLEAR_EDIT'});
     };
 
     const classes = useStyles();
@@ -87,3 +88,5 @@ export default function OpenDialog({ title, children, component, callback }) {
         </div>
     );
 }
+
+export default OpenDialog;

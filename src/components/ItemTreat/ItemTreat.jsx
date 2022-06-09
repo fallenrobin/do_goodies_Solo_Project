@@ -43,7 +43,6 @@ function ItemTreat({ treat }) {
 
     const history = useHistory();
     const dispatch = useDispatch();
-    const treats = useSelector(store => store.treatReducer);
     const user = useSelector((store) => store.user);
 
 
@@ -94,8 +93,6 @@ function ItemTreat({ treat }) {
                             {user.id == treat.user_id ?
 
                                 <OpenDialog
-                                    // open={open}
-                                    // onClose={() => setOpen(false)}
                                     aria-labelledby="confirm-dialog"
                                     title="edit treat"
                                     callback={handleClickEdit}
