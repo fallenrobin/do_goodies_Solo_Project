@@ -9,6 +9,6 @@ const formDialogReducer = (state = false, action) => {
     }
   };
   
-  // current treats will be on the redux state at:
+  // current open state will be on the redux state at:
   // store.formDialogReducer
   export default formDialogReducer;
