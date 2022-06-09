@@ -70,7 +70,7 @@ function* deleteTreat(action) {
 
   try {
     yield axios.delete(`/api/treat/delete/${id}`);
-
+    yield put({type: 'CLOSE_EDIT_DIALOG'});
     yield put({ type: 'FETCH_TREATS' }); //GET following DELETE
 
   } catch (error) {
