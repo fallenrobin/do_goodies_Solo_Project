@@ -1,0 +1,18 @@
+.header {
+    background-color: aquamarine;
+    height: 10em;
+    width: 100%;
+    /* justify-content: center; */
+}
+
+.font-title {
+    position: absolute;
+    top: 10em;
+    backdrop-filter: blur(3px);
+    border-radius: 8px;
+    padding: 5px;
+    font-family: 'Crafty Girls', cursive;
+    text-align: center;
+    color: #FEFFF6;
+    text-shadow: 1px 1px #444;
+}

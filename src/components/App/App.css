@@ -15,9 +15,7 @@ body {
   /* height: 90vh; does not help */
 }
 
-.bodyContainer {
-  margin-bottom: 56px;
-}
+
 
 /* 
 
@@ -33,17 +31,6 @@ beige #F4F4E1
 milk (off white) #FEFFF6
 
 */
-
-.font-title {
-  /* font-family: 'Kranky', cursive; */
-  font-family: 'Crafty Girls', cursive;
-
-  /* margin: auto; */
-  /* background-color: #84C3C8; */
-  text-align: center;
-  color: #FEFFF6;
-  text-shadow: 1px 1px #444;
-}
 
 
 img {

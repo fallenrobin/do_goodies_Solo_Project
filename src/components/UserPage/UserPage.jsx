@@ -1,11 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import './UserPage.css';
 
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid';
+import { Button, Grid, makeStyles } from '@material-ui/core';
 import { IoLogOutOutline } from "react-icons/io5";
 import classNames from 'classnames';
 
@@ -25,7 +23,9 @@ const useStyles = makeStyles({
     webkitBoxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
     boxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
     // margin: '5px'
-    marginTop: '10%'
+    marginTop: '10%',
+    position: 'absolute',
+    right: '7em'
   },
   roundImg: {
     width: "200px",
@@ -78,120 +78,127 @@ function UserPage() {
   const dispatch = useDispatch();
 
   return (
-    <Grid
-      container
-      // spacing={2}
-      justifyContent='center'
-    >
+    <>
 
-      <Grid item xs={2} />
       <Grid
         container
-        item xs={8}
+        // spacing={2}
         justifyContent='center'
       >
-
-        <img className={classNames(classes.avatar, classes.roundImg)}
-          src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
-
-        {
-          user.id ?
-            <h2 className='font-title'
-              style={{ backdropFilter: 'blur(3px)', borderRadius: '8px', padding: '5px' }}
-            >Welcome, {user.username}!</h2>
-            :
-            <h2 className='font-title'>{user.username}</h2>
-        }
-      </Grid>
-      <Grid item xs={2} />
-
-
-
-
-
-
-      <Grid
-        container
-        spacing={1}
-        direction="column"
-      >
-
+        {/* <Grid item xs={2} /> */}
         <Grid
           container
-          direction='row'
-          alignItems='center'
-          spacing={5}
+          item sm={12}
           justifyContent='center'
         >
-          <Grid item xs={4} m={6}>
-            <img className={classes.roundImgSmall} src="images/pusheenCookie.png" alt={"Baker cat"} />
-          </Grid>
-          <Grid item xs={5}>
-            <p className={classes.textBubble}
-              onClick={() => { history.push('/treatList') }}
-            // FIXME fix hover effect for 'buttons'
-            ><span>7</span> treats</p>
-          </Grid>
+          <div className='header'>
+
+            <img className={classNames(classes.avatar, classes.roundImg)}
+              src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
+          
+          </div>
+          {
+            user.id ?
+              <h2 className='font-title'>
+                Welcome, {user.username}!</h2>
+              :
+              <h2 className='font-title'>
+                {user.username}</h2>
+          }
         </Grid>
+        <Grid item xs={2} />
+
+
+
+
+
 
         <Grid
           container
-          direction='row'
-          alignItems='center'
-          spacing={5}
-          justifyContent='center'
+          spacing={1}
+          direction="column"
         >
-          <Grid item xs={4} m={6}>
-            <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />          </Grid>
-          <Grid item xs={5}>
-            <p className={classes.textBubble}
-              onClick={() => { history.push('/bakesale') }}
-            ><span>6</span> bakesales</p>
+
+          <Grid
+            container
+            direction='row'
+            alignItems='center'
+            spacing={5}
+            justifyContent='center'
+          >
+            <Grid item xs={4} m={6}>
+              <img className={classes.roundImgSmall} 
+              src="images/pusheenCookie.png" 
+              alt={"Baker cat"} />
+            </Grid>
+            <Grid item xs={5}>
+              <p className={classes.textBubble}
+                onClick={() => { history.push('/treatList') }}
+              // FIXME fix hover effect for 'buttons'
+              ><span>7</span> treats</p>
+            </Grid>
           </Grid>
-        </Grid>
 
-        <Grid
-          container
-          direction='row'
-          alignItems='center'
-          spacing={5}
-          justifyContent='center'
-        >
-          {/* <Grid item xs={4} m={6}>
+          <Grid
+            container
+            direction='row'
+            alignItems='center'
+            spacing={5}
+            justifyContent='center'
+          >
+            <Grid item xs={4} m={6}>
+              <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />          </Grid>
+            <Grid item xs={5}>
+              <p className={classes.textBubble}
+                onClick={() => { history.push('/bakesale') }}
+              ><span>6</span> bakesales</p>
+            </Grid>
+          </Grid>
+
+          <Grid
+            container
+            direction='row'
+            alignItems='center'
+            spacing={5}
+            justifyContent='center'
+          >
+            {/* <Grid item xs={4} m={6}>
             <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />
           </Grid> */}
-          <Grid item xs={6}>
-            <h2 className={classes.fundraising}
-              onClick={() => { history.push('/donations') }}
-            >$232 raised!</h2>
+            <Grid item xs={6}>
+              <h2 className={classes.fundraising}
+                onClick={() => { history.push('/donations') }}
+              >$232 raised!</h2>
+            </Grid>
           </Grid>
-        </Grid>
 
-        {/* <grid item xs={6} />
+          {/* <grid item xs={6} />
 
           <Grid item xs={3}>
             <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />
           </Grid> */}
 
 
+        </Grid>
+
+
+        {/* <img className={classes.roundImgSmall} src="images/pusheenTreat.png" alt={"Baker cat"} /> */}
+
+        {user.id ?
+
+          <Button
+            variant="outlined"
+            className={classes.btn}
+            onClick={() => dispatch({ type: 'LOGOUT' })}>
+            Log out <IoLogOutOutline size={25} />
+          </Button>
+
+          :
+          null
+        }
+
       </Grid>
-
-
-      {/* <img className={classes.roundImgSmall} src="images/pusheenTreat.png" alt={"Baker cat"} /> */}
-
-      {user.id ?
-
-        <Button
-          variant="outlined"
-          className={classes.btn}
-          onClick={() => dispatch({ type: 'LOGOUT' })}>
-          Log out <IoLogOutOutline size={25} />
-        </Button>
-
-        :
-        null
-      }
-    </Grid>
+    </>
   );
 }
 
