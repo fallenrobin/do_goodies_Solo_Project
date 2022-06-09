@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import ItemBakesale from '../ItemBakesale/ItemBakesale';
-import OpenDialog from '../OpenDialog/OpenDialog';
-
+import FormDialog from '../FormDialog/FormDialog'
 
 
 import Button from '@material-ui/core/Button';
@@ -42,15 +41,14 @@ function ListBakesale() {
                     <div
                         style={{ height: '1em' }}>
                     </div>
-                    <OpenDialog
+                    <FormDialog
                         open={open}
                         // onClose={() => setOpen(false)}
                         aria-labelledby="confirm-dialog"
                         title="add bakesale"
                     >
                         <FormBakesale />
-                        {/* children */}
-                    </OpenDialog>
+                    </FormDialog>
 
                     <div
                         style={{ height: '1em' }}>
