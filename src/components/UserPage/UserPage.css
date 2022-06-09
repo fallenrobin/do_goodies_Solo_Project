@@ -1,7 +1,9 @@
 .header {
-    background-color: aquamarine;
+    background-color: #84C3C8;
     height: 10em;
     width: 100%;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
     /* justify-content: center; */
 }
 

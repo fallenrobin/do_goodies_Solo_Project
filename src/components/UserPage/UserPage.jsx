@@ -82,10 +82,8 @@ function UserPage() {
 
       <Grid
         container
-        // spacing={2}
         justifyContent='center'
       >
-        {/* <Grid item xs={2} /> */}
         <Grid
           container
           item sm={12}
@@ -106,12 +104,8 @@ function UserPage() {
                 {user.username}</h2>
           }
         </Grid>
-        <Grid item xs={2} />
 
-
-
-
-
+        {/* <Grid item sm={2} /> */}
 
         <Grid
           container
