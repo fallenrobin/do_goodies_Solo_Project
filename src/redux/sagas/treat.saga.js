@@ -6,7 +6,7 @@ function* addTreat(action) {
     // passes user's treat data from the payload to the server
     yield axios.post('/api/treat/addTreat', action.payload);
     yield put({ type: 'FETCH_TREATS' }); //GET following POST
-    yield put({ type: 'CLOSE_DIALOG' }); //so that dialog closes
+    yield put({ type: 'CLOSE_FORM_DIALOG' }); //so that dialog closes
 
   } catch (error) {
     console.log('Error with add treat saga:', error);

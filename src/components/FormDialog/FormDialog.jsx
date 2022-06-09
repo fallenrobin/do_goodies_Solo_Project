@@ -1,9 +1,14 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import { makeStyles } from '@material-ui/core/styles'
+import { useSelector, useDispatch } from 'react-redux';
+import {
+    makeStyles,
+    Button,
+    Fab,
+    Dialog,
+    DialogActions,
+    DialogContent
+} from '@material-ui/core'
+
 import classNames from 'classnames';
 
 const useStyles = makeStyles({
@@ -18,22 +23,22 @@ const useStyles = makeStyles({
         top: "10px",
     },
     cancel: {
-        color:"grey"
+        color: "grey"
     }
 })
 
 function FormDialog({ title, children, component, callback }) {
-    
-    const [open, setOpen] = React.useState(false);
+
+    const dispatch = useDispatch();
+    const open = (useSelector(store => store.formDialogReducer))
 
     const handleClickOpen = () => {
-        //CALL THE FUNCTION GIVEN, IF EXISTS:
-        {callback ? callback() : null};
-            setOpen(true);
+        dispatch({ type: 'OPEN_FORM_DIALOG' });
     };
 
     const handleClose = () => {
-        setOpen(false);
+        dispatch({ type: 'CLOSE_FORM_DIALOG' });
+        dispatch({ type: 'CLEAR_EDIT' });
     };
 
     const classes = useStyles();
@@ -46,14 +51,15 @@ function FormDialog({ title, children, component, callback }) {
 
 
         <div>
-            <Button variant="contained"
+            <Button
+                variant="contained"
                 color="primary"
                 className={classNames(classes.btn, classes.addTreat)}
                 onClick={handleClickOpen}
             >
                 {title}
             </Button>
-            
+
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogContent>
                     {/* InnerComponent:  */}
@@ -75,6 +81,5 @@ function FormDialog({ title, children, component, callback }) {
         </div>
     );
 }
-
 
 export default FormDialog;
