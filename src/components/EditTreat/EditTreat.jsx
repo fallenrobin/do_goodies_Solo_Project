@@ -159,7 +159,9 @@ function EditTreat() {
                     Delete
                 </Button>
 
-                <Button variant="outlined" className={classes.btn}
+                <Button
+                    variant="outlined"
+                    className={classes.btn}
                     type="submit"
                     name="submit"
                     value="Update">

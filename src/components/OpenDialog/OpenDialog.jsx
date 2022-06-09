@@ -1,9 +1,16 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import { makeStyles } from '@material-ui/core/styles'
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import {
+    makeStyles,
+    Button,
+    Fab,
+    Dialog,
+    DialogActions,
+    DialogContent
+} from '@material-ui/core'
+
 import classNames from 'classnames';
 
 const useStyles = makeStyles({
@@ -12,27 +19,32 @@ const useStyles = makeStyles({
         color: 'black',
         '&:hover': {
             backgroundColor: "#e75480"
-        },
+        }
     },
     addTreat: {
-        top: "10px",
+        position: 'sticky',
+        top: '0.1em',
+        zIndex: '1000'
     },
     cancel: {
-        color:"grey"
+        color: "grey"
     }
 })
 
-export default function OpenDialog({ title, children, component, callback }) {
-    const [open, setOpen] = React.useState(false);
+function OpenDialog({ title, children, component, callback }) {
+
+    const dispatch = useDispatch();
+    const open = (useSelector(store => store.dialogReducer))
 
     const handleClickOpen = () => {
         //CALL THE FUNCTION GIVEN, IF EXISTS:
-        {callback ? callback() : null};
-            setOpen(true);
+        dispatch({ type: 'OPEN_DIALOG' });
+        { callback ? callback() : null };
     };
 
     const handleClose = () => {
-        setOpen(false);
+        dispatch({ type: 'CLOSE_DIALOG' });
+        dispatch({type: 'CLEAR_EDIT'});
     };
 
     const classes = useStyles();
@@ -45,28 +57,30 @@ export default function OpenDialog({ title, children, component, callback }) {
 
 
         <div>
-            <Button variant="contained"
+            <Fab
+                variant="extended"
                 color="primary"
                 className={classNames(classes.btn, classes.addTreat)}
                 onClick={handleClickOpen}
             >
                 {title}
-            </Button>
-            
+            </Fab>
+
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogContent>
-                    {/* InnerComponent:  */}
                     {open && <InnerComponent />}
 
                 </DialogContent>
                 <DialogActions>
                     <Button
-                        // className={classes.btn} //more subtle non-button appearance
                         className={classes.cancel}
                         onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    {/* TODO make button work with callback passed prop? <Button onClick={handleClose} color="primary">
+                    {/* TODO make button work with callback passed prop? 
+                    <Button 
+                    onClick={handleClose} 
+                    color="primary">
                         Add treat
                     </Button> */}
                 </DialogActions>
@@ -74,3 +88,5 @@ export default function OpenDialog({ title, children, component, callback }) {
         </div>
     );
 }
+
+export default OpenDialog;

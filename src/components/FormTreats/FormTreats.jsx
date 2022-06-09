@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button';
+import {Fab} from '@material-ui/core';
 import swal from 'sweetalert';
 
 
@@ -28,8 +28,6 @@ function FormTreats() {
     const dispatch = useDispatch();
     const history = useHistory();
     const classes = useStyles();
-
-
 
     const [treatName, setTreatName] = useState('');
     const [treatDescription, setTreatDescription] = useState('');
@@ -61,7 +59,7 @@ function FormTreats() {
     }
 
     const handleAutofill = () => {
-        // NOTE set up auto fill for demo, using Ruby on Whales
+        // NOTE auto fill for demo, using Ruby on Whales
         setTreatName('fullCRUDnut');
         setTreatDescription(`You've heard of cronuts? These are better`);
         setTreatImage('/images/crudnut.png');
@@ -73,7 +71,10 @@ function FormTreats() {
 
         <>
             <form onSubmit={handleNewTreat}>
-                <h2 onClick={handleAutofill}>Create New Treat</h2>
+
+                <h2 onClick={handleAutofill}>
+                    Create New Treat
+                </h2>
 
                 <div>
                     <label htmlFor="treatName">
@@ -121,7 +122,6 @@ function FormTreats() {
                             type="string"
                             name="price"
                             value={price}
-                            // to do: adjust width
                             // maxLength={255} what validation here? also set in DB
                             placeholder="Enter dollar amount with or without decimals"
                             onChange={(event) => setPrice(event.target.value)}
@@ -129,8 +129,13 @@ function FormTreats() {
                     </label>
                 </div>
                 <div>
-                    <Button variant="contained" className={classes.btn}
-                        type="submit" name="submit">Add treat</Button>
+                    <Fab
+                        variant="extended"
+                        className={classes.btn}
+                        type="submit"
+                        name="submit">
+                        Add treat
+                    </Fab>
                 </div>
 
             </form>

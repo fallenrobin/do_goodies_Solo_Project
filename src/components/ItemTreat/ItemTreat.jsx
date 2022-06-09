@@ -43,18 +43,13 @@ function ItemTreat({ treat }) {
 
     const history = useHistory();
     const dispatch = useDispatch();
-    const treats = useSelector(store => store.treatReducer);
     const user = useSelector((store) => store.user);
 
 
     const classes = useStyles(); //for card
 
-    const [isEditing, setEditing] = useState(false); //for edit mode
-
-    const [treatToEdit, setTreatToEdit] = useState();
 
     const handleClickEdit = () => {
-        setEditing(true);
         dispatch({
             type: 'EDIT_TREAT',
             payload: {
@@ -62,7 +57,6 @@ function ItemTreat({ treat }) {
             },
         });
     }
-    console.log(treatToEdit);
 
     const handleDetailView = () => {
         console.log('clicked into HandleDetailView, treat id is:', treat.id);
@@ -99,8 +93,6 @@ function ItemTreat({ treat }) {
                             {user.id == treat.user_id ?
 
                                 <OpenDialog
-                                    open={open}
-                                    onClose={() => setOpen(false)}
                                     aria-labelledby="confirm-dialog"
                                     title="edit treat"
                                     callback={handleClickEdit}

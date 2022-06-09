@@ -26,46 +26,52 @@ function ListBakesale() {
     // console.log('after useEffect', bakesales);
 
     return (
-        <main>
-            <section>
-                <Grid
-                    container
-                    spacing={2}
-                    // margin-top="20px"TODO give top of Grid margin to avoid button??
-                    direction="column"
-                    alignItems="center"
-                // style={{ minHeight: '100vh' }} does not help
-                // style={{ marginBottom: '100px' }} does not help
-                >
 
-                    {user.id ?
+        <Grid
+            container
+            spacing={2}
+            // margin-top="20px"TODO give top of Grid margin to avoid button??
+            direction="column"
+            alignItems="center"
+        // style={{ minHeight: '100vh' }} does not help
+        // style={{ marginBottom: '100px' }} does not help
+        >
 
-                        <OpenDialog
-                            open={open}
-                            onClose={() => setOpen(false)}
-                            aria-labelledby="confirm-dialog"
-                            title="add bakesale"
-                        >
-                            <FormBakesale />
-                            {/* children */}
-                        </OpenDialog>
+            {user.id ?
+                <>
+                    <div
+                        style={{ height: '1em' }}>
+                    </div>
+                    <OpenDialog
+                        open={open}
+                        // onClose={() => setOpen(false)}
+                        aria-labelledby="confirm-dialog"
+                        title="add bakesale"
+                    >
+                        <FormBakesale />
+                        {/* children */}
+                    </OpenDialog>
 
-                        :
-                        null}
+                    <div
+                        style={{ height: '1em' }}>
+                    </div>
+                </>
 
-                    {bakesales?.map((bakesale) => {
-                        return ( //loops thru array of treats to create each treat item
-                            <ItemBakesale
-                                key={bakesale.id}
-                                bakesale={bakesale}
-                            />);
-                    })}
+                :
+                null}
 
-                    <div style={{ height: '60px' }}></div>
+            {bakesales?.map((bakesale) => {
+                return ( //loops thru array of treats to create each treat item
+                    <ItemBakesale
+                        key={bakesale.id}
+                        bakesale={bakesale}
+                    />);
+            })}
 
-                </Grid>
-            </section>
-        </main>
+            <div style={{ height: '60px' }}></div>
+
+        </Grid>
+
 
     );
 }
