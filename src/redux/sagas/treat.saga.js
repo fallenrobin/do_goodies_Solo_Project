@@ -48,7 +48,7 @@ function* clickEditTreat(action) {
 }
 
 function* editTreat(action) {
-  const id = action.payload.id; //because all threat info expected in payload
+  const id = action.payload.id; //because all treat info expected in payload
   // console.log('SAGA edit treat:', action.payload.id);
 
   try {
