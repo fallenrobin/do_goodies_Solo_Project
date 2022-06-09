@@ -3,21 +3,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './UserPage.css';
 
-import { Button, Grid, makeStyles } from '@material-ui/core';
+import { Button, Fab, Grid, makeStyles } from '@material-ui/core';
 import { IoLogOutOutline } from "react-icons/io5";
 import classNames from 'classnames';
 
 
 const useStyles = makeStyles({
   btn: {
-    // backgroundColor: "#E0E0E0",
-    color: 'white',
+    color: 'gray',
     // '&:hover': {
     //   backgroundColor: "#42929D"
     // },
     position: "fixed",
     bottom: "58px",
-    right: "4px"
+    right: "28px"
   },
   avatar: {
     webkitBoxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
@@ -180,12 +179,12 @@ function UserPage() {
 
         {user.id ?
 
-          <Button
-            variant="outlined"
+          <Fab
+            variant="extended"
             className={classes.btn}
             onClick={() => dispatch({ type: 'LOGOUT' })}>
             Log out <IoLogOutOutline size={25} />
-          </Button>
+          </Fab>
 
           :
           null
