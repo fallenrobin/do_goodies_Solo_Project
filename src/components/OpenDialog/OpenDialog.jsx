@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import {
     makeStyles,
     Button,
+    Fab,
     Dialog,
     DialogActions,
     DialogContent
@@ -31,21 +32,18 @@ const useStyles = makeStyles({
 })
 
 export default function OpenDialog({ title, children, component, callback }) {
-    
+
     const dispatch = useDispatch();
     const open = (useSelector(store => store.dialogReducer))
-    // const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
         //CALL THE FUNCTION GIVEN, IF EXISTS:
         { callback ? callback() : null };
-        // setOpen(true);
-        dispatch({type: 'OPEN_DIALOG'});
+        dispatch({ type: 'OPEN_DIALOG' });
     };
 
     const handleClose = () => {
-        // setOpen(false);
-        dispatch({type: 'CLOSE_DIALOG'});
+        dispatch({ type: 'CLOSE_DIALOG' });
     };
 
     const classes = useStyles();
@@ -58,28 +56,30 @@ export default function OpenDialog({ title, children, component, callback }) {
 
 
         <div>
-            <Button variant="contained"
+            <Fab
+                variant="extended"
                 color="primary"
                 className={classNames(classes.btn, classes.addTreat)}
                 onClick={handleClickOpen}
             >
                 {title}
-            </Button>
+            </Fab>
 
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogContent>
-                    {/* InnerComponent:  */}
                     {open && <InnerComponent />}
 
                 </DialogContent>
                 <DialogActions>
                     <Button
-                        // className={classes.btn} //more subtle non-button appearance
                         className={classes.cancel}
                         onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    {/* TODO make button work with callback passed prop? <Button onClick={handleClose} color="primary">
+                    {/* TODO make button work with callback passed prop? 
+                    <Button 
+                    onClick={handleClose} 
+                    color="primary">
                         Add treat
                     </Button> */}
                 </DialogActions>

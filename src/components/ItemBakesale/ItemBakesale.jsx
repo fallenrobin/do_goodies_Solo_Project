@@ -37,12 +37,10 @@ function ItemBakesale({ bakesale }) {
     const history = useHistory();
     const dispatch = useDispatch();
     const classes = useStyles(); //for card
-    const [isEditing, setEditing] = useState(false); //for edit mode
     const user = useSelector((store) => store.user);
     const bakesales = useSelector(store => store.bakesaleReducer);
 
     const handleClickEdit = () => {
-        setEditing(true);
         dispatch({
             type: 'EDIT_BAKESALE',
             payload: {
