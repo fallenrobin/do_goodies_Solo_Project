@@ -63,6 +63,7 @@ function* deleteBakesale(action) {
   try {
     yield axios.delete(`/api/bakesale/delete/${id}`);
 
+    yield put({type: 'CLOSE_EDIT_DIALOG'});
     yield put({ type: 'FETCH_BAKESALES' }); //GET following DELETE
 
   } catch (error) {
