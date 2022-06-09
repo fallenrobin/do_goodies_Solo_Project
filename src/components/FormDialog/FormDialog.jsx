@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     }
 })
 
-export default function OpenDialog({ title, children, component, callback }) {
+function FormDialog({ title, children, component, callback }) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -74,3 +74,6 @@ export default function OpenDialog({ title, children, component, callback }) {
         </div>
     );
 }
+
+
+export default FormDialog;
