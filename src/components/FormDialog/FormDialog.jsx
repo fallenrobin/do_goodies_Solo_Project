@@ -23,6 +23,7 @@ const useStyles = makeStyles({
 })
 
 function FormDialog({ title, children, component, callback }) {
+    
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
