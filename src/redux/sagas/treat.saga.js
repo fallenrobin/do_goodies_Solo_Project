@@ -42,6 +42,11 @@ function* fetchTreatDetail(action) {
   }
 }
 
+function* clickEditTreat(action) {
+  yield put({type: 'EDIT_TREAT', payload: action.payload})
+  yield put({type: 'OPEN_EDIT_DIALOG'});
+}
+
 function* editTreat(action) {
   const id = action.payload.id; //because all threat info expected in payload
   // console.log('SAGA edit treat:', action.payload.id);
@@ -50,6 +55,7 @@ function* editTreat(action) {
     yield axios.put(`/api/treat/${id}`, action.payload);
 
     yield put({ type: 'FETCH_TREATS' }); //GET following PUT
+    yield put({type: 'CLOSE_EDIT_DIALOG'});
     console.log('in treat SAGA', action.payload);
 
 
@@ -79,7 +85,7 @@ function* treatSaga() {
   yield takeLatest('FETCH_TREAT_DETAIL', fetchTreatDetail);
   yield takeLatest('SUBMIT_EDIT_TREAT', editTreat);
   yield takeLatest('DELETE_TREAT', deleteTreat);
-  // yield takeLatest('EDIT_TREAT', editTreat);
+  yield takeLatest('CLICK_EDIT_TREAT', clickEditTreat);
 
 }
 

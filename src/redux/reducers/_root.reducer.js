@@ -7,7 +7,7 @@ import bakesaleReducer from './bakesale.reducer';
 import singleBakesaleReducer from './singleBakesale.reducer';
 import editReducer from './edit.reducer';
 import navReducer from './nav.reducer';
-import formDialogReducer from './formDialog.reducer.js';
+import formDialogReducer from './formDialog.reducer';
 import editDialogReducer from './editDialog.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.

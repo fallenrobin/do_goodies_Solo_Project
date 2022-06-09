@@ -30,16 +30,16 @@ const useStyles = makeStyles({
 function OpenDialog({ title, children, component, callback }) {
 
     const dispatch = useDispatch();
-    const open = (useSelector(store => store.dialogReducer))
+    const open = (useSelector(store => store.editDialogReducer))
 
     const handleClickOpen = () => {
         //CALL THE FUNCTION GIVEN, IF EXISTS:
-        dispatch({ type: 'OPEN_DIALOG' });
+        dispatch({ type: 'OPEN_EDIT_DIALOG' });
         { callback ? callback() : null };
     };
 
     const handleClose = () => {
-        dispatch({ type: 'CLOSE_DIALOG' });
+        dispatch({ type: 'CLOSE_EDIT_DIALOG' });
         dispatch({ type: 'CLEAR_EDIT' });
     };
 
