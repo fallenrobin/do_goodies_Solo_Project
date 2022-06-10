@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './UserPage.css';
 
-import { Button, Fab, Grid, makeStyles } from '@material-ui/core';
+import { Fab, makeStyles } from '@material-ui/core';
 import { IoLogOutOutline } from "react-icons/io5";
 import classNames from 'classnames';
 
@@ -44,13 +44,14 @@ const useStyles = makeStyles({
     margin: '30px'
   },
   textBubble: {
-    borderRadius: '15px',
+    height: '3em',
+    borderRadius: '300' / '2',
     backgroundColor: '#F4F4E1',
     padding: '8px',
     '&:hover': {
       backgroundColor: "#42929D",
     },
-    textAlign: 'center'
+    textAlign: 'center',
   },
   fundraising: {
     color: 'black',
@@ -80,129 +81,47 @@ function UserPage() {
   return (
     <>
 
-      <Grid
-        container
-        justifyContent='center'
-      >
-        <Grid
-          container
-          item sm={12}
-          justifyContent='center'
-        >
-          <div className='header'>
+      <div className='header'>
 
-            <img className={classNames(classes.avatar, classes.roundImg)}
-              src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
-            {
-              user.id ?
-                <h2 className='font-title'>
-                  Welcome, {user.username}!</h2>
-                :
-                <h2 className='font-title'>
-                  {user.username}</h2>
-            }
-
-            <h2 className={classes.fundraising}
-              onClick={() => { history.push('/donations') }}
-            >$232 raised!</h2>
-          </div>
-          {/* {
-            user.id ?
-              <h2 className='font-title'>
-                Welcome, {user.username}!</h2>
-              :
-              <h2 className='font-title'>
-                {user.username}</h2>
-          } */}
-        </Grid>
-
-        {/* <Grid item sm={2} /> */}
-
-        <Grid
-          container
-          spacing={1}
-          direction="column"
-        >
-
-          <Grid
-            container
-            direction='row'
-            alignItems='center'
-            spacing={5}
-            justifyContent='center'
-          >
-            <Grid item xs={4} m={6}>
-              <img className={classes.roundImgSmall}
-                src="images/pusheenCookie.png"
-                alt={"Baker cat"} />
-            </Grid>
-            <Grid item xs={5}>
-              <p className={classes.textBubble}
-                onClick={() => { history.push('/treatList') }}
-              // FIXME fix hover effect for 'buttons'
-              ><span>7</span> treats</p>
-            </Grid>
-          </Grid>
-
-          <Grid
-            container
-            direction='row'
-            alignItems='center'
-            spacing={5}
-            justifyContent='center'
-          >
-            <Grid item xs={4} m={6}>
-              <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />          </Grid>
-            <Grid item xs={5}>
-              <p className={classes.textBubble}
-                onClick={() => { history.push('/bakesale') }}
-              ><span>6</span> bakesales</p>
-            </Grid>
-          </Grid>
-
-          <Grid
-            container
-            direction='row'
-            alignItems='center'
-            spacing={5}
-            justifyContent='center'
-          >
-            {/* <Grid item xs={4} m={6}>
-            <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />
-          </Grid> */}
-            <Grid item xs={6}>
-              <h2 className={classes.fundraising}
-                onClick={() => { history.push('/donations') }}
-              >$232 raised!</h2>
-            </Grid>
-          </Grid>
-
-          {/* <grid item xs={6} />
-
-          <Grid item xs={3}>
-            <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />
-          </Grid> */}
-
-
-        </Grid>
-
-
-        {/* <img className={classes.roundImgSmall} src="images/pusheenTreat.png" alt={"Baker cat"} /> */}
-
-        {user.id ?
-
-          <Fab
-            variant="extended"
-            className={classes.btn}
-            onClick={() => dispatch({ type: 'LOGOUT' })}>
-            Log out <IoLogOutOutline size={25} />
-          </Fab>
-
-          :
-          null
+        <img className={classNames(classes.avatar, classes.roundImg)}
+          src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
+        {
+          user.id ?
+            <h2 className='font-title'>
+              Welcome, {user.username}!</h2>
+            :
+            <h2 className='font-title'>
+              {user.username}</h2>
         }
 
-      </Grid>
+        <h2 className={classes.fundraising}
+          onClick={() => { history.push('/donations') }}
+        >$232 raised!</h2>
+      </div>
+
+      <Fab variant="extended"
+        onClick={() => { history.push('/treatList') }}
+      // FIXME fix hover effect for 'buttons'
+      >7 treats</Fab>
+
+      < Fab variant="extended"
+        onClick={() => { history.push('/bakesale') }}
+      >6 bakesales</Fab >
+
+
+      {user.id ?
+
+        <Fab
+          variant="extended"
+          className={classes.btn}
+          onClick={() => dispatch({ type: 'LOGOUT' })}>
+          Log out <IoLogOutOutline size={25} />
+        </Fab>
+
+        :
+        null
+      }
+
     </>
   );
 }
