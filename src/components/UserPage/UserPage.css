@@ -1,20 +1,20 @@
 .header {
     background-color: #84C3C8;
-    height: 10.6em;
+    height: 9em;
     width: 100%;
     /* border-bottom-left-radius: 20%;
     border-bottom-right-radius: 20%; */
     /* justify-content: center; */
+
 }
+
 
 .font-title {
     position: absolute;
-    top: 10em;
-    backdrop-filter: blur(3px);
-    border-radius: 8px;
-    padding: 5px;
+    top: .5em;
+    left: 7em;
+    -webkit-backdrop-filter: blur(3px);
     font-family: 'Crafty Girls', cursive;
-    text-align: center;
     color: #FEFFF6;
     text-shadow: 1px 1px #444;
 }

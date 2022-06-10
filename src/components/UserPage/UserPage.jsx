@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     // margin: '5px'
     position: 'absolute',
     left: '2em',
-    top: '3.5em'
+    top: '1.5em'
   },
   roundImg: {
     width: "6.5em",
@@ -53,15 +53,16 @@ const useStyles = makeStyles({
     textAlign: 'center'
   },
   fundraising: {
-    backgroundColor: '#BFEEB7',
     color: 'black',
-    border: '1px transparent',
-    borderRadius: '12px',
-    marginLeft: '10px',
+    width: '6em',
+    position: 'absolute',
+    left: '8em',
+    top: '2.5em',
     padding: '10px',
     textAlign: 'center',
-    fontWeight: 'bold',
-    width: '150px'
+    // fontWeight: 'bold',
+    borderRadius: '12px',
+    backgroundColor: '#BFEEB7'
   }
 })
 
@@ -92,16 +93,27 @@ function UserPage() {
 
             <img className={classNames(classes.avatar, classes.roundImg)}
               src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
-          
+            {
+              user.id ?
+                <h2 className='font-title'>
+                  Welcome, {user.username}!</h2>
+                :
+                <h2 className='font-title'>
+                  {user.username}</h2>
+            }
+
+            <h2 className={classes.fundraising}
+              onClick={() => { history.push('/donations') }}
+            >$232 raised!</h2>
           </div>
-          {
+          {/* {
             user.id ?
               <h2 className='font-title'>
                 Welcome, {user.username}!</h2>
               :
               <h2 className='font-title'>
                 {user.username}</h2>
-          }
+          } */}
         </Grid>
 
         {/* <Grid item sm={2} /> */}
@@ -120,9 +132,9 @@ function UserPage() {
             justifyContent='center'
           >
             <Grid item xs={4} m={6}>
-              <img className={classes.roundImgSmall} 
-              src="images/pusheenCookie.png" 
-              alt={"Baker cat"} />
+              <img className={classes.roundImgSmall}
+                src="images/pusheenCookie.png"
+                alt={"Baker cat"} />
             </Grid>
             <Grid item xs={5}>
               <p className={classes.textBubble}
