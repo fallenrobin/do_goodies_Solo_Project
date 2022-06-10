@@ -18,3 +18,10 @@
     color: #FEFFF6;
     text-shadow: 1px 1px #444;
 }
+
+.infoFabs {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

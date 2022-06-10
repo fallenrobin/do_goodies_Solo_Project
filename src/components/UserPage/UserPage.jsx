@@ -99,15 +99,21 @@ function UserPage() {
         >$232 raised!</h2>
       </div>
 
-      <Fab variant="extended"
-        onClick={() => { history.push('/treatList') }}
-      // FIXME fix hover effect for 'buttons'
-      >7 treats</Fab>
+      <div className='infoFabs'>
 
-      < Fab variant="extended"
-        onClick={() => { history.push('/bakesale') }}
-      >6 bakesales</Fab >
+        <Fab
+          variant="extended"
+          onClick={() => { history.push('/treatList') }}
+        // FIXME fix hover effect for 'buttons?'
+        >7 treats
+        </Fab>
 
+        < Fab
+          variant="extended"
+          onClick={() => { history.push('/bakesale') }}
+        >6 bakesales
+        </Fab >
+      </div>
 
       {user.id ?
 
