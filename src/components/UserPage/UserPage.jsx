@@ -101,18 +101,24 @@ function UserPage() {
 
       <div className='infoFabs'>
 
-        <Fab
-          variant="extended"
+        <div
+          className='oval'
           onClick={() => { history.push('/treatList') }}
         // FIXME fix hover effect for 'buttons?'
-        >7 treats
-        </Fab>
+        >
+          <p className='userInfo'>
+            7 treats
+          </p>
+        </div>
 
-        < Fab
-          variant="extended"
+        < div
+          className='oval'
           onClick={() => { history.push('/bakesale') }}
-        >6 bakesales
-        </Fab >
+        >
+          <p className='userInfo'>
+            6 bakesales
+          </p>
+        </div >
       </div>
 
       {user.id ?

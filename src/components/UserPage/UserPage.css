@@ -19,6 +19,19 @@
     text-shadow: 1px 1px #444;
 }
 
+.oval {
+    width: 10em;
+    height: 4em;
+    background: #d8d8d8;
+    border-radius: 90px / 40px; 
+    text-align: center;
+}
+
+.userInfo{
+    font-size: larger;
+    font-weight: 500;
+}
+
 .infoFabs {
     margin-top: 1em;
     display: flex;
