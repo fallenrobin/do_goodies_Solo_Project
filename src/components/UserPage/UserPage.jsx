@@ -66,7 +66,7 @@ const useStyles = makeStyles({
     textAlign: 'center',
     // fontWeight: 'bold',
     borderRadius: '12px',
-    backgroundColor: '#BFEEB7'
+    backgroundColor: '#BFEEB7',
   }
 })
 
@@ -92,7 +92,7 @@ function UserPage() {
         {
           user.id ?
             <h2 className='font-title'>
-              Welcome, {user.username}!</h2>
+              Welcome, {user.username}</h2>
             :
             <h2 className='font-title'>
               {user.username}</h2>
@@ -100,20 +100,20 @@ function UserPage() {
 
         <h2 className={classes.fundraising}
           onClick={() => { history.push('/donations') }}
-        >$232 raised!</h2>
+        >$232 raised</h2>
 
+        <p id='socialIcons'>
+          <SocialIcon url="https://www.facebook.com/juliette.lelchuk" fgColor="white" />
+          <SocialIcon url="https://www.instagram.com/do_good_treats/" fgColor="white" />
+          <SocialIcon url="https://www.linkedin.com/in/juliettelelchuk/" fgColor="white" />
 
+        </p>
 
       </div>
 
-      <p id='socialIcons'>
-        <SocialIcon url="https://www.linkedin.com/in/juliettelelchuk/" fgColor="white" />
-        <SocialIcon url="https://www.facebook.com/juliette.lelchuk" fgColor="white" />
-        <SocialIcon url="https://github.com/fallenrobin" fgColor="white" />
-        <SocialIcon url="https://www.instagram.com/do_good_treats/" fgColor="white" />
-      </p>
-      <Container
-        maxWidth="sm">
+
+      <div className='content'>
+
         <div className='infoFabs'>
 
           <div
@@ -162,7 +162,7 @@ function UserPage() {
         </div>
 
 
-      </Container>
+      </div>
 
       {
         user.id ?
