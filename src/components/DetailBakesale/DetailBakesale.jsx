@@ -38,13 +38,15 @@ const useStyles = makeStyles({
     treatBubble: {
         backgroundColor: '#D3D3D3',
         padding: '5px',
-        borderRadius: '12px'
+        borderRadius: '12px',
+        marginLeft: '1em'
     },
     roundImg: {
         width: "60px",
         height: "60px",
         borderRadius: "400" / "2",
-        border: "3px #D9D0F8"
+        border: "1px solid gray",
+        marginLeft: '2em'
     },
     bakerBubble: {
         backgroundColor: '#D3D3D3',
@@ -86,7 +88,9 @@ function DetailBakesale() {
         } else {
             // need to return JSX
             return <p>Bakesale treats:
-                <span className={classes.treatBubble}> #vanillaJavaChipt</span></p>;
+                <span className={classes.treatBubble}>
+                    #vanillaJavaChipt
+                </span></p>
         }
     }
 
@@ -121,14 +125,23 @@ function DetailBakesale() {
                                 <h3>{bakesale[0]?.org_name}</h3>
 
 
-                                <img className={classes.img} alt={bakesale[0]?.org_name} src={bakesale[0]?.org_image} />
+                                <img
+                                    className={classes.img}
+                                    alt={bakesale[0]?.org_name}
+                                    src={bakesale[0]?.org_image} />
 
-                                <p className="descriptionText">{bakesale[0]?.org_description}</p>
-                                <a href={bakesale[0]?.org_website}>Visit the website</a>
+                                <p
+                                    className="descriptionText">
+                                    {bakesale[0]?.org_description}</p>
+                                <a href={bakesale[0]?.org_website}>
+                                    VISIT THE WEBSITE
+                                </a>
 
                                 {treatRender()}
 
-                                <div id="user" style={{ display: '-ms-inline-flexbox' }}>
+                                <div id="user"
+                                    style={{ display: 'flex', justifyContent: 'center' }}>
+                                        <p>Baker:</p>
                                     <div>
                                         <img className={classes.roundImg}
                                             src="images/cakeDecorating.jpeg" alt={"Baker cat"} />

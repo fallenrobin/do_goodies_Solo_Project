@@ -68,14 +68,10 @@ function FormDialog({ title, children, component, callback }) {
                 </DialogContent>
                 <DialogActions>
                     <Button
-                        // className={classes.btn} //more subtle non-button appearance
                         className={classes.cancel}
                         onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    {/* TODO make button work with callback passed prop? <Button onClick={handleClose} color="primary">
-                        Add treat
-                    </Button> */}
                 </DialogActions>
             </Dialog>
         </div>
