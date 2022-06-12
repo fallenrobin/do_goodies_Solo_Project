@@ -283,14 +283,16 @@ function DonationGrid() {
                 onClick={() => { history.push('/about') }} 
                 variant="contained"
                 color="primary"
+                style={{marginLeft:'1.3em'}}
             >
                 Add new donation
             </Button>
 
             <Button
                 onClick={handleDeleteAll}
-                variant="outlined"
+                variant="contained"
                 color="secondary"
+                style={{marginLeft:'.5em'}}
             >
                 Delete selected rows
             </Button>

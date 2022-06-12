@@ -8,7 +8,6 @@ import FormTreats from '../FormTreats/FormTreats';
 import Grid from '@material-ui/core/Grid';
 
 
-
 function ListTreat() {
 
     const dispatch = useDispatch();
@@ -38,7 +37,7 @@ function ListTreat() {
 
                         < FormDialog
                             aria-labelledby="confirm-dialog"
-                            title="add treat"
+                            title="add treat"  
                         >
                             <FormTreats />
                         </FormDialog>

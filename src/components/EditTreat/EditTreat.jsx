@@ -26,7 +26,7 @@ function EditTreat() {
     const [treatDescription, setTreatDescription] = useState('');
     const [treatImage, setTreatImage] = useState('');
     const [price, setPrice] = useState();
-    
+
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -99,7 +99,9 @@ function EditTreat() {
         <form onSubmit={handleUpdate}>
 
             {/*NOTE secret button for demo purposes*/}
-            <h2 onClick={handleAutofill}>Edit Treat</h2>
+            <h2 onClick={handleAutofill}>
+                Edit Treat
+            </h2>
 
             <div>
                 <label htmlFor="treatName">
