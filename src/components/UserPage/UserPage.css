@@ -1,0 +1,73 @@
+.header {
+    background-color: #84C3C8;
+    height: 13em;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid #80808070;
+}
+
+.font-title {
+    position: absolute;
+    top: .4em;
+    left: 6.5em;
+    font-family: 'Crafty Girls', cursive;
+    font-size: 1.6em;
+    color: #FEFFF6;
+    text-shadow: 1px 1px #444;
+}
+
+.content {
+    position: absolute;
+    top: 14em;
+    right: 2em;
+}
+
+.oval {
+    width: 10em;
+    height: 4em;
+    background: white;
+    border-radius: 90px / 40px;
+    opacity: 80%;
+    text-align: center;
+}
+
+.userInfo {
+    font-size: larger;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.infoFabs {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.rectangleInfo {
+    width: 20em;
+    height: 14em;
+    border-radius: 8px;
+    background: white;
+    opacity: 70%;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    font-weight: 500;
+}
+
+#socialIcons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: relative;
+    top: 8em;
+}
+
+.editAbout {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

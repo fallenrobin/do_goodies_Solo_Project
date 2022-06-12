@@ -1,37 +1,39 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import './UserPage.css';
 
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid';
+import { Fab, makeStyles, Container, IconButton } from '@material-ui/core';
 import { IoLogOutOutline } from "react-icons/io5";
 import classNames from 'classnames';
+
+import { SocialIcon } from 'react-social-icons';
+import EditIcon from '@material-ui/icons/Edit';
+
 
 
 const useStyles = makeStyles({
   btn: {
-    // backgroundColor: "#E0E0E0",
-    color: 'white',
+    color: '#5a5a5a',
     // '&:hover': {
     //   backgroundColor: "#42929D"
     // },
     position: "fixed",
-    bottom: "58px",
-    right: "4px"
+    bottom: "5em",
+    right: "11em"
   },
   avatar: {
-    webkitBoxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
-    boxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
-    // margin: '5px'
-    marginTop: '10%'
+    // webkitBoxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
+    // boxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
+    position: 'absolute',
+    left: '2em',
+    top: '1em'
   },
   roundImg: {
-    width: "200px",
-    height: "200px",
+    width: "6.5em",
+    height: "6.5em",
     borderRadius: "400" / "2",
-    border: "3px #D9D0F8"
+    border: "4px solid ivory"
   },
   roundImgSmall: {
     width: "75px",
@@ -45,24 +47,26 @@ const useStyles = makeStyles({
     margin: '30px'
   },
   textBubble: {
-    borderRadius: '15px',
+    height: '3em',
+    borderRadius: '300' / '2',
     backgroundColor: '#F4F4E1',
     padding: '8px',
     '&:hover': {
       backgroundColor: "#42929D",
     },
-    textAlign: 'center'
+    textAlign: 'center',
   },
   fundraising: {
-    backgroundColor: '#BFEEB7',
     color: 'black',
-    border: '1px transparent',
-    borderRadius: '12px',
-    marginLeft: '10px',
+    width: '6em',
+    position: 'absolute',
+    left: '8em',
+    top: '2.5em',
     padding: '10px',
     textAlign: 'center',
-    fontWeight: 'bold',
-    width: '150px'
+    // fontWeight: 'bold',
+    borderRadius: '12px',
+    backgroundColor: '#BFEEB7',
   }
 })
 
@@ -78,120 +82,103 @@ function UserPage() {
   const dispatch = useDispatch();
 
   return (
-    <Grid
-      container
-      // spacing={2}
-      justifyContent='center'
-    >
+    <>
 
-      <Grid item xs={2} />
-      <Grid
-        container
-        item xs={8}
-        justifyContent='center'
-      >
+      <div className='header'>
 
-        <img className={classNames(classes.avatar, classes.roundImg)}
+        <img
+          className={classNames(classes.avatar, classes.roundImg)}
           src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
-
         {
           user.id ?
-            <h2 className='font-title'
-              style={{ backdropFilter: 'blur(3px)', borderRadius: '8px', padding: '5px' }}
-            >Welcome, {user.username}!</h2>
+            <h2 className='font-title'>
+              Welcome, {user.username}</h2>
             :
-            <h2 className='font-title'>{user.username}</h2>
+            <h2 className='font-title'>
+              {user.username}</h2>
         }
-      </Grid>
-      <Grid item xs={2} />
+
+        <h2 className={classes.fundraising}
+          onClick={() => { history.push('/donations') }}
+        >$232 raised</h2>
+
+        <p id='socialIcons'>
+          <SocialIcon url="https://www.facebook.com/juliette.lelchuk" fgColor="white" />
+          <SocialIcon url="https://www.instagram.com/do_good_treats/" fgColor="white" />
+          <SocialIcon url="https://www.linkedin.com/in/juliettelelchuk/" fgColor="white" />
+
+        </p>
+
+      </div>
 
 
+      <div className='content'>
+
+        <div className='infoFabs'>
+
+          <div
+            className='oval'
+            onClick={() => { history.push('/treatList') }}
+          // FIXME fix hover effect for 'buttons?'
+          >
+            <p className='userInfo'>
+              7 treats
+            </p>
+          </div>
+
+          < div
+            className='oval'
+            onClick={() => { history.push('/bakesale') }}
+          >
+            <p className='userInfo'>
+              6 bakesales
+            </p>
+          </div >
+          {/* end infoFabs section */}
+        </div>
+
+        <div
+          className='rectangleInfo'>
+          <p>
+            I'm Juliette 🙂 I was a professional baker for the past 20 years,
+            but now I've become a software engineer. My favorite things to bake
+            at home are quick and easy things like biscuits, fruit crisps, and muffins.
+          </p>
+          <p>
+            Some of the causes dearest to me are women's health, racial equity,
+            climate change, education, police reform, and gun control.
+          </p>
+
+          {
+            user.id ?
+              <div className='editAbout'>
+                <IconButton aria-label="delete">
+                  <EditIcon />
+                </IconButton>
+              </div>
+              :
+              null
+          }
+        </div>
 
 
+      </div>
 
+      {
+        user.id ?
 
-      <Grid
-        container
-        spacing={1}
-        direction="column"
-      >
+          <Fab
+            variant="extended"
+            className={classes.btn}
+            onClick={() => dispatch({ type: 'LOGOUT' })}>
+            Log out <IoLogOutOutline size={25} />
+          </Fab>
 
-        <Grid
-          container
-          direction='row'
-          alignItems='center'
-          spacing={5}
-          justifyContent='center'
-        >
-          <Grid item xs={4} m={6}>
-            <img className={classes.roundImgSmall} src="images/pusheenCookie.png" alt={"Baker cat"} />
-          </Grid>
-          <Grid item xs={5}>
-            <p className={classes.textBubble}
-              onClick={() => { history.push('/treatList') }}
-            // FIXME fix hover effect for 'buttons'
-            ><span>7</span> treats</p>
-          </Grid>
-        </Grid>
-
-        <Grid
-          container
-          direction='row'
-          alignItems='center'
-          spacing={5}
-          justifyContent='center'
-        >
-          <Grid item xs={4} m={6}>
-            <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />          </Grid>
-          <Grid item xs={5}>
-            <p className={classes.textBubble}
-              onClick={() => { history.push('/bakesale') }}
-            ><span>6</span> bakesales</p>
-          </Grid>
-        </Grid>
-
-        <Grid
-          container
-          direction='row'
-          alignItems='center'
-          spacing={5}
-          justifyContent='center'
-        >
-          {/* <Grid item xs={4} m={6}>
-            <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />
-          </Grid> */}
-          <Grid item xs={6}>
-            <h2 className={classes.fundraising}
-              onClick={() => { history.push('/donations') }}
-            >$232 raised!</h2>
-          </Grid>
-        </Grid>
-
-        {/* <grid item xs={6} />
-
-          <Grid item xs={3}>
-            <img className={classes.roundImgSmall} src="images/pusheenBakesale.png" alt={"Baker cat"} />
-          </Grid> */}
-
-
-      </Grid>
-
-
-      {/* <img className={classes.roundImgSmall} src="images/pusheenTreat.png" alt={"Baker cat"} /> */}
-
-      {user.id ?
-
-        <Button
-          variant="outlined"
-          className={classes.btn}
-          onClick={() => dispatch({ type: 'LOGOUT' })}>
-          Log out <IoLogOutOutline size={25} />
-        </Button>
-
-        :
-        null
+          :
+          null
       }
-    </Grid>
+
+    </>
   );
 }
 
