@@ -23,6 +23,7 @@
     height: 4em;
     background: #d8d8d8;
     border-radius: 90px / 40px;
+    opacity: 80%;
     text-align: center;
 }
 
@@ -39,11 +40,14 @@
 }
 
 .rectangleInfo {
-    width: 15em;
+    width: 22em;
     height: 7em;
+    border-radius: 8px;
     background: #d8d8d8;
+    opacity: 80%;
     margin-top: 3em;
     margin-left: auto;
     margin-right: auto;
     padding: 1em;
+    font-weight: 500;
 }
