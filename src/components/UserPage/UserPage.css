@@ -2,10 +2,7 @@
     background-color: #84C3C8;
     height: 9em;
     width: 100%;
-    /* border-bottom-left-radius: 20%;
-    border-bottom-right-radius: 20%; */
-    /* justify-content: center; */
-
+    border-bottom: 1px solid #80808070;
 }
 
 .font-title {
@@ -29,7 +26,8 @@
 
 .userInfo {
     font-size: larger;
-    font-weight: 500;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
 .infoFabs {
@@ -41,7 +39,7 @@
 
 .rectangleInfo {
     width: 20em;
-    height: 18em;
+    height: 14em;
     border-radius: 8px;
     background: #d8d8d8;
     opacity: 80%;
@@ -56,4 +54,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.editAbout {
+    position: absolute;
+    bottom: 11em;
+    right: 2em;
 }

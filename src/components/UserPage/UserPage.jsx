@@ -3,23 +3,24 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './UserPage.css';
 
-import { Fab, makeStyles, Container } from '@material-ui/core';
+import { Fab, makeStyles, Container, IconButton } from '@material-ui/core';
 import { IoLogOutOutline } from "react-icons/io5";
 import classNames from 'classnames';
 
 import { SocialIcon } from 'react-social-icons';
+import EditIcon from '@material-ui/icons/Edit';
 
 
 
 const useStyles = makeStyles({
   btn: {
-    color: 'gray',
+    color: '#5a5a5a',
     // '&:hover': {
     //   backgroundColor: "#42929D"
     // },
     position: "fixed",
-    bottom: "58px",
-    right: "28px"
+    bottom: "5em",
+    right: "11em"
   },
   avatar: {
     // webkitBoxShadow: "-9px -7px 25px 15px rgba(66,146,157,0.62), 12px 26px 25px 15px rgba(132,195,200,0.39), 3px 2px 9px 3px #F85FF8, 4px 10px 28px -5px #56F82E, -4px -4px 28px -2px #BA73F8, -4px -4px 28px -2px #BA73F8",
@@ -101,16 +102,16 @@ function UserPage() {
           onClick={() => { history.push('/donations') }}
         >$232 raised!</h2>
 
-     
+
 
       </div>
 
       <p id='socialIcons'>
-          <SocialIcon url="https://www.linkedin.com/in/juliettelelchuk/" fgColor="white"/>
-          <SocialIcon url="https://www.facebook.com/juliette.lelchuk" fgColor="white"/>
-          <SocialIcon url="https://github.com/fallenrobin" fgColor="white"/>
-          <SocialIcon url="https://www.instagram.com/do_good_treats/" fgColor="white"/>
-        </p>
+        <SocialIcon url="https://www.linkedin.com/in/juliettelelchuk/" fgColor="white" />
+        <SocialIcon url="https://www.facebook.com/juliette.lelchuk" fgColor="white" />
+        <SocialIcon url="https://github.com/fallenrobin" fgColor="white" />
+        <SocialIcon url="https://www.instagram.com/do_good_treats/" fgColor="white" />
+      </p>
       <Container
         maxWidth="sm">
         <div className='infoFabs'>
@@ -143,7 +144,21 @@ function UserPage() {
             but now I've become a software engineer. My favorite things to bake
             at home are quick and easy things like biscuits, fruit crisps, and muffins.
           </p>
+          <p>
+            Some of the causes dearest to me are women's health, racial equity,
+            climate change, education, police reform, and gun control.
+          </p>
 
+          {
+            user.id ?
+              <div className='editAbout'>
+                <IconButton aria-label="delete">
+                  <EditIcon />
+                </IconButton>
+              </div>
+              :
+              null
+          }
         </div>
 
 
