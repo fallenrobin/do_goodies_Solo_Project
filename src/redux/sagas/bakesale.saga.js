@@ -5,7 +5,8 @@ function* addBakesale(action) {
   try {
     // passes user's bakesale data from the payload to the server
     yield axios.post('/api/bakesale/addBakesale', action.payload);
-    yield put
+    yield put({type: 'CLOSE_FORM_DIALOG'}); //to editMode reducer
+    yield put({ type: 'FETCH_BAKESALES' }); //GET following POST
 
   } catch (error) {
     console.log('Error with add bakesale saga:', error);

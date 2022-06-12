@@ -84,7 +84,9 @@ function DetailBakesale() {
         if (bakesale[0]?.org_name === 'Second Harvest') {
             // need to return JSX
             return <p>Bakesale treats:
-                <span className={classes.treatBubble}> #infiniteLoops</span></p>;
+                <span className={classes.treatBubble}>
+                    #infiniteLoops
+                </span></p>
         } else {
             // need to return JSX
             return <p>Bakesale treats:
@@ -141,7 +143,7 @@ function DetailBakesale() {
 
                                 <div id="user"
                                     style={{ display: 'flex', justifyContent: 'center' }}>
-                                        <p>Baker:</p>
+                                    <p>Baker:</p>
                                     <div>
                                         <img className={classes.roundImg}
                                             src="images/cakeDecorating.jpeg" alt={"Baker cat"} />

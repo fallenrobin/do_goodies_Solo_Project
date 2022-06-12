@@ -60,7 +60,7 @@ function FormBakesale() {
         // NOTE set up auto fill for demo, using Second Harvest
         setBakesaleName('Second Harvest');
         setBakesaleDescription('We are a member of Feeding America, a nationwide network of more than 200 food banks that helps feed people across the country.');
-        setBakesaleImage('/images/secondHarvest.jpeg');
+        setBakesaleImage('/images/foodShelf.jpg');
         setWebsite('www.2harvest.org');
         setGoal('$30');
     }
