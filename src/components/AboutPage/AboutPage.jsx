@@ -3,18 +3,17 @@ import { makeStyles } from '@material-ui/core/styles'
 import Footer from '../Footer/Footer';
 
 
-import { AiFillHtml5 } from "react-icons/ai"; //html
-import { IoLogoJavascript } from "react-icons/io"; //js
-import { FaReact } from 'react-icons/fa';//react
-import { SiPostgresql } from "react-icons/si";//postgres
-import { SiExpress } from "react-icons/si";//postgres
-import { IoLogoNodejs } from "react-icons/io"; //node
-import { SiMaterialui } from "react-icons/si";//mui
-import { GiWrappedSweet } from "react-icons/gi";//swal
-import { SiRedux } from "react-icons/si";//redux
-import { SiReduxsaga } from "react-icons/si";//redux-saga
-import { FaNpm } from 'react-icons/fa';//react
-import { AiFillGithub } from "react-icons/ai"; //github
+import { AiFillHtml5, AiFillGithub } from "react-icons/ai"; //html, GH
+import { IoLogoJavascript, IoLogoNodejs } from "react-icons/io"; //js, Node
+import { FaReact, FaNpm } from 'react-icons/fa';//react, NPM
+import {
+SiPostgresql,
+SiExpress,
+SiMaterialui,
+SiRedux,
+SiReduxsaga
+} from "react-icons/si";//postgres, express, MUI, Redux, Saga
+
 
 const useStyles = makeStyles({
   icon: {
@@ -40,10 +39,10 @@ function AboutPage() {
           alt={"One does not simply donate without getting a tasty treat"} />
 
         <div style={{
-          backdropFilter: 'blur(15px)', 
+          backdropFilter: 'blur(15px)',
           backgroundColor: 'rgba(255, 255, 255, 0.3)',
           display: 'flex',
-          alignItems: 'center', 
+          alignItems: 'center',
           flexDirection: 'column'
         }} >
           <h2 style={{ color: 'white', textShadow: '1px 1px black' }}>
@@ -100,7 +99,7 @@ function AboutPage() {
               style={{ color: 'black', backgroundColor: 'white' }} />
           </div>
 
-          <div style={{ color: 'white', textShadow: '1px 1px black', marginLeft:'3px', marginRight: '3px' }}>
+          <div style={{ color: 'white', textShadow: '1px 1px black', marginLeft: '3px', marginRight: '3px' }}>
             <h2>Big thanks to:</h2>
             <h3>Prime Digital Academy and especially Dane and Matt, the Butler cohort,
               the Adams cohort, Ed Heyl for the Do Goodies logo, my bae John Massie, and the rest of my family 🥰
