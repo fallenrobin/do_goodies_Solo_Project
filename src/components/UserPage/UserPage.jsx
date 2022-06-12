@@ -7,6 +7,9 @@ import { Fab, makeStyles, Container } from '@material-ui/core';
 import { IoLogOutOutline } from "react-icons/io5";
 import classNames from 'classnames';
 
+import { SocialIcon } from 'react-social-icons';
+
+
 
 const useStyles = makeStyles({
   btn: {
@@ -97,11 +100,21 @@ function UserPage() {
         <h2 className={classes.fundraising}
           onClick={() => { history.push('/donations') }}
         >$232 raised!</h2>
+
+     
+
       </div>
-      <Container 
-      maxWidth="sm">
-      <div className='infoFabs'>
-        
+
+      <p id='socialIcons'>
+          <SocialIcon url="https://www.linkedin.com/in/juliettelelchuk/" fgColor="white"/>
+          <SocialIcon url="https://www.facebook.com/juliette.lelchuk" fgColor="white"/>
+          <SocialIcon url="https://github.com/fallenrobin" fgColor="white"/>
+          <SocialIcon url="https://www.instagram.com/do_good_treats/" fgColor="white"/>
+        </p>
+      <Container
+        maxWidth="sm">
+        <div className='infoFabs'>
+
           <div
             className='oval'
             onClick={() => { history.push('/treatList') }}
@@ -121,34 +134,34 @@ function UserPage() {
             </p>
           </div >
           {/* end infoFabs section */}
-      </div>
+        </div>
 
-      <div
-        className='rectangleInfo'>
-<p>
-  I'm Juliette 🙂 I was a professional baker for the past 20 years, 
-  but now I've become a software engineer. My favorite things to bake 
-  at home are quick and easy things like biscuits, fruit crisps, and muffins.
+        <div
+          className='rectangleInfo'>
+          <p>
+            I'm Juliette 🙂 I was a professional baker for the past 20 years,
+            but now I've become a software engineer. My favorite things to bake
+            at home are quick and easy things like biscuits, fruit crisps, and muffins.
+          </p>
 
-</p>
-      </div>
+        </div>
 
 
-    </Container>
+      </Container>
 
       {
-    user.id ?
+        user.id ?
 
-    <Fab
-      variant="extended"
-      className={classes.btn}
-      onClick={() => dispatch({ type: 'LOGOUT' })}>
-      Log out <IoLogOutOutline size={25} />
-    </Fab>
+          <Fab
+            variant="extended"
+            className={classes.btn}
+            onClick={() => dispatch({ type: 'LOGOUT' })}>
+            Log out <IoLogOutOutline size={25} />
+          </Fab>
 
-    :
-    null
-  }
+          :
+          null
+      }
 
     </>
   );
