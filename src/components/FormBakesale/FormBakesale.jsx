@@ -8,11 +8,8 @@ import swal from 'sweetalert';
 
 const useStyles = makeStyles({
     btn: {
-        backgroundColor: "#84C3C8",
-        color: 'white',
-        '&:hover': {
-            backgroundColor: "#42929D"
-        },
+        backgroundColor: '#F8D9D6',
+        color: 'black'
     },
     addBakesale: {
         position: "fixed",
@@ -72,7 +69,8 @@ function FormBakesale() {
 
         <>
             <form onSubmit={handleNewBakesale}>
-                <h2 onClick={handleAutofill}>Create New Bakesale</h2>
+                <h2 onClick={handleAutofill}>
+                    Create New Bakesale</h2>
 
                 <div>
                     <label htmlFor="bakesaleName">
@@ -143,8 +141,12 @@ function FormBakesale() {
                 <div>
 
                     {/* <input className="btn" type="submit" name="submit" value="Save" /> */}
-                    <Button variant="contained" className={classes.btn}
-                        type="submit" name="submit">Add Bakesale
+                    <Button
+                        variant="contained"
+                        className={classes.btn}
+                        type="submit"
+                        name="submit">
+                        Add Bakesale
                     </Button>
                 </div>
             </form>
