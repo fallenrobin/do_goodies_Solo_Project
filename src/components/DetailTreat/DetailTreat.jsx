@@ -26,6 +26,10 @@ const useStyles = makeStyles({
         borderRadius: '12px',
         marginLeft: '10px',
         padding: '3px'
+    },
+    btn: {
+        backgroundColor: '#F8D9D6',
+        color: 'black'
     }
 })
 
@@ -75,7 +79,9 @@ function DetailTreat() {
                                 <p className="descriptionText">{treat[0]?.treat_description}</p>
                             </div>
 
-                            <Button variant="outlined" color="primary"
+                            <Button 
+                            variant="contained" 
+                            className={classes.btn}
                                 onClick={() => { history.push('/treatList') }}>
                                 Back to all treats
                             </Button>
