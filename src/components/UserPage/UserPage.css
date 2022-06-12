@@ -68,6 +68,6 @@
 
 .editAbout {
     position: absolute;
-    bottom: 11em;
-    right: 2em;
+    bottom: 0;
+    right: 0;
 }
