@@ -8,7 +8,6 @@
 
 }
 
-
 .font-title {
     position: absolute;
     top: .5em;
@@ -23,11 +22,11 @@
     width: 10em;
     height: 4em;
     background: #d8d8d8;
-    border-radius: 90px / 40px; 
+    border-radius: 90px / 40px;
     text-align: center;
 }
 
-.userInfo{
+.userInfo {
     font-size: larger;
     font-weight: 500;
 }
@@ -37,4 +36,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.rectangleInfo {
+    width: 15em;
+    height: 7em;
+    background: #d8d8d8;
+    margin-top: 3em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
 }

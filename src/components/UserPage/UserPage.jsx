@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './UserPage.css';
 
-import { Fab, makeStyles } from '@material-ui/core';
+import { Fab, makeStyles, Container } from '@material-ui/core';
 import { IoLogOutOutline } from "react-icons/io5";
 import classNames from 'classnames';
 
@@ -83,7 +83,8 @@ function UserPage() {
 
       <div className='header'>
 
-        <img className={classNames(classes.avatar, classes.roundImg)}
+        <img
+          className={classNames(classes.avatar, classes.roundImg)}
           src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
         {
           user.id ?
@@ -98,41 +99,57 @@ function UserPage() {
           onClick={() => { history.push('/donations') }}
         >$232 raised!</h2>
       </div>
-
+      <Container 
+      maxWidth="sm">
       <div className='infoFabs'>
+        
+          <div
+            className='oval'
+            onClick={() => { history.push('/treatList') }}
+          // FIXME fix hover effect for 'buttons?'
+          >
+            <p className='userInfo'>
+              7 treats
+            </p>
+          </div>
 
-        <div
-          className='oval'
-          onClick={() => { history.push('/treatList') }}
-        // FIXME fix hover effect for 'buttons?'
-        >
-          <p className='userInfo'>
-            7 treats
-          </p>
-        </div>
-
-        < div
-          className='oval'
-          onClick={() => { history.push('/bakesale') }}
-        >
-          <p className='userInfo'>
-            6 bakesales
-          </p>
-        </div >
+          < div
+            className='oval'
+            onClick={() => { history.push('/bakesale') }}
+          >
+            <p className='userInfo'>
+              6 bakesales
+            </p>
+          </div >
+          {/* end infoFabs section */}
       </div>
 
-      {user.id ?
+      <div
+        className='rectangleInfo'>
+<p>
+  I'm Juliette 🙂 I was a professional baker for the past 20 years, 
+  but now I've become a software engineer. My favorite things to bake 
+  at home are quick and easy things like biscuits, fruit crisps, and muffins.
 
-        <Fab
-          variant="extended"
-          className={classes.btn}
-          onClick={() => dispatch({ type: 'LOGOUT' })}>
-          Log out <IoLogOutOutline size={25} />
-        </Fab>
+</p>
+      </div>
 
-        :
-        null
-      }
+
+    </Container>
+
+      {
+    user.id ?
+
+    <Fab
+      variant="extended"
+      className={classes.btn}
+      onClick={() => dispatch({ type: 'LOGOUT' })}>
+      Log out <IoLogOutOutline size={25} />
+    </Fab>
+
+    :
+    null
+  }
 
     </>
   );
