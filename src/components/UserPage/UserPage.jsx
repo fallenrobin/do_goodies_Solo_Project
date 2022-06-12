@@ -120,7 +120,7 @@ function UserPage() {
           <SocialIcon url="https://www.facebook.com/juliette.lelchuk" fgColor="white" />
           <SocialIcon url="https://www.instagram.com/do_good_treats/" fgColor="white" />
           <SocialIcon url="https://www.linkedin.com/in/juliettelelchuk/" fgColor="white" />
-
+          <SocialIcon url="mailto:juliette.lelchuk@gmail.com" fgColor="white" />
         </p>
 
       </div>
