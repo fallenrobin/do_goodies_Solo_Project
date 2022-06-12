@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     card: {
         width: 375,
         height: 500,
-        marginTop: '30px'
+        marginTop: '1em'
     },
     img: {
         width: 250,
@@ -99,13 +99,13 @@ function DetailBakesale() {
 
         <>
             <Grid
-                className={classes.card}
                 align="center"
                 container
-                direction="column"
-                alignItems="center"
+                style={{display:'block'}}
             >
-                <Grid item s={5}>
+                <Grid
+                className={classes.card} 
+                item sm={12}>
                     <Card
                         styles={classes.card} variant="outlined">
                         
