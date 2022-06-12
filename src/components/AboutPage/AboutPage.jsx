@@ -3,16 +3,17 @@ import { makeStyles } from '@material-ui/core/styles'
 import Footer from '../Footer/Footer';
 
 
-import { AiFillHtml5, AiFillGithub } from "react-icons/ai"; //html, GH
-import { IoLogoJavascript, IoLogoNodejs } from "react-icons/io"; //js, Node
-import { FaReact, FaNpm } from 'react-icons/fa';//react, NPM
+import { AiFillHtml5, AiFillGithub } from "react-icons/ai"; //html
+import { IoLogoJavascript, IoLogoNodejs } from "react-icons/io"; //js
+import { FaReact, FaNpm } from 'react-icons/fa';//react
 import {
-SiPostgresql,
-SiExpress,
-SiMaterialui,
-SiRedux,
-SiReduxsaga
-} from "react-icons/si";//postgres, express, MUI, Redux, Saga
+  SiPostgresql,
+  SiExpress,
+  SiMaterialui,
+  SiRedux,
+  SiReduxsaga
+} from "react-icons/si";//postgres
+import { GiWrappedSweet } from "react-icons/gi";//swal
 
 
 const useStyles = makeStyles({
@@ -33,8 +34,15 @@ function AboutPage() {
   return (
     <div>
       <div>
+
         <img
-          style={{ width: '400px', objectFit: 'contain' }}
+          style=
+          {{
+            width: '400px',
+            objectFit: 'contain',
+            position: 'relative',
+            left: '.4em'
+          }}
           src="images/meme.png"
           alt={"One does not simply donate without getting a tasty treat"} />
 
