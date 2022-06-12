@@ -9,9 +9,8 @@
 
 .font-title {
     position: absolute;
-    top: .5em;
+    top: .4em;
     left: 6.5em;
-    -webkit-backdrop-filter: blur(3px);
     font-family: 'Crafty Girls', cursive;
     font-size: 1.6em;
     color: #FEFFF6;
@@ -19,13 +18,14 @@
 }
 
 .content {
-    margin-top: 14em;
+    position: absolute;
+    top: 14em;
+    right: 2em;
 }
 
 .oval {
     width: 10em;
     height: 4em;
-    /* background: #d8d8d8; */
     background: white;
     border-radius: 90px / 40px;
     opacity: 80%;
