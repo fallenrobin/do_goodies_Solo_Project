@@ -15,10 +15,9 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles({
     card: {
-        width: 375,
-        height: 500,
-        marginTop: '30px',
-        display: 'inline'
+        width: '97%',
+        display:'block',
+        margin:'auto'
     },
     price: {
         backgroundColor: '#BFEEB7',
@@ -58,14 +57,13 @@ function DetailTreat() {
                 className={classes.card}
                 align="center"
                 container
-                direction="column"
-                alignItems="center"
             >
                 <div style={{ height: '60px' }}></div>
 
-                <Grid item s={5}>
+                <Grid item sm={10}>
                     <Card
-                        styles={classes.card} variant="outlined">
+                        // styles={classes.card} 
+                        variant="outlined">
 
                         <CardContent>
 
