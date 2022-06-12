@@ -51,6 +51,11 @@ const useStyles = makeStyles({
         padding: '5px',
         borderRadius: '12px'
     },
+    btn: {
+        backgroundColor: '#F8D9D6',
+        color: 'black',
+        margin: '.5em'
+    }
 })
 
 
@@ -101,15 +106,15 @@ function DetailBakesale() {
             <Grid
                 align="center"
                 container
-                style={{display:'block'}}
+                style={{ display: 'block' }}
             >
                 <Grid
-                className={classes.card} 
-                item sm={12}>
+                    className={classes.card}
+                    item sm={12}>
                     <Card
                         styles={classes.card} variant="outlined">
-                        
-                        <CardContent style={{display: 'contents'}}>
+
+                        <CardContent style={{ display: 'contents' }}>
 
                             <div key={bakesale[0]?.id} >
 
@@ -142,9 +147,12 @@ function DetailBakesale() {
                                 </div>
                             </div>
 
-                            <Button variant="outlined" color="primary"
-                                style={{ marginTop: '20px', marginBottom: '3px'}}
-                                onClick={() => { history.goBack() }}>Back</Button>
+                            <Button
+                                variant="contained"
+                                className={classes.btn}
+                                onClick={() => { history.goBack() }}>
+                                Back to all bakesales
+                            </Button>
                             {/* button returns user to movie list; subtle so as not to detract visually from movie*/}
                         </CardContent>
                     </Card>
