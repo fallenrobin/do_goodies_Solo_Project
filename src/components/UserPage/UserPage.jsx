@@ -9,7 +9,7 @@ import classNames from 'classnames';
 
 import { SocialIcon } from 'react-social-icons';
 import EditIcon from '@material-ui/icons/Edit';
-
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
 
 const useStyles = makeStyles({
@@ -62,7 +62,7 @@ const useStyles = makeStyles({
     position: 'absolute',
     left: '8em',
     top: '2.5em',
-    padding: '10px',
+    padding: '12px',
     textAlign: 'center',
     // fontWeight: 'bold',
     borderRadius: '12px',
@@ -101,6 +101,20 @@ function UserPage() {
         <h2 className={classes.fundraising}
           onClick={() => { history.push('/donations') }}
         >$232 raised</h2>
+
+        {
+          user.id ?
+            <div className='addDonation'>
+
+              <IconButton
+                aria-label="delete"
+                size="small">
+                <AddCircleOutlineIcon />
+              </IconButton>
+            </div>
+            :
+            null
+        }
 
         <p id='socialIcons'>
           <SocialIcon url="https://www.facebook.com/juliette.lelchuk" fgColor="white" />
@@ -152,7 +166,7 @@ function UserPage() {
           {
             user.id ?
               <div className='editAbout'>
-                <IconButton aria-label="delete">
+                <IconButton aria-label="edit">
                   <EditIcon />
                 </IconButton>
               </div>
