@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) =>
             // height: 400
             minHeight: 200,
             // maxHeight: 400
+            // alignContent: 'center'
         },
     }),
 );
@@ -59,9 +60,11 @@ function ItemBakesale({ bakesale }) {
         //each card created as the .map loops thru array of treats
         <>
             <Grid
-                item xs={11}
+                item sm={11}
             >
-                <Card className={classes.root} variant="outlined">
+                <Card 
+                className={classes.root} 
+                variant="outlined">
                     <CardContent>
 
                         <div>

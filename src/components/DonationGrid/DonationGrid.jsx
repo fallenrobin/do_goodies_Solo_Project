@@ -57,7 +57,7 @@ const rowData = [
     },
     {
         id: 9, date: '2/20/2022',
-        orgName: 'Second Harvest',
+        orgName: 'Planned Parenthood',
         amount: '$18',
         // sent: false
     },

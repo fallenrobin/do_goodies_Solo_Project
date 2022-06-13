@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
 
-// CUSTOM COMPONENTS
-import RegisterForm from '../RegisterForm/RegisterForm';
-import { makeStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button';
-import { Container } from '@material-ui/core';
-import { Grid } from '@material-ui/core';
-import { Typography } from '@material-ui/core';
+import {
+  makeStyles,
+  Button,
+  Grid,
+  Typography,
+  Fab
+} from '@material-ui/core';
+
 
 const useStyles = makeStyles({
   // page: {
@@ -33,6 +34,8 @@ const useStyles = makeStyles({
     '&:hover': {
       backgroundColor: "#e75480"
     },
+    margin: 'auto',
+    display:'flex'
   },
   register: {
     backgroundColor: '#FEFFF6',
@@ -66,7 +69,7 @@ function LandingPage() {
   };
 
   const viewBakeSales = (event) => {
-    // history.push('/needs to go to bake sale list');
+    history.push('/bakesale');
     console.log('clicked viewBakeSales');
   };
 
@@ -78,7 +81,7 @@ function LandingPage() {
 
       <div >
         <img className={classes.roundImg}
-          style={{ marginTop: '50px' }}
+          style={{ marginTop: '1em' }}
           src="/images/logo.png" alt="Landing page screenshot" />
       </div>
 
@@ -91,26 +94,35 @@ function LandingPage() {
         }}
       >
         <Typography
-          variant='h3'
-          className={classes.title} style={{ marginTop: '20px', marginBottom: '20px' }}>Do Goodies
+          variant='h2'
+          className={classes.title}
+          style={{ marginTop: '20px', 
+          marginBottom: '20px' }}>
+          Do Goodies
         </Typography>
         <Typography
-          variant='h5'
-          className={classes.title} style={{ marginBottom: '20px' }}>treat well, do good.
+          variant='h4'
+          className={classes.title}
+          style={{ marginBottom: '1.5em' }}>
+          treat well, do good
         </Typography>
       </Grid>
 
       <div>
-        <Button variant="contained" className={classes.btn} onClick={onLogin}>
+        <Button variant="contained"
+          className={classes.btn}
+          onClick={onLogin}>
           Login
         </Button >
-        <Button variant="contained" className={classes.btn} onClick={viewBakeSales}>
+        {/* <Button variant="contained" 
+        className={classes.btn} 
+        onClick={viewBakeSales}>
           View bake sales
-        </Button>
+        </Button> */}
 
         <p className={classes.register}
           onClick={() => { history.push('/registration') }}>
-          New user? Click to register
+          New user? Register here
         </p>
 
 
