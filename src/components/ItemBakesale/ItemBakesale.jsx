@@ -29,8 +29,37 @@ const useStyles = makeStyles((theme) =>
             // maxHeight: 400
             // alignContent: 'center'
         },
+        roundImg: {
+            width: "60px",
+            height: "60px",
+            borderRadius: "400" / "2",
+            border: "1px solid gray",
+            objectFit: 'cover',
+            marginBottom: '.5em'
+        },
+        userInfo: {
+            padding: '3px',
+            display: 'flex',
+            flexDirection: 'row-reverse',
+            alignItems: 'center',
+            border: '1px solid gray',
+            borderRadius: '6px',
+            margin: '0.5em',
+            justifyContent: 'space-around',
+            boxShadow: '1px 1px #69696921',
+        }
     }),
 );
+
+// padding: 3px;
+// display: flex;
+// flex-direction: row-reverse;
+// align-items: center;
+// /* background-color: lightgray; */
+// border: 1px solid gray;
+// border-radius: 6px;
+// margin: 0.5em;
+// justify-content: space-around;
 
 
 function ItemBakesale({ bakesale }) {
@@ -62,20 +91,27 @@ function ItemBakesale({ bakesale }) {
             <Grid
                 item sm={11}
             >
-                <Card 
-                className={classes.root} 
-                variant="outlined">
+                <Card
+                    className={classes.root}
+                    variant="outlined">
                     <CardContent>
 
                         <div>
                             <h3
-                            onClick={handleDetailView}
+                                onClick={handleDetailView}
                             >{bakesale.org_name}</h3>
-                            <p>{bakesale.org_description}</p>
 
-                            <img 
-                            onClick={handleDetailView}
-                            key={bakesale.id} 
+                            <div className={classes.userInfo}>
+                                <p>Bakesale by Emma</p>
+                                <img
+                                    className={classes.roundImg}
+                                    src='/images/profilePics/user1.png' alt={bakesale.org_name}></img>
+                            </div>
+                            {/* <p>{bakesale.org_description}</p> */}
+
+                            <img
+                                onClick={handleDetailView}
+                                key={bakesale.id}
                                 src={bakesale.org_image} alt={bakesale.org_name}></img>
 
                             {user.id == bakesale.user_id ?
