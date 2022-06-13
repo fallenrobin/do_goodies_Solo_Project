@@ -38,28 +38,18 @@ const useStyles = makeStyles((theme) =>
             marginBottom: '.5em'
         },
         userInfo: {
+            margin: '0.5em',
             padding: '3px',
             display: 'flex',
             flexDirection: 'row-reverse',
+            justifyContent: 'space-around',
             alignItems: 'center',
             border: '1px solid gray',
             borderRadius: '6px',
-            margin: '0.5em',
-            justifyContent: 'space-around',
             boxShadow: '1px 1px #69696921',
         }
     }),
 );
-
-// padding: 3px;
-// display: flex;
-// flex-direction: row-reverse;
-// align-items: center;
-// /* background-color: lightgray; */
-// border: 1px solid gray;
-// border-radius: 6px;
-// margin: 0.5em;
-// justify-content: space-around;
 
 
 function ItemBakesale({ bakesale }) {
@@ -105,7 +95,7 @@ function ItemBakesale({ bakesale }) {
                                 <p>Bakesale by Emma</p>
                                 <img
                                     className={classes.roundImg}
-                                    src='/images/profilePics/user1.png' alt={bakesale.org_name}></img>
+                                    src={user.user_pic} alt={user.username}></img>
                             </div>
                             {/* <p>{bakesale.org_description}</p> */}
 

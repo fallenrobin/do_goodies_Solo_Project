@@ -20,6 +20,7 @@ function* fetchBakesales() {
     const bakesales = yield axios.get('/api/bakesale/fetchBakesales');
     console.log('fetching bakesales:', bakesales.data);
     yield put({ type: 'SET_BAKESALES', payload: bakesales.data }); //set in bakesaleReducer
+    
 
   } catch (error) {
     console.log('Error with fetchBakesale saga:', error);
