@@ -83,16 +83,21 @@ function DetailBakesale() {
     const treatRender = () => {
         if (bakesale[0]?.org_name === 'Second Harvest') {
             // need to return JSX
-            return <p>Bakesale treats:
-                <span className={classes.treatBubble}>
-                    #infiniteLoops
-                </span></p>
-        } else {
-            // need to return JSX
-            return <p>Bakesale treats:
-                <span className={classes.treatBubble}>
+            return <>
+                <p>Bakesale treats:
+                    <span className={classes.treatBubble}>
+                        #rubyOnWhales
+                    </span></p>
+                <p><span className={classes.treatBubble}>
                     #vanillaJavaChipt
                 </span></p>
+            </>
+        } else {
+            // need to return JSX
+            return  <p>Bakesale treats:
+            <span className={classes.treatBubble}>
+                #infiniteLoops
+            </span></p>
         }
     }
 
