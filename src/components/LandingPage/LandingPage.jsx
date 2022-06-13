@@ -35,7 +35,7 @@ const useStyles = makeStyles({
       backgroundColor: "#e75480"
     },
     margin: 'auto',
-    display:'flex'
+    display: 'flex'
   },
   register: {
     backgroundColor: '#FEFFF6',
@@ -46,17 +46,14 @@ const useStyles = makeStyles({
     textAlign: 'center'
   },
   title: {
-    // fontFamily: 'Kranky, cursive',
     fontFamily: 'Crafty Girls, cursive',
     color: '#FEFFF6',
     textShadow: '2px 2px #444',
     backdropFilter: 'blur(2px)',
     borderRadius: '8px',
     padding: '1px'
-    // marginTop: '20px'
   }
 })
-// style={{backdropFilter: 'blur(3px)', borderRadius: '8px', padding:'5px'}}
 
 
 function LandingPage() {
@@ -68,10 +65,6 @@ function LandingPage() {
     history.push('/login');
   };
 
-  const viewBakeSales = (event) => {
-    history.push('/bakesale');
-    console.log('clicked viewBakeSales');
-  };
 
   return (
     <Grid
@@ -82,7 +75,7 @@ function LandingPage() {
       <div >
         <img className={classes.roundImg}
           style={{ marginTop: '1em' }}
-          src="/images/logo.png" alt="Landing page screenshot" />
+          src="/images/logo.png" alt="Do Goodies logo" />
       </div>
 
       <Grid
@@ -96,8 +89,10 @@ function LandingPage() {
         <Typography
           variant='h2'
           className={classes.title}
-          style={{ marginTop: '20px', 
-          marginBottom: '20px' }}>
+          style={{
+            marginTop: '20px',
+            marginBottom: '20px'
+          }}>
           Do Goodies
         </Typography>
         <Typography
@@ -109,16 +104,12 @@ function LandingPage() {
       </Grid>
 
       <div>
-        <Button variant="contained"
+        <Button
+          variant="contained"
           className={classes.btn}
           onClick={onLogin}>
           Login
         </Button >
-        {/* <Button variant="contained" 
-        className={classes.btn} 
-        onClick={viewBakeSales}>
-          View bake sales
-        </Button> */}
 
         <p className={classes.register}
           onClick={() => { history.push('/registration') }}>
