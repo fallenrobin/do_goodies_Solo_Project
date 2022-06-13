@@ -6,14 +6,14 @@ import EditBakesale from '../EditBakesale/EditBakesale';
 
 
 //MUI for card
-import { makeStyles, createStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-//grid for centering
-import Grid from '@material-ui/core/Grid';
-import BakesaleAddTreats from '../BakesaleAddTreats/BakesaleAddTreats';
-
+import { 
+    makeStyles, 
+    createStyles, 
+    Card,
+    CardContent, 
+    Grid, 
+    Typography
+ } from '@material-ui/core';
 
 
 
@@ -87,12 +87,18 @@ function ItemBakesale({ bakesale }) {
                     <CardContent>
 
                         <div>
-                            <h3
+                            <Typography
+                            variant='h4'
                                 onClick={handleDetailView}
-                            >{bakesale.org_name}</h3>
+                                style={{textAlign:'center'}}
+                            >{bakesale.org_name}
+                            </Typography>
 
                             <div className={classes.userInfo}>
-                                <p>Bakesale by Emma</p>
+                                <Typography
+                                variant='body1'>
+                                    Bakesale by Emma
+                                    </Typography>
                                 <img
                                     className={classes.roundImg}
                                     src={user.user_pic} alt={user.username}></img>
