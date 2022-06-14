@@ -57,6 +57,12 @@ const useStyles = makeStyles({
         backgroundColor: '#F8D9D6',
         color: 'black',
         margin: '.5em'
+    },
+    bakesaleImg: {
+        height: '20em',
+        width: '95%',
+        objectFit: 'cover',
+        borderRadius: '5px',
     }
 })
 
@@ -94,10 +100,10 @@ function DetailBakesale() {
             </>
         } else {
             // need to return JSX
-            return  <p>Bakesale treats:
-            <span className={classes.treatBubble}>
-                #infiniteLoops
-            </span></p>
+            return <p>Bakesale treats:
+                <span className={classes.treatBubble}>
+                    #infiniteLoops
+                </span></p>
         }
     }
 
@@ -133,9 +139,10 @@ function DetailBakesale() {
 
 
                                 <img
-                                    className={classes.img}
+                                    className={classes.bakesaleImg}
                                     alt={bakesale[0]?.org_name}
-                                    src={bakesale[0]?.org_image} />
+                                    src={bakesale[0]?.org_image}
+                                />
 
                                 <p
                                     className="descriptionText">

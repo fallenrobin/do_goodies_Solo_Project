@@ -3,21 +3,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 
 //MUI for card
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-//grid for centering
-import Grid from '@material-ui/core/Grid';
-// import { ClassNames } from '@emotion/react';
-import Button from '@material-ui/core/Button';
+import {
+    makeStyles,
+    Card,
+    CardContent,
+    Grid,
+    Button
+} from '@material-ui/core';
 
 
 const useStyles = makeStyles({
     card: {
         width: '97%',
-        display:'block',
-        margin:'auto'
+        display: 'block',
+        margin: 'auto'
     },
     price: {
         backgroundColor: '#BFEEB7',
@@ -30,6 +29,12 @@ const useStyles = makeStyles({
     btn: {
         backgroundColor: '#F8D9D6',
         color: 'black'
+    },
+    treatImg: {
+        height: '20em',
+        width: '95%',
+        objectFit: 'cover',
+        borderRadius: '5px',
     }
 })
 
@@ -73,15 +78,21 @@ function DetailTreat() {
 
                             <div key={treat[0]?.id} >
                                 <h3>{treat[0]?.treat_name}
-                                    <span className={classes.price}>{treat[0]?.price}</span></h3>
-                                <img alt={treat?.treat_name} src={treat[0]?.treat_image} />
+                                    <span className={classes.price}>{treat[0]?.price}</span>
+                                </h3>
+                                <img alt={treat?.treat_name}
+                                    src={treat[0]?.treat_image}
+                                    className={classes.treatImg}
+                                />
 
-                                <p className="descriptionText">{treat[0]?.treat_description}</p>
+                                <p className="descriptionText">
+                                    {treat[0]?.treat_description}
+                                </p>
                             </div>
 
-                            <Button 
-                            variant="contained" 
-                            className={classes.btn}
+                            <Button
+                                variant="contained"
+                                className={classes.btn}
                                 onClick={() => { history.push('/treatList') }}>
                                 Back to all treats
                             </Button>
