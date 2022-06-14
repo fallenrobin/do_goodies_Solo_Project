@@ -1,6 +1,7 @@
 import { HashRouter as Router, Route, Link, useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
+import BakerCard from '../BakerCard/BakerCard';
 
 //MUI for card
 import {
@@ -59,7 +60,18 @@ const useStyles = makeStyles({
         width: '95%',
         objectFit: 'cover',
         borderRadius: '5px',
-    }
+    },
+    userInfo: {
+        margin: '0.5em',
+        padding: '3px',
+        display: 'flex',
+        flexDirection: 'row-reverse',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        border: '1px solid gray',
+        borderRadius: '6px',
+        boxShadow: '1px 1px #69696921',
+    },
 })
 
 
@@ -149,24 +161,23 @@ function DetailBakesale() {
                                     className="descriptionText"
                                     variant='body1'
                                     style={{ padding: '.5em' }}
-                                    >
+                                >
                                     {bakesale[0]?.org_description}
                                 </Typography>
                                 <a href={bakesale[0]?.org_website}>
                                     VISIT THE WEBSITE
                                 </a>
 
-                                {treatRender()}
-
-                                <div id="user"
-                                    style={{ display: 'flex', justifyContent: 'center' }}>
-                                    <p>Baker:</p>
-                                    <div>
-                                        <img className={classes.roundImg}
-                                            src="images/cakeDecorating.jpeg" alt={"Baker cat"} />
-                                        {/* <p>Juliette</p> */}
-                                    </div>
+                                <div className={classes.userInfo}>
+                                    <BakerCard
+                                        bakesale={bakesale[0]} />
                                 </div>
+                                <div>
+                                    {treatRender()}
+                                </div>
+
+
+
 
                                 {/* start of green bubble */}
                                 <div className={classes.fundraising}>

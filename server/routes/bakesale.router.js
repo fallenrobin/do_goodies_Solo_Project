@@ -39,8 +39,10 @@ router.get('/fetchBakesales', (req, res) => {
 router.get('/detail/:id', (req, res) => {
 
     const query = `
-    SELECT * FROM "bakesales"
-    WHERE "id" = $1; 
+    SELECT a.*, b.username, b.user_pic
+    FROM "bakesales" a, "user" b 
+    WHERE a."id" = $1
+    AND b."id" = a."user_id";
     `;
 
     console.log('server', req.params)
