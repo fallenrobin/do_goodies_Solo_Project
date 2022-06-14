@@ -98,19 +98,19 @@ function DetailBakesale() {
         if (bakesale[0]?.org_name === 'Second Harvest') {
             // need to return JSX
             return <>
-                <p>Bakesale treats:
+                <p>Treats:
                     <span className={classes.treatBubble}>
-                        #rubyOnWhales
+                        rubyOnWhales
                     </span></p>
                 <p><span className={classes.treatBubble}>
-                    #vanillaJavaChipt
+                    vanillaJavaChipt
                 </span></p>
             </>
         } else {
             // need to return JSX
-            return <p>Bakesale treats:
+            return <p>Treats:
                 <span className={classes.treatBubble}>
-                    #infiniteLoops
+                    infiniteLoops
                 </span></p>
         }
     }

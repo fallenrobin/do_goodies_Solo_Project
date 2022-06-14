@@ -7,11 +7,11 @@ function BakerCard({ bakesale }) {
     return (<>
         <Typography
             variant='h6'>
-            Bakesale by {bakesale.username}
+            Treats by {bakesale?.username}
         </Typography>
         <img
             className='bakerImg'
-            src={bakesale.user_pic} alt={bakesale.username}
+            src={bakesale?.user_pic} alt={bakesale?.username}
         />
     </>
     )
