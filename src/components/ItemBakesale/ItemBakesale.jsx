@@ -6,14 +6,14 @@ import EditBakesale from '../EditBakesale/EditBakesale';
 
 
 //MUI for card
-import { 
-    makeStyles, 
-    createStyles, 
+import {
+    makeStyles,
+    createStyles,
     Card,
-    CardContent, 
-    Grid, 
+    CardContent,
+    Grid,
     Typography
- } from '@material-ui/core';
+} from '@material-ui/core';
 
 
 
@@ -24,10 +24,7 @@ const useStyles = makeStyles((theme) =>
                 margin: theme.spacing(1),
             },
             maxWidth: 375,
-            // height: 400
             minHeight: 200,
-            // maxHeight: 400
-            // alignContent: 'center'
         },
         roundImg: {
             width: "60px",
@@ -35,7 +32,6 @@ const useStyles = makeStyles((theme) =>
             borderRadius: "400" / "2",
             border: "1px solid gray",
             objectFit: 'cover',
-            marginBottom: '.5em'
         },
         userInfo: {
             margin: '0.5em',
@@ -47,7 +43,14 @@ const useStyles = makeStyles((theme) =>
             border: '1px solid gray',
             borderRadius: '6px',
             boxShadow: '1px 1px #69696921',
-        }
+        }, 
+        bakesaleImg: {
+            maxWidth: '100%',
+            height: '20em',
+            width: '100%',
+            objectFit: 'cover',
+            borderRadius: '3px',
+          }
     }),
 );
 
@@ -88,27 +91,31 @@ function ItemBakesale({ bakesale }) {
 
                         <div>
                             <Typography
-                            variant='h4'
+                                variant='h4'
                                 onClick={handleDetailView}
-                                style={{textAlign:'center'}}
+                                style={{ textAlign: 'center' }}
                             >{bakesale.org_name}
                             </Typography>
 
                             <div className={classes.userInfo}>
                                 <Typography
-                                variant='body1'>
-                                    Bakesale by Emma
-                                    </Typography>
+                                    variant='h6'>
+                                    Bakesale by {user.username}
+                                </Typography>
                                 <img
                                     className={classes.roundImg}
-                                    src={user.user_pic} alt={user.username}></img>
+                                    src={user.user_pic} alt={user.username}
+                                />
                             </div>
                             {/* <p>{bakesale.org_description}</p> */}
 
                             <img
                                 onClick={handleDetailView}
                                 key={bakesale.id}
-                                src={bakesale.org_image} alt={bakesale.org_name}></img>
+                                src={bakesale.org_image}
+                                alt={bakesale.org_name}
+                                className={classes.bakesaleImg}
+                            />
 
                             {user.id == bakesale.user_id ?
 
