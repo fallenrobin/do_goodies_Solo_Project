@@ -3,14 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 
 //MUI for card
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-//grid for centering
-import Grid from '@material-ui/core/Grid';
-// import { ClassNames } from '@emotion/react';
-import Button from '@material-ui/core/Button';
+import {
+    makeStyles,
+    Card,
+    CardContent,
+    Grid,
+    Button,
+    Typography
+} from '@material-ui/core';
 
 //for progress bar
 import ProgressBar from '../ProgressBar/ProgressBar';
@@ -23,16 +23,12 @@ const useStyles = makeStyles({
         height: 500,
         marginTop: '1em'
     },
-    img: {
-        width: 250,
-        height: 250,
-    },
     fundraising: {
         backgroundColor: '#BFEEB7',
         color: 'black',
         border: '1px transparent',
         borderRadius: '12px',
-        marginLeft: '10px',
+        width: '90%',
         padding: '3px'
     },
     treatBubble: {
@@ -59,7 +55,7 @@ const useStyles = makeStyles({
         margin: '.5em'
     },
     bakesaleImg: {
-        height: '20em',
+        height: '12em',
         width: '95%',
         objectFit: 'cover',
         borderRadius: '5px',
@@ -135,7 +131,12 @@ function DetailBakesale() {
 
                             <div key={bakesale[0]?.id} >
 
-                                <h3>{bakesale[0]?.org_name}</h3>
+                                <Typography
+                                    variant='h4'
+                                    style={{ padding: '.5em' }}
+                                >
+                                    {bakesale[0]?.org_name}
+                                </Typography>
 
 
                                 <img
@@ -144,9 +145,13 @@ function DetailBakesale() {
                                     src={bakesale[0]?.org_image}
                                 />
 
-                                <p
-                                    className="descriptionText">
-                                    {bakesale[0]?.org_description}</p>
+                                <Typography
+                                    className="descriptionText"
+                                    variant='body1'
+                                    style={{ padding: '.5em' }}
+                                    >
+                                    {bakesale[0]?.org_description}
+                                </Typography>
                                 <a href={bakesale[0]?.org_website}>
                                     VISIT THE WEBSITE
                                 </a>

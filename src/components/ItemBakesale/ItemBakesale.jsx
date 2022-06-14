@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import OpenDialog from '../OpenDialog/OpenDialog';
 import EditBakesale from '../EditBakesale/EditBakesale';
-
+import BakerCard from '../BakerCard/BakerCard';
 
 //MUI for card
 import {
@@ -98,14 +98,8 @@ function ItemBakesale({ bakesale }) {
                             </Typography>
 
                             <div className={classes.userInfo}>
-                                <Typography
-                                    variant='h6'>
-                                    Bakesale by {bakesale.username}
-                                </Typography>
-                                <img
-                                    className={classes.roundImg}
-                                    src={bakesale.user_pic} alt={bakesale.username}
-                                />
+                                <BakerCard
+                                bakesale={bakesale}/>
                             </div>
                             {/* <p>{bakesale.org_description}</p> */}
 

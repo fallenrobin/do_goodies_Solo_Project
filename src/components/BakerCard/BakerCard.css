@@ -1,0 +1,9 @@
+.bakerImg {
+    object-fit: cover;
+    border-radius: 5px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    object-fit: cover;
+}

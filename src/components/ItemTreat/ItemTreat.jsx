@@ -31,14 +31,14 @@ const useStyles = makeStyles((theme) =>
             borderRadius: '12px',
             marginLeft: '10px',
             padding: '3px'
-        }, 
+        },
         treatImg: {
             maxWidth: '100%',
             height: '20em',
             width: '20em',
             objectFit: 'cover',
             borderRadius: '5px',
-          }
+        }
     }),
 );
 
@@ -80,7 +80,7 @@ function ItemTreat({ treat }) {
             >
 
                 <Card
-                    
+
                     raised={true}
                     className={classes.root} variant="outlined"
                 >
@@ -89,16 +89,18 @@ function ItemTreat({ treat }) {
                         <>
                             <div >
                                 <h3
-                                onClick={handleDetailView}
+                                    onClick={handleDetailView}
                                 >{treat.treat_name}
-                                    <span className={classes.price}>{treat.price}</span></h3>
+                                    <span className={classes.price}>
+                                        {treat.price}</span>
+                                </h3>
                             </div>
 
-                            <img 
-                            onClick={handleDetailView}
-                            src={treat.treat_image} 
-                            alt={treat.treat_name}
-                            className={classes.treatImg}
+                            <img
+                                onClick={handleDetailView}
+                                src={treat.treat_image}
+                                alt={treat.treat_name}
+                                className={classes.treatImg}
                             />
 
                             {user.id == treat.user_id ?
