@@ -100,11 +100,11 @@ function ItemBakesale({ bakesale }) {
                             <div className={classes.userInfo}>
                                 <Typography
                                     variant='h6'>
-                                    Bakesale by {user.username}
+                                    Bakesale by {bakesale.username}
                                 </Typography>
                                 <img
                                     className={classes.roundImg}
-                                    src={user.user_pic} alt={user.username}
+                                    src={bakesale.user_pic} alt={bakesale.username}
                                 />
                             </div>
                             {/* <p>{bakesale.org_description}</p> */}

@@ -19,9 +19,12 @@ router.get('/fetchBakesales', (req, res) => {
     console.log('is authenticated?', req.isAuthenticated());
     // console.log('results', result.rows);
 
-    const queryText = `SELECT * FROM "bakesales"
-    WHERE "id" != 3
-    ORDER BY "id" DESC
+    const queryText =
+        `SELECT a.*, b.username, b.user_pic
+        FROM "bakesales" a, "user" b 
+        WHERE b."id" = a."user_id" 
+        AND a."id" != 3
+        ORDER BY "id" DESC;
     `;
 
     pool.query(queryText).then((result) => {
@@ -32,7 +35,7 @@ router.get('/fetchBakesales', (req, res) => {
     });
 });
 
-//GET route for just one treat
+//GET route for just one bakesale
 router.get('/detail/:id', (req, res) => {
 
     const query = `
@@ -54,7 +57,7 @@ router.get('/detail/:id', (req, res) => {
  */
 router.post('/addBakesale', (req, res) => {
     // POST route code here
-    
+
     const org_name = req.body.org_name;
     const org_description = req.body.org_description;
     const org_image = req.body.org_image;
@@ -63,7 +66,8 @@ router.post('/addBakesale', (req, res) => {
 
 
 
-    const queryText = `INSERT INTO "bakesales" (org_name, org_description, org_image, org_website, fundraising_goal, user_id)
+    const queryText =
+        `INSERT INTO "bakesales" (org_name, org_description, org_image, org_website, fundraising_goal, user_id)
     VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`;
     pool
         .query(queryText, [org_name, org_description, org_image, org_website, fundraising_goal, req.user.id])
@@ -104,7 +108,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
 router.delete('/delete/:id', (req, res) => {
     const id = req.params.id;
     console.log(id);
-    
+
     pool.query('DELETE FROM "bakesales" WHERE id=$1', [id])
         .then((result) => {
             res.sendStatus(200);
