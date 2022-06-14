@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) =>
             height: '20em',
             width: '100%',
             objectFit: 'cover',
-            borderRadius: '3px',
+            borderRadius: '5px',
           }
     }),
 );

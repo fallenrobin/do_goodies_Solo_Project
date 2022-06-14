@@ -31,7 +31,14 @@ const useStyles = makeStyles((theme) =>
             borderRadius: '12px',
             marginLeft: '10px',
             padding: '3px'
-        }
+        }, 
+        treatImg: {
+            maxWidth: '100%',
+            height: '20em',
+            width: '20em',
+            objectFit: 'cover',
+            borderRadius: '5px',
+          }
     }),
 );
 
@@ -89,7 +96,10 @@ function ItemTreat({ treat }) {
 
                             <img 
                             onClick={handleDetailView}
-                            src={treat.treat_image} alt={treat.treat_name}></img>
+                            src={treat.treat_image} 
+                            alt={treat.treat_name}
+                            className={classes.treatImg}
+                            />
 
                             {user.id == treat.user_id ?
 
